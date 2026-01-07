@@ -1,0 +1,1398 @@
+---
+id: aot-general-architecture-auriga
+title: AOT General Architecture Auriga
+---
+
+**Accenture Operations Twin**
+
+**General Architecture**
+
+**OVERVIEW**
+
+Release Version: 2.5
+
+**Metadata Table**
+
+| **Field** | **Value** |
+|----|----|
+| **Asset / Solution Name** | Accenture Operations Twin / AOT |
+| **Domain / Area** | Digital Twin / Architecture |
+| **Owner (Team/Person)** | Tournier, Florian |
+| **Reviewers** | Susarla, Aditya, Takó, István |
+| **Status** | Draft / In Progress |
+| **Confidentiality** | Internal / Confidential |
+| **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
+| **Related Assets / Alternatives** |  |
+
+# 
+
+# Contents
+
+[Introduction [3](#introduction)](#introduction)
+
+[Purpose [3](#purpose)](#purpose)
+
+[Target Audience [3](#target-audience)](#target-audience)
+
+[Prerequisites [3](#prerequisites)](#prerequisites)
+
+[Contacts [3](#contacts)](#contacts)
+
+[Related Links [3](#related-links)](#related-links)
+
+[Glossary [3](#section-1)](#section-1)
+
+[Structure [4](#structure)](#structure)
+
+[Enterprise Landscape [5](#enterprise-landscape)](#enterprise-landscape)
+
+[Components and Services [6](#components-and-services)](#components-and-services)
+
+[DataOps [7](#dataops)](#dataops)
+
+[DataOps using Cognite Data Fusion [8](#section-4)](#section-4)
+
+[Extractors [9](#extractors)](#extractors)
+
+[Intelligent Advisor [10](#intelligent-advisor)](#intelligent-advisor)
+
+[Domain Model [11](#domain-model)](#domain-model)
+
+[Full IA Domain Model [11](#full-ia-domain-model)](#full-ia-domain-model)
+
+[Intelligent Advisor on CDF and Azure [12](#intelligent-advisor-on-cdf-and-azure)](#intelligent-advisor-on-cdf-and-azure)
+
+[IA Insight Generation Interactions [14](#ia-insight-generation-interactions)](#ia-insight-generation-interactions)
+
+[Deployment [15](#deployment)](#deployment)
+
+[Smart KPIs [17](#smart-kpis)](#smart-kpis)
+
+[Domain Model [18](#domain-model-1)](#domain-model-1)
+
+[The Smart KPIs Full Domain Model [19](#the-smart-kpis-full-domain-model)](#the-smart-kpis-full-domain-model)
+
+[Smart KPIs on CDF and Azure [20](#smart-kpis-on-cdf-and-azure)](#smart-kpis-on-cdf-and-azure)
+
+[Calculation Interactions [22](#calculation-interactions)](#calculation-interactions)
+
+[Deployment [23](#deployment-1)](#deployment-1)
+
+[Operations Hierarchy [24](#operations-hierarchy)](#operations-hierarchy)
+
+[Domain Model [24](#domain-model-2)](#domain-model-2)
+
+[Operations Hierarchy on CDF and Azure [25](#operations-hierarchy-on-cdf-and-azure)](#operations-hierarchy-on-cdf-and-azure)
+
+[Deployment [27](#deployment-2)](#deployment-2)
+
+[Platform Tools [29](#platform-tools)](#platform-tools)
+
+[Data Analytics Models [29](#data-analytics-models)](#data-analytics-models)
+
+[Model Execution Pattern [29](#model-execution-pattern)](#model-execution-pattern)
+
+[MLOps [30](#mlops)](#mlops)
+
+[Internationalization and Localization [32](#internationalization-and-localization)](#internationalization-and-localization)
+
+[Scheduling service [33](#scheduling-service)](#scheduling-service)
+
+[3D Visualization [34](#d-visualization)](#d-visualization)
+
+[Consumers and Dependencies [34](#consumers-and-dependencies)](#consumers-and-dependencies)
+
+[Implementation [34](#implementation)](#implementation)
+
+[Deployment Diagrams [37](#deployment-diagrams)](#deployment-diagrams)
+
+[People Management [38](#people-management)](#people-management)
+
+[Applications [39](#applications-4)](#applications-4)
+
+[Host App [40](#host-app)](#host-app)
+
+[Configuration Apps [40](#section-16)](#section-16)
+
+[Appendix [41](#appendix)](#appendix)
+
+[Guiding Principles [41](#guiding-principles)](#guiding-principles)
+
+[Patterns [41](#patterns)](#patterns)
+
+# Introduction
+
+Accenture Operations Twin (AOT) is a collection of software accelerators and tools that can be assembled to deliver client solutions. AOT accelerates the integration of product, process, and live data from disparate IT and OT systems, creating a comprehensive and contextualized view of operations to enable better decisions and optimized processes.
+
+## Purpose
+
+The purpose of this document is to provide an overview of AOT’s architecture. After reading, the target audience should understand the overall architecture of the system and the technical implementation of its modules.
+
+## Target Audience
+
+Software architects, developers, and integrators with IT background, familiarity with a digital twin, data ingestion, data contextualization, knowledge graph, advanced analytics, artificial intelligence, Cognite, and Azure services and artifacts.
+
+## Prerequisites
+
+Familiarity with Cognite Data Fusion (CDF)
+
+## Contacts
+
+- ``
+
+- ``
+
+## Related Links
+
+- [AOT Documents](https://industryxdevhub.accenture.com/asset-home;search_text=AOT) 
+
+- [Release Notes](https://industryxdevhub.accenture.com/assetdetails/45) 
+
+- [Official CDF Documentation](https://docs.cognite.com/cdf/)
+
+- [AOT Twin Builder and Twin Viewer Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/47)
+
+- [AOT_People Management_Context Diagram](https://ts.accenture.com/:u:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/AOT_People%20Management_Context.svg?csf=1&web=1&e=jiA5Ip)
+
+- [AOT People Management Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/64)
+
+## 
+
+## Glossary
+
+
+
+
+
+``
+
+``
+Term
+Description
+``
+``
+
+``
+Ingestion
+Consuming data taken from external systems and storing it in the central data model of the DataOps platform
+``
+``
+Data model
+The data model is the central point of the DataOps platform on which AOT features are built and executed. It is optimized for modeling operations data and creating a knowledge graph.
+``
+``
+Contextualization
+`Contextualization means creating relationships between entities inside the Knowledge Graph, this way giving a more complete context to each entity (data entry). The more complete the knowledge graph becomes the more possibilities for finding patterns and gaining knowledge will be.`
+A trivial example would be measurements stored in a timeseries linked to an asset, representing a piece of equipment, on which the measurements were performed.
+``
+``
+Business Logic
+The business logic can appear in several forms inside AOT, including Insight generator data analytics models and KPI value calculation functions. The logic can involve advanced analytics, AI, ML, or conventional business logic to consume and manipulate the knowledge graph.
+``
+``
+APIs
+Exposes data and business logic toward the external world.
+``
+``
+Applications
+Business applications, reports, and dashboards are implemented on top of the business logic and knowledge graph of the solution.
+``
+``
+``
+
+# Structure
+
+As illustrated right, AOT can be simplified into the following building blocks:
+
+1.  Data is provided by external systems. These can be all the existing IT and OT systems within a business.
+
+2.  The provided data is brought into AOT by extracting, transforming, and loading it. The raw data is transformed and brought together in one coherent domain model.
+
+3.  The contextualization layer facilitates a fast and scalable contextualization of data. Relationships between discrete data elements coming from siloed data sources need to be built and stored to make possible logical navigation and reasoning, hence transforming the data into knowledge.
+
+4.  The contextualized data is stored and provided as a knowledge graph. The knowledge graph is also the domain model of the business.
+
+5.  Applications and advanced analytics models live on top of the knowledge graph. The individual applications are interoperating with other business applications via the application integration layer. This involves collaboration between the AOT applications but also with external applications.
+
+6.  AOT provides a People Management module.
+
+7.  At any point in time where data is generated and/or exchanged stream analytics possibility is provided.
+
+
+
+
+
+# 
+
+# Enterprise Landscape
+
+The diagram below shows how AOT is integrated into the customer's ecosystem. Click the image to enlarge it.
+
+
+
+- AOT DataOps realizes the data ingestion, contextualization, and hosting of the AOT Knowledge Graph.
+
+- Operations Twin features (Smart KPIs, Intelligent Advisor, Operations Hierarchy, 3D Visualizer, Reporting) are the sub-systems of AOT that make building Business Applications possible.
+
+- PM and Platform Tools are hosting cross-cutting, auxiliary features used by the Operations Twin features (People and Permission Management, Job Scheduling, Integration patterns with external systems, Localization and Internationalization, Integration of Data Analytics Models)
+
+- AOT integrates with the Source system to ingest data, with other business applications to collaborate, and with Data Analytics services.
+
+# 
+
+# Components and Services
+
+The diagram below shows how AOT systems are realized on top of Azure services.
+
+
+
+- Real-time data to be integrated via an arbitrary edge component and middleware into an IoT Hub instance. From here we channel the data into stream analytics for eventual analytics jobs to process it. Finally, it flows into the Knowledge graph, more precisely into ADX and wherever such an update is needed into ADT as well.
+
+- The stream analytics component provides us the possibility to identify outstanding data points near-real time and to generate events into the Event Hub (Message Broker) whenever needed.
+
+- Batch data to be integrated via Data Factory. Assuming that there will be some sort of edge environment the Data Factory Integration runtime would be deployed there.
+
+- The Knowledge Graph in case of Azure will be composed of multiple services. ADT is the central piece keeping the connection and context between the objects of the system. ADX is primarily responsible for timeseries data, events, and records. ADLS will host the nonstructured data, while SQL Databases will hold configuration and master data.
+
+- On Azure the primary Machine Learning model execution environment is Azure ML Ops. These are the services that we are leveraging for teaching a model, deploying to cloud execution and on Edge execution and execute on top of the Knowledge Graph or the live data stream.
+
+- The microservices responsible for the business logic are impacted only on data access layer level. The executed business logic does not depend on the underlying DataOps platform.
+
+The subsystems shown above are described in the sections that follow.
+
+# DataOps
+
+The DataOps system of AOT ingests data from various source systems and stores in a knowledge graph to maintain the Operations Twin. Furthermore, it contains the infrastructure and tooling for contextualization as well.
+
+AOT sub-systems including Smart KPIs, Intelligent Advisor, 3D Visualizer, and Operations Hierarchy can use this knowledge graph to perform their operations.
+
+
+
+
+
+``
+
+``
+Principle
+Description
+``
+``
+
+``
+Data Integration
+``
+DataOps platforms facilitate the seamless integration of data from various sources, including databases, APIs, cloud services, and more. They often provide connectors and ETL (Extract, Transform, Load) capabilities to ensure data flows smoothly.
+``
+``
+``
+Data Quality and Governance
+``
+These platforms enforce data quality standards and governance policies, ensuring that data is accurate, consistent, and compliant with regulations. They may include data profiling, cleansing, and validation tools.
+``
+``
+``
+Automation
+``
+Automation is a central component of DataOps. Platforms automate repetitive tasks such as data ingestion, transformation, and deployment, reducing manual effort and minimizing errors.
+``
+``
+``
+Collaboration
+``
+DataOps emphasizes collaboration between different teams, including data engineers, data scientists, analysts, and business stakeholders. DataOps platforms provide features for sharing and collaborating on data-related projects.
+``
+``
+``
+Version Control
+``
+Like software development, DataOps platforms often incorporate version control systems to track changes in data pipelines, making it easier to manage and roll back to previous versions when needed.
+``
+``
+``
+Monitoring and Logging
+``
+Comprehensive monitoring and logging capabilities help track the performance of data pipelines, detect anomalies, and troubleshoot issues in real time.
+``
+``
+``
+Scalability and Flexibility
+``
+DataOps platforms are designed to scale with growing data volumes and evolving business needs. They can handle both batch and real-time data processing.
+``
+``
+``
+Security
+``
+Robust security features, including access controls, encryption, and authentication, are essential to protect sensitive data within the platform.
+``
+``
+``
+Compliance and Auditing
+``
+DataOps platforms assist in maintaining compliance with data privacy regulations by tracking and auditing data access and changes.
+``
+``
+``
+Cost Management
+``
+They often include cost management tools to optimize data storage and processing expenses in cloud environments.
+``
+``
+``
+``
+
+The DataOps system of AOT is responsible for extracting data from external data sources, transforming and storing it in the knowledge graph. Furthermore, it holds tools for scaling the data contextualization work. The diagram below depicts the general context of the DataOps system.
+
+
+
+CDF is where the data is normalized and enriched by adding connections between data resources of various types and stored in a graph index in the cloud. For more information see the [Official Cognite Documentation](https://docs.cognite.com/cdf/).
+
+## 
+
+## DataOps using Cognite Data Fusion
+
+The data is extracted from the source system using Cognite out-of-the-box and AOT-provided extractors, and is loaded into RAW, Cognite’s data staging area. Using Cognite Transformations which are Spark SQL-based scripts the data from the staging area is transformed, contextualized, and built into the Knowledge Graph, the central point of the system. The Knowledge Graph data is consumed by the different AOT subsystems using the CDF APIs and SDKs. In the diagram right, data flows from bottom to top.
+
+Cognite Data Fusion is a Software-as-a-Service offering, it doesn’t require deployment only integration with the AOT systems. Integration consists of configuring Azure Active Directory integration between AOT and CDF, enabling data access through the common AD.
+
+The following tables describe the role and functionality of the different components of the DataOps module:
+
+
+
+
+
+``
+
+``
+Name
+Responsibility
+``
+``
+
+``
+Cognite provided Extractors
+Extractors connect to source systems and push data in its original format to Cognite Data Fusion (CDF) as part of the data integration workflow. Data can be extracted with prebuilt Cognite extractors or by creating a customer extractor using Python and .NET utilities packages and SDKs.
+``
+``
+AOT provided Extractors
+Using the Cognite-provided extractor utilities, AOT has built a set of extractors for operations twin use cases. See the subsection below for details.
+``
+``
+`RAW`
+data staging area
+The RAW database and tables hold the source data in its original form to reduce source system queries for the same data for different use cases and minimize the data extractors' logic.
+``
+``
+Transformation Services
+A Transformation Service moves or enriches data from a source system, between data models, or from the Cognite Data Fusion (CDF) staging area into CDF by transforming data into CDF's data model or user-defined data models.
+``
+``
+Contextualization Services
+The advanced contextualization tools in Cognite Data Fusion enable users to combine machine learning with a powerful rules engine and the users’ domain expertise to map data from different source systems to each other in a custom data model.
+``
+``
+Knowledge Graph
+A data model is an abstract model that organizes data elements and standardizes how they relate to one another and the properties of real-world entities. The CDF data model collects industrial data by resource types that let users define the data elements, specify their attributes, and model the relationships between them. The different resource types are used to both store and organize data.
+``
+``
+API
+Cognite's RESTful web API enables users to access (read and write) resources in Cognite Data Fusion.
+``
+``
+SDK
+Cognite has a large number of Software Development Kits (SDKs), both adapted to specific programming languages and specific use cases. All Cognite SDKs are open-source and available on GitHub.
+``
+``
+``
+
+
+
+# 
+
+## Extractors
+
+Part of the Ingestion layer, AOT’s Extractors are data integration accelerators designed to extract data from a client source system and load it into the CDF RAW database and tables. They include reusable code developed using the Cognite Custom Extractor framework and can be readily built and deployed on the cloud or locally.
+
+Cognite DataOps platform delivers a set of [Standard Extractors](https://docs.cognite.com/cdf/integration/concepts/extraction/) and a Custom Extractor Framework that enables the development of Custom Extractors for a source system that is not supported by default. Third-party services can also use the Cognite Python SDKs or other Extract Transform and Load (ETL) tools, such as Azure Data Factory, to build custom extractors. The AOT team has currently developed three extractors and plans to release more extractors in the future.
+
+| **Source System-Specific Extractors** | **Flat File Extractors** |
+|---------------------------------------|--------------------------|
+| SAP PM Extractor                      | Azure Blob Storage       |
+| OSI PI AF Extractor                   | Local File System        |
+| Hexagon Extractor                     |                          |
+
+Once the data from the extractors are in CDF RAW, one of the options to transform the raw data into the CDF knowledge graph (Digital Twin) structure is to use the [transformation services](https://docs.cognite.com/cdf/integration/guides/transformation/transformations) that are built into CDF. AOT provides the possibility to dynamically create deployment pipelines to automate the deployment, configuration, and scheduling of the Spark SQL queries used by the CDF Transformation service.
+
+The CDF Transformation service is based on the configuration provided by the users in a configuration file. In the configuration file, the user can specify all necessary parameters of a Transformation that would help to create and update the Knowledge Graph in Cognite Data Fusion. Some of the necessary parameters of a transformation are listed in the table on the right.
+
+###  Configuration Parameters
+
+- External ID
+
+- Transformation Name
+
+- Spark SQL Query for Running the Transformation
+
+- CDF Database Name
+
+- CDF Database Table Name
+
+- CDF DataSetId
+
+- Schedule Time for Transformation Schedule
+
+One of the main use cases of the Transformation in AOT is the creation of the Asset Hierarchy, which is a treelike structure representing a client’s facility. The extractors extract the Asset Hierarchy from the client’s source system–typically SAP PM–and then transform it into a CDF knowledge graph structure. In some cases, multiple asset hierarchies must be standardized and merged to form the complete representation of the plant in the CDF Data model/knowledge graph. The knowledge graph can be enhanced with additional data coming from:
+
+- Other source systems using the Transformation and contextualization services
+
+- An extractor (e.g., time series from sensors, events from alerting systems, etc.)
+
+- External services (Azure Functions, Databricks, Azure Data Factory, etc.)
+
+See also: [AOT Extractors Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/46)
+
+## 
+
+# Intelligent Advisor
+
+AOT’s Intelligent Advisor (IA) is an AI-based solution that enables users of all types – from shop floor workers to top management – to focus on their most critical issues, with real-time generated, prioritized, and contextualized insights and recommendations. It can help all levels of the value chain by predicting useful insights, highlighting the root causes notifying relevant colleagues, recommending appropriate actions, and ultimately improving the performance of end-to-end operations.
+
+The diagram on the right shows the context of the Intelligent Advisor system within the AOT landscape. Click the image to enlarge it.
+
+The IA enables the AOT user to run analytics models on the Knowledge Graph, which identifies patterns/issues and creates Insights. The configuration of IA consists of two domain objects:
+
+- Insight Category
+
+- Insight Template
+
+The Insight categories represent the different types of Insights to be created. They are linked with a relationship to the Insight Templates that represent the configuration of the Insight screens with all the linked data to be displayed.
+
+
+
+## Domain Model
+
+There are two parts to the Intelligent Advisor domain model – the operational model and the configuration model. Information related to the configuration model is kept in the Insight Category entity. Kept information includes:
+
+- Identifiers that help to identify the related data analytics model
+
+- Frequency for executing the model
+
+- Insight template to be used for visualizing the generated insights
+
+- The theme of the generated insights
+
+
+
+## Full IA Domain Model
+
+The full domain model unites configuration with operational objects.
+
+
+
+## Intelligent Advisor on CDF and Azure
+
+IA combines the following functional components:
+
+- Insight generation engine
+
+- Collaboration
+
+- Actions
+
+- Advisor panel
+
+- Insight Details
+
+- Insight lifecycle management
+
+The following diagrams show the CDF / Azure-based architecture of Intelligent Advisor including:
+
+- Containers that are specific to the Intelligent Advisor backend services and micro-frontends.
+
+- Containers provided by the Platform Tools that are common and shared.
+
+- Containers that represent the AOT knowledge graph, in this specific case the CDF data model provided by the DataOps system of AOT.
+
+The diagram on the right shows the individual components of the system with the most relevant connections highlighted. The color coding is explained in the legend. Click the image to enlarge it.  
+
+
+The tables below define the responsibility of each of the components found in the diagram above.
+
+### Applications
+
+| **Responsibility** |  |  |
+|----|----|----|
+| Intelligent Advisor Configuration Application | The Intelligent Advisor Configuration Application is a standalone configuration application used to create insight category configurations. Two categories exist: KPI based and Predictive. Each insight category will have a different configuration page but with common and specific fields based on the selected category. |  |
+| Intelligent Advisor Sidepanel Application | Intelligent Advisor Sidepanel Application is a small micro-frontend application where insights and actions can be viewed and edited. |  |
+| Intelligent Advisor Insight Details Application | An application where a detailed view of an insight is shown together with recommendations, related actions, comments, graphical representation, and impacted KPIs. |  |
+
+### Microservices
+
+| **Responsibility** |  |  |
+|----|----|----|
+| Intelligent Advisor Configurations | The Intelligent Advisor Configurations microservice provides APIs for creating and saving insight configurations. |  |
+| Scheduler | Based on a configuration, the scheduler will invoke the machine learning microservice to generate recommendations. |  |
+| Data Model | A microservice that is responsible for the execution of machine learning models. It is triggered by the Scheduler microservice on a periodic interval using a Kafka topic. When the execution finishes, a new message is published on the output Kafka topic. This microservice can either execute the model using a platform tool machine learning implementation or an in-memory module. |  |
+| Insight generator engine | This microservice consumes messages generated by the Data Model microservice and based on the output value will decide if insights need to be created. |  |
+| Intelligent Advisor Microservice | The IA Microservice provides APIs used to access insights and actions based on assigned roles. |  |
+
+### Data Storage
+
+| **Responsibility** |  |  |
+|----|----|----|
+| Knowledge Graph | The KG represents the various entities of AOT (Assets, KPIs, Insights, Actions, etc.) and the relationship between these entities. |  |
+| Knowledge Data | Stored knowledge data includes instances of Insights and Actions. |  |
+| Intelligent Advisor Configuration Database | The IA config DB stores the insight categories configuration. |  |
+| Scheduler Configuration Database | The scheduler config db stores the current configuration of the Scheduler microservice. |  |
+| Sequence generator Database | The sequence generator db stores a unique sequence for each generated insight. |  |
+
+## IA Insight Generation Interactions
+
+The diagram on the right shows the flow of the insight generation inside AOT.
+
+Using the IA Configuration Application, a user can create a configuration object used to generate the insight based on a predefined frequency. The Scheduler microservice is responsible for triggering the Data Analytics microservice which in turn will execute the MLOps service to create predictions. The output of the ML model execution is compared against the KPI values and the Insight generator engine will decide if a new Insight must be generated or not.
+
+
+
+## Deployment
+
+The following two deployment diagrams explain where each of these system components is hosted. The second of the two diagrams shows communication connections that are not shown in the first diagram.
+
+
+
+
+
+# Smart KPIs
+
+The Smart KPIs system of AOT configures KPIs that are built on top of each other. The KPIs are calculated based on the configured formula and contributors, these being either parameters received from sensors, other calculated KPIs, or any other values provided by the AOT Knowledge Graph. The calculated KPIs are stored in the AOT Knowledge Graph and exposed through APIs to the Smart KPI Dashboard application, other AOT applications, and third-party custom applications. The diagram below shows the context of the Smart KPIs system within the AOT landscape. Click the image to enlarge it.
+
+
+
+As shown above, Operators and Smart KPIs configurators are the usual users of the Smart KPIs system. The Intelligent Advisor, 3D Visualization, and reporting systems are consumers of Smart KPIs. The following systems are the dependencies:
+
+- **DataOps** - provides the Knowledge Graph data for the KPI calculation.
+
+- **Operations Hierarchy** - provides the primary means for contextualizing KPI Instances (providing the scope of the KPI Instances).
+
+- **People Management** - provides the user roles and departments for implementing the proper data permissions of the system.  
+  See also the following Smart KPIs resources at [IX Developer Hub](https://industryxdevhub.accenture.com/assetdetails/42):
+
+
+
+- AOT Smart KPIs UI Guide
+
+- AOT Smart KPIs Administration Guide
+
+- AOT KPI Hierarchy and Calculation Technical Overview
+
+## 
+
+## Domain Model
+
+- 
+
+The Smart KPIs domain model consists of two parts, the configuration, and the operational models. The configuration domain model has just one entity, the KPI Definition. This entity defines the following topics of KPI configuration:
+
+- Definition of KPI
+
+- Role and department
+
+- Formulas for calculations
+
+- Application Context (which is primarily the list of assets for which the KPI is calculated)
+
+- Calculation frequency
+
+- Unit of Measure
+
+- RAG Configuration
+
+- Status and version
+
+- Additional custom attribute
+
+- Contributor and influencer KPI Definitions, which are relationships towards other KPI Definitions
+
+
+
+
+
+The operational model consists of two main entities (KPI Instance and Parameter), one auxiliary entity (Numeric Timeseries), and one entity from the Operations Hierarchy system (Asset).
+
+The KPI instance is created based on a KPI Definition. Besides the generic information, it includes 4 timeseries (Actual, Historic benchmark, Target, and Forecast) stored as Numeric Timeseries, the Contributor and Influencer relationships towards other KPI Instances, and references to Assets for defining the context of the KPI Instance.
+
+Parameters are information provided by external systems used in the calculation formulas of KPIs.
+
+## 
+
+## The Smart KPIs Full Domain Model
+
+The full domain model is a combination of the configuration and operational domain models. The link between the two is realized by the relationship between the KPI Definition and KPI Instances.  
+
+
+## 
+
+## Smart KPIs on CDF and Azure
+
+In this detailed architecture, we describe how is Smart KPIs implemented on top of Cognite Data Fusion combined with Azure service. CDF provides the DataOps services, while Azure is the place for hosting the AOT platform services and web applications.
+
+In the following diagrams, we will see CDF and Azure-based detailed architecture of Smart KPIs. It consists of:
+
+- containers that are specific to Smart KPIs
+
+- containers that are common and shared, hence provided by the Platform Tools
+
+- the container that represents the AOT knowledge graph, in this specific case the CDF data model (provided by the DataOps system of AOT).
+
+The diagram on the right shows the individual components with the most relevant connections highlighted. Check the legend to learn the color coding.
+
+Click the image to enlarge it.
+
+
+
+The tables below describe the role and functionality of the different components of the SmartKPIs module.
+
+### Applications
+
+
+
+
+
+``
+
+``
+``
+Name
+``
+``
+Responsibility
+``
+``
+``
+
+``
+``
+Smart KPIs Configuration Application
+``
+``
+The Smart KPIs Configuration Application is a standalone web application, which can be accessed by Smart KPIs admin users to configure the SmartKPIs calculation engine. It interacts with the Configuration API and microservice to read and write configuration to the system.
+``
+``
+``
+``
+SmartKPIs Dashboard Application
+``
+``
+The Smart KPIs Dashboard application is a micro-frontend application embedded into the AOT business application. It provides a visualization layer of the SmartKPIs on a Dashboard. It interacts with the SmartKPIs API and microservice to retrieve KPI data.
+``
+``
+``
+``
+
+### Microservices
+
+
+
+
+
+``
+
+``
+``
+Name
+``
+``
+Responsibility
+``
+``
+``
+
+``
+``
+Smart KPIs microservice
+``
+``
+The Smart KPIs microservice is a data access microservice. It enables KPI data querying for authenticated users based on their role assignments. It is used by the SmartKPIs Dashboard application but also by other modules of AOT (Intelligent Advisor, 3D viewer, etc.) or 3rd party consumers.
+``
+``
+``
+``
+Smart KPIs Configuration
+``
+``
+The Smart KPIs Configuration microservice enables admin users to read the current configuration of the Smart KPIs engine and then create/update/archive the configuration using Excel configuration templates uploaded to the system. These templates are processed by the configuration microservice and stored in AOT configuration storage.
+``
+``
+``
+``
+Smart KPIs Orchestrator
+``
+``
+The Smart KPIs Orchestrator microservice works based on the KPI configuration provided by the admin users. It is event-based, processing calculation events and, based on the formulas provided by the configuration and the different interdependencies between the KPIs the orchestrator, identifies when all requirements for a KPI calculation are met, and then triggers this KPI calculation.
+``
+``
+``
+``
+Smart KPIs Calculation Microservice
+``
+``
+The Smart KPIs Calculation microservice is responsible for calculating the KPI values based on the KPI configuration. It can evaluate the KPI calculation formula, read all the contributing values, and make the calculation which is then saved back to the AOT DataOps storage. This microservice can calculate actual, forecast, historical benchmark, and planned values of a KPI.
+``
+``
+``
+``
+Smart KPIs Data Permissions
+``
+``
+The data permissions microservice is triggered by the Orchestrator or by the Scheduler microservice, It makes the different KPI calculations of a KPI instance (actual, forecast, historical benchmark, planned)
+``
+``
+``
+``
+Notification
+``
+``
+The Notification microservice is a common microservice part of the Platform Tools of AOT. It facilitates communication between the AOT Backend and Frontend. It is used by the SmartKPIs engine to send notifications to the front end whenever a KPI calculation is completed. These notifications are used by the front end to refresh KPI data only if it changes.
+``
+``
+``
+``
+
+### Data Storage
+
+
+
+
+
+``
+
+``
+``
+Name
+``
+``
+Responsibility
+``
+``
+``
+
+``
+``
+Cognite Data Model / Knowledge Graph
+``
+``
+Represents the different entities of AOT (Assets, KPIs, Insights, Actions, etc.) and the relationship between these entities. In the case of Smart KPIs each Smart KPI instance is represented as an entity in the graph, and it is contextualized to the asset it belongs to and to the other KPI instances which are contributors or influencers of this KPI and this KPI instance is a contributor/influencer for.
+``
+``
+``
+``
+Configuration Database
+``
+``
+Stores the current configuration of the SmartKPIs engine.
+``
+``
+``
+``
+Orchestration Database
+``
+``
+Stores the intermediate data and the status of KPI calculations. It is maintained by the Orchestration service. It can be used also as a log of past calculations.
+``
+``
+``
+``
+Template Storage Blob
+``
+``
+Blob storage is used to store the XLS configuration templates uploaded by the user.
+``
+``
+``
+``
+
+## Calculation Interactions
+
+The diagram on the right shows the interaction between the system components when performing KPI calculations.
+
+### Flow
+
+1.  The CDF platform triggers the calculation functions for KPIs that have only parameter contributors.
+
+2.  The calculation function:
+
+    1.  reads the input values
+
+    2.  calculates the new KPI value
+
+    3.  saves it back into the knowledge graph.
+
+3.  Whenever the calculation is finished for a KPI Definition (which represents a KPI type for a given set of assets) the calculation function raises an event.
+
+4.  The orchestrator services notice the event about the performed KPI calculation and will try to trigger subsequent KPI calculations for those KPIs which depend on the KPIs we just calculated in step 2.
+
+|  |
+|----|
+
+# 
+
+## Deployment
+
+Two diagrams have been created to illustrate where the system components are hosted in relation to one another. Click each image to enlarge it.
+
+
+
+
+
+``
+
+``
+`Components`
+
+`Connections`
+
+``
+``
+
+``
+``
+
+# Operations Hierarchy
+
+The Operations Hierarchy (OH) sub-system provides the means to store logical and physical operational units in the AOT Knowledge Graph, manipulate, and visualize them.
+
+The OH is populated primarily from the source systems (other systems from the client ecosystem, responsible for defining daily operations). However, adjustments are also possible from within the AOT applications themselves. The OH is usually the backbone of the Knowledge Graph in a production environment, therefore, all the other business applications depend on it within AOT.
+
+
+
+## Domain Model
+
+The Asset object is the only object in the OH domain model.
+
+
+
+## Operations Hierarchy on CDF and Azure
+
+
+
+The tables below describe the role and functionality of the different components of the Operations Hierarchy module.
+
+### Applications
+
+| **Name** | **Responsibility** |
+|:---|----|
+| Operations Hierarchy Configuration Application | Operations Hierarchy Configuration Application provides the possibility to configure the OH and the roles assigned to the nodes of it |
+| Operations Hierarchy Side-panel Application | The Operations Hierarchy side panel application is responsible for visualizing the OH as an advanced tree view. It is a micro-frontend application that needs to be embedded into a host application. |
+| Entity Viewer Application | The Entity Viewer Application is responsible for showing detailed information about a selected node from the OH combining information both from the OH and other parts of the Knowledge Graph. It is a micro-frontend application that needs to be embedded into a host application. |
+
+### Microservices
+
+| **Name** | **Responsibility** |
+|:---|----|
+| Operations Hierarchy Microservice | This microservice is a data access microservice. It enables OH data querying for authenticated users based on their role assignments. |
+| Operations Hierarchy Configuration Microservice | The configuration microservice provides the possibility of configuring the OH and the roles assigned to the OH nodes. |
+| Operations Hierarchy Data Permissions Microservice | Whenever a role assignment to OH is changed an event is raised so that the PH Permission Manager microservice can apply the right permissions on the relevant OH nodes. Likewise, the DataOps platform is also raising events whenever changes are applied in the OH so that the OH Permission Manager can react to it by applying the right permissions. |
+
+### Data Storage
+
+| **Name** | **Responsibility** |
+|----|----|
+| Cognite Data Fusion / Knowledge Graph | Stores the operations hierarchy as the backbone of the knowledge graph. |
+| Configuration Database | Stores configuration for the Operations Hierarchy. |
+
+## 
+
+## Deployment
+
+The following diagrams show how the OH sub-system is deployed. Click the image to enlarge it.
+
+
+
+
+
+# Platform Tools
+
+## Data Analytics Models
+
+Data Analytics Models are algorithms that identify patterns for specific use cases in the data. There are multiple types of models, implemented and hosted in different ways. The AOT Data Analytics Model provides patterns to utilize these algorithms within the AOT solution.
+
+One of the use cases of advanced analytics/machine learning models in AOT is to enhance the Intelligent Advisor microservice’s ability to create predictions of the possible functional state of an asset and react accordingly to the output.
+
+### Model Execution Pattern
+
+The generic Data Analytics Model execution microservice provides a generic way of integrating models into the AOT solution. The following diagram shows the approach and the generic reusable components. Click the image to enlarge.
+
+
+
+### MLOps
+
+Machine Learning Operations (MLOps) is a functionality of Machine Learning engineering that focuses on streamlining the process of deploying machine learning models into production reliably and efficiently and maintaining and monitoring them. MLOps contains different pipelines for developing, publishing, training, evaluating, and registering Machine Learning models. It also provides services that can be used to gather insights and analytical data about the models’ performances.
+
+The following diagram depicts the end-to-end process of ML model training, deployment, and execution.
+
+
+
+- The process of training models must be fed with training data. ML Ops has connectors to other Azure resources for reading data.
+
+- Once the model is trained and the expected score is reached the model can be deployed into a Kubernetes service to be executed.
+
+- Execution of the model happens using the “Data Analytics model execution service”.
+
+- The first example of such an integration is the Predictive failure model for Intelligent Advisor.
+
+#### 
+
+#### MLOps Model training
+
+A training data set is used to train the model. This set is made up of information taken from different data sources which is then transformed and pre-processed so that it can be used for training. There can be subsets of data used for training, validation, or testing the model. As part of the training process, an appropriate algorithm must be chosen to train the model before its performance is evaluated using the validation and test steps.
+
+Version control systems can be used to track changes to the code, data, or configuration files. This helps track the history of model evolution, giving the possibility to observe the performance over multiple versions of the model or start over from a specific version. After the model is evaluated and deployed, using analytical tools we can extract performance data and use it to retrain the model making it better.
+
+
+
+#### MLOps Model Deployment
+
+The ML model can be deployed in a Kubernetes service in the following ways:
+
+- Direct deployment inside the Data Model microservice as a .pkl file that will be loaded into memory and executed inside that microservice.
+
+- Deployment in a separate AKS that will be exposed by an endpoint and consumed by the Data Model microservice through HTTP API.
+
+- Direct deployment of the model on an edge machine.
+
+#### Model Execution
+
+In AOT, ML model execution is controlled by the Data Model Microservice. This microservice listens for a message from an event hub (pushed either by an AOT or external system) that contains information such as the model type and identification data needed to execute the model. Then, based on the type, a specific handler will be invoked which takes care of calling the appropriate MLOps model, providing all the necessary data as input to execute it. When it completes, another message containing the result is pushed to the event hub which can be consumed by an AOT or external system.
+
+
+
+## 
+
+## Internationalization and Localization
+
+Internationalization describes designing a product in a way that it may be readily consumed across multiple countries. This process is used by companies looking to expand their global footprint beyond their domestic market understanding consumers abroad may have different tastes or habits.
+
+Localization is the adaptation of a product or service to meet the needs of a particular language, culture, or desired population's "look and feel." A successfully localized service or product appears to have been developed within the local culture. Provide the possibility that users can select the preferred language that all AOT application front ends will display the application in.
+
+The optimal solution is building a CMS system that can add new languages and translations at run time, has a microservice architecture, and is platform agnostic. Implementing this solution as a separate component can be a sub-system asset that can be delivered and reused in other applications.
+
+The vision for this as a simple example from Front End to Back End is that when a User Logs in the AOT Application Platform can select the desired language. The system should store the user preferences in the localization system. There should also be a caching mechanism that allows the micro-frontend to load only once on initialization of the language translations and then apply them on run time so that there will be only one call to the database.
+
+Based on CMS System architecture, in the localization database, we store data across multiple tables:
+
+- A Languages table stores a list of languages and their ISO code (i18n) ex: en-US, es-PR, de-CZ.
+
+- The Translations table stores all the string assets from the application that will be mapped to a certain language ID providing a key to identify the element with a unique name in the UI and the corresponding language translation.
+
+- A User preferences table that stores the user-chosen language for the AOT UI.
+
+| **Name** | **Responsibility** |
+|----|----|
+| Localization Configuration Application | The application makes it possible to manage UoM systems for AOT. |
+| Localization microservice | The microservice makes it possible to manage and retrieve information about AOT UoM systems. The individual business applications of AOT use it for calculating and displaying data with the users’ desired UoM system. |
+| Localization Configuration Database | Stores UoM configuration. |
+
+The container diagram below provides insights into how to use the internationalization component across AOT.
+
+
+
+### 
+
+## Scheduling service
+
+The Scheduler Service in AOT is a microservice in Python that is implemented in a multiprocessing/multi-thread manner. All tasks that need to be executed will be stored as scheduler configurations in the SQL Database.
+
+The API of the microservice exposes the possibility to create, modify, and delete tasks. Every time a task is created the scheduler instantiates and schedules the task to run at the desired time. When a task is modified the scheduler determines the process of the current task and stops it, and then instantiates a new task with the new settings. When a Task is deleted, the scheduler identifies its process and terminates it. Every Task operation is also reflected in the database configuration of the scheduler. When a task is executed, it raises an event as a message through the Message Broker, and then writes an execution log to SQL Table to use later in case of system stop/restart. When the system starts/restarts, the Microservice loads all the tasks to be executed.
+
+
+
+### 
+
+### Microservices
+
+
+
+
+
+``
+
+``
+``
+Name
+``
+``
+Responsibility
+``
+``
+``
+
+``
+``
+Scheduler Microservice
+``
+``
+This microservice has the role of triggering events based on user-defined schedules. It exposes an API to set up the required scheduler jobs and when, based on the configuration, the time elapses it creates the triggering messages, which are sent to a Kafka topic. These events are consumed by subscribers to the topic which triggers business logic in the backend (KPI calculations, Insight creation, etc.)
+``
+``
+``
+``
+
+### Data Storage
+
+
+
+
+
+``
+
+``
+``
+Name
+``
+``
+Responsibility
+``
+``
+``
+
+``
+``
+Scheduler Configuration Database
+``
+``
+Stores the scheduler configuration and historical information about scheduler executions.
+``
+``
+``
+``
+
+# 3D Visualization
+
+As shown in the diagram below, the 3D system of AOT provides 3D visualization of the Plant(s) with contextualized data (KPIs and Insights) displayed on the 3D model with the possibility to drill down inside the visualization.  
+The 3D module has two main components:
+
+- A 3D Visualizer Micro-Frontend integrated into the AOT business app
+
+- A 3D Builder application where the 3D model can be configured and the data from the Knowledge Graph contextualized to it.
+
+
+
+See also: [3D Builder and Viewer Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/47)
+
+## Consumers and Dependencies
+
+Operators and 3D Configurators are the usual users of the 3D system. They can explore the 3D models with contextualized data in the case of Operators or configure the visualization itself by setting the layout of plant(s), connections between the different models, and adding the data context links to build up the visualization. Dependencies for 3D visualization include Operations Hierarchy, People Management, Smart KPI, and Intelligent Advisor.
+
+## Implementation
+
+In this detailed architecture, we describe how is AOT implemented on top of Cognite Data Fusion combined with Azure services. CDF provides the DataOps services, while Azure is the place for hosting the AOT platform services and web applications.
+
+The tables below describe the role and functionality of the different components of the 3D module:
+
+### Applications
+
+| **Name** | **Responsibility** |
+|----|----|
+| 3D Visualizer Application | It is a micro-frontend application that is integrated into the AOT Business Application, and it has the role of displaying the 3D models of the Plant or any other asset from the hierarchy. It also provides all the contextualized data of the asset and provides the users with the drill-down functionality, going deeper into the 3D model to see the subcomponents of the model and the contextualized data. |
+| 3D Builder/Configuration Application | This is a stand-alone micro-frontend application that combines all the tools necessary to upload, manage, enhance, and contextualize 3D models and create layouts from these models. The different tools are Unity3D and/or React-based components which enable Model Management, Point of Interest editing/mapping, Model mapping, and Twin builder. |
+
+### Microservices
+
+| **Name** | **Responsibility** |
+|----|----|
+| 3D Configuration Microservice | This microservice provides access to the saved data (3D models, mappings, etc.) and the possibility to modify the data. |
+
+### Data storage
+
+| **Name** | **Responsibility** |
+|----|----|
+| 3D Models and Mappings Storage | Stores 3D visualization-related data (3D models, mapping files, POI, etc.). |
+
+Both the CDF and Azure architectures of 3D Builder and Viewer consist of:
+
+- containers that are specific to the 3D module.
+
+- containers that are common and shared, hence provided by the Platform Tools.
+
+- the different other modules of AOT (Smart KPIs, Intelligent Advisor, Operations Hierarchy, etc.) providing the data to be displayed on the 3D View.
+
+The diagram below describes the individual components of the system with the most relevant connections highlighted. Check the legend of the diagrams to learn the color coding. Click the image to enlarge it.
+
+
+
+## Deployment Diagrams
+
+
+
+
+
+# People Management
+
+The role of the People Management (PM) module is to enable admin users to administer a user’s access to data and functionality in the platform. The People Management Configuration Application allows admin users to create and manage AOT Roles, link active directory groups to AOT Roles, and change user permissions.
+
+
+
+## Components
+
+- Functional permissions: Permissions to access configuration pages of various components. Access to configuration screens will be restricted to only users with admin roles.
+
+- Data permissions: Permission defined to AOT business objects (asset hierarchy, KPIs, Insights, etc.) based on roles and responsibilities. The users have access only to the data their roles are mapped to.
+
+Data permissions are managed using custom metadata entries on each CDF object (e.g., Asset, Timeseries, Events, etc.) inside the Knowledge Graph. All the Roles that have owner or viewer access to that object will have the access rights represented on the object’s metadata.
+
+Managing these metadata entries on the objects is the responsibility of the module the data belongs to (e.g., KPIs which are represented as Timeseries in the Knowledge Graph will be managed by the SmartKPIs module). The access rights of an object might be influenced by the access rights of objects from another module (e.g., Insights linked to KPIs will influence the access rights of the KPI objects).
+
+Since data permissions in AOT are influenced by changes happening in different modules and changes on a data object of one module may impact the data permissions of an object in a different module, we have introduced an event-driven change feed architecture, where each AOT module can publish their changes related to data permissions (e.g. owner changed, etc.) of objects and any dependent module can subscribe to these changes and update the data permissions of its objects accordingly. This change feed consists of:
+
+- Event Broker that stores the published events and notifies the subscribers of any new events
+
+- Event Publisher microservices, which publish module-related configuration or object create/update events to the Message Broker
+
+- Event Subscriber microservices, which process the events from the feed and make the necessary data permissions-related updates to the relevant objects.
+
+## Layers
+
+- People Management Configuration UI: interface provided to admin users where AOT Roles can be created and managed, different Active directory groups can be linked to AOT Roles, user permissions can be changed, etc.
+
+- People Management APIs and Backend services: enable querying and updating of User and Role information, mapping the Roles to Active Directory Groups, checking of user authorizations, etc.
+
+- All AOT backend services will use People Management services/APIs to determine the exact data access the AOT user has and limit the returned datasets only to the data accessible by the user based on their role.
+
+- CDF DataOps platform: where the data is stored and tagged (in CDF resource metadata) with all the relevant information, enabling the user to access the data and also determines the level of access (read/write)
+
+For user Authentication Azure Active Directory is used. For user Authorization, each AOT micro-frontend will need to determine the user's access privileges to the functionality and data based on the user's AOT roles. There are two ways a user can be linked to AOR roles, thus have access to AOT applications and data:
+
+- the user is a member of at least one AD Group, which is assigned to at least one AOT role
+
+- the user is directly assigned to a Role in AOT
+
+To enable fast authorization of the user to AOT, each microservice needs to store a local cache of user roles and AD group-role mappings.
+
+See also: [AOT People Management Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/64)
+
+# Applications 
+
+The AOT application pages can be divided into two categories: Business and Configuration.
+
+The diagram below shows the AOT Application landscape. Click the image to enlarge it.
+
+
+
+## Host App
+
+The AOT Host App is built from embedded micro-frontend (MFE) applications. Each MFE has a well-defined purpose and is viable on its own. The AOT Host App is responsible for hosting the embedded MFEs, ensuring authentication, and channeling information between components. It is also responsible for facilitating navigation logic, resolving dependencies, and maintaining the URL.  
+**Embedded MFEs**
+
+
+
+
+
+``
+
+``
+``
+Name
+``
+``
+Description
+``
+``
+``
+
+``
+``
+Operation Hierarchy
+``
+``
+A side panel with a tree view displaying the asset hierarchy.
+``
+``
+``
+``
+Smart KPI
+``
+``
+Displays the list of the calculated actual, forecasted, and historical KPI values for the selected asset, along with the description, calculation formula, and trendline charts. It is possible to drill down for a selected KPI to view the details of the influencing and contributing KPI values.
+``
+``
+``
+``
+Intelligent Advisor Side Panel
+``
+``
+Displays the list of active Insights in a side panel.
+``
+``
+``
+``
+Insight details
+``
+``
+Displays the details of a selected insight from the side panel, such as description, actions, contributors, and even KPI details if the insight was generated based on one.
+``
+``
+``
+``
+3D Visualizer
+``
+``
+Displays the 3D model of a plant or area configured in the 3D editor, along with adding insight, actions, and alerts on top of it.
+``
+``
+``
+``
+Entity Viewer
+``
+``
+Displays a detailed dashboard for a selected asset.
+``
+``
+``
+``
+Reporting
+``
+``
+This visualizes reports defined in the system.
+``
+``
+``
+``
+
+## 
+
+## Configuration Apps
+
+The AOT Configuration applications are a set of stand-alone MFE applications that allow the configuration of specific modules.
+
+###  Stand-alone MFEs
+
+
+
+
+
+``
+
+``
+``
+Name
+``
+``
+Description
+``
+``
+``
+
+``
+``
+Smart KPI Config App
+``
+``
+Allows the configuration of Smart KPIs either by uploading an Excel file or by configuring the KPIs manually. The user can download the Excel template for the base KPI configurations via file download. It is also possible to download the current configuration as an Excel file. The KPI configurations can have various statuses and when published, they become available in CDF for use.
+``
+``
+``
+``
+3D Editor App
+``
+``
+The 3D editor defines a plant or area layout as a 3D model, which can be viewed and analyzed in the 3D viewer.
+``
+``
+``
+``
+Intelligent Advisor Config App
+``
+``
+Allows the user to maintain the insight category and template configuration used by Intelligent Advisor.
+``
+``
+``
+``
+People Management Config App
+``
+``
+The role of the People Management module is to enable admin users to administer a user’s access to data and functionality in the platform.
+The People Management Configuration Application allows admin users to create and manage AOT Roles, link Active directory groups to AOT Roles, and change user permissions.
+`People management has two components:`
+``
+
+Functional permissions to access the configuration pages of various components. This will be a custom development and is part of AOT.
+Data permissions defined to data points inside CDF (asset hierarchy, KPIs, Insights, etc.) that are based on roles and responsibilities. The users have access only to the data to which their permissions are mapped.
+``
+``
+``
+``
+Reporting Configuration Application
+``
+``
+This configures reports to be presentable in AOT. The reports are preconfigured in their environment (currently PowerBI), however, whether they are visible and to whom are visible are controlled by AOT.
+``
+``
+``
+``
+
+# 
+
+# Appendix
+
+## Guiding Principles
+
+| **Principle** | **Meaning** |
+|----|----|
+| Keep it short and simple | Minimize the number of capabilities to fulfill the requirements and select a component landscape that is easy to develop, lightweight in run-time, and cost-effective to operate. |
+| Don’t repeat yourself | Reuse components and consolidate the component selection based on their reusability potential through the component landscape. |
+| Fit for purpose | The solution should do what it needs to do – no more and no less. |
+| Don’t reinvent the wheel | Look for all technology options for each capability that you need to implement and choose a packaged or open-source solution before considering a custom solution. |
+| Prepare for failure | Recognize that every component, every process, and every person in your solution might become unavailable, and design the solution in a way that gracefully handles those situations. Evaluate failure modes and design a remediation that balances the cost of prevention with the cost of failure. |
+| Divide and conquer | Define precise interfaces between applications to improve maintainability. Separate different functions from each other and implement them in separate components. |
+| Black box | Don’t expose the implementation details of one component to another. Define interfaces between functional components and hide implementation complexity behind the interfaces. |
+
+## Patterns
+
+
+
+
+
+``
+
+``
+Pattern
+Description
+``
+``
+
+``
+Micro-frontends
+`Individual features are going to be implemented as separate stand-alone micro-frontend applications.`
+
+The configuration applications are going to be completely stand-alone, while the different distinct components of the business application are implemented as embeddable micro-frontend applications. These are loaded into the main web application as independent units.
+All micro-frontend applications can be developed individually by different teams, without following any restrictions for the other components.
+The embeddable micro-frontends perform synchronization and data exchange between each other through a standardized way using event-based publish-subscribe communication.
+``
+``
+``
+Stateless middleware
+Each execution starts from scratch without any contextual knowledge of the previous execution
+``
+``
+Operations data in Cognite
+Using CDF as a backend provides a contextualized way to store the operations data.
+``
+``
+Lazy loading/initialization
+Objects are initialized at the first usage, instead of a time and resource-consuming initialization phase.
+``
+``
+Event-based asynchronous
+This enables the advantages of multithreaded applications while hiding many of the complex issues inherent in the multithreaded design. Using a class that supports this pattern can allow the execution of long-running tasks in the background without blocking tasks, running multiple tasks in parallel, and waiting for available resources.
+``
+``
+Publish-subscribe
+This is a messaging pattern where senders of messages—called publishers—do not program the messages to be sent directly to specific receivers—called subscribers—but instead categorize published messages into classes without any information about the subscribers. The subscribers decide on the reception of the different data by subscribing to different topics.
+``
+``
+Adapter pattern
+By applying this pattern to containers, communication between containers is kept consistent. Having a standard way of communicating via a set of contracts helps to make requests in the same way and lets the user expect the same response format.
+``
+``
+``
