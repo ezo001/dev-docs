@@ -12,7 +12,7 @@ export default function Home() {
           Browse our comprehensive guides and API references.
         </p>
         <Link 
-          to="/docs/aot-general-architecture-auriga"
+          to="/docs/intro"
           style={{
             backgroundColor: '#2e8555',
             color: 'white',
