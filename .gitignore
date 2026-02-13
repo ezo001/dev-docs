@@ -1,20 +1,37 @@
 # Dependencies
-/node_modules
+node_modules/
+.pnp
+.pnp.js
 
-# Production
-/build
+# Build output
+build/
+.docusaurus/
+.cache-loader/
 
-# Generated files
-.docusaurus
-.cache-loader
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Misc
-.DS_Store
+# Environment
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.bak
+migration-package.zip

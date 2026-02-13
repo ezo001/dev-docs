@@ -1,0 +1,19 @@
+{
+  "navigationFallback": {
+    "rewrite": "/404.html",
+    "exclude": ["/assets/*", "/*.{css,js,json,png,jpg,jpeg,gif,svg,ico,woff,woff2}"]
+  },
+  "routes": [
+    {
+      "route": "/industrial-ai",
+      "rewrite": "/industrial-ai/index.html"
+    },
+    {
+      "route": "/digital-thread",
+      "rewrite": "/digital-thread/index.html"
+    }
+  ],
+  "mimeTypes": {
+    ".json": "application/json"
+  }
+}

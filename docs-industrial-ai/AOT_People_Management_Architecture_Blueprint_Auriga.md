@@ -1,0 +1,335 @@
+---
+sidebar_position: 2
+title: AOT People Management Architecture Blueprint Auriga
+---
+
+**Accenture Operations Twin**
+
+**People Management**
+
+**ARCHITECTURE BLUEPRINT**
+
+Release Version: 2.5
+
+**Metadata Table**
+
+  -----------------------------------------------------------------------------------------------------------------
+  **Field**                           **Value**
+  ----------------------------------- -----------------------------------------------------------------------------
+  **Asset / Solution Name**           Accenture Operations Twin / People Management
+
+  **Domain / Area**                   Identity and Access Management
+
+  **Owner (Team/Person)**             Tournier, Florian
+
+  **Reviewers**                       Gali, Hanuman
+
+  **Status**                          Published / Complete
+
+  **Confidentiality**                 Internal / Confidential
+
+  **Source of Truth**                 [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V)
+
+  **Related Assets / Alternatives**   People Management UI Guide, People Management API Reference
+  -----------------------------------------------------------------------------------------------------------------
+
+# Contents \{#contents .TOC-Heading\}
+
+[Introduction [3](#introduction)](#introduction)
+
+[Purpose [3](#purpose)](#purpose)
+
+[Target Audience [3](#target-audience)](#target-audience)
+
+[Related Links [3](#related-links)](#related-links)
+
+[Contacts [3](#contacts)](#contacts)
+
+[Glossary [4](#glossary)](#glossary)
+
+[Layers [5](#layers)](#layers)
+
+[Authentication and Authorization [5](#authentication-and-authorization)](#authentication-and-authorization)
+
+[Caching [6](#caching)](#caching)
+
+[Initialization [6](#initialization)](#initialization)
+
+[Updating Cache [6](#updating-cache)](#updating-cache)
+
+[Cache Interface [6](#cache-interface)](#cache-interface)
+
+[Permission Types [7](#permission-types)](#permission-types)
+
+[Functional Permissions [7](#functional-permissions)](#functional-permissions)
+
+[Data Permissions [8](#data-permissions)](#data-permissions)
+
+[Integration [9](#integration)](#integration)
+
+[Tenants of People Management [10](#tenants-of-people-management)](#tenants-of-people-management)
+
+[Integration with Twin Builder [11](#integration-with-twin-builder)](#integration-with-twin-builder)
+
+[Integration with Smart KPIs [11](#integration-with-smart-kpis)](#integration-with-smart-kpis)
+
+[Integration with Intelligent Advisor [11](#integration-with-intelligent-advisor)](#integration-with-intelligent-advisor)
+
+# Introduction
+
+Accenture Operations Twin (AOT) is a collection of software accelerators and tools that can be assembled to deliver client solutions. AOT accelerates the integration of product, process, and live data from disparate informational (IT) and operational (OT) systems, creating a comprehensive and contextualized view of operations to enable better decisions and optimized processes.
+
+People Management (PM) is an AOT component that helps in managing users, their roles, and permissions. It is a digital representation of the organizational hierarchy. The permissions include access to data and functionality in AOT. This component is duly integrated with the client\'s active directory to avoid duplicity.
+
+AOT\'s People Management functionality can be integrated with other AOT components such as Smart KPIs and Intelligent Advisor. The integration requires personal data such as role and department to be fetched from Azure and displayed in AOT. To accomplish this objective, People Management APIs must be deployed in the backend.
+
+## Purpose
+
+This document briefly describes the architecture, components, and layers of the People Management functionality.
+
+## Target Audience
+
+-   Solution Architect
+
+-   Business Analyst
+
+-   Technical Architect
+
+-   Asset Delivery teams
+
+## Related Links
+
+-   [AOT People Management Documentation](https://industryxdevhub.accenture.com/assetdetails/64)
+
+-   [AOT Documentation](https://industryxdevhub.accenture.com/asset-home;search_text=aot)
+
+-   [Release Notes](https://industryxdevhub.accenture.com/assetdetails/45)
+
+## Contacts
+
+-   
+
+-   
+
+-   
+
+-   
+
+## 
+
+## Glossary
+
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Term**                          **Definition**
+  --------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  AOT (Accenture Operations Twin)   A collection of software accelerators and tools designed to integrate product, process, and live data from IT and OT systems, providing a comprehensive view of operations for better decision-making.
+
+  People Management (PM)            An AOT component that manages users, roles, and permissions, representing the organizational hierarchy and controlling access to data and functionality.
+
+  Active Directory (AD)             A directory service used for user authentication and group management, integrated with AOT to avoid duplicity and streamline access control.
+
+  Role                              A set of permissions assigned to users or groups, determining their access to data and functionality within AOT.
+
+  Department                        An organizational unit within AOT to which roles and users can be assigned, helping structure access and responsibilities.
+
+  Admin Role                        A privileged role with access to configuration screens, the ability to create new roles and departments, and assign users and groups within AOT.
+
+  Asset Hierarchy (AH)              The structure representing assets within the organization, used to assign roles and control data access in AOT.
+
+  KPI (Key Performance Indicator)   Metrics used to measure performance, which can be assigned to roles or departments to control visibility and access.
+
+  Smart KPI                         An AOT component for managing KPIs, including configuration for sensitivity and hierarchical access based on roles and departments.
+
+  Intelligent Advisor               An AOT component that provides insights and recommendations, integrated with People Management for role-based access to insights and actions.
+
+  Twin Builder                      An AOT component that allows users with Admin roles to configure digital twins, with role-based access to KPIs, Insights, and Actions data.
+
+  Twin Viewer                       A component that displays KPIs, Insights, and Actions data to users based on their assigned roles, with no additional restrictions in the current implementation.
+
+  Microservice                      An independent backend service within AOT that uses People Management APIs to determine user access and cache role mappings for efficient authorization.
+
+  Configuration UI                  The user interface for administrators to manage roles, departments, and permissions within AOT People Management.
+
+  Knowledge Graph                   The data structure used to manage metadata and access rights for business objects in AOT, such as assets, timeseries, and events.
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Layers
+
+The main layers of the People Management functionality are listed in the table below.
+
+
+| > **Layer** | > **Description** |
+| --- | --- |
+| > People Management Configuration UI | > This layer is the interface provided to admin users. Using this interface, admin users can create and manage AOT Roles and Departments. Additionally, this layer can be used to assign AOT roles to various Departments, Active Directory groups, and users. |
+| > People Management APIs and Backend Services | > This layer enables querying and updating User and Role information, mapping the Roles to Active Directory Groups, and checking user authorizations. All AOT backend services use People Management services/APIs to determine the exact data access the AOT user has and limit the returned datasets only to the data accessible by the user, based on their role. |
+| > CDF DataOps platform | > The platform where the data is stored and tagged (in CDF resource metadata) with all the relevant information, enabling the user to access the data and also determines the level of access (read/write) |
+
+
+# Authentication and Authorization
+
+For user Authentication, Azure Active Directory is used.
+
+For user Authorization, each AOT micro-frontend will need to determine the user\'s access privileges to the functionality and data based on the user\'s AOT roles. There are two ways a user can be linked to AOT roles to gain access to AOT applications and data:
+
+-   The user is a member of at least one AD Group, which is assigned to at least one AOT role.
+
+-   The user is directly assigned to a Role in AOT.
+
+To enable quick authorization of the user to AOT, each microservice must store a local cache of the user-to-roles mapping and AD groups-to-roles mapping, which is discussed in the next section.\
+![Mappings with respect to People Management](media/image2.png)\{width="7.986111111111111in" height="1.1501924759405073in"\}
+
+**Figure**: Mappings with respect to People Management
+
+## 
+
+## 
+
+# Caching
+
+To enable fast authorization of the user to AOT, each microservice must locally cache mappings between both users and roles as well as between AD groups and roles.
+
+An AOT User will have AOT Roles mapped to them in two different ways:
+
+-   Direct User - Role mapping
+
+-   Indirect mapping through AD Groups
+
+A user can be a member of multiple AD Groups which are mapped to multiple AOT Roles. The cache should be implemented as a reusable component (library) in the programming language (Python) used by the microservices. The cache will store the cached data as two lists of key/value pairs in memory -- one list where the key is the UserID and a second list where the key is the AD Group ID. In both lists, the values are represented as a list of AOT Roles mapped to the key.
+
+## Initialization
+
+-   When the cache is initialized inside the microservice, the base URL of the People Management API and the connection information of the Message Broker should be provided by the microservice.
+
+-   The cache will automatically connect to the People Management API and load all the mappings between AD Groups and AOT Roles.
+
+## Updating Cache
+
+-   The cache module itself will be responsible for keeping the data up to date.
+
+-   If the data for a user is not present in the cache, then it will be loaded the first time it is required using the People Management API.
+
+-   The People Management microservice will push change events whenever a role is updated to the Message Broker. The cache will subscribe to these events and will update the cached data accordingly.
+
+## Cache Interface
+
+The Cache will provide three interface methods:
+
+-   An Initialization method/constructor will be used to pass the URL of the People Management API and the connection information of the Message Broker.
+
+-   A Get method will return the user\'s AOT Roles based on UserID and AD Groups for which the user is a member.
+
+-   A Get method will return the user\'s AOT Roles based on the AD token the user possesses
+
+![Diagram depicting the cache mappings](media/image3.png)\{width="9.416666666666666in" height="4.176019247594051in"\}
+
+# Permission Types
+
+There are two distinct types of permissions managed in the system: functional permissions and data permissions. Functional permissions control access to the configuration pages of various components, and only users with the admin role are allowed to view or modify these configuration screens. In contrast, data permissions are assigned to AOT business objects, such as asset hierarchy, KPIs, and Insights, based on users\' roles and responsibilities. This means users can access only the data that aligns with the roles they have been mapped to.
+
+The role of the People Management module is to enable administrators to manage access to data and functionality in the platform. People Management has two components: Functional Permissions and Data Permissions.
+
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Component**            **Description**
+  ------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Functional Permissions   These are the permissions required to access configuration pages of various AOT components such as Smart KPI and Twin Builder. Access to configuration screens is restricted to users with an Admin role.
+
+  Data Permissions         These are permissions defined for AOT business objects (asset hierarchy, KPIs, Insights, etc.) based on roles and responsibilities. The users have access only to the data their roles are mapped to.
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Functional Permissions
+
+While deploying the people management code, an Admin Role is created. The Admin Role has access to the configurable pages of various AOT components such as Smart KPI, Twin Builder, People Management, etc. In addition, the Admin Role could further create new roles and new departments. It can assign AD groups and users as well. Hence, an Admin role can give new roles, departments, groups, and users the type of access they require.
+
+Plant users that do not have an Admin Role cannot access the configuration pages. Hence, they see the components as greyed out (not clickable) on the AOT dashboard.
+
+The diagram below illustrates how functional permissions flow within People Management.
+
+![functional permissions for PM with AOT components](media/image4.png)\{width="7.666666666666667in" height="4.602700131233596in"\}
+
+## Data Permissions
+
+AOT components can define what role can view what specific data (KPIs, Insights, etc.). For example, a KPI can be assigned to a department/role and as a result, only the users who have been assigned to that department/role can see those KPIs.
+
+Data permissions are managed using custom metadata entries on each CDF object (e.g., Asset, Timeseries, Events, etc.) inside the Knowledge Graph. All the Roles that have owner or viewer access to that object will have their access rights represented on the object\'s metadata.
+
+The diagram below illustrates the integration of AOT components and data permission:
+
+![data permissions for PM with AOT components](media/image5.png)\{width="10.796554024496938in" height="5.4664359142607175in"\}
+
+# Integration
+
+People management can be integrated with other AOT components to add restrictions based on Role and/or department.
+
+![Diagrammatic view of People Management integration with other AOT components](media/image6.png)\{width="11.194444444444445in" height="6.301069553805775in"\}
+
+**Figure**: Diagrammatic view of People Management integration with other AOT components
+
+## 
+
+## 
+
+## Tenants of People Management
+
+The tenants i.e., the components of the AOT application that use People Management are as follows:
+
+-   Users
+
+-   Roles (Groups)
+
+-   Asset Hierarchy (AH)
+
+-   KPI Hierarchy
+
+    -   Contributing
+
+    -   Influencing
+
+-   Intelligent Advisor
+
+-   Data sensitivity
+
+![Relation of KPIs and Insights with Role, Department and Asset Hierarchy](media/image7.png)\{width="6.333333333333333in" height="3.7402635608048995in"\}
+
+**Figure**: Relation of KPIs and Insights with Role, Department, and Asset Hierarchy
+
+## 
+
+## 
+
+## Integration with Twin Builder
+
+
+| **Twin Builder** | **Twin Viewer** |
+| --- | --- |
+| - Admin roles have permission to access the Twin Builder component. | - Based on the role assigned, the user can view KPIs, Insights, and Actions data on Twin Viewer. |
+|  | - No additional restrictions as of the current implementation. |
+
+
+## Integration with Smart KPIs
+
+
+| **PM Admin Component Responsibilities** | **End User View** |
+| --- | --- |
+| - Admin assigns level (s) in AH and the role they belong to. | - Users will have access to all the underlying levels in the AH they belong to. |
+| - Admin should have the flexibility to define if the role has access to sensitive data (KPI). | - Users cannot see information beyond the AH level they belong to. |
+| - The PM engine should auto-assign owner and viewer access based on the KPI hierarchy (Contributing and Influencing KPIs). | - In the landing screen of the Smart KPIs, the user will see the KPIs for whom they are an owner. |
+| - A sensitivity tag is enabled in the Smart KPI configuration for sensitive KPIs and the Roles that could access it. | - Users will have access to underlying contributing/ influencing KPIs provided the AH rule is honored. |
+|  | - Users will have access to sensitive information if the sensitive tag is enabled for their role. |
+
+
+## Integration with Intelligent Advisor
+
+
+| **PM Admin Component Responsibilities** | **End User View** |
+| --- | --- |
+| - Assigns owner of the Insight in IA configuration screen. | - Users will have access to all the underlying levels in the AH they belong to. |
+| - Relates Insight with KPI(s). | - Users cannot see information beyond the AH level they belong to. |
+| - Leverages KPI configuration (to the maximum extent possible) for Insight configuration for KPI-based Insights. | - Users will see the list of Insights that they are responsible for (assigned to) -- in the capacity of Insight owner. |
+| - The PM engine should auto-assign Owner and viewer access based on Insight configuration (Refer to items on the right side) | - Through the KPIs that the user has access to, they can view the insights related to those KPIs, even if these insights in question have not been directly assigned to the user. |
+|  | - If the user has access to an Action (in the capacity of the owner/assigned to), then they will have viewer access to Insight. |
+|  | - If the user has access to an Insight, then they should have access to all the underlying Actions devoid of the Action responsibility (assigned to). |
+|  | - Collaborators: The list of collaborators (users) is displayed per the following logic: |
+|  | - Role assigned to Insight. |
+|  | - Role(s) assigned to underlying action(s) |
+|  | - Roles assigned to related KPIs -- only the owners |
+
