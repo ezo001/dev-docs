@@ -1,35 +1,52 @@
 ---
 id: intro
 slug: /
-title: Documentation Home
+title: Industrial AI Solution
 ---
 
-# Technical Documentation
+<div className="landing-accenture">
 
-Select a foundation to explore documentation.
+<h1 className="landing-headline">TECH DOCS</h1>
 
----
+<p className="landing-sub">Select a card to explore documentation for each asset.</p>
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', margin: '3rem 0'}}>
+<div className="landing-cards">
 
-<a href="/industrial-ai/" style={{display: 'flex', flexDirection: 'column', padding: '2rem', border: '2px solid #e0e0e0', borderRadius: '12px', textDecoration: 'none', color: 'inherit', background: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)'}}>
-  <div style={{fontSize: '3rem', marginBottom: '1rem', textAlign: 'center'}}>🏭</div>
-  <h2 style={{margin: '0.5rem 0'}}>Industrial AI Foundation</h2>
-  <p style={{flexGrow: 1, margin: '0.5rem 0 1rem 0'}}>Platform for asset monitoring and optimization.</p>
-  <span style={{padding: '0.25rem 0.75rem', background: '#25c2a0', color: 'white', borderRadius: '12px', fontSize: '0.85rem', display: 'inline-block', width: 'fit-content'}}>Available</span>
+<a href="/industrial-ai/" className="landing-card">
+  <h2>Industrial AI Foundation</h2>
+  <p>Platform for asset monitoring and optimization.</p>
+  <span className="badge badge-available">Available</span>
 </a>
 
-<a href="/digital-thread/" style={{display: 'flex', flexDirection: 'column', padding: '2rem', border: '2px solid #e0e0e0', borderRadius: '12px', textDecoration: 'none', color: 'inherit', background: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)'}}>
-  <div style={{fontSize: '3rem', marginBottom: '1rem', textAlign: 'center'}}>🔗</div>
-  <h2 style={{margin: '0.5rem 0'}}>Digital Thread Foundations</h2>
-  <p style={{flexGrow: 1, margin: '0.5rem 0 1rem 0'}}>Integration framework and connectivity platform.</p>
-  <span style={{padding: '0.25rem 0.75rem', background: '#f0f0f0', color: '#666', borderRadius: '12px', fontSize: '0.85rem', display: 'inline-block', width: 'fit-content'}}>Coming Soon</span>
+<a href="/digital-thread/" className="landing-card">
+  <h2>Digital Thread Foundations</h2>
+  <p>Integration framework and connectivity platform.</p>
+  <span className="badge badge-available">Available</span>
+</a>
+
+<a href="/aot/" className="landing-card">
+  <h2>Accenture Operations Twin</h2>
+  <p>Accenture Operations Twin and related documentation.</p>
+  <span className="badge badge-available">Available</span>
+</a>
+
+<a href="#" className="landing-card landing-card-coming-soon">
+  <h2>Agents for Engineering (A4E)</h2>
+  <p>Documentation for Agents for Engineering.</p>
+  <span className="badge badge-soon">Coming Soon</span>
+</a>
+
+<a href="#" className="landing-card landing-card-coming-soon">
+  <h2>Agents for Manufacturing (A4M)</h2>
+  <p>Documentation for Agents for Manufacturing.</p>
+  <span className="badge badge-soon">Coming Soon</span>
 </a>
 
 </div>
 
----
+<h2 className="landing-section-head">Quick navigation</h2>
+<p className="landing-section-body">Use the sidebar in each asset section to browse topics. If a search bar appears in the navbar, you can use it to find specific content.</p>
 
-## Quick Navigation
+<p className="disclaimer-internal">These documents are for internal use only.</p>
 
-Use the search bar to find specific topics. Press Ctrl+K or Cmd+K to search.
+</div>
