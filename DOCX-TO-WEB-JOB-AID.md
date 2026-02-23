@@ -198,7 +198,7 @@ Your SharePoint-sourced content is now published as markdown on the static web a
 - **“No .docx files found”** — Check the path you entered; use a full path if the script doesn’t find the folder.
 - **Broken images** — Ensure the conversion script ran with the correct output folder so that `docs/media/` (or your output folder’s `media/`) contains the extracted images and the .md files reference them correctly.
 - **Build or MDX errors** — Fix the reported file/line (e.g. stray `{` or `<` in prose). Re-run `npm run build` after edits.
-- **Deployment fails in GitHub Actions** — Confirm the repo has the correct Azure secret (e.g. `AZURE_STATIC_WEB_APPS_API_TOKEN_...`) and that `output_location` in the workflow is `build` to match Docusaurus.
+- **Deployment fails in GitHub Actions** — Confirm the repo has the correct Azure secret (e.g. `AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_STONE_022C91210` for the dev-docs SWA). In Azure → your Static Web App → **Overview** → **Manage deployment token**, copy the token; in GitHub → repo **Settings** → **Secrets and variables** → **Actions**, add a secret with the exact name shown in the workflow YAML. Also ensure `output_location` in the workflow is `build` to match Docusaurus.
 - **404 on Azure Static Web App (all routes)** — The site is a SPA: the fallback must serve `index.html` so the client router can handle `/`, `/aot/...`, etc. In `staticwebapp.config.json`, set `navigationFallback.rewrite` to `"/index.html"` (not `"/404.html"`). A copy of the config in `static/` is included so it is deployed in the `build/` output.
 - **`git add -A` or `git add MD/` seems hung (cursor flashing or stuck on warnings)** — (1) Git may still be working; with 2500+ files it can take 1–2 minutes. (2) On Windows, "LF will be replaced by CRLF" warnings can flood the terminal and look like a freeze. To stop those warnings in this repo: `git config core.autocrlf false`. (3) If it still seems stuck, add in smaller chunks (see next bullet).
 - **`git add MD/` seems hung (cursor flashing)** — Adding the whole `MD/` tree can take a long time. In a **second** PowerShell window, run `Test-Path .git\index.lock`; if it returns `True`, Git is still working (or stuck). To add in smaller chunks: (1) Press **Ctrl+C** in the window where `git add` is running. (2) Remove the lock: `Remove-Item .git\index.lock -Force -ErrorAction SilentlyContinue`. (3) Add by asset folder: `git add MD/AOT/`, then `git add MD/IAI/`, then `git add MD/Thread/`. Add any root-level `.md` in `MD/` if needed (e.g. `git add MD/*.md`). (4) Run `git status` to confirm.
@@ -262,4 +262,5 @@ The issue template is in `.github/ISSUE_TEMPLATE/doc-feedback.yaml`. When direct
 ## Related documentation
 
 - **ASSETS-FOLDER-GUIDE.md** — How to organize `DOCX/` and `MD/` by asset (Thread, IAI, AOT, etc.) and add or retire assets without editing config.
+
 
