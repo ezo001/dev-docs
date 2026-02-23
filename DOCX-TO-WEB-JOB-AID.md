@@ -262,3 +262,4 @@ The issue template is in `.github/ISSUE_TEMPLATE/doc-feedback.yaml`. When direct
 ## Related documentation
 
 - **ASSETS-FOLDER-GUIDE.md** — How to organize `DOCX/` and `MD/` by asset (Thread, IAI, AOT, etc.) and add or retire assets without editing config.
+
