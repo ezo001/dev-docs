@@ -48,27 +48,26 @@ const config = {
         },
       };
     },
-    // Temporarily disabled to stay under Azure SWA 500 MB deployment limit. Re-enable after compressing images in MD/IAI/media.
-    // ['@docusaurus/plugin-content-docs', {
-    //   id: 'industrial-ai',
-    //   path: 'MD/IAI',
-    //   routeBasePath: 'industrial-ai',
-    //   sidebarPath: './sidebars-industrial-ai.js',
-    //   editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
-    // }],
+    ['@docusaurus/plugin-content-docs', {
+      id: 'industrial-ai',
+      path: 'MD/IAI',
+      routeBasePath: 'industrial-ai',
+      sidebarPath: './sidebars-industrial-ai.js',
+      editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
+    }],
     ['@docusaurus/plugin-content-docs', {
       id: 'digital-thread',
       path: 'MD/Thread',
       routeBasePath: 'digital-thread',
       sidebarPath: './sidebars-digital-thread.js',
-      editUrl: 'https://github.com/eolson1967/docusaurus-foundations/edit/main/',
+      editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
     }],
     ['@docusaurus/plugin-content-docs', {
       id: 'aot',
       path: 'MD/AOT',
       routeBasePath: 'aot',
       sidebarPath: './sidebars-aot.js',
-      editUrl: 'https://github.com/eolson1967/docusaurus-foundations/edit/main/',
+      editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
     }],
   ],
 
