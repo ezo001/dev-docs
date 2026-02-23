@@ -1,0 +1,82 @@
+name: Doc feedback
+description: Submit feedback on published documentation (change request)
+title: "[Doc feedback] "
+labels: ["docs-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to submit feedback on a document. One issue per piece of feedback.
+        Add the **docs-feedback** label if it isn't already applied.
+  - type: input
+    id: document-name
+    attributes:
+      label: Document name
+      description: Name of the document this feedback is about (e.g. from the doc title or URL)
+      placeholder: e.g. AOT_Getting_Started_Auriga
+    validations:
+      required: true
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product / application
+      description: The product or application the document belongs to
+      options:
+        - AOT
+        - IX Gen AI
+        - IX Digital Thread
+        - ADAPT
+        - MTAS
+        - EDD
+        - IEMP
+        - IEMP KG
+    validations:
+      required: true
+  - type: input
+    id: document-version
+    attributes:
+      label: Document version
+      description: Version from the document footer (if shown)
+      placeholder: e.g. 1.2 or Auriga
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: Your feedback regarding the document
+      placeholder: Describe what's wrong, unclear, or what you'd like to see changed.
+    validations:
+      required: true
+  - type: dropdown
+    id: is-issue
+    attributes:
+      label: Is this feedback about an issue when accessing or using the document?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        **Attachments:** You may drag and drop supporting files (screenshots, logs) into this issue.
+  - type: dropdown
+    id: where-accessed
+    attributes:
+      label: Where did you access this document?
+      options:
+        - IX Developer Hub
+        - Doc Team SharePoint
+        - email
+    validations:
+      required: true
+  - type: dropdown
+    id: contact-ok
+    attributes:
+      label: May the Doc Team contact you regarding this feedback?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true

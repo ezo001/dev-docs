@@ -1,32 +1,16 @@
 ---
-sidebar_position: 1
+id: intro
 slug: /
 title: Industrial AI Foundation
+sidebar_position: 1
 ---
 
-# Industrial AI Foundation
+<div className="landing-accenture">
 
-Comprehensive IoT and analytics platform for asset monitoring, optimization, and intelligent operations.
+<h1 className="landing-headline">Industrial AI Foundation</h1>
 
-## Overview
+<p className="landing-sub">Documentation for the Industrial AI platform: asset monitoring, extractors, Intelligent Advisor, Smart KPIs, and related guides.</p>
 
-The Industrial AI Foundation encompasses a suite of integrated systems designed to enable intelligent asset management, predictive analytics, and operational optimization across industrial environments.
+<p className="landing-section-body">Use the sidebar to navigate.</p>
 
-## Documentation Sections
-
-Browse the sidebar to explore:
-- Architecture Guides - System design and patterns
-- Deployment Guides - Cloud setup and configuration  
-- API References - Complete endpoint documentation
-- Technical Overviews - Component specifications
-- Getting Started - Quick start guides
-
-## Quick Links
-
-Start with these key documents:
-- Azure Architecture
-- AWS Architecture
-- Getting Started Guide
-- Smart KPIs API Reference
-
-[← Back to Home](/)
+</div>

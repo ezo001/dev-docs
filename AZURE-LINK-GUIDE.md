@@ -29,26 +29,11 @@ Use this if you want a clean setup or the current Azure app was created from ano
    - **Branch:** `main`
 9. Click **Review + create**, then **Create**.
 
-Azure will create the app and add a GitHub Actions workflow to **eolson1967/docusaurus-foundations**. Future pushes to `main` will deploy automatically.
-
-### 3. Get the deployment token (for the workflow secret)
-
-1. In the portal, open your new **Static Web App**.
-2. In the left menu, under **Settings**, click **Manage deployment token**.
-3. Click **Copy** and store it somewhere safe (you'll add it as a GitHub secret in the next step).
-
-### 4. Add the token as a secret in the docusaurus-foundations repo
-
-1. Go to [https://github.com/eolson1967/docusaurus-foundations](https://github.com/eolson1967/docusaurus-foundations).
-2. **Settings** → **Secrets and variables** → **Actions**.
-3. **New repository secret**.
-4. **Name:**  
-   The workflow file uses a name like `AZURE_STATIC_WEB_APPS_API_TOKEN_<APP_NAME>`.  
-   After creation, Azure adds a workflow to the repo; open `.github/workflows/azure-static-web-apps-*.yml` and copy the exact secret name from the `azure_static_web_apps_api_token` line (e.g. `AZURE_STATIC_WEB_APPS_API_TOKEN_DOCUSAURUS_FOUNDATIONS_XXXXX`).
-5. **Value:** paste the deployment token you copied in step 3.
-6. Save.
+Azure will create the app and add a GitHub Actions workflow to **eolson1967/docusaurus-foundations**. When you connect via the portal, the deployment token is usually added as a GitHub Actions secret **automatically**—you typically do not need to add it yourself.
 
 After the first push to `main`, the workflow will run and deploy. Your app URL will be shown in the Azure overview (e.g. `https://<name>.azurestaticapps.net`).
+
+**If deployments fail** with an auth error, add the secret manually: open your Static Web App in the portal → **Manage deployment token** → Copy; then in the repo go to **Settings** → **Secrets and variables** → **Actions** and create a secret with the name from the workflow file's `azure_static_web_apps_api_token` line, and paste the token as the value.
 
 ---
 

@@ -1,0 +1,21 @@
+
+> my-docs@0.0.0 start
+> cross-env NODE_OPTIONS=--max-old-space-size=8192 docusaurus start
+
+[INFO] Starting the development server...
+[SUCCESS] Docusaurus website is running at: http://localhost:3000/
+[90m[[90mwebpackbar[90m][39m [36mi[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [32mΓêÜ[39m Client: Compiled successfully in 2.00m
+[1mclient[39m[22m (webpack 5.104.1) compiled [1m[32msuccessfully[39m[22m
+[90m[[90mwebpackbar[90m][39m [36mi[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [32mΓêÜ[39m Client: Compiled successfully in 6.01s
+[1mclient[39m[22m (webpack 5.104.1) compiled [1m[32msuccessfully[39m[22m
+[90m[[90mwebpackbar[90m][39m [36mi[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [32mΓêÜ[39m Client: Compiled successfully in 6.22s
+[1mclient[39m[22m (webpack 5.104.1) compiled [1m[32msuccessfully[39m[22m
+[90m[[90mwebpackbar[90m][39m [36mi[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [32mΓêÜ[39m Client: Compiled successfully in 22.75s
+[1mclient[39m[22m (webpack 5.104.1) compiled [1m[32msuccessfully[39m[22m
+[90m[[90mwebpackbar[90m][39m [36mi[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [32mΓêÜ[39m Client: Compiled successfully in 1.27m
+[1mclient[39m[22m (webpack 5.104.1) compiled [1m[32msuccessfully[39m[22m

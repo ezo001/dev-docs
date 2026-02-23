@@ -1,30 +1,297 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Accenture branding alignment (Branding Guidelines July 2025)
+ * Primary typeface: Graphik (add .woff2 to static/font/ to use); otherwise Inter is used.
+ * Core purple #A100FF; light mode first; squares not circles; purple with purpose.
  */
 
-/* You can override the default Infima variables here. */
+/* Inter as primary until Graphik webfonts are in static/font/ (see static/font/README.md) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Accenture color system */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Core */
+  --accenture-purple: #A100FF;
+  --accenture-purple-dark: #7500C0;
+  --accenture-purple-darker: #460073;
+  --accenture-purple-light: #C2A3FF;
+  --accenture-purple-lightest: #E6DCFF;
+  /* Neutrals */
+  --accenture-black: #000000;
+  --accenture-white: #FFFFFF;
+  --accenture-gray-dark: #818180;
+  --accenture-gray-medium: #CFCFCF;
+  --accenture-gray-light: #F1F1EF;
+  /* Secondary (sparingly) */
+  --accenture-pink: #FF50A0;
+  --accenture-blue: #224BFF;
+  --accenture-aqua: #05F2DB;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Override Infima/Docusaurus to use Accenture palette */
+:root {
+  --ifm-color-primary: #A100FF;
+  --ifm-color-primary-dark: #7500C0;
+  --ifm-color-primary-darker: #460073;
+  --ifm-color-primary-light: #C2A3FF;
+  --ifm-color-primary-lightest: #E6DCFF;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.08);
+}
+
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #C2A3FF;
+  --ifm-color-primary-dark: #A100FF;
+  --ifm-color-primary-darker: #7500C0;
+  --ifm-color-primary-light: #E6DCFF;
+  --ifm-color-primary-lightest: #E6DCFF;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Accenture logo (global: top of every page via Layout) */
+.site-logo,
+.site-logo-global {
+  height: 2.25rem;
+  width: auto;
+  max-width: 12rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  margin-left: 0;
+  padding-left: 1rem;
+  display: block;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+/* Remove redundant theme-rendered title on asset landing pages (synthetic title is in .theme-doc-markdown > header) */
+.theme-doc-markdown:has(.landing-accenture) > header {
+  display: none !important;
+}
+
+/* Wider doc sidebar so filenames don't wrap */
+:root {
+  --doc-sidebar-width: 400px !important;
+}
+
+/* Landing / intro pages: Accenture aesthetic */
+.theme-doc-markdown .landing-accenture {
+  max-width: 900px;
+  margin-left: 0;
+}
+
+.landing-accenture .landing-tagline {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accenture-purple);
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.landing-accenture .landing-headline {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  color: var(--accenture-black);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.landing-accenture .landing-sub {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accenture-gray-dark);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.landing-accenture .landing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.landing-accenture .landing-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  background: var(--accenture-white);
+  border: 2px solid var(--accenture-gray-light);
+  border-left: 4px solid var(--accenture-purple);
+  /* Squares not circles per guidelines */
+  border-radius: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-accenture .landing-card:hover {
+  border-left-color: var(--accenture-purple-dark);
+  box-shadow: 0 4px 12px rgba(161, 0, 255, 0.08);
+}
+
+.landing-accenture .landing-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accenture-black);
+  margin: 0 0 0.5rem 0;
+}
+
+.landing-accenture .landing-card p {
+  flex-grow: 1;
+  margin: 0 0 1rem 0;
+  font-size: 0.9375rem;
+  color: var(--accenture-gray-dark);
+  line-height: 1.5;
+}
+
+.landing-accenture .landing-card .badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  width: fit-content;
+  border-radius: 0;
+}
+
+.landing-accenture .landing-card .badge-available {
+  background: var(--accenture-purple);
+  color: var(--accenture-white);
+}
+
+.landing-accenture .landing-card .badge-soon {
+  background: var(--accenture-gray-light);
+  color: var(--accenture-gray-dark);
+}
+
+.landing-accenture .landing-card-coming-soon {
+  cursor: default;
+  opacity: 0.9;
+}
+.landing-accenture .landing-card-coming-soon:hover {
+  border-left-color: var(--accenture-gray-medium);
+}
+
+.landing-accenture .landing-section-head {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accenture-black);
+  margin: 2rem 0 0.75rem 0;
+}
+
+.landing-accenture .landing-section-body {
+  font-size: 0.9375rem;
+  color: var(--accenture-gray-dark);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Dark mode landing */
+[data-theme='dark'] .landing-accenture .landing-headline,
+[data-theme='dark'] .landing-accenture .landing-card h2 {
+  color: var(--accenture-white);
+}
+
+[data-theme='dark'] .landing-accenture .landing-sub,
+[data-theme='dark'] .landing-accenture .landing-card p,
+[data-theme='dark'] .landing-accenture .landing-section-body {
+  color: var(--accenture-gray-medium);
+}
+
+[data-theme='dark'] .landing-accenture .landing-card {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-200);
+  border-left-color: var(--accenture-purple-light);
+}
+
+[data-theme='dark'] .landing-accenture .landing-tagline {
+  color: var(--accenture-purple-light);
+}
+
+/* Internal-use disclaimer on home and asset landing pages */
+.disclaimer-internal {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--accenture-gray-light);
+  font-size: 0.875rem;
+  color: var(--accenture-gray-dark);
+}
+
+[data-theme='dark'] .disclaimer-internal {
+  border-top-color: var(--ifm-color-emphasis-200);
+  color: var(--accenture-gray-medium);
+}
+
+/* Tables: visible cell borders (docx had all borders visible) */
+.theme-doc-markdown table,
+.markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+.theme-doc-markdown table th,
+.theme-doc-markdown table td,
+.markdown table th,
+.markdown table td {
+  border: 1px solid var(--accenture-gray-medium);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.theme-doc-markdown table th,
+.markdown table th {
+  background: var(--accenture-gray-light);
+  font-weight: 600;
+}
+[data-theme='dark'] .theme-doc-markdown table th,
+[data-theme='dark'] .theme-doc-markdown table td,
+[data-theme='dark'] .markdown table th,
+[data-theme='dark'] .markdown table td {
+  border-color: var(--ifm-color-emphasis-300);
+}
+[data-theme='dark'] .theme-doc-markdown table th,
+[data-theme='dark'] .markdown table th {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Doc title block: Asset name 18pt, topic 24pt, doc type 18pt (per user spec) */
+.doc-title-block {
+  margin-bottom: 1rem;
+}
+.doc-title-block .doc-asset-name,
+.doc-title-block .doc-type {
+  font-size: 18pt;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.25;
+}
+.doc-title-block .doc-topic {
+  font-size: 24pt;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.25;
+}
+.doc-version {
+  font-size: 0.9375rem;
+  margin: 0 0 1rem 0;
+  color: var(--accenture-gray-dark);
+}
+[data-theme='dark'] .doc-version {
+  color: var(--accenture-gray-medium);
+}
+
+/* Metadata table: for AI agents only, hidden from human readers */
+.metadata-for-agents {
+  display: none !important;
+}
+
+/* Show only the logo in the navbar; hide title and nav items to avoid crowding */
+.navbar__title {
+  display: none !important;
+}
+.navbar__items {
+  display: none !important;
+}
+.navbar__brand {
+  margin-right: 0;
 }
