@@ -35,3 +35,7 @@ Thumbs.db
 *.tmp
 *.bak
 migration-package.zip
+
+# Source Word docs (kept in SharePoint; only converted MD + media are in the repo)
+DOCX/
+*.docx

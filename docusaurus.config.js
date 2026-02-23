@@ -62,13 +62,6 @@ const config = {
       sidebarPath: './sidebars-digital-thread.js',
       editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
     }],
-    ['@docusaurus/plugin-content-docs', {
-      id: 'aot',
-      path: 'MD/AOT',
-      routeBasePath: 'aot',
-      sidebarPath: './sidebars-aot.js',
-      editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
-    }],
   ],
 
   themeConfig: {

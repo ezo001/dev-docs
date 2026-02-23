@@ -33,13 +33,13 @@ This guide walks you from downloading Word documents from SharePoint through to 
 
 ## Step 2: Put the DOCX files in a logical folder
 
-Use the **DOCX / MD** layout so you can add or retire assets (Thread, IAI, AOT, etc.) without editing config. See **ASSETS-FOLDER-GUIDE.md** for full details.
+Use the **DOCX / MD** layout so you can add or retire assets (Thread, IAI, etc.) without editing config. See **ASSETS-FOLDER-GUIDE.md** for full details. **Note:** AOT docs have been retired; IAI covers that content.
 
 1. Open the folder where your Docusaurus project lives (e.g. `my-docs`).
 2. Put source .docx files in **DOCX** under a subfolder for that asset:
    - **Digital Thread** → `DOCX/Thread/`
    - **Industrial AI** → `DOCX/IAI/`
-   - **New asset (e.g. AOT)** → create `DOCX/AOT/` and put .docx there.
+   - **New asset** → create a new subfolder under `DOCX/` (e.g. `DOCX/MyAsset/`) and put .docx there.
 3. Put **only** the .docx files you want to convert in that asset folder (no fixed list to maintain).
 
 **Example layout:**
@@ -48,15 +48,15 @@ Use the **DOCX / MD** layout so you can add or retire assets (Thread, IAI, AOT, 
 my-docs/
 ├── DOCX/               ← Source Word files (one subfolder per asset)
 │   ├── Thread/        ← Digital Thread .docx
-│   ├── IAI/           ← Industrial AI .docx
-│   └── AOT/           ← (optional) add when needed
+│   └── IAI/           ← Industrial AI .docx
 ├── MD/                 ← Converted markdown (same subfolder names)
 │   ├── Thread/
-│   ├── IAI/
-│   └── AOT/
+│   └── IAI/
 ├── convert_docx_to_markdown.py
 └── package.json
 ```
+
+**Note:** The repo and Azure deployment do not store the .docx source files; they remain in SharePoint. Only the converted `MD/` content and `docs/` are in Git (see `.gitignore`: `DOCX/`, `*.docx`). Use `DOCX/` locally only for running the conversion script.
 
 ---
 
@@ -198,11 +198,11 @@ Your SharePoint-sourced content is now published as markdown on the static web a
 - **“No .docx files found”** — Check the path you entered; use a full path if the script doesn’t find the folder.
 - **Broken images** — Ensure the conversion script ran with the correct output folder so that `docs/media/` (or your output folder’s `media/`) contains the extracted images and the .md files reference them correctly.
 - **Build or MDX errors** — Fix the reported file/line (e.g. stray `{` or `<` in prose). Re-run `npm run build` after edits.
-- **Deployment fails: "The size of the app content was too large" (500 MB limit)** — Azure Static Web Apps Standard plan allows 500 MB per environment. If your `build` output exceeds that, the upload is rejected. Reduce size by: (1) Temporarily excluding one doc section in `docusaurus.config.js` (comment out one `@docusaurus/plugin-content-docs` block for an asset). (2) Compressing images in `MD/*/media` (e.g. with a script or tool like `sharp`/`pngquant`). (3) Re-enable the section after reducing size.
+- **Deployment fails: "The size of the app content was too large" (500 MB limit)** — Azure Static Web Apps Standard plan allows 500 MB per environment. If your `build` output exceeds that, the upload is rejected. Reduce size by: (1) Temporarily excluding one doc section in `docusaurus.config.js` (comment out one `@docusaurus/plugin-content-docs` block for an asset). (2) Bulk-compress images: run `pip install Pillow`, then `python compress_media_images.py` (script in repo root; compresses PNG/JPEG in `MD/*/media` and optionally shrinks very large images). (3) Re-enable the section after reducing size.
 - **Deployment fails in GitHub Actions** — Confirm the repo has the correct Azure secret (e.g. `AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_STONE_022C91210` for the dev-docs SWA). In Azure → your Static Web App → **Overview** → **Manage deployment token**, copy the token; in GitHub → repo **Settings** → **Secrets and variables** → **Actions**, add a secret with the exact name shown in the workflow YAML. Also ensure `output_location` in the workflow is `build` to match Docusaurus.
-- **404 on Azure Static Web App (all routes)** — The site is a SPA: the fallback must serve `index.html` so the client router can handle `/`, `/aot/...`, etc. In `staticwebapp.config.json`, set `navigationFallback.rewrite` to `"/index.html"` (not `"/404.html"`). A copy of the config in `static/` is included so it is deployed in the `build/` output.
+- **404 on Azure Static Web App (all routes)** — The site is a SPA: the fallback must serve `index.html` so the client router can handle `/`, `/digital-thread/...`, `/industrial-ai/...`, etc. In `staticwebapp.config.json`, set `navigationFallback.rewrite` to `"/index.html"` (not `"/404.html"`). A copy of the config in `static/` is included so it is deployed in the `build/` output.
 - **`git add -A` or `git add MD/` seems hung (cursor flashing or stuck on warnings)** — (1) Git may still be working; with 2500+ files it can take 1–2 minutes. (2) On Windows, "LF will be replaced by CRLF" warnings can flood the terminal and look like a freeze. To stop those warnings in this repo: `git config core.autocrlf false`. (3) If it still seems stuck, add in smaller chunks (see next bullet).
-- **`git add MD/` seems hung (cursor flashing)** — Adding the whole `MD/` tree can take a long time. In a **second** PowerShell window, run `Test-Path .git\index.lock`; if it returns `True`, Git is still working (or stuck). To add in smaller chunks: (1) Press **Ctrl+C** in the window where `git add` is running. (2) Remove the lock: `Remove-Item .git\index.lock -Force -ErrorAction SilentlyContinue`. (3) Add by asset folder: `git add MD/AOT/`, then `git add MD/IAI/`, then `git add MD/Thread/`. Add any root-level `.md` in `MD/` if needed (e.g. `git add MD/*.md`). (4) Run `git status` to confirm.
+- **`git add MD/` seems hung (cursor flashing)** — Adding the whole `MD/` tree can take a long time. In a **second** PowerShell window, run `Test-Path .git\index.lock`; if it returns `True`, Git is still working (or stuck). To add in smaller chunks: (1) Press **Ctrl+C** in the window where `git add` is running. (2) Remove the lock: `Remove-Item .git\index.lock -Force -ErrorAction SilentlyContinue`. (3) Add by asset folder: `git add MD/IAI/`, then `git add MD/Thread/`. Add any other asset folders under `MD/` as needed. Add any root-level `.md` in `MD/` if needed (e.g. `git add MD/*.md`). (4) Run `git status` to confirm.
 - **“JavaScript heap out of memory” when running `npm start` or `npm run build`** — The site’s size can exceed Node’s default memory limit. The `package.json` scripts already set a higher limit (8 GB). If it still fails, set a larger limit before running:  
   **PowerShell:** `$env:NODE_OPTIONS="--max-old-space-size=8192"; npm start`  
   **Cmd:** `set NODE_OPTIONS=--max-old-space-size=8192 && npm start`  
@@ -262,6 +262,7 @@ The issue template is in `.github/ISSUE_TEMPLATE/doc-feedback.yaml`. When direct
 
 ## Related documentation
 
-- **ASSETS-FOLDER-GUIDE.md** — How to organize `DOCX/` and `MD/` by asset (Thread, IAI, AOT, etc.) and add or retire assets without editing config.
+- **ASSETS-FOLDER-GUIDE.md** — How to organize `DOCX/` and `MD/` by asset (Thread, IAI, etc.) and add or retire assets without editing config.
+
 
 

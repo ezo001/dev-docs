@@ -1,12 +1,1 @@
-{
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/assets/*", "/*.css", "/*.js", "/*.json", "/img/*", "/blog/*", "/search"]
-  },
-  "routes": [
-    { "route": "/industrial-ai/*", "rewrite": "/industrial-ai/index.html" },
-    { "route": "/digital-thread/*", "rewrite": "/digital-thread/index.html" },
-    { "route": "/aot/*", "rewrite": "/aot/index.html" }
-  ],
-  "mimeTypes": { ".json": "application/json" }
-}
+{"navigationFallback":{"rewrite":"/index.html","exclude":["/assets/*","/*.css","/*.js","/*.json","/img/*","/blog/*","/search"]},"routes":[{"route":"/industrial-ai/*","rewrite":"/industrial-ai/index.html"},{"route":"/digital-thread/*","rewrite":"/digital-thread/index.html"}],"mimeTypes":{".json":"application/json"}}

@@ -24,12 +24,6 @@ title: Industrial AI Solution
   <span className="badge badge-available">Available</span>
 </a>
 
-<a href="/aot/" className="landing-card">
-  <h2>Accenture Operations Twin</h2>
-  <p>Accenture Operations Twin and related documentation.</p>
-  <span className="badge badge-available">Available</span>
-</a>
-
 <a href="#" className="landing-card landing-card-coming-soon">
   <h2>Agents for Engineering (A4E)</h2>
   <p>Documentation for Agents for Engineering.</p>
