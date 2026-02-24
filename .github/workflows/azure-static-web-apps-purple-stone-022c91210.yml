@@ -41,10 +41,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_STONE_022C91210 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          # Use pre-built output from previous step (with MEDIA_BASE_URL/MEDIA_SAS so images are external).
-          app_location: "/"
+          # Point to the folder that already contains the built app (index.html, assets, etc.).
+          app_location: "build"
           skip_app_build: true
-          app_artifact_location: "build"
           api_location: ""
 
   close_pull_request_job:
