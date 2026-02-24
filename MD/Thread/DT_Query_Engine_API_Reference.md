@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: DT Query Engine API Reference
+hide_title: true
 ---
 
 <div class="doc-title-block">

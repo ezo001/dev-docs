@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: IAI Operations Hierarchy Backend Deployment Guide Azure
+hide_title: true
 ---
 
 <div class="doc-title-block">

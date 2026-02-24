@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: IAI Twin Builder and Twin Viewer Architecture Blueprint
+hide_title: true
 ---
 
 <div class="doc-title-block">

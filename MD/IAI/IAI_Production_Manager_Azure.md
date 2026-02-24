@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: IAI Production Manager Azure
+hide_title: true
 ---
 
 <div class="doc-title-block">

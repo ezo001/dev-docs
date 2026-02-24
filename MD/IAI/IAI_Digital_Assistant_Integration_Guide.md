@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: IAI Digital Assistant Integration Guide
+hide_title: true
 ---
 
 <div class="doc-title-block">

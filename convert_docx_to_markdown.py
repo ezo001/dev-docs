@@ -1118,6 +1118,7 @@ def convert_docx_to_markdown(docx_file, input_dir, output_dir, dump_pandoc=False
             frontmatter = f"""---
 sidebar_position: 2
 title: {doc_title}
+hide_title: true
 ---
 
 """

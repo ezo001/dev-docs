@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: DT Data Discovery Automation Pipelines Overview
+hide_title: true
 ---
 
 <div class="doc-title-block">

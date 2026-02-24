@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: IAI People Management Integration with SmartKPIs Azure
+hide_title: true
 ---
 
 <div class="doc-title-block">

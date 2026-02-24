@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: IAI Intelligent Advisor Delivery Guide AWS
+hide_title: true
 ---
 
 <div class="doc-title-block">

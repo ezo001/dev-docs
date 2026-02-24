@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: IAI Hexagon Extractor Deployment Guide
+hide_title: true
 ---
 
 <div class="doc-title-block">

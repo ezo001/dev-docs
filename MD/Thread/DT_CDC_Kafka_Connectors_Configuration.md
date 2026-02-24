@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: DT CDC Kafka Connectors Configuration
+hide_title: true
 ---
 
 <div class="doc-title-block">

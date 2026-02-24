@@ -64,8 +64,9 @@
   align-self: flex-start;
 }
 
-/* Remove redundant theme-rendered title on asset landing pages (synthetic title is in .theme-doc-markdown > header) */
-.theme-doc-markdown:has(.landing-accenture) > header {
+/* Remove redundant theme-rendered title: sidebar and breadcrumbs already show doc title (Callouts 1 & 2) */
+.theme-doc-markdown:has(.landing-accenture) > header,
+.theme-doc-markdown:has(.doc-title-block) > header {
   display: none !important;
 }
 
@@ -254,7 +255,7 @@
   background: var(--ifm-color-emphasis-100);
 }
 
-/* Doc title block: Asset name 18pt, topic 24pt, doc type 18pt (per user spec) */
+/* Doc title block: topic is the content H1 (sidebar/breadcrumb show doc title). Asset/type 18pt, topic = H1 size */
 .doc-title-block {
   margin-bottom: 1rem;
 }
@@ -265,9 +266,10 @@
   margin: 0 0 0.25rem 0;
   line-height: 1.25;
 }
+/* Topic line is the page H1 (sidebar/breadcrumb show doc name); match first-heading size */
 .doc-title-block .doc-topic {
-  font-size: 24pt;
-  font-weight: 600;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--ifm-heading-font-weight, 700);
   margin: 0 0 0.25rem 0;
   line-height: 1.25;
 }
