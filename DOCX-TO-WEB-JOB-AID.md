@@ -206,18 +206,13 @@ When you change **one file** in SharePoint and want that change on GitHub and th
 
 ---
 
-## Editing markdown directly from the live site (Edit link)
+## Editing markdown (team) and who can commit
 
-You can change doc content without re-downloading from SharePoint or re-running the conversion script:
+Each doc page has an **Edit this page** link at the bottom so your team can edit easily. It opens that doc’s `.md` file on GitHub in edit mode; after editing, scroll down, add a commit message, and click **Commit changes** (or **Propose changes**). Only people with **write access** to the repo can commit directly; everyone else gets **Propose changes** (fork + pull request).
 
-1. Open the published doc on your **Azure Static Web App** (or run `npm start` and open the doc locally).
-2. At the bottom of the page, click **Edit this page**.
-3. Your browser opens **GitHub** with that markdown file in edit mode (e.g. `MD/IAI/Some_Doc.md` or `MD/Thread/Another_Doc.md`).
-4. Edit the markdown in the GitHub editor. **Scroll down** — the save control is below the editor: enter an optional commit message, then click the green **Commit changes** (or **Propose changes**) button. Commit to the branch that deploys (usually `main`). GitHub does not auto-save; you must commit to save.
-5. **GitHub Actions** will run the build and deploy workflow. When it finishes successfully, the Azure Static Web App will show your changes.
+**Controlling who can commit:** In GitHub **Settings → Collaborators** (or **Manage access**), grant **Write** only to your doc team. Anyone without write access can still open the Edit link but will only get **Propose changes** (fork + PR), not commit to `main`. Optionally, in **Settings → Branches** add a rule for `main` to require pull request reviews. For small fixes use the Edit link; for large or Word-sourced updates use the **SharePoint → DOCX → convert** flow. Other readers use **Doc feedback** (GitHub Issues) to suggest changes.
 
-**When to use this:** Small fixes (typos, one sentence, link updates). For large edits or content that originates in Word, use the SharePoint → DOCX → convert flow so the source stays in sync. If you add or change images in the markdown, put the image files in the repo under the doc’s `media/` folder (or re-run `npm run upload-media` if you use external blob storage and the files are under `MD/*/media/`).
-
+ See **Collecting feedback (GitHub Issues)** in this job aid.
 ---
 
 ## Build and deploy commands (summary)

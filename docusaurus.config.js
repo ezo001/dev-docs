@@ -34,7 +34,7 @@ const config = {
         path: 'docs',
         routeBasePath: '/',
         sidebarPath: './sidebars.js',
-        editUrl: 'https://github.com/eolson1967/docusaurus-foundations/edit/main/',
+        editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
       },
       blog: false,
       theme: {customCss: './src/css/custom.css'},
