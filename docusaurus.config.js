@@ -76,6 +76,20 @@ const config = {
         ? [[remarkExternalMedia, { baseUrl: MEDIA_BASE_URL, sasQuery: MEDIA_SAS }]]
         : [],
     }],
+    // Local keyword search (index at build time, search in browser; no content leaves the site).
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: ['/', 'industrial-ai', 'digital-thread'],
+        docsDir: ['docs', 'MD/IAI', 'MD/Thread'],
+        searchResultLimits: 15,
+        searchResultContextMaxLength: 60,
+      },
+    ],
   ],
 
   themeConfig: {

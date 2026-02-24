@@ -275,9 +275,13 @@ If you use external media (see MEDIA-STORAGE.md), run `npm run upload-media` bef
 
 ---
 
-## Search (to add later)
+## Search
 
-The site must have keyword search. Use a **local / client-side** search solution so that content never leaves your environment (index built at build time, search runs in the browser). Do **not** use Algolia or other cloud search for internal-only docs, as they crawl and store your content on external servers.
+The site uses **local keyword search**: the index is built at build time and search runs in the browser, so content never leaves your environment. Do **not** use Algolia or other cloud search for internal-only docs.
+
+- **Plugin:** `@easyops-cn/docusaurus-search-local` (configured in `docusaurus.config.js`).
+- **How to use:** Click the search icon in the top navbar (or use the keyboard shortcut if configured), type keywords, and choose a result. Search covers the landing docs (`docs/`), Industrial AI (`MD/IAI`), and Digital Thread (`MD/Thread`).
+- **Rebuilding:** After adding or changing docs, run `npm run build` (and deploy) so the search index is regenerated.
 
 ---
 
