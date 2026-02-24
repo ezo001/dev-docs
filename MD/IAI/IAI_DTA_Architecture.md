@@ -203,10 +203,17 @@ It is a multi-agentic implementation developed with Langchain framework combinin
 | Rephrase Agent | Prompt for this can be found at the function rephrase in the file [IAI_template.py](https://dev.azure.com/DigitalPlantProject/Marilyn%20V/_git/AOT-Azure?path=/Consumption/DataAccess/GenAI/GenAIQueryAPI/genai_middleware/genai_ms/app/gen_ai/AOT_template.py). Its purpose is to transform/rephrase the question using the chat history to have the context memory accessible to the agents further down the pipeline |
 | Router Agent | Prompt for this can be found at the function route_classify in the file [IAI_template.py](https://dev.azure.com/DigitalPlantProject/Marilyn%20V/_git/AOT-Azure?path=/Consumption/DataAccess/GenAI/GenAIQueryAPI/genai_middleware/genai_ms/app/gen_ai/AOT_template.py). Its purpose is to determine which of the two sources the question can be answered from GraphQL (or) Unstructured. |
 | GraphQL Agent | This is a complex agent which uses a templatized approach, a combination of intent detection, template filling and database Query agents. |
-| RAG Agent | The Agent creates the embedding of the user question using the text-embedding-three-small model. The embedding is passed to the AI Search service to retrieve the top three ranked embeddings. The Agent uses the text associated with these top three embeddings to formulate the final answer for the user question. ![](./media/IAI_DTA_Architecture/image6.png)
-**Execution** The implementation steps are executed with the LangChain agent executor. The prompt for this can be found at sql_agent_base_prompt_intent in the file [base_prompts.py](https://dev.azure.com/DigitalPlantProject/Marilyn%20V/_git/AOT-Azure?path=/Consumption/DataAccess/GenAI/GenAIQueryAPI/genai_middleware/genai_ms/app/gen_ai/algo/prompt_template/base_prompts.py) |
-| 1. | Detect the intent of the user question from the available list of master intents. Prompt for this can be found at the function intent_classify in the file [IAI_template.py](https://dev.azure.com/DigitalPlantProject/Marilyn%20V/_git/AOT-Azure?path=/Consumption/DataAccess/GenAI/GenAIQueryAPI/genai_middleware/genai_ms/app/gen_ai/AOT_template.py) |
-| 2. | Pass the detected intent along with the user question to the Response Agent. |
-| 3. | The Agent first looks for the mapped questions and queries for the detected intent and then fetches the pre-built query (or) creates the query for the user question and fill in the templates of the mapped query with parameters available in the question. |
-| 4. | The created query is passed to the query execution tool and retrieves the results in the form of a json. |
-| 5. | The Agent formulates the final response for the user questions utilizing the query results. **Consumption API** Input -- \{\"User_Query\":\" What are the issues faced in the plant?\",\"TimeZone\":\"4:30PM IST\"\} |
+| RAG Agent | The Agent creates the embedding of the user question using the text-embedding-three-small model. The embedding is passed to the AI Search service to retrieve the top three ranked embeddings. The Agent uses the text associated with these top three embeddings to formulate the final answer for the user question.|
+
+![](./media/IAI_DTA_Architecture/image6.png)
+
+**Execution** 
+The implementation steps are executed with the LangChain agent executor. The prompt for this can be found at sql_agent_base_prompt_intent in the file [base_prompts.py](https://dev.azure.com/DigitalPlantProject/Marilyn%20V/_git/AOT-Azure?path=/Consumption/DataAccess/GenAI/GenAIQueryAPI/genai_middleware/genai_ms/app/gen_ai/algo/prompt_template/base_prompts.py)
+1. Detect the intent of the user question from the available list of master intents. Prompt for this can be found at the function intent_classify in the file [IAI_template.py](https://dev.azure.com/DigitalPlantProject/Marilyn%20V/_git/AOT-Azure?path=/Consumption/DataAccess/GenAI/GenAIQueryAPI/genai_middleware/genai_ms/app/gen_ai/AOT_template.py)
+2. Pass the detected intent along with the user question to the Response Agent.
+3. The Agent first looks for the mapped questions and queries for the detected intent and then fetches the pre-built query (or) creates the query for the user question and fill in the templates of the mapped query with parameters available in the question.
+4. The created query is passed to the query execution tool and retrieves the results in the form of a json.
+5. The Agent formulates the final response for the user questions utilizing the query results.
+
+**Consumption API** 
+Input -- \{\"User_Query\":\" What are the issues faced in the plant?\",\"TimeZone\":\"4:30PM IST\"\} |
