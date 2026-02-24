@@ -6,7 +6,7 @@ title: Industrial AI Solution
 
 <div className="landing-accenture">
 
-<h1 className="landing-headline">TECH DOCS</h1>
+<h1 className="landing-headline">DEV DOCS</h1>
 
 <p className="landing-sub">Select a card to explore documentation for each asset.</p>
 
