@@ -9,8 +9,7 @@ title: IAI DTA Architecture
 <p class="doc-type">ARCHITECTURE AND IMPLEMENTATION GUIDE</p>
 </div>
 
-<p class="doc-version">Release Version: 2.5![](./media/IAI_DTA_Architecture/image1.png)</p>
-![](./media/IAI_DTA_Architecture/image2.png)
+<p class="doc-version">Release Version: 2.5</p>
 
 ## Introduction
 
