@@ -70,9 +70,7 @@ Users who will be viewing Azure Monitor dashboards should have access to the Azu
 
 ## Monitoring Components
 
-### 
-
-## Metrics
+### Metrics
 
 Azure resources generate metrics, which are quantitative measurements providing insight into the performance, utilization, and health status of various Azure services and components. These metrics encompass a wide range of parameters, including CPU utilization, memory usage, network throughput, and availability. By tracking metrics, users can monitor resource performance, detect anomalies, and optimize resource usage to ensure efficient operation of Azure services.
 
@@ -100,10 +98,10 @@ Dashboards provide a consolidated view of metrics, logs, and insights, offering 
 
 1.  From the left navigation bar in Azure, select Dashboard.
 
-> ![dashboard selection option in left navigation bar](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image2.png)
+![dashboard selection option in left navigation bar](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image2.png)
 2.  On the default dashboard, use the pull-down menu to select the dashboard to view or click on *Browse all dashboards* to view all the dashboards that have been created.
 
-> ![pull-down menu on the dashboard](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image3.png)
+![pull-down menu on the dashboard](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image3.png)
 
 ### Dashboard Usage
 
@@ -117,7 +115,7 @@ The Time Range Filter allows users to customize data analysis by selecting from 
 
 ![Time range filter](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image5.png)
 
-[Time Range Options]
+>Time Range Options
 
 -   Past 30 minutes
 
