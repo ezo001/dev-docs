@@ -14,24 +14,38 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    env:
+      # Set MEDIA_BASE_URL so doc images are served from Azure Blob instead of bundled (keeps build under 500 MB).
+      # Optional: set MEDIA_SAS (as a secret) when the container is private and org policy blocks anonymous access.
+      # See MEDIA-STORAGE.md for setup.
+      MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+      MEDIA_SAS: ${{ secrets.MEDIA_SAS }}
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
-      - name: Build And Deploy
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Build (with optional external media URL)
+        run: |
+          npm ci
+          npm run build
+      - name: Deploy to Azure Static Web Apps
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_STONE_022C91210 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "build" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          # Use pre-built output from previous step (with MEDIA_BASE_URL/MEDIA_SAS so images are external).
+          app_location: "/"
+          skip_app_build: true
+          app_artifact_location: "build"
+          api_location: ""
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
