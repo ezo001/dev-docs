@@ -28,6 +28,7 @@ title: IAI DTA Expert Knowledge Architecture
 | **Related Assets / Alternatives** | |
 |  |
 
+
 ## Introduction
 
 Industrial AI Foundation (IAI) is a collection of software accelerators and tools, including Digital Twin Assistant, that can be assembled to deliver client solutions. IAI accelerates the integration of product, process, and live data from disparate IT and OT systems, creating a comprehensive and contextualized view of operations to enable better decisions and optimized processes.
