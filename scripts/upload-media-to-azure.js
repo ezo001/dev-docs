@@ -6,7 +6,8 @@
  * serves images used by the remark-external-media plugin.
  *
  * Requires: npm install @azure/storage-blob
- * Env: AZURE_STORAGE_CONNECTION_STRING (or AZURE_STORAGE_ACCOUNT + AZURE_STORAGE_ACCESS_KEY)
+ * Env: AZURE_STORAGE_CONNECTION_STRING = full connection string from Azure Portal
+ *        (Storage account → Access keys → Connection string). Do NOT use the SAS query string here.
  *      AZURE_MEDIA_CONTAINER (default: docs-media)
  *
  * Usage:
@@ -71,12 +72,14 @@ async function main() {
       new StorageSharedKeyCredential(account, key)
     );
   } else {
-    console.error('Set AZURE_STORAGE_CONNECTION_STRING or AZURE_STORAGE_ACCOUNT + AZURE_STORAGE_ACCESS_KEY');
+    console.error('Set AZURE_STORAGE_CONNECTION_STRING (from Azure Portal → Storage account → Access keys → Connection string).');
+    console.error('Do not use the SAS query string; use the full connection string (starts with DefaultEndpointsProtocol=...).');
     process.exit(1);
   }
 
   const containerClient = client.getContainerClient(containerName);
-  await containerClient.createIfNotExists({ access: 'blob' });
+  // Create container with no public access (private). Site uses SAS (MEDIA_SAS) to read.
+  await containerClient.createIfNotExists();
 
   let total = 0;
   for (const { localDir, blobPrefix } of ASSETS) {

@@ -87,7 +87,9 @@ const config = {
         srcDark: 'img/acn-logo.png',
       },
       title: 'Docs',
-      items: [],
+      items: [
+        { to: '/', label: 'Home', position: 'left' },
+      ],
     },
     prism: {theme: prismThemes.github, darkTheme: prismThemes.dracula},
   },

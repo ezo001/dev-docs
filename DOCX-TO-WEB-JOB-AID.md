@@ -179,16 +179,77 @@ Your SharePoint-sourced content is now published as markdown on the static web a
 
 ---
 
+## Applying a single update from SharePoint
+
+When you change **one file** in SharePoint and want that change on GitHub and the Azure Static Web App:
+
+1. **Download** the updated .docx from SharePoint (only that file).
+2. **Replace** the existing file in the right asset folder: put it in `DOCX/IAI/`, `DOCX/Thread/`, or the matching `DOCX/<Asset>/` (overwrite the old .docx).
+3. **Convert** without wiping existing markdown:
+   ```bash
+   python convert_docx_to_markdown.py --all --no-clear
+   ```
+   Or convert only that asset, e.g. `python convert_docx_to_markdown.py DOCX\IAI MD\IAI` (no `--no-clear` if that asset folder only has that one doc).
+4. **If you use external media** (see MEDIA-STORAGE.md): upload any new or changed images to Azure Blob so the live site can show them:
+   ```bash
+   npm run upload-media
+   ```
+   (Set `AZURE_STORAGE_CONNECTION_STRING` and `AZURE_MEDIA_CONTAINER` in the environment if needed.)
+5. **Build** to confirm the site compiles: `npm run build`.
+6. **Commit and push to GitHub:**
+   ```bash
+   git add MD/
+   git commit -m "Update doc from SharePoint: <doc or topic name>"
+   git push origin main
+   ```
+7. **Azure:** Pushing to `main` triggers the GitHub Actions workflow; it builds and deploys to the Azure Static Web App. Check **Actions** in the repo until the run succeeds, then open your Static Web App URL to confirm the updated doc and images.
+
+---
+
+## Editing markdown directly from the live site (Edit link)
+
+You can change doc content without re-downloading from SharePoint or re-running the conversion script:
+
+1. Open the published doc on your **Azure Static Web App** (or run `npm start` and open the doc locally).
+2. At the bottom of the page, click **Edit this page**.
+3. Your browser opens **GitHub** with that markdown file in edit mode (e.g. `MD/IAI/Some_Doc.md` or `MD/Thread/Another_Doc.md`).
+4. Edit the markdown in the GitHub editor. **Scroll down** — the save control is below the editor: enter an optional commit message, then click the green **Commit changes** (or **Propose changes**) button. Commit to the branch that deploys (usually `main`). GitHub does not auto-save; you must commit to save.
+5. **GitHub Actions** will run the build and deploy workflow. When it finishes successfully, the Azure Static Web App will show your changes.
+
+**When to use this:** Small fixes (typos, one sentence, link updates). For large edits or content that originates in Word, use the SharePoint → DOCX → convert flow so the source stays in sync. If you add or change images in the markdown, put the image files in the repo under the doc’s `media/` folder (or re-run `npm run upload-media` if you use external blob storage and the files are under `MD/*/media/`).
+
+---
+
+## Build and deploy commands (summary)
+
+From the project folder:
+
+1. **Build** the site (required before deploy):
+   ```bash
+   npm run build
+   ```
+2. **Deploy** by pushing to the branch that triggers the workflow (usually `main`). Deployment runs automatically in GitHub Actions; there is no separate deploy command to run locally.
+   ```bash
+   git add MD/
+   git commit -m "Add/update docs from SharePoint DOCX conversion"
+   git push origin main
+   ```
+3. In GitHub, open **Actions** and wait for the workflow to succeed. The Azure Static Web App will then show your changes.
+
+If you use external media (see MEDIA-STORAGE.md), run `npm run upload-media` before building. When building in CI, set `MEDIA_BASE_URL` (and `MEDIA_SAS` if the container is private).
+
+---
+
 ## Quick reference
 
 | Step | Action |
 |------|--------|
 | 1 | Download .docx from SharePoint (and extract from .zip if needed). |
 | 2 | Put .docx in `DOCX/<Asset>/` (e.g. DOCX/IAI, DOCX/Thread). See ASSETS-FOLDER-GUIDE.md. |
-| 3 | Run `python convert_docx_to_markdown.py --all` (or run per-asset with paths). |
+| 3 | Run `python convert_docx_to_markdown.py --all` (or run per-asset with paths). Use `--all --no-clear` to only add/update. |
 | 4 | Run `npm start` and review the new docs in the browser. |
-| 5 | Run `npm run build` to verify the site builds. |
-| 6 | `git add docs/` (or your output folder), `git commit`, `git push origin main`. |
+| 5 | Run `npm run build` to verify the site builds. If using external media, run `npm run upload-media` after converting. |
+| 6 | `git add MD/` (or your output folder), `git commit`, `git push origin main`. |
 | 7 | Check GitHub Actions until the deployment workflow succeeds. |
 | 8 | Open your Azure Static Web App URL and confirm the docs are live. |
 
