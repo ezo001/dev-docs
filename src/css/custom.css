@@ -285,11 +285,8 @@
   display: none !important;
 }
 
-/* Show only the logo in the navbar; hide title and nav items to avoid crowding */
+/* Show logo and nav items (e.g. Home) in the navbar; hide title to avoid crowding */
 .navbar__title {
-  display: none !important;
-}
-.navbar__items {
   display: none !important;
 }
 .navbar__brand {
