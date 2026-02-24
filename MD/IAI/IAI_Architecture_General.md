@@ -26,8 +26,6 @@ title: IAI Architecture General
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) **Related Assets / Alternatives** |
 
-## 
-
 
 </div>
 
@@ -67,7 +65,6 @@ Familiarity with Cognite Data Fusion (CDF)
 
 -   [IAI People Management Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/64)
 
-### 
 
 ## Glossary
 
@@ -209,21 +206,21 @@ Cognite DataOps platform delivers a set of [Standard Extractors](https://docs.co
 | --- | --- |
 | SAP PM Extractor | Azure Blob Storage |
 | OSI PI AF Extractor | Local File System Hexagon Extractor Once the data from the extractors are in CDF RAW, one of the options to transform the raw data into the CDF knowledge graph (Digital Twin) structure is to use the [transformation services](https://docs.cognite.com/cdf/integration/guides/transformation/transformations) that are built into CDF. IAI provides the possibility to dynamically create deployment pipelines to automate the deployment, configuration, and scheduling of the Spark SQL queries used by the CDF Transformation service. The CDF Transformation service is based on the configuration provided by the users in a configuration file. In the configuration file, the user can specify all necessary parameters of a Transformation that would help to create and update the Knowledge Graph in Cognite Data Fusion. Some of the necessary parameters of a transformation are listed in the table on the right. |
-| ### | Configuration Parameters |
-| - | External ID |
-| - | Transformation Name |
-| - | Spark SQL Query for Running the Transformation |
-| - | CDF Database Name |
-| - | CDF Database Table Name |
-| - | CDF DataSetId |
-| - | Schedule Time for Transformation Schedule One of the main use cases of the Transformation in IAI is the creation of the Asset Hierarchy, which is a treelike structure representing a client's facility. The extractors extract the Asset Hierarchy from the client's source system--typically SAP PM--and then transform it into a CDF knowledge graph structure. In some cases, multiple asset hierarchies must be standardized and merged to form the complete representation of the plant in the CDF Data model/knowledge graph. The knowledge graph can be enhanced with additional data coming from: |
+|   |
+### Configuration Parameters
+ -  External ID 
+ -  Transformation Name
+ -  Spark SQL Query for Running the Transformation
+ -  CDF Database Name
+ -  CDF Database Table Name
+ -  CDF DataSetId
+### Schedule Time for Transformation Schedule
+One of the main use cases of the Transformation in IAI is the creation of the Asset Hierarchy, which is a treelike structure representing a client's facility. The extractors extract the Asset Hierarchy from the client's source system--typically SAP PM--and then transform it into a CDF knowledge graph structure. In some cases, multiple asset hierarchies must be standardized and merged to form the complete representation of the plant in the CDF Data model/knowledge graph. The knowledge graph can be enhanced with additional data coming from: |
 | - | Other source systems using the Transformation and contextualization services |
 | - | An extractor (e.g., time series from sensors, events from alerting systems, etc.) |
 | - | External services (Azure Functions, Databricks, Azure Data Factory, etc.) See also: [IAI Extractors Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/46) |
 
-### 
-
-# Intelligent Advisor
+### Intelligent Advisor
 
 IAI's Intelligent Advisor (IA) is an AI-based solution that enables users of all types -- from shop floor workers to top management -- to focus on their most critical issues, with real-time generated, prioritized, and contextualized insights and recommendations. It can help all levels of the value chain by predicting useful insights, highlighting the root causes notifying relevant colleagues, recommending appropriate actions, and ultimately improving the performance of end-to-end operations.
 
