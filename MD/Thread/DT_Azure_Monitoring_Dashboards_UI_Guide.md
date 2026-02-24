@@ -187,9 +187,7 @@ The Triggers Run Dashboard displays information about triggers associated with t
 
 ![Triggers Run dashboard](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image14.png)
 
-### 
-
-## Activity Runs Dashboard
+### Activity Runs Dashboard
 
 Activity Runs Dashboard provides insights into individual activities or tasks within the pipelines. Users can view activity status, execution details, and resource consumption for each task. Visualizations include an overview of activity runs, displaying their status alongside various aggregations for enhanced analysis.
 
@@ -275,9 +273,7 @@ The VM metrics section offers vital insights into virtual machine (VM) health an
 
 ![ix-qa-avevavm Dashboard - VM Metrics](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image27.png)
 
-#### 
-
-## VM Availability Metric
+### VM Availability Metric
 
 The VM availability metric, currently in public preview, serves as a valuable indicator of a machine\'s operational status. With this metric, users can track availability trends over time and set alerts to notify if the machine is stopped. The metric values are as follows:
 
@@ -286,8 +282,14 @@ The VM availability metric, currently in public preview, serves as a valuable in
 | --- | --- |
 | 1 | VM is running and available. |
 | 0 | VM is unavailable. The VM could be stopped or rebooting. If you shut down a VM from within the VM, it will emit this value. |
-| Null | The state of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it will immediately stop emitting the availability metric, and you will see null values. ![VM Availability Metrics preview](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image28.png)
-**\ Heartbeat Metric** Heartbeat monitoring is a critical aspect of assessing the health and availability of virtual machines (VMs) within an infrastructure. It involves regular signals sent from the VM to the monitoring system, indicating operational status and responsiveness. The \"avg=1\" suggests an average interval of 1 second between each heartbeat, indicating regular and frequent communication, which is a positive sign of the VM\'s health and responsiveness. ![Heartbeat Metric Preview](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image28.png)
+| Null | The state of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it will immediately stop emitting the availability metric, and you will see null values.
+
+![VM Availability Metrics preview](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image28.png)
+
+**Heartbeat Metric** 
+Heartbeat monitoring is a critical aspect of assessing the health and availability of virtual machines (VMs) within an infrastructure. It involves regular signals sent from the VM to the monitoring system, indicating operational status and responsiveness. The \"avg=1\" suggests an average interval of 1 second between each heartbeat, indicating regular and frequent communication, which is a positive sign of the VM\'s health and responsiveness.
+
+![Heartbeat Metric Preview](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image28.png)
 |  |
 
 
@@ -299,7 +301,7 @@ Resource Health provides users with information about the availability status of
 
 The Connections Overview component within the VM Metrics section provides a concise summary of virtual machine (VM) network connections. It includes details such as the connection name, type, any connections flagged as potentially malicious, response data, maximum live links, failed link counts, average response time, and total bytes transmitted and received. This summary offers users a comprehensive understanding of the VM\'s network connections, facilitating effective monitoring and management of network resources.
 
-\_\_\_\_\_![Resource Health and Connections Overview UI](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image29.png)
+![Resource Health and Connections Overview UI](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image29.png)
 
 ### Performance Metrics
 
@@ -309,18 +311,15 @@ Performance metrics provide crucial insights into the health and efficiency of v
 
 The CPU utilization percentage indicates the proportion of the CPU\'s processing capacity currently in use. High CPU utilization may indicate resource contention or workload spikes, potentially impacting VM performance and responsiveness.
 
-**\
-Inbound Flows vs % CPU**
+**Inbound Flows vs % CPU**
 
 This metric compares the number of inbound network flows to the CPU utilization percentage. A higher number of inbound flows relative to CPU utilization may suggest network-bound workloads, where incoming network traffic is a bottleneck affecting CPU performance.
 
-**\
-CPU Utilization %**
+**CPU Utilization %**
 
 CPU utilization percentage reflects the extent to which the CPU is being utilized at a given moment. It provides a comprehensive view of the overall CPU workload, including both user and system processes. Monitoring CPU utilization helps administrators identify performance bottlenecks, optimize resource allocation, and ensure efficient CPU usage across VMs.
 
-**\
-Available Memory (MB)**
+**Available Memory (MB)**
 
 Available memory indicates the amount of unused memory available for use by VMs. Low available memory may indicate memory contention, where VMs compete for resources, potentially leading to performance degradation or resource exhaustion. Monitoring available memory helps administrators optimize memory allocation, identify potential memory constraints, and ensure adequate resource availability for VM workloads.
 
@@ -340,23 +339,24 @@ Disk operations metrics offer insights into the performance and utilization of v
 
 These metrics track the rates of read and write operations individually, providing insights into the workload intensity for each type of operation.
 
-**\
-****Disk Operations/sec**
+**Disk Operations/sec**
 
 Represents the total rate of disk operations, including both read and write operations, executed by the VM disks per second. It provides an overview of the overall disk activity and workload intensity.
 
-**\
-****Logical Disk IOPS (Input/Output Operations Per Second)**
+**Logical Disk IOPS (Input/Output Operations Per Second)**
 
 Measures the number of input/output operations executed by the VM disks per second, reflecting the disk\'s ability to handle concurrent read and write requests.
 
 ![Disk Operations - Disk Reads and Writes , Disk Operations/sec, Logical Disk IOPS (Input/Output Operations Per Second)](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image32.png)
 
-**Logical Disk MB/s (Megabytes per Second):** Indicates the rate of data transfer to and from the VM disks, offering insights into disk throughput capacity and data transfer efficiency.
+**Logical Disk MB/s (Megabytes per Second):** 
+Indicates the rate of data transfer to and from the VM disks, offering insights into disk throughput capacity and data transfer efficiency.
 
-**Max Logical Disk Used%:** Reflects the maximum percentage of disk space utilized on the VM disks, helping administrators monitor disk space utilization and anticipate potential storage capacity issues.
+**Max Logical Disk Used%:** 
+Reflects the maximum percentage of disk space utilized on the VM disks, helping administrators monitor disk space utilization and anticipate potential storage capacity issues.
 
-**Logical Disk Latency:** Measures the time taken for the VM disks to process read and write requests, indicating the responsiveness of the disk subsystem and potential latency-related performance issues.
+**Logical Disk Latency:** 
+Measures the time taken for the VM disks to process read and write requests, indicating the responsiveness of the disk subsystem and potential latency-related performance issues.
 
 ![Disk Operations- Logical Disk MB/s (Megabytes per Second, Max Logical Disk Used%: , Logical Disk Latency: ](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image32.png)
 
@@ -376,36 +376,37 @@ Storage Account Overview provides a comprehensive overview of the Azure Blob Sto
 
 ![Azure Blob Storage Dashboard- Storage Account Overview](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image34.png)
 
-| **Transactions by Storage Type:** Analyses transactional activity categorized by storage types such as blobs, tables, queues, and files, offering insights into data access patterns. | **Transactions by API Name:** Tracks transactional activity categorized by API names, providing visibility into the types of operations being performed on the storage account. | **Bandwidth:** Monitors the bandwidth usage of the storage account, ensuring efficient data transfer rates. |
-| --- | --- | --- |
-| ![Transactions by storage type](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
-| ![Transactions by API Name](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
-| ![Bandwidth](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
-|  |
-| **Total Requests:** Keeps track of the total number of requests made to the storage account, providing insights into workload intensity. | **Object Count:** Assesses the total number of objects stored in the storage account, enabling effective resource management and capacity planning. | **Blob Container Count:** Determines the number of blob containers within the storage account, facilitating organization and management of the blob storage resources. |
-| ![Total Requests](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
-| ![Object Count](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
-| ![Blob Container Count](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
-|  |
+**Transactions by Storage Type:** 
+Analyses transactional activity categorized by storage types such as blobs, tables, queues, and files, offering insights into data access patterns.
+![Transactions by storage type](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
+**Transactions by API Name:** 
+Tracks transactional activity categorized by API names, providing visibility into the types of operations being performed on the storage account.
+![Transactions by API Name](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
+**Bandwidth:** 
+Monitors the bandwidth usage of the storage account, ensuring efficient data transfer rates.
+![Bandwidth](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
 
-
+**Total Requests:** 
+Keeps track of the total number of requests made to the storage account, providing insights into workload intensity.
+![Total Requests](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
+**Object Count:** 
+Assesses the total number of objects stored in the storage account, enabling effective resource management and capacity planning.
+![Object Count](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
+**Blob Container Count:** 
+Determines the number of blob containers within the storage account, facilitating organization and management of the blob storage resources.
+![Blob Container Count](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image35.png)
 
 ### Failures
-
 The Failures section provides insights into failing transactions within the Azure Blob Storage environment. It offers valuable information to identify and address issues affecting data integrity and accessibility.
-
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 The Performance section provides key insights into the performance metrics of the Azure Blob Storage environment. It enables users to assess the efficiency and responsiveness of the storage operations.
 
 
 | **Average End-to-End (E2E) Latency** | **E2E vs Server Latency Trend** | **Total Egress** |
 | --- | --- | --- |
 | Measures the average time taken for a data transaction to complete -- from the moment it is initiated until it is fully processed -- and provides an overview of the overall responsiveness of the storage system. | Tracks the trend of end-to-end latency compared to server-side latency over time, allowing users to identify any discrepancies and potential bottlenecks in data processing. | Monitors the total amount of data transferred out of the storage account, offering insights into data egress patterns, and helping users manage data transfer costs effectively |
-| ![Performance section: Average End-to-End (E2E) Latency, E2E vs Server Latency Trend, Total Egress ](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image37.png)
 |  |  |
 
-
+![Performance section: Average End-to-End (E2E) Latency, E2E vs Server Latency Trend, Total Egress ](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image37.png)
 
 ### Availability
 
@@ -432,12 +433,10 @@ The Capacity section is dedicated to monitoring the capacity of the Azure Blob S
 | **Storage Capacity** | **Storage Trends** |
 | --- | --- |
 | Displays the current storage capacity of the storage account, indicating how much data can be stored within the allocated resources. | Analyzes trends in storage capacity over time and provides insights into data growth patterns that help users anticipate future storage requirements for effective capacity planning and resource allocation. |
-| ![Storage Capacity](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image39.png)
-| ![Storage Trends](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image39.png)
 |  |
 
-
-
+![Storage Capacity](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image39.png)
+![Storage Trends](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image39.png)
 ### Alerts and Notifications
 
 Alerts are triggered if the availability of Blob Storage falls below the set threshold, or if the end-to-end (E2E) latency or server latency exceeds predefined limits. Additionally, alerts are generated when the used capacity of Blob Storage surpasses the required limit. These alerts and notifications are sent via email to the stakeholders to monitor Blob Storage health and performance effectively, facilitating timely interventions to maintain optimal functionality and prevent potential disruptions.
@@ -486,19 +485,11 @@ The concise display of log messages and timestamps in the Data Contract API Logs
 
 ![Data Contract API Logs](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image44.png)
 
-### 
-
-### 
-
 ### Data Quality Pipeline Runs
 
 Data Quality Pipeline Runs shows detailed information in various visualization formats for enhanced understanding. Users can explore pipeline counts by name, identify failing pipelines, and analyze pipelines with longer execution times. Additionally, the dashboard offers an overview of the overall success and failure rates, with interactive charts that redirect to workbooks for further exploration. Users can also download data for deeper analysis as needed.
 
 ![Data Quality Pipeline Runs](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image45.png)
-
-### 
-
-### 
 
 ### Data Quality Pipeline Alerts
 
@@ -506,17 +497,13 @@ In case of a data quality pipeline failure, alerts are automatically generated a
 
 ![Data Quality Pipeline Alerts](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image46.png)
 
-### 
-
-## GEValidation Trigger Runs
+### GEValidation Trigger Runs
 
 This comprehensive overview of GE validation triggers provides insights into both successful and failed trigger executions. Users can easily assess the count of successful and failed triggers over time, along with detailed insights into trigger distribution. Additionally, the dashboard offers valuable insights into trigger execution, enabling stakeholders to monitor performance and identify any issues promptly. With interactive features, users can delve deeper into trigger execution details, facilitating efficient monitoring and optimization of data validation processes.
 
 ![GEValidation Trigger Runs](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image47.png)
 
-## 
-
-# Kubernetes-ix-dev-aks Dashboard
+## Kubernetes-ix-dev-aks Dashboard
 
 This dashboard offers a comprehensive suite of insights and metrics tailored to facilitate efficient management and optimization of ix-dev-aks Kubernetes cluster within the IX-Digital Thread.
 
@@ -526,17 +513,11 @@ Real-time monitoring of node disk capacity enables users to track disk usage tre
 
 ![Kubernetes-ix-dev-aks Dashboard - Node Disk Capacity](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image48.png)
 
-#### 
-
-##  Workload Details
+###  Workload Details
 
 Detailed information on the workloads deployed within Kubernetes clusters includes pod status, resource consumption, and deployment history for effective management and monitoring of applications.
 
 ![ Workload Details ](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image49.png)
-
-#### 
-
-## 
 
 ### Container Insights Usage
 
@@ -550,17 +531,11 @@ Monitors disk input/output (IO) activity on cluster nodes, helping users assess 
 
 ![ Node Disk IO ](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image51.png)
 
-#### 
-
-## 
-
 ### Node Network
 
 Offers visibility into network activity and performance metrics at the node level, facilitating troubleshooting of network-related issues and optimization of network configurations.
 
 ![Node Network](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image52.png)
-
-\
 
 ### **Deployments and HPAs** 
 
@@ -568,17 +543,13 @@ Provides insights into deployment status and HPA (Horizontal Pod Autoscaler) con
 
 ![Deployments and HPAs ](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image53.png)
 
-#### 
-
-## Kubelet
+### Kubelet
 
 Offers insights into Kubelet operations and performance metrics, allowing users to monitor the health and performance of Kubelet agents running on cluster nodes.
 
 ![Kubelet operations details](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image54.png)
 
-### 
-
-## Operations
+### Operations
 
 The Operations section of the dashboard (below) provides essential insights for managing Kubernetes clusters efficiently. With the Overview by Node feature, users can monitor operational metrics specific to each node, enabling effective node management and issue resolution. Additionally, the Overview by Operation feature categorizes cluster operations by type, offering visibility into critical aspects such as pod scheduling and node management.
 
@@ -587,10 +558,6 @@ The Operations section of the dashboard (below) provides essential insights for 
 The performance metrics panes offer a comprehensive view of cluster performance metrics, including CPU, memory, and network usage, enabling users to identify performance bottlenecks and optimize resource allocation.
 
 ![Operations and Performance Metrics](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image55.png)
-
-#### 
-
-### 
 
 ### API Logs 
 
@@ -611,9 +578,7 @@ within the dashboard, which directs them to the Log Analytics workspace. There, 
 
 ![Log Analytics Workspace](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image60.png)
 
-## 
-
-# Purview Dashboard
+## Purview Dashboard
 
 The Microsoft Purview Dashboard provides users with a centralized platform to manage, govern, and gain insights from the data assets across various sources. This intuitive dashboard offers a comprehensive view of data lineage, data classification, data discovery, and data usage analytics. Users can track data flows, understand data origins and transformations, classify sensitive data, and monitor data access and usage patterns. With interactive visualizations and customizable reports, the Purview Dashboard empowers organizations to ensure data compliance, enhance data security, and optimize data-driven decision-making processes.
 
@@ -623,9 +588,7 @@ The Data Source Scan section of the dashboard provides users with detailed insig
 
 ![Purview Dashboard](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image61.png)
 
-> ![Data Source Scan Section UI](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image62.png)
-**\
-**
+![Data Source Scan Section UI](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image62.png)
 
 **Data Source Scan Details as a Percentage**
 
@@ -639,9 +602,7 @@ Users can view the daily breakdown of data source scanning activities, including
 
 Failed Scan Details provides information on the specific sources affected and the reasons for the failure. Users can take proactive measures to address the issues and ensure comprehensive scanning coverage across all data sources.
 
-### 
-
-## Assets Discovered 
+### Assets Discovered 
 
 The Assets Discovered section of the dashboard offers valuable insights into the discovery and classification of data assets within the organization.
 
@@ -655,9 +616,7 @@ The Assets Discovered section of the dashboard offers valuable insights into the
 
 -   **Assets Classified:** Users can monitor the number of assets that have been successfully classified based on predefined criteria such as sensitivity, importance, or regulatory compliance. This metric helps organizations ensure proper data governance and compliance measures are in place for all identified assets.
 
-### 
-
-## Data Map
+### Data Map
 
 The Data Map section of the dashboard offers insights into the management and organization of data within the organization.
 
@@ -677,9 +636,7 @@ Data Map Capacity**
 
 This feature assesses the overall capacity or limit of the data map in terms of storing metadata, lineage information, and other relevant data. It ensures that the data map can effectively accommodate the growing volume of data assets and associated information within the organization\'s ecosystem.
 
-### 
-
-## Resource Utilization 
+### Resource Utilization 
 
 The Resource Utilization section of the dashboard provides insights into the utilization of resources within the data management system.
 
@@ -699,9 +656,7 @@ Server Response Time**
 
 This feature measures the average response time of the server when processing requests from users or applications. It helps users assess the performance and responsiveness of the system, ensuring timely access to data and efficient utilization of resources.
 
-### 
-
-## Alerts and Notifications
+### Alerts and Notifications
 
 Alerts will be triggered in the event of a Purview collection deletion or when a role assignment is performed or updated. These notifications will be promptly sent to the designated audience to ensure timely awareness and action on important changes within the data management system.
 
