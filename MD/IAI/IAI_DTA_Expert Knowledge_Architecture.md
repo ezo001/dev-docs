@@ -24,13 +24,9 @@ title: IAI DTA Expert Knowledge Architecture
 | **Reviewers** | [Horodinca], Florin and Takó, István |
 | **Status** | Draft / In Progress |
 | **Confidentiality** | Internal / Confidential |
-| **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) **Related Assets / Alternatives** ![](./media/IAI_DTA_Expert%20Knowledge_Architecture/image2.png)
+| **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
+| **Related Assets / Alternatives** | |
 |  |
-
-</div>
-
-## ![](./media/IAI_DTA_Expert%20Knowledge_Architecture/image3.png)
-\{#section .TOC-Heading\}
 
 
 ## Introduction
