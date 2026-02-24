@@ -291,4 +291,17 @@
 }
 .navbar__brand {
   margin-right: 0;
+  display: flex;
+  align-items: flex-end;
+}
+/* Size navbar logo so its bottom aligns with the bottom of nav links (e.g. Home) */
+.navbar__brand img {
+  max-height: 1.5rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.navbar .navbar__inner {
+  align-items: flex-end;
 }

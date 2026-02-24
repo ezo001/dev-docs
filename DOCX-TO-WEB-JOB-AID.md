@@ -232,8 +232,10 @@ From the project folder:
    ```bash
    git add MD/
    git commit -m "Add/update docs from SharePoint DOCX conversion"
+   git pull origin main
    git push origin main
    ```
+   **If the remote has new commits**, run `git pull origin main` *before* pushing. When Git opens an editor (e.g. **nano**) for the merge commit message: keep or edit the default message, then **save** (in nano: **Ctrl+O**, then **Enter**) and **exit** (**Ctrl+X**). Then run `git push origin main`.
 3. In GitHub, open **Actions** and wait for the workflow to succeed. The Azure Static Web App will then show your changes.
 
 If you use external media (see MEDIA-STORAGE.md), run `npm run upload-media` before building. When building in CI, set `MEDIA_BASE_URL` (and `MEDIA_SAS` if the container is private).
@@ -257,6 +259,7 @@ If you use external media (see MEDIA-STORAGE.md), run `npm run upload-media` bef
 
 ## Troubleshooting
 
+- **Push rejected: "Updates were rejected because the remote contains work that you do not have locally"** — The remote branch has commits you don't have (e.g. from the GitHub web editor or another machine). Run `git pull origin main` to bring those changes in and merge them with yours. If Git opens a text editor (e.g. **nano**) for the merge commit message: the default message is fine; **save** (nano: **Ctrl+O**, then **Enter**) and **exit** (**Ctrl+X**) to complete the merge. Then run `git push origin main` again.
 - **“Pandoc not found”** — Install Pandoc and ensure it’s on your PATH ([pandoc.org/installing](https://pandoc.org/installing.html)).
 - **“No .docx files found”** — Check the path you entered; use a full path if the script doesn’t find the folder.
 - **Broken images** — Ensure the conversion script ran with the correct output folder so that `docs/media/` (or your output folder’s `media/`) contains the extracted images and the .md files reference them correctly.
