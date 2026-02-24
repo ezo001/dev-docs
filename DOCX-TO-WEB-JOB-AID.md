@@ -2,6 +2,8 @@
 
 This guide walks you from downloading Word documents from SharePoint through to having them published as markdown on your Azure Static Web App.
 
+**Access:** Only people with an **@accenture.com** email address may access the published documents. The Azure Static Web App (and any auth in front of it) should be configured to enforce this.
+
 ---
 
 ## Prerequisites
@@ -198,7 +200,7 @@ Your SharePoint-sourced content is now published as markdown on the static web a
 - **“No .docx files found”** — Check the path you entered; use a full path if the script doesn’t find the folder.
 - **Broken images** — Ensure the conversion script ran with the correct output folder so that `docs/media/` (or your output folder’s `media/`) contains the extracted images and the .md files reference them correctly.
 - **Build or MDX errors** — Fix the reported file/line (e.g. stray `{` or `<` in prose). Re-run `npm run build` after edits.
-- **Deployment fails: "The size of the app content was too large" (500 MB limit)** — Azure Static Web Apps Standard plan allows 500 MB per environment. If your `build` output exceeds that, the upload is rejected. Reduce size by: (1) Temporarily excluding one doc section in `docusaurus.config.js` (comment out one `@docusaurus/plugin-content-docs` block for an asset). (2) Bulk-compress images: run `pip install Pillow`, then `python compress_media_images.py` (script in repo root; compresses PNG/JPEG in `MD/*/media` and optionally shrinks very large images). (3) Re-enable the section after reducing size.
+- **Deployment fails: "The size of the app content was too large" (500 MB limit)** — Azure Static Web Apps Standard plan allows 500 MB per environment. **Preferred:** Use **external media storage** so doc images are served from Azure Blob Storage instead of being bundled. See **MEDIA-STORAGE.md** for setup: create a blob container, run `npm run upload-media`, set `MEDIA_BASE_URL` when building (and in GitHub Actions), then the build stays under the limit and you can add more assets (A4E, A4M, etc.). Alternatives: (1) Bulk-compress images: `pip install Pillow`, then `python compress_media_images.py`. (2) Temporarily comment out one `@docusaurus/plugin-content-docs` block to reduce size (not ideal if you need all assets).
 - **Deployment fails in GitHub Actions** — Confirm the repo has the correct Azure secret (e.g. `AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_STONE_022C91210` for the dev-docs SWA). In Azure → your Static Web App → **Overview** → **Manage deployment token**, copy the token; in GitHub → repo **Settings** → **Secrets and variables** → **Actions**, add a secret with the exact name shown in the workflow YAML. Also ensure `output_location` in the workflow is `build` to match Docusaurus.
 - **404 on Azure Static Web App (all routes)** — The site is a SPA: the fallback must serve `index.html` so the client router can handle `/`, `/digital-thread/...`, `/industrial-ai/...`, etc. In `staticwebapp.config.json`, set `navigationFallback.rewrite` to `"/index.html"` (not `"/404.html"`). A copy of the config in `static/` is included so it is deployed in the `build/` output.
 - **`git add -A` or `git add MD/` seems hung (cursor flashing or stuck on warnings)** — (1) Git may still be working; with 2500+ files it can take 1–2 minutes. (2) On Windows, "LF will be replaced by CRLF" warnings can flood the terminal and look like a freeze. To stop those warnings in this repo: `git config core.autocrlf false`. (3) If it still seems stuck, add in smaller chunks (see next bullet).
@@ -263,6 +265,7 @@ The issue template is in `.github/ISSUE_TEMPLATE/doc-feedback.yaml`. When direct
 ## Related documentation
 
 - **ASSETS-FOLDER-GUIDE.md** — How to organize `DOCX/` and `MD/` by asset (Thread, IAI, etc.) and add or retire assets without editing config.
+- **MEDIA-STORAGE.md** — Serve doc images from Azure Blob Storage so the Static Web App build stays under 500 MB; required when publishing many assets (IAI, Digital Thread, A4E, A4M, etc.).
 
 
 

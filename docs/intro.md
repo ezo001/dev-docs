@@ -41,6 +41,6 @@ title: Industrial AI Solution
 <h2 className="landing-section-head">Quick navigation</h2>
 <p className="landing-section-body">Use the sidebar in each asset section to browse topics. If a search bar appears in the navbar, you can use it to find specific content.</p>
 
-<p className="disclaimer-internal">These documents are for internal use only.</p>
+<p className="disclaimer-internal">These documents are for internal use only. Access is restricted to people with an @accenture.com email address.</p>
 
 </div>

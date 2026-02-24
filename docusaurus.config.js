@@ -1,4 +1,12 @@
 import {themes as prismThemes} from 'prism-react-renderer';
+import remarkExternalMedia from './src/remark/remark-external-media.js';
+
+// When set, doc images under MD/*/media are served from this URL instead of being bundled.
+// Use Azure Blob Storage (or CDN) to keep the Static Web App build under 500 MB.
+// Optional: MEDIA_SAS = container SAS query string when anonymous access is blocked by policy.
+// See scripts/upload-media-to-azure.js and MEDIA-STORAGE.md.
+const MEDIA_BASE_URL = process.env.MEDIA_BASE_URL || '';
+const MEDIA_SAS = process.env.MEDIA_SAS || '';
 
 const config = {
   title: 'Docs',
@@ -54,6 +62,9 @@ const config = {
       routeBasePath: 'industrial-ai',
       sidebarPath: './sidebars-industrial-ai.js',
       editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
+      beforeDefaultRemarkPlugins: MEDIA_BASE_URL
+        ? [[remarkExternalMedia, { baseUrl: MEDIA_BASE_URL, sasQuery: MEDIA_SAS }]]
+        : [],
     }],
     ['@docusaurus/plugin-content-docs', {
       id: 'digital-thread',
@@ -61,6 +72,9 @@ const config = {
       routeBasePath: 'digital-thread',
       sidebarPath: './sidebars-digital-thread.js',
       editUrl: 'https://github.com/ezo001/dev-docs/edit/main/',
+      beforeDefaultRemarkPlugins: MEDIA_BASE_URL
+        ? [[remarkExternalMedia, { baseUrl: MEDIA_BASE_URL, sasQuery: MEDIA_SAS }]]
+        : [],
     }],
   ],
 

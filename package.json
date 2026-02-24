@@ -6,6 +6,7 @@
     "docusaurus": "docusaurus",
     "start": "cross-env NODE_OPTIONS=--max-old-space-size=8192 docusaurus start",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 docusaurus build",
+    "upload-media": "node scripts/upload-media-to-azure.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -23,6 +24,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@azure/storage-blob": "^12.31.0",
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/types": "3.9.2",
     "cross-env": "^7.0.3"

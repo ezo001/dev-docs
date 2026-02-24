@@ -26,9 +26,9 @@ except ImportError:
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg"}
 # Skip SVGs (already small, and we don't want to rasterize)
 # Skip .emf (would need different handling)
-MAX_DIMENSION = 1200  # shrink very large images to this on longest side (lower = smaller files)
-JPEG_QUALITY = 78     # lower = smaller files, 78–85 is a good range
-PNG_OPTIMIZE = True  # PNG: optimize only (no quality param for lossless)
+MAX_DIMENSION = 1000  # shrink very large images (aggressive for Azure 500 MB limit)
+JPEG_QUALITY = 72     # lower = smaller files; 72 helps stay under deployment limit
+PNG_OPTIMIZE = True   # PNG: optimize only (no quality param for lossless)
 
 
 def compress_image(path: Path, dry_run: bool) -> int:
@@ -80,10 +80,16 @@ def compress_image(path: Path, dry_run: bool) -> int:
 
 def main():
     ap = argparse.ArgumentParser(description="Bulk compress images in MD/*/media")
-    ap.add_argument("roots", nargs="*", default=["MD/AOT", "MD/IAI", "MD/Thread"],
-                    help="Root folders to scan (default: MD/AOT MD/IAI MD/Thread)")
+    ap.add_argument("roots", nargs="*", default=["MD/IAI", "MD/Thread"],
+                    help="Root folders to scan (default: MD/IAI MD/Thread)")
     ap.add_argument("--dry-run", action="store_true", help="Report only, do not modify files")
+    ap.add_argument("--max-dimension", type=int, default=1000, help="Max width/height (default 1000)")
+    ap.add_argument("--jpeg-quality", type=int, default=72, help="JPEG quality 1-95 (default 72)")
     args = ap.parse_args()
+
+    global MAX_DIMENSION, JPEG_QUALITY
+    MAX_DIMENSION = args.max_dimension
+    JPEG_QUALITY = args.jpeg_quality
 
     base = Path(__file__).resolve().parent
     total_saved = 0
