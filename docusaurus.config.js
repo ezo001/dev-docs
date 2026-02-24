@@ -7,9 +7,11 @@ import remarkExternalMedia from './src/remark/remark-external-media.js';
 // See scripts/upload-media-to-azure.js and MEDIA-STORAGE.md.
 const MEDIA_BASE_URL = process.env.MEDIA_BASE_URL || '';
 const MEDIA_SAS = process.env.MEDIA_SAS || '';
+// Optional: set GA4_MEASUREMENT_ID (e.g. G-XXXXXXXXXX) in Azure SWA config or .env to enable doc usage analytics.
+const GA4_MEASUREMENT_ID = process.env.GA4_MEASUREMENT_ID || '';
 
 const config = {
-  title: 'Docs',
+  title: 'DevDocs',
   favicon: 'img/favicon.ico',
   future: {v4: true},
   url: 'https://example.com',
@@ -90,6 +92,10 @@ const config = {
         searchResultContextMaxLength: 60,
       },
     ],
+    // Doc usage analytics: only active when GA4_MEASUREMENT_ID is set (e.g. in Azure SWA env or .env).
+    ...(GA4_MEASUREMENT_ID
+      ? [['@docusaurus/plugin-google-gtag', { trackingID: GA4_MEASUREMENT_ID, anonymizeIP: true }]]
+      : []),
   ],
 
   themeConfig: {
@@ -100,7 +106,7 @@ const config = {
         src: 'img/acn-logo.png',
         srcDark: 'img/acn-logo.png',
       },
-      title: 'Docs',
+      title: 'DevDocs',
       items: [
         { to: '/', label: 'Home', position: 'left' },
       ],
