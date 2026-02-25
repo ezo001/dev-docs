@@ -60,9 +60,7 @@ This document explains how the Asset Hierarchy is created and updated through th
 
 -   [yash.srivastava@accenture.com](mailto:yash.srivastava@accenture.com)
 
-### 
-
-## Glossary
+### Glossary
 
 
 | **Term** | **Definition** |
@@ -78,10 +76,6 @@ This document explains how the Asset Hierarchy is created and updated through th
 | JOBSAPI | An API provided by Azure Digital Twin for creating and managing digital twins based on the processed asset hierarchy data. |
 | Durable Azure Function | A serverless function in Azure that performs long-running operations, such as updating or archiving assets in the digital twin environment. |
 | isActive Property | A property of a digital twin asset indicating whether it is active (true) or archived (false). |
-
-## 
-
-# Background
 
 ### Technology Stack
 
@@ -117,8 +111,6 @@ To get started with the AH creation, the following resources are required.
 
     -   \"SupFunctLoc\"
 
-### 
-
 # Setup
 
 The Blob Container folder structure and the Azure Data Factory must be set up for the successful execution of ADF pipelines.
@@ -129,7 +121,7 @@ The Blob storage folder must be set up according to the structure described in t
 
 ![Blob container structure](./media/IAI_AH_Creation_Azure/image2.png)
 
-#### assets-processed-template
+### assets-processed-template
 
 This container is comprised of:
 
@@ -138,8 +130,6 @@ This container is comprised of:
 -   Multiplant AH-QA.json: The JSON file created from the copy data activity in the ADF parent pipeline Asset Hierarchy (AH),
 
 ![asset-processed-template structure](./media/IAI_AH_Creation_Azure/image3.png)
-
-#### 
 
 ### assets-raw-template
 
@@ -161,8 +151,6 @@ The AssetConfigurationColumns folder is a JSON file in which there are two keys:
 >
 > The AssetHierarchyTemplate folder contains the template that must be uploaded to trigger the ADF pipeline. The template must have all the columns that are mentioned in the JSON file in the AssetConfigurationColumns folder. See also [Sample Template](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/AOT_OH_Multiplant-Asset-Hierarchy.xlsx).
 
-### 
-
 ## Azure Data Factory (ADF)
 
 ADF must contain three pipelines and two datasets.
@@ -183,9 +171,7 @@ ADF must contain three pipelines and two datasets.
 
 ![pipelines and datasets](./media/IAI_AH_Creation_Azure/image6.png)
 
-## 
-
-# Pipelines
+## Pipelines
 
 ### ADF-Parent-pipeline-AH
 
@@ -203,9 +189,7 @@ When the AH template is uploaded in the \"AssetHiererchyTemplate\" folder, \"ADF
 
 ![ADF Parent pipeline AH flow](./media/IAI_AH_Creation_Azure/image7.png)
 
-### 
-
-## ADF-child-pipeline-JOBS-API
+### ADF-child-pipeline-JOBS-API
 
 When the Add flag exists, the ADF-child-pipeline-JOBSAPI is called, and it performs the following steps:
 
@@ -223,9 +207,7 @@ After successful execution of this pipeline, logs will appear as below on the Az
 
 ![execution logs](./media/IAI_AH_Creation_Azure/image9.png)
 
-### 
-
-## ADF-child-pipeline-DurableFunctionApp
+### ADF-child-pipeline-DurableFunctionApp
 
 When the Update_Archive flag exists, the ADF-child-pipeline-DurableFunctionApp is called, and it performs the following steps:
 
@@ -241,9 +223,7 @@ Successful execution of this pipeline appears as below.
 
 ![execution logs](./media/IAI_AH_Creation_Azure/image11.png)
 
-## 
-
-# Implementation/Result
+## Implementation/Result
 
 ### Add
 
@@ -251,20 +231,15 @@ After uploading the template with Update_Flag as \'Add\' for assets and the succ
 
 ![ADT explorer showing the result of the ADF pipeline with OH of the twins created](./media/IAI_AH_Creation_Azure/image12.png)
 
-### 
-
-## 
-
 ### Update
 
 Once the template with the Update_Flag for the assets set to Update has been uploaded and the ADF pipeline has been run successfully, the properties of twins with Update as Update_Flag will get updated. The updated properties can be seen by clicking the updated twin.
 
 ![Twin properties showing the update](./media/IAI_AH_Creation_Azure/image13.png)
 
-### 
-
-## Archive
+### Archive
 
 Once the template with Update_Flag for the assets set to Archive has been uploaded and the ADF pipeline has been run successfully, the isActive property of twins with Archive as Update_Flag will be updated to false. If needed, the isActive property can be reverted to true by uploading the template again with Update_Flag as \'update\' for the required twin.
 
 ![Twin properties showing the Archive](./media/IAI_AH_Creation_Azure/image14.png)
+
