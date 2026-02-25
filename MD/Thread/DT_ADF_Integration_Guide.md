@@ -82,9 +82,7 @@ This guide describes the key components and functions of Azure Data Factory. The
 
 ## Key Components
 
-### 
-
-## Pipelines
+### Pipelines
 
 Pipelines in Azure Data Factory represent workflows that orchestrate the movement and transformation of data from source to destination. They are composed of activities that define specific tasks such as data ingestion, transformation, and loading.
 
@@ -136,9 +134,7 @@ After acquiring the access token from the Azure Function, this activity stores i
 
 ![](./media/DT_ADF_Integration_Guide/image4.png)
 
-#### 
-
-### Web Get Subscription Key for TC 
+#### Web Get Subscription Key for TC 
 
 In this activity, the pipeline retrieves the subscription key associated with the Teamcenter product policies. The subscription key is essential for accessing Teamcenter services securely. The value for the subscription key is fetched from global parameters, where the secret name is used to retrieve the value from Azure Key Vault. This ensures that sensitive information such as keys and secrets is securely managed.
 
@@ -150,10 +146,6 @@ This activity utilizes the acquired access token and subscription key as headers
 
 ![](./media/DT_ADF_Integration_Guide/image6.png)
 
-#### 
-
-### 
-
 #### Input Parameters
 
 This pipeline accepts three parameters:
@@ -163,10 +155,24 @@ This pipeline accepts three parameters:
 | --- | --- |
 | CreatedBefore | This parameter specifies the date before which data should be extracted from Teamcenter. Users are required to input the date in the format DD-MMM-YYYY Eg 27-JUN-2023, here DD represents Date, MMM represents first 3 letters of Month, YYYY represents year |
 | CreatedAfter | This parameter specifies the date after which data should be extracted from Teamcenter. Similar to the Created Before parameter, users must input the date in the specified format. |
-| URLWithObjectType | This parameter specifies the URL containing the object type information for data extraction. Users are instructed not to provide comma-separated object types within the same URL. These parameters provide flexibility and customization options for specifying the time range of data extraction as well as the URL containing the object type information from Teamcenter. For example, the URL format for extracting Dtt5_RotatngPart objects could be as follows: https//ix-dev-apimgmt.azure-api.net/teamcenterapi/items/bulkDataProcessing?objectType=Dtt5_RotatngPart Similarly, replace the object type Dtt5_RotatngPart with other available object types for extraction such as Dtt5_Sealing, Dtt5_PwrTranPart, Dtt5_Lubricant, Dtt5_FastenerPrt, Dtt5_ElectriPart, Dtt5_EngMfgPart, and Dtt5_StandarPart, depending on the requirement. For example, if there is a need to extract Dtt5_FastenerPrt objects, simply replace the objectType=Dtt5_RotatngPart part of the URL with objectType=Dtt5_FastenerPrt as shown below: [https//ix-dev-apimgmt.azure-api.net/teamcenter-api/items/bulkDataProcessing?objectType=Dtt5_FastenerPrt](https://ix-dev-apimgmt.azure-api.net/teamcenter-api/items/bulkDataProcessing?objectType=Dtt5_FastenerPrt) It is important to note that multiple object types cannot be combined within the same URL. |
-| ### | Triggering After configuring the parameters, users can trigger the pipeline. ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image7.png)
-Upon triggering, the pipeline will initiate the data extraction process based on the specified parameters and URL. Users will be prompted to provide values for the parameters, including the dates for CreatedBefore and CreatedAfter, as well as the URL containing the object type information. ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image8.png)
-|  |
+| URLWithObjectType | This parameter specifies the URL containing the object type information for data extraction. Users are instructed not to provide comma-separated object types within the same URL. |
+
+These parameters provide flexibility and customization options for specifying the time range of data extraction as well as the URL containing the object type information from Teamcenter. 
+For example, the URL format for extracting Dtt5_RotatngPart objects could be as follows: https//ix-dev-apimgmt.azure-api.net/teamcenterapi/items/bulkDataProcessing?objectType=Dtt5_RotatngPart 
+
+Similarly, replace the object type Dtt5_RotatngPart with other available object types for extraction such as Dtt5_Sealing, Dtt5_PwrTranPart, Dtt5_Lubricant, Dtt5_FastenerPrt, Dtt5_ElectriPart, Dtt5_EngMfgPart, and Dtt5_StandarPart, depending on the requirement. 
+For example, if there is a need to extract Dtt5_FastenerPrt objects, simply replace the objectType=Dtt5_RotatngPart part of the URL with objectType=Dtt5_FastenerPrt as shown below:
+[https//ix-dev-apimgmt.azure-api.net/teamcenter-api/items/bulkDataProcessing?objectType=Dtt5_FastenerPrt](https://ix-dev-apimgmt.azure-api.net/teamcenter-api/items/bulkDataProcessing?objectType=Dtt5_FastenerPrt) 
+
+It is important to note that multiple object types cannot be combined within the same URL. 
+
+#### Triggering 
+After configuring the parameters, users can trigger the pipeline.
+
+![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image7.png)
+
+Upon triggering, the pipeline will initiate the data extraction process based on the specified parameters and URL. Users will be prompted to provide values for the parameters, including the dates for CreatedBefore and CreatedAfter, as well as the URL containing the object type information.
+![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image8.png)
 
 
 #### Monitoring
@@ -225,8 +231,7 @@ Following the data transformation process, the copy data activity initiates the 
 
 ![](./media/DT_ADF_Integration_Guide/image18.png)
 
-**\
-Manual Triggering**
+**Manual Triggering**
 
 Users can manually trigger the PL_BatchDataTransform_TableLoad pipeline by specifying a file name parameter at the pipeline level. This parameter, named fName, enables users to indicate the name of the CSV file located in the batchprocess container that they intend to process.
 
@@ -240,16 +245,14 @@ The screenshot below shows the CSV file generated by PL_DataExtractFromTCConnect
 
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image20.png)
 
-\
 The screenshot below shows the input of parameter values, specifically the CSV file name.
 
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image21.png)
 
 Similarly, within ADF, this process can be replicated for other object types encountered, ensuring efficient processing and archival of data across different sources.
 
-### 
 
-## PL_TCDataLoadToBLOB
+### PL_TCDataLoadToBLOB
 
 #### Use Case Bulk Data Processing
 
@@ -295,9 +298,6 @@ Once the incremental data selection is completed, the resulting dataset is expor
 
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image30.png)
 
-**\
-**
-
 #### LookUp Activity 
 
 Following the data processing by the Data Flow activity, the Lookup activity is utilized to fetch the Parquet file containing the maximum Date_Created value. This Parquet file is stored in the specified location digitalthreadpod1/MaxDate/MaxDateRotating.parquet within the blob storage. The Lookup activity retrieves this maximum Date_Created value from the Parquet file, which is subsequently used in further data processing steps.
@@ -327,13 +327,10 @@ The table below lists the columns present in the UpdateWatermarkTable.
 | Table_Name | This column indicates the name of the table from which data was extracted during the pipeline execution. These table names correspond to different object types within Teamcenter, such as ENGMFGPART_RAW or ROTATINGPART_RAW. |
 | Created_Date | This column holds the timestamp representing the date and time when each record was created in the Teamcenter. |
 | LastExtractedTimestamp | This crucial column stores the timestamp of the most recently processed data for the corresponding table object type identified in the Table Name column. This timestamp serves as a watermark for subsequent pipeline executions, ensuring that only data updates occurring after this timestamp are processed. The UpdateWatermarkTable plays a vital role in managing data extraction and incremental loading processes within the pipeline, ensuring accurate tracking of data extraction timestamps, and facilitating efficient data updates. |
-### 
 
-## PL_BatchDataLoadToTCFileSystem
+### PL_BatchDataLoadToTCFileSystem
 
-#### 
-
-### Use Case Bulk Data Processing
+#### Use Case Bulk Data Processing
 
 The PL_BatchDataLoadToTCFileSystem pipeline serves as a continuation of the data processing workflow initiated by the PL_TCDataLoadToBLOB pipeline. Once a CSV file is generated and stored in the blob storage by the preceding pipeline, the PL_BatchDataLoadToTCFileSystem pipeline is automatically triggered. Its primary function is to facilitate the transfer of the generated CSV file from the blob storage to the Teamcenter file system.
 
@@ -529,8 +526,7 @@ Variable Assignment** Once the access token is generated, it is stored in a vari
 
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image66.png)
 
-**\
-Setting Headers** Headers required for authorization and subscription are set in the Web activity Fetch data from Teamcenter, utilizing the access token value obtained from the variable and the subscription key fetched from the web activity.
+**Setting Headers** Headers required for authorization and subscription are set in the Web activity Fetch data from Teamcenter, utilizing the access token value obtained from the variable and the subscription key fetched from the web activity.
 
 ![](./media/DT_ADF_Integration_Guide/image67.png)
 
@@ -548,7 +544,6 @@ The dataset provided in the below screenshot displays the metadata obtained from
 
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image69.png)
 
-\
 The below image shows the file path that indicates the location within the container where the input file is stored before being processed further in the pipeline.
 
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image70.png)
@@ -582,8 +577,14 @@ This pipeline accepts three parameters:
 | --- | --- |
 | InputFileName | Specifies the name or path of the input CSV file that contains the data to be processed. Users can provide the filename of the CSV file they wish to analyze. For example, Dtt5_RotatngPart_2023-11-15_05-41-23.csv could be a valid input filename. |
 | SchemeReferenece | Indicates the location or path of the schema reference file used for validation against the input data. Users can specify the filename or path of the schema reference file they want to compare the input data against. For instance, Dtt5_RotatngPart_2023-10-16_10-31-10.csv could be a schema reference file. |
-| BodytoCallGEEndpoint | Represents the body of the request sent to the Great Expectation GE data validation endpoint during the validation process. It contains information about the data to be validated, and any additional parameters required by the GE endpoint. After entering the parameter values, users can trigger the pipeline to initiate the data validation process. ![](./media/DT_ADF_Integration_Guide/image75.png)
-For instance, for the RotatngPart object type, the value of BodytoCallGEEndPoint parameter would be: \{dataContextPath/app/great_expectations,checkpointNameix_dt_pc_rotatingpart_checkpoint,overrideContextPathfalse\} Similarly, the value would vary for different object types based on their specific validation requirements. |
+| BodytoCallGEEndpoint | Represents the body of the request sent to the Great Expectation GE data validation endpoint during the validation process. It contains information about the data to be validated, and any additional parameters required by the GE endpoint. |
+
+After entering the parameter values, users can trigger the pipeline to initiate the data validation process.
+![](./media/DT_ADF_Integration_Guide/image75.png)
+
+For instance, for the RotatngPart object type, the value of BodytoCallGEEndPoint parameter would be: 
+\{dataContextPath/app/great_expectations,checkpointNameix_dt_pc_rotatingpart_checkpoint,overrideContextPathfalse\} 
+Similarly, the value would vary for different object types based on their specific validation requirements.
 
 #### If Condition on Schema Validation
 
@@ -611,7 +612,7 @@ Web Activity Get Subscription Key for GEValidation This activity fetches the sub
 
 ##### Web Activity CallDataValidationEndpoint
 
-After obtaining the necessary authentication token and subscription key, this activity utilizes the BodyToCallGEEndpoint parameter to send the data to the Great Expectation GE data validation service. This service then checks the data against predefined rules to ensure its quality and integrity.\
+After obtaining the necessary authentication token and subscription key, this activity utilizes the BodyToCallGEEndpoint parameter to send the data to the Great Expectation GE data validation service. This service then checks the data against predefined rules to ensure its quality and integrity.
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image81.png)
 
 After invoking the data validation endpoint, the pipeline branches into two paths based on the validation results. If the validation is successful, the following happens:
@@ -639,3 +640,4 @@ If the validation fails:
 The failure response from the endpoint is captured using another stored procedure. This allows the pipeline to record details about the validation failure, such as error messages or specific issues encountered during the validation process. Capturing this information is crucial for troubleshooting and identifying potential issues in the data.
 
 ![A screenshot of a computer Description automatically generated](./media/DT_ADF_Integration_Guide/image85.png)
+
