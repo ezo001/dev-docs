@@ -252,6 +252,31 @@ When you change **one file** in SharePoint and want that change on GitHub and th
 
 ---
 
+## Exporting markdown to Word (.docx)
+
+When someone needs a Word version of the current doc (e.g. for offline review or to replace the file in SharePoint), you can **export** the `.md` file to a new `.docx`. This is **not** a sync that updates the original Word file in place — it creates a new Word document from the current markdown. You can then upload that `.docx` to SharePoint to replace the old file if you want Word to reflect the latest MD content.
+
+**Single file (Pandoc):** From the project folder:
+
+```bash
+pandoc "MD/IAI/IAI_Architecture_Azure.md" -o "DOCX/IAI/IAI_Architecture_Azure.docx"
+```
+
+Use the correct path to your `.md` and the output path for the `.docx`. Create the output folder if needed. Open the generated `.docx` in Word, then upload to SharePoint or share as needed.
+
+**Multiple files:** Use the helper script (requires Pandoc):
+
+```bash
+python scripts/export_md_to_docx.py MD/IAI DOCX/IAI
+python scripts/export_md_to_docx.py MD/Thread DOCX/Thread
+```
+
+The script creates one `.docx` per `.md` in the source folder. Create the output folder first if it doesn't exist.
+
+**Note:** The exported `.docx` does not preserve original Word-only features (comments, track changes, custom styles). It is a fresh export of the markdown content. Use it when the source of truth is the `.md` and you need a Word artifact for review or SharePoint.
+
+---
+
 ## Reviewing converted (legacy) docs
 
 After converting legacy Word docs to markdown, plan a **manual review** so the published pages are accurate and readable. This is especially important for docs converted in bulk or from older templates.
@@ -455,6 +480,7 @@ The issue template is in `.github/ISSUE_TEMPLATE/doc-feedback.yaml`. When direct
 - **WORD-TO-MDX-CHECKLIST.md** — Pre-conversion checklist for Word authors and the Doc Team (tables, quotes, braces, macros). Use before running the conversion script.
 - **ASSETS-FOLDER-GUIDE.md** — How to organize `DOCX/` and `MD/` by asset (Thread, IAI, etc.) and add or retire assets without editing config.
 - **MEDIA-STORAGE.md** — Serve doc images from Azure Blob Storage so the Static Web App build stays under 500 MB; required when publishing many assets (IAI, Digital Thread, A4E, A4M, etc.).
+- **scripts/export_md_to_docx.py** — Export .md files to .docx (Pandoc). See **Exporting markdown to Word (.docx)** in this job aid.
 
 
 
