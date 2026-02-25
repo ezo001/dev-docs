@@ -62,6 +62,33 @@ my-docs/
 
 ---
 
+## Before converting: Word do's and don'ts
+
+Word formatting often introduces characters or structures that break MDX or produce poor markdown. **Before you run the conversion script**, authors (SMEs) and the Doc Team should prepare the .docx so conversion is reliable.
+
+**Use the Doc Team tools (recommended):**
+
+- **MDX Compatibility Validator** — Run on the Word document to flag issues before conversion.
+- **Auto-correction macros** — Fix quotes, dashes, non-breaking spaces (NBSP), and zero-width characters. Run these macros on the .docx before saving and converting.
+
+**In Word, avoid or fix:**
+
+| Avoid | Why | What to do instead |
+|-------|-----|--------------------|
+| Merged or nested tables | Conversion breaks or produces invalid MDX. | Use simple tables: one header row, one row per record; no merged cells. |
+| Multi-line table cells | Breaks pipe-table parsing. | Put each cell on one line; use line breaks sparingly or rewrite. |
+| Smart (curly) quotes | Can break MDX strings. | Use the macros to convert to straight quotes, or type straight quotes. |
+| Curly braces `{` `}` in body text | MDX treats `{` as code. | Use macros or replace with words (e.g. "set" instead of "{" where appropriate); keep braces only in code blocks. |
+| Angle-bracketed URLs or emails (`<url>`) | Treated as HTML/MDX tags. | Use plain URLs or link text; or use the link dialog so Word stores a hyperlink without angle brackets in text. |
+| Blockquotes immediately after list items | Can produce invalid nesting. | Add a normal paragraph between the list and the blockquote, or avoid blockquotes there. |
+| Non-breaking spaces (NBSP) | Can cause odd spacing or break parsing. | Use the cleanup macro or Find/Replace to normal spaces. |
+
+**For code or JSON:** Put snippets in a single column table or a dedicated "code" style and keep content on one line where possible; the converter may emit code blocks. Do not rely on Word formatting alone for code — review the generated `.md` after conversion.
+
+**Checklist:** Use **WORD-TO-MDX-CHECKLIST.md** in this repo as a quick pre-conversion checklist for authors and the Doc Team.
+
+---
+
 ## Step 3: Run the conversion script
 
 1. Open a terminal and go to your project folder:
@@ -110,6 +137,8 @@ python convert_docx_to_markdown.py --all --no-clear
 4. Fix any issues in the .md files under `docs/` (or your chosen output folder), then run `npm start` again if needed.
 5. Stop the dev server when done (Ctrl+C in the terminal).
 
+**Doc page structure (title and H1):** The doc title (e.g. "IAI Architecture Azure") appears only in the **sidebar** and **breadcrumbs**—not as a big heading in the content area. The content area uses the **topic line** in the doc-title-block (e.g. "Azure Deployment", "General Architecture") as the main H1. The conversion script outputs this block; do not add a duplicate `# Doc Title` at the top of the body. This applies to all existing and future converted docs.
+
 ---
 
 ## Step 5: Build the site to confirm it compiles
@@ -144,6 +173,23 @@ python convert_docx_to_markdown.py --all --no-clear
    git push origin main
    ```
 
+**Approval before publish (recommended workflow)**  
+To match the desired doc lifecycle (approval routing, then deploy), use a **pull request** instead of pushing straight to `main`:
+
+1. Create a branch, commit your changes, and push the branch:
+   ```bash
+   git checkout -b docs/update-iai-march
+   git add MD/
+   git commit -m "Add/update docs from SharePoint DOCX conversion"
+   git push origin docs/update-iai-march
+   ```
+2. In GitHub, open a **Pull request** from `docs/update-iai-march` into `main`. Add a short description (e.g. which docs changed and why).
+3. A doc owner or teammate **reviews** the diff (and optionally the built site via a preview). They approve or request changes.
+4. When approved, **merge** the PR. Merging to `main` triggers the GitHub Actions workflow; the site builds and deploys. No one merges without review if you use this workflow.
+
+**Release-time review for existing web docs**  
+For docs already on the site, do a **release-time review** before or after a release: open the changed or new pages on the live site, spot-check headings, tables, links, and code blocks. Minor fixes can be made via **Edit this page** (and, if you use approval workflow, via a PR). Approved pages are published when the merged PR triggers the deploy.
+
 ---
 
 ## Step 7: Let Azure Static Web Apps deploy
@@ -175,7 +221,7 @@ Your SharePoint-sourced content is now published as markdown on the static web a
 
 **Restructure (cleanup)** — To remove old folders and root .docx from the repo: (1) From the project root, run `git rm -r --cached <folder>` for each folder to remove (e.g. `docs-digital-thread`, `docs-industrial-ai`, `docx-for-conversion`, `word-backup`, `blog` — skip if a path doesn’t exist). (2) Run `git rm --cached *.docx` to remove root .docx (PowerShell). (3) `git add -A`, `git commit -m "chore: remove legacy folders and root docx"`, `git push origin main`. Keep `docs/`, `MD/`, `DOCX/`, `src/`, `static/`, `.github/`.
 
-**Meaningful URL (custom domain)** — Azure assigns a fixed default URL (e.g. `https://mango-plant-01f14a910.1.azurestaticapps.net`) that you cannot rename. To use a meaningful address (e.g. `docs.yourcompany.com`): In your Static Web App → **Settings** → **Custom domains**, add your domain, add the CNAME or A-record as Azure instructs for DNS validation, then assign the custom domain. You need control over the domain’s DNS (e.g. in your org’s Azure DNS or external registrar).
+**Meaningful URL (custom domain)** — Azure assigns a fixed default URL (e.g. `https://mango-plant-01f14a910.1.azurestaticapps.net`) that you cannot rename. To use a meaningful address (e.g. `docs.yourcompany.com`): In your Static Web App → **Settings** → **Custom domains**, add your domain, add the CNAME or A-record as Azure instructs for DNS validation, then assign the custom domain. You need control over the domain’s DNS (e.g. in your org’s Azure DNS or external registrar). If you don't have permissions to add a custom domain, use a **custom/short link** instead (e.g. [https://go.accenture.com/devdocs](https://go.accenture.com/devdocs)) that redirects to the Azure default URL so people use one stable link.
 
 ---
 
@@ -206,13 +252,90 @@ When you change **one file** in SharePoint and want that change on GitHub and th
 
 ---
 
+## Reviewing converted (legacy) docs
+
+After converting legacy Word docs to markdown, plan a **manual review** so the published pages are accurate and readable. This is especially important for docs converted in bulk or from older templates.
+
+**What to check (per doc or per batch):**
+
+1. **Live page** — Open the doc on the Static Web App (or run `npm start` and open locally). Confirm the **title and topic line** look correct (no duplicate big title; topic line is the main H1).
+2. **Headings** — Scan the table of contents and in-page headings; fix any broken or duplicate headings in the `.md` file.
+3. **Tables** — Ensure tables render as tables (not broken or raw pipe text). If a table is wrong, fix the source Word (simplify merged cells, one line per cell) and re-convert, or edit the `.md` directly.
+4. **Links** — Click in-doc links; fix broken or incorrect URLs in the markdown.
+5. **Images** — Confirm images load (paths like `media/...` or your external media URL). If an image is missing, add it to the repo or upload to Azure Blob and set `MEDIA_BASE_URL` as needed.
+6. **Code blocks** — If the doc has JSON or code, ensure it appears in code blocks and is readable (no stray curly braces in prose).
+
+**Tracking progress**  
+Keep a simple list (e.g. in a spreadsheet or GitHub Project) of which docs have had a post-conversion review. Optionally add a front matter field (e.g. `legacy_reviewed: true`) or a small checklist file in the repo so the team knows which docs are signed off. Update the list as you complete each doc or batch.
+
+---
+
 ## Editing markdown (team) and who can commit
 
 Each doc page has an **Edit this page** link at the bottom so your team can edit easily. It opens that doc’s `.md` file on GitHub in edit mode; after editing, scroll down, add a commit message, and click **Commit changes** (or **Propose changes**). Only people with **write access** to the repo can commit directly; everyone else gets **Propose changes** (fork + pull request).
 
 **Controlling who can commit:** In GitHub **Settings → Collaborators** (or **Manage access**), grant **Write** only to your doc team. Anyone without write access can still open the Edit link but will only get **Propose changes** (fork + PR), not commit to `main`. Optionally, in **Settings → Branches** add a rule for `main` to require pull request reviews. For small fixes use the Edit link; for large or Word-sourced updates use the **SharePoint → DOCX → convert** flow. Other readers use **Doc feedback** (GitHub Issues) to suggest changes.
 
+**If a colleague doesn’t have a GitHub account:** You can’t add them as a collaborator until they have one (free at github.com). In the meantime they can send edits to someone who has write access—e.g. by email, a Word or shared doc, or a note—and that person applies the changes in the repo and commits. Once the colleague creates a GitHub account, add them under **Settings → Collaborators** so they can use the **Edit this page** link themselves.
+
  See **Collecting feedback (GitHub Issues)** in this job aid.
+
+**Tracking who contributed:** Keep **CONTRIBUTORS.md** in the repo up to date. When you or a teammate add or edit docs, fix the site, or improve the conversion flow, add a row with their name and a short note (e.g. "Doc edits, IAI", "Conversion script"). See CONTRIBUTORS.md for the format.
+
+---
+
+## External contributors (fork + pull request)
+
+People outside your team can propose changes without being added as collaborators. They work on a **fork** of the repo and open a **pull request**; your team reviews and merges (or requests changes). No write access to your repo is required for them.
+
+**Steps for the external contributor**
+
+1. **Fork the repo** — On GitHub, open your repo (e.g. `https://github.com/ezo001/dev-docs`), click **Fork**, and create the fork under their account or org.
+2. **Clone their fork** and create a branch:
+   ```bash
+   git clone https://github.com/TheirUsername/dev-docs.git
+   cd dev-docs
+   git checkout -b fix-doc-xyz
+   ```
+3. **Edit** the markdown (e.g. under `MD/IAI/` or `MD/Thread/`), then commit and push to **their fork**:
+   ```bash
+   git add MD/IAI/Some_Doc.md
+   git commit -m "Fix typo in Some Doc"
+   git push origin fix-doc-xyz
+   ```
+4. **Open a pull request** — On GitHub, go to their fork, click **Compare & pull request** (or use **Contribute → Open pull request** from the main repo), and create a PR from `TheirUsername:fix-doc-xyz` into your repo’s `main` (or the branch you publish from). Add a short description of the change.
+
+**Steps for your team**
+
+1. In your repo, go to **Pull requests** and open the new PR.
+2. **Review** the diff (and the built site if you have a preview), add comments or request changes if needed.
+3. **Approve** when ready, then **Merge** the PR. Only people with merge rights on your repo can merge; after merge, the change is on `main` and the next deploy will publish it.
+4. Optionally add the contributor to **CONTRIBUTORS.md** and close the PR.
+
+**Optional: require PRs for everyone (including your team)**  
+In **Settings → Branches**, add a rule for `main`: enable **Require a pull request before merging** (and optionally **Require approvals**). Then even collaborators must open a PR for changes to `main`; no direct pushes. Useful if you want all edits to go through review.
+
+---
+
+## Doc usage and analytics
+
+To see **which docs are used most** and **how useful** they are, you can enable one or both of the following.
+
+### Page views and traffic (which docs are used most)
+
+- **Option A — Google Analytics 4 (GA4):**  
+  Create a GA4 property at [analytics.google.com](https://analytics.google.com), get your Measurement ID (format `G-XXXXXXXXXX`). This project is already set up to use it: set **GA4_MEASUREMENT_ID** in the environment where the site is built (e.g. Azure Static Web App → **Configuration** → **Application settings** → add `GA4_MEASUREMENT_ID` = `G-XXXXXXXXXX`). The gtag plugin in `docusaurus.config.js` only runs when that variable is set, so the build works without it. After deployment, GA4 will show page views, top pages, and sessions; use **Reports → Engagement → Pages and screens** to see which docs are used most.
+
+- **Option B — Azure Application Insights:**  
+  If your site is on Azure Static Web Apps, you can enable **Application Insights** on the Static Web App (Azure Portal → your SWA → **Application Insights** → enable). You get request logs and basic metrics. For a client-rendered docs site, GA4 (or another client-side analytics tool) usually gives clearer “which doc page” data; App Insights is still useful for availability and server-side metrics.
+
+### Usefulness (useful vs not useful)
+
+- **Explicit feedback:** Use the existing **Doc feedback** (GitHub Issues) and ask readers to say whether the doc was helpful or what was missing. You can add a “Was this helpful?” link at the bottom of each doc that opens the Doc feedback issue template with the doc name pre-filled.
+- **Optional “Was this helpful?” widget:** A small Yes/No component that posts to a form (e.g. Microsoft Forms, Google Form) or to an API that stores page path + Yes/No can be added later if you want structured usefulness metrics without opening GitHub.
+
+Once you choose an option (e.g. GA4 + Doc feedback), add the setup steps you used to this section so your team can repeat or change it.
+
 ---
 
 ## Build and deploy commands (summary)
@@ -243,6 +366,7 @@ If you use external media (see MEDIA-STORAGE.md), run `npm run upload-media` bef
 |------|--------|
 | 1 | Download .docx from SharePoint (and extract from .zip if needed). |
 | 2 | Put .docx in `DOCX/<Asset>/` (e.g. DOCX/IAI, DOCX/Thread). See ASSETS-FOLDER-GUIDE.md. |
+| 2b | **Before converting:** Run Word macros/validator; avoid merged tables, smart quotes, curly braces, angle-bracketed URLs. See **Before converting: Word do's and don'ts** and WORD-TO-MDX-CHECKLIST.md. |
 | 3 | Run `python convert_docx_to_markdown.py --all` (or run per-asset with paths). Use `--all --no-clear` to only add/update. |
 | 4 | Run `npm start` and review the new docs in the browser. |
 | 5 | Run `npm run build` to verify the site builds. If using external media, run `npm run upload-media` after converting. |
@@ -327,6 +451,8 @@ The issue template is in `.github/ISSUE_TEMPLATE/doc-feedback.yaml`. When direct
 
 ## Related documentation
 
+- **CONTRIBUTORS.md** — List of people who contributed to the repo and Doc Team contact; update it when you or teammates add or edit docs or tooling.
+- **WORD-TO-MDX-CHECKLIST.md** — Pre-conversion checklist for Word authors and the Doc Team (tables, quotes, braces, macros). Use before running the conversion script.
 - **ASSETS-FOLDER-GUIDE.md** — How to organize `DOCX/` and `MD/` by asset (Thread, IAI, etc.) and add or retire assets without editing config.
 - **MEDIA-STORAGE.md** — Serve doc images from Azure Blob Storage so the Static Web App build stays under 500 MB; required when publishing many assets (IAI, Digital Thread, A4E, A4M, etc.).
 
