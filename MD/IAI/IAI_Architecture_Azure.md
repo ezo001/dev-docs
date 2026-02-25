@@ -57,23 +57,23 @@ Familiarity with Azure services:
 
 ### Contacts
 
--   [[istvan.tako@accenture.com]](mailto:istvan.tako@accenture.com)
+-   [istvan.tako@accenture.com] (mailto:istvan.tako@accenture.com)
 
--   [[janos.puskas@accenture.com]](mailto:janos.puskas@accenture.com)
+-   [janos.puskas@accenture.com] (mailto:janos.puskas@accenture.com)
 
--   [florin.horodinca@accenture.com](mailto:florin.horodinca@accenture.com)
+-   [florin.horodinca@accenture.com] (mailto:florin.horodinca@accenture.com)
 
 ###  Related Links
 
--   [[IAI Documents]](https://industryxdevhub.accenture.com/asset-home;search_text=AOT) 
+-   [IAI Documents](https://industryxdevhub.accenture.com/asset-home;search_text=AOT) 
 
--   [[Release Notes]](https://industryxdevhub.accenture.com/assetdetails/45) 
+-   [Release Notes](https://industryxdevhub.accenture.com/assetdetails/45) 
 
--   [[IAI Twin Builder and Twin Viewer Architecture Blueprint]](https://industryxdevhub.accenture.com/assetdetails/47)
+-   IAI Twin Builder and Twin Viewer Architecture Blueprint]](https://industryxdevhub.accenture.com/assetdetails/47)
 
--   [[IAI_People Management_Context Diagram]](https://ts.accenture.com/:u:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/AOT_People%20Management_Context.svg?csf=1&amp;web=1&amp;e=jiA5Ip)
+-   [IAI_People Management_Context Diagram](https://ts.accenture.com/:u:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/AOT_People%20Management_Context.svg?csf=1&amp;web=1&amp;e=jiA5Ip)
 
--   [[IAI People Management Architecture Blueprint]](https://industryxdevhub.accenture.com/assetdetails/64)
+-   [IAI People Management Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/64)
 
 ### Glossary
 
@@ -115,25 +115,19 @@ A simplified flow is shown in the graphic below.
 
 ![Flowchart illustrating how external data sources are processed into a knowledge graph, which then powers applications. Stream analytics are shown as a parallel process.](./media/IAI_Architecture_Azure/image4.svg)
 
-## 
-
-# Enterprise Landscape
+### Enterprise Landscape
 
 The concepts mentioned above are delivered below as technical artifacts in the IAI System landscape. The system landscape diagram also indicates how IAI integrates into a customer\'s ecosystem.
 
 ![System landscape diagram mapping AOT modules (Configurator, Operator, Platform Tools, Visualizer, Reporting, Operations Hierarchy, etc.) and their integration points within a customer ecosystem.](./media/IAI_Architecture_Azure/image6.svg)
 
-## 
-
-# Components and Services
+### Components and Services
 
 The diagram below shows how IAI systems are implemented on top of Azure services.
 
 ![Architecture diagram showing how AOT leverages Azure services: data flows from sources through IoT Hub, Data Factory, and stream analytics into knowledge graph components (ADX, ADT, ADLS, SQL DB), with microservices and applications layered above.](./media/IAI_Architecture_Azure/image8.svg)
 
 -   Real-time data is integrated through an edge component and middleware into an IoT Hub, then processed by stream analytics, and ultimately stored in Azure Data Explorer (ADX) or updated in Azure Digital Twin (ADT) as needed.
-
-
 
 -   The stream analytics component provides the possibility to identify outstanding data points near-real time and to generate events into the Event Hub (Message Broker) whenever needed.
 
@@ -147,9 +141,7 @@ The diagram below shows how IAI systems are implemented on top of Azure services
 
 The subsystems shown above are described in the sections that follow.
 
-## 
-
-# DataOps
+### DataOps
 
 The DataOps system of IAI ingests data from various source systems and stores it in a knowledge graph to maintain the Operations Twin. Furthermore, it contains the infrastructure and tooling for contextualization as well.
 
@@ -159,8 +151,7 @@ The following diagram depicts the context of the DataOps system within the IAI l
 
 ![Diagram depicting DataOps at the center, ingesting data from source systems and providing it to Smart KPIs, Intelligent Advisor, and Operations Hierarchy modules.](./media/IAI_Architecture_Azure/image10.svg)
 
-\
-Dependencies
+#### Dependencies
 
 Any external IT and OT source systems can be a dependency on the IAI DataOps system.
 
@@ -175,10 +166,6 @@ As detailed in the table below, IAI subsystems are the usual consumers of the IA
 | Intelligent Advisor | Creates insights about business operations and makes them available for users. |
 | 3D Visualizer | Visualizes facilities and/or processes in 3D, providing context data from the Operations Twin. |
 | Operations Hierarchy | Displays operations\' hierarchy and provides details for each node in the hierarchy. |
-
-### 
-
-## 
 
 ### Containers
 
@@ -229,9 +216,7 @@ The diagram shows where each of the system components are hosted, along with lin
 
 Platform Tools is a collection of general-purpose components that are available to multiple sub-systems of IAI. Each of the individual tools is described in the sections that follow.
 
-### 
-
-## Scheduler service
+### Scheduler service
 
 The Scheduler Service in IAI is a microservice in Python.
 
@@ -312,17 +297,16 @@ Localization data is stored across multiple tables in the localization database:
 | --- | --- |
 | Languages | The languages table stores a list of languages and their ISO code (i18n) ex: en-US, es-PR, de-CZ. |
 | Translations | The translations table stores all the string assets from the application that will be mapped to a certain language ID, providing a key to identify the element with unique name in the UI and the corresponding language translation. |
-| User Preferences | The user preferences table stores the selected language for the IAI UI. The following diagram shows how the internationalization component is used across IAI. ![Diagram mapping localization configurator, microservices, configuration database, and UI modules (Reporting, Operations Hierarchy, Advisor, People Management, Smart KPIs, 3D Visualizer), showing language selection and translation flow.](./media/IAI_Architecture_Azure/image25.svg)
+| User Preferences | The user preferences table stores the selected language for the IAI UI. |
 |  |
-
+The following diagram shows how the internationalization component is used across IAI. 
+![Diagram mapping localization configurator, microservices, configuration database, and UI modules (Reporting, Operations Hierarchy, Advisor, People Management, Smart KPIs, 3D Visualizer), showing language selection and translation flow.](./media/IAI_Architecture_Azure/image25.svg)
 
 #### Deployment
 
 ![Deployment diagram showing localization components hosted on Azure, AKS Cluster, and customer computers, with connections to databases and microservices.](./media/IAI_Architecture_Azure/image27.svg)
 
-## 
-
-# People Management
+### People Management
 
 The role of the People Management system is to enable administrators to control which users have access to data and functionality in the IAI platform. This is done through the integration of an Identity Provider System (Azure Active Directory) which provides the user profiles and the groups to which the users can be assigned.
 
@@ -331,10 +315,6 @@ The role of the People Management system is to enable administrators to control 
 People Management stores the assignments of users and groups to IAI roles and departments. It is being used by most of the IAI systems and plays an important role for data access and roles assignment.
 
 ![Diagram showing People Management at the center, managing roles and access for users and groups, with connections to Smart KPIs, Intelligent Advisor, 3D Visualizer, Operations Hierarchy, and Reporting modules.](./media/IAI_Architecture_Azure/image29.svg)
-
-### 
-
-## 
 
 ### Containers
 
@@ -378,9 +358,7 @@ The following two deployment diagrams explain where each of these system compone
 
 ![Deployment diagram showing hosting locations and communication connections between People Management components, databases, and Azure AD.](./media/IAI_Architecture_Azure/image35.svg)
 
-## 
-
-# Intelligent Advisor
+### Intelligent Advisor
 
 The Intelligent Advisor (IA) is an AI-based solution that enables users of all types -- from shop floor workers to top management -- to focus on their most critical issues, with real-time-generated, prioritized, and contextualized insights and recommendations.
 
@@ -472,12 +450,12 @@ The containers shown in the diagram are described in the table below.
 | Scheduler | Based on a configuration, the scheduler will invoke the machine learning microservice to generate recommendations. |
 | Data Model | A microservice responsible for the execution of machine learning model. It is triggered by the Scheduler microservice on a periodic interval using a Kafka topic. When the execution finishes, a new message is published on the output Kafka topic. This microservice can either execute the model using a platform tool machine learning implementation or an in-memory module. |
 | Insight generator engine | This microservice consumes messages generated by Data Model microservice and based on the output value, will decide if insights need to be created. |
-| Intelligent Advisor Microservice | Provides APIs to access insights and actions based on assigned roles. Click on the diagram to view a larger version. ![Container diagram showing IA components (Insight generation, collaboration, actions, advisor panel, details, lifecycle management), shared platform tools, and module integrations.](./media/IAI_Architecture_Azure/image40.svg)
-|  |
+| Intelligent Advisor Microservice | Provides APIs to access insights and actions based on assigned roles.| 
 
-### 
+Click on the diagram to view a larger version. ![Container diagram showing IA components (Insight generation, collaboration, actions, advisor panel, details, lifecycle management), shared platform tools, and module integrations.](./media/IAI_Architecture_Azure/image40.svg)
+ 
 
-## Insight Generation
+### Insight Generation
 
 Using the IA Configuration Application, a user can create a configuration object used to generate insights based on a predefined frequency. The Scheduler microservice is responsible for triggering the Data Analytics microservice, which in turn will execute the MLOps service to create predictions. The output of the ML model execution is compared against the KPI values and Insight generator engine will decide if a new Insight must be generated or not.
 
@@ -801,9 +779,9 @@ The diagram on the left may be enlarged by clicking it. The following tables lis
 | Production Manager Configuration microservice | The configuration microservice provides the possibility to configure the Production Manager and the roles assigned to the nodes of it **Data storage** |
 | **Name** | **Responsibility** |
 | Knowledge Graph | Stores the production data (production orders, batches, recipes, BOM, etc) in the knowledge graph. |
-| Configuration Database | Stores configuration for the Operations Hierarchy. **Deployment** Click the image to enlarge it. ![](./media/IAI_Architecture_Azure/image84.svg)
-|  |
+| Configuration Database | Stores configuration for the Operations Hierarchy. |
 
+**Deployment** Click the image to enlarge it. ![](./media/IAI_Architecture_Azure/image84.svg)
 ## 
 
 # 3D Visualization
@@ -993,4 +971,5 @@ The IAI Configuration applications are a set of stand-alone MFE applications tha
 | Event-based asynchronous | This enables the advantages of multithreaded applications while hiding many of the complex issues inherent in multithreaded design. Using a class that supports this pattern can allow the execution of long-running tasks in the background without blocking tasks, running multiple tasks in parallel, and waiting for available resources. |
 | Publish-subscribe | This is a messaging pattern where senders of messages---called publishers---do not program the messages to be sent directly to specific receivers---called subscribers---but instead categorize published messages into classes without any information about the subscribers. The subscribers decide on the reception of the different data by subscribing to different topics. |
 | Adapter pattern | By applying this pattern to containers, communication between containers is kept consistent. Having a standard way of communicating via a set of contracts helps to make requests in the same way and lets the user expect the same response format. |
+
 
