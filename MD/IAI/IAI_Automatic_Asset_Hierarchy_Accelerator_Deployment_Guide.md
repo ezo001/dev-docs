@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Extractors Architecture Blueprint, IAI Extractors Getting Started |
-
 ## 
 
 
@@ -96,8 +95,6 @@ Developers with the following skills:
 | Transformation Destination Type | The target type in CDF where transformed data is sent, such as asset, event, or relationship. |
 | Transformation Action Type | The operation performed in CDF, such as creation, update, or deletion of assets or relationships. |
 | Extraction Pipeline | A process that extracts data from a source system, transforms it, and loads it into CDF, providing run status notifications. |
-
-
 ## Background
 
 Like IAI extractors, this accelerator is dynamic and config file-driven. Configurations like transformation details (external ID, name, query, schedule, Transformation Destination type, Transformation Action Type) and CDF environment details can be added to the config file so that the respective transformation is created, scheduled, and run as per the configured details. In return, asset hierarchies, events, relationships, and labels are created, updated, or deleted as necessary. When combined with extractors, the Automatic Asset Hierarchy element helps to automate the flow from AH Data extraction from the source system to Asset Hierarchy creation in CDF.
@@ -225,6 +222,7 @@ The Build Pipeline is used to Dockerize the Extractor Package. The artifacts cre
 1.  Navigate to Azure DevOps, select \"Pipelines\", and then select \"New Pipeline.\"
 
 > ![Screenshot of Azure DevOps showing the pipelines screen and option for \'New Pipeline\'](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image9.png)
+
 2.  Select \"Azure Repos Git\" then Select Repository Name that contains Automatic Asset Hierarchy Accelerator code and pipeline files and then select \"Existing Azure Pipelines YAML file.\"
 
 > ![Screenshot of ADO showing the option of Azure Repos Git](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image10.png)
@@ -257,6 +255,7 @@ The Release pipeline deploys the Docker Image of the Automatic Asset Hierarchy A
 2.  Update the value of the service connection for the AKS cluster in the tasks.
 
 > ![Screenshot showing the field that needs to be updated with the value of service connection for AKS cluster](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image14.png)
+
 3.  Update the AKS file location in the tasks.
 
 > ![Screenshot showing the AKS file location](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image15.png)
@@ -265,9 +264,11 @@ The Release pipeline deploys the Docker Image of the Automatic Asset Hierarchy A
 5.  Disable the delete task after running the pipeline the first time.
 
 > ![Screenshot showing the option to disable the delete task from the pipeline](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image16.png)
+
 6.  Create a release from the release pipeline created in the previous step.
 
 > ![Screenshot showing the page and option to \'Create release\'.](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image17.png)
+
 7.  Once the release is completed, confirm that the deployment was successful on Azure DevOps.
 
 > ![Screenshot showing the successful deployment on ADO.](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image18.png)
@@ -276,6 +277,7 @@ The Release pipeline deploys the Docker Image of the Automatic Asset Hierarchy A
 9.  After deployment, validate successful deployment to the AKS cluster in the Azure portal.
 
 > ![Screenshot showing the successful deployment to AKS cluster](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image19.png)
+
 10. Use [Lens](https://k8slens.dev/) to validate Automatic Asset Hierarchy Accelerator logs.
 
 > ![Screenshot of Lens App](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image20.png)
@@ -284,6 +286,7 @@ The Release pipeline deploys the Docker Image of the Automatic Asset Hierarchy A
 12. If everything looks good and AKS POD is created, enable the delete task that was previously disabled.
 
 > ![Screenshot showing the option to enable and disable selected task](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image21.png)
+
 13. Validate successful transformation run in CDF.
 
 > ![Screenshot showing the successful transformation run in CDF](./media/IAI_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide/image22.png)

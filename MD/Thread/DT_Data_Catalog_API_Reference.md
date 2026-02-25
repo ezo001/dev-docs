@@ -24,7 +24,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -147,8 +146,6 @@ The data catalog UI uses a set of APIs to perform its functions and support its 
 | Business Asset APIs | POST Business Asset Overview Tab Details POST Business/Technical Asset Overview Collection Path Details POST Business/Technical Asset Overview Tab Glossary Terms Details POST Asset Glossary Terms Inner Page Overview Tab Details POST Asset Glossary Terms Inner Page Overview Tab Catalog Assets Count Details POST Asset Glossary Terms Inner Page Related Tab Details POST Business Asset Metadata Tab Details POST Business Asset Related Tab Details POST Business Asset Data Quality Tab Details |
 | Technical Asset APIs | POST Technical Asset Overview Tab Details POST Technical Asset Schema Tab Details POST Technical Asset Lineage Tab Details POST Technical Asset Lineage Tab Nodes Details POST Technical Asset Related Tab Details POST Domain |
 | BOM View APIs | POST BOM View API details |
-
-
 ### 
 
 ## Dashboard APIs
@@ -164,8 +161,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -173,8 +168,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -184,16 +177,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Successful Operations |
-
-
 ##### Error Management
 
 
@@ -202,8 +191,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 400 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad Request |
-
-
 ##### Sample JSON Response
 
 \{
@@ -232,8 +219,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard( | variables\": \{ \"version\": \"2023-10-01-preview\", \"payload\": \{ \"keywords\": null, \"limit\": 1, \"filter\": \{ \"and\": \[ \{ \"attributeName\": \"Generic_System_Attributes.System Technical Name\", \"operator\": \"eq\", \"attributeValue\": \"Siemens Teamcenter\" \}, \{ \"not\": \{ \"classification\": \"MICROSOFT.SYSTEM.TEMP_FILE\" \} \}, \{ \"not\": \{ \"or\": \[ \{ \"entityType\": \"AtlasGlossary\" \} \] \} \}, \{ \"not\": \{ \"or\": \[ \{ \"attributeName\": \"size\", \"operator\": \"eq\", \"attributeValue\": 0 \}, \{ \"attributeName\": \"fileSize\", \"operator\": \"eq\", \"attributeValue\": 0 \} \] \} \} \] \} \} \} |
-
-
 #### 
 
 ### POST - Collection Count
@@ -247,8 +232,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -256,8 +239,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -267,16 +248,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -285,8 +262,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Sample JSON Response
 
 \{
@@ -351,8 +326,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard( | \"variables\": \{ \"version\": \"2022-08-01-preview\", \"payload\": \{ \"keywords\": null, \"limit\": 1, \"filter\": \{ \"and\": \[ \{ \"not\": \{ \"classification\": \"MICROSOFT.SYSTEM.TEMP_FILE\" \} \}, \{ \"not\": \{ \"or\": \[ \{ \"entityType\": \"AtlasGlossary\" \} \] \} \}, \{ \"not\": \{ \"or\": \[ \{ \"attributeName\": \"size\", \"operator\": \"eq\", \"attributeValue\": 0 \}, \{ \"attributeName\": \"fileSize\", \"operator\": \"eq\", \"attributeValue\": 0 \} \] \} \} \] \}, \"facets\": \[ \{ \"facet\": \"collectionId\", \"count\": 200 \} \] \} \} |
-
-
 #### 
 
 ### POST - Glossary Count
@@ -367,8 +340,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Glossary_Count_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -376,8 +347,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -387,16 +356,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -405,7 +370,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Output Request Body
@@ -414,8 +378,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard( | \"variables\": \{ \"version\": \"2022-08-01-preview\", \"payload\": \{ \"keywords\": null, \"facets\": \[ \{ \"facet\": \"glossary\", \"count\": 10, \"sort\": \{ \"count\": \"desc\" \} \} \], \"filter\": \{ \"and\": \[ \{ \"not\": \{ \"glossaryType\": \"AtlasGlossary\" \} \} \] \}, \"limit\": 0 \} \} |
-
-
 #### 
 
 ### POST - Policy Count
@@ -429,8 +391,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -438,8 +398,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -449,16 +407,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -467,8 +421,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Sample JSON Response
 
 \{
@@ -505,8 +457,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | MyQuery | query MyQuery( | \"variables\": \{ \"ocp_apim_subscription_key\": \"cecf16b8bed7416c881dcc95c1e2d375\", \"pretty\": true \} |
-
-
 #### 
 
 ### POST -Business Asset Count
@@ -520,8 +470,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -529,8 +477,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -540,16 +486,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -558,7 +500,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -631,8 +572,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard( | \"variables\": \{ \"version\": \"2022-08-01-preview\", \"payload\": \{ \"keywords\": null, \"limit\": 25, \"offset\": 0, \"facets\": \[ \{ \"facet\": \"objectType\", \"count\": 300,\"sort\": \{ \"count\": \"desc\" \} \}, \{ \"facet\": \"assetType\", \"count\": 300, \"sort\": \{ \"count\": \"desc\" \} \} \], \"filter\": \{ \"and\": \[ \{ \"assetType\": \"Purview Business\" \}, \{ \"not\": \{ \"objectType\": \"Glossary terms\" \} \}, \{ \"not\": \{ \"classification\": \"MICROSOFT.SYSTEM.TEMP_FILE\"\} \}, \{ \"not\": \{ \"or\": \[ \{ \"entityType\": \"AtlasGlossary\" \}\] \} \}, \{ \"not\": \{ \"or\": \[ \{ \"attributeName\": \"size\", \"operator\": \"eq\", \"attributeValue\": 0 \}, \{ \"attributeName\": \"fileSize\", \"operator\": \"eq\", \"attributeValue\": 0 \} \] \} \} \] \} \} \} |
-
-
 #### 
 
 ### POST - Technical Asset Count
@@ -646,8 +585,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -655,8 +592,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -666,16 +601,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -684,7 +615,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -769,8 +699,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard( | \"variables\": \{ \"version\": \"2023-10-01-preview\", \"payload\": \{ \"keywords\": null, \"facets\": \[ \{ \"facet\": \"objectType\", \"count\": 100, \"sort\": \{\"count\": \"desc\"\} \} \], \"filter\": \{ \"and\": \[ \{ \"not\": \{ \"assetType\": \"Purview Business\" \} \}, \{ \"not\": \{ \"classification\": \"MICROSOFT.SYSTEM.TEMP_FILE\"\} \}, \{ \"not\": \{ \"or\": \[ \{\"entityType\": \"AtlasGlossary\" \} \] \} \}, \{ \"not\": \{ \"or\": \[ \{ \"attributeName\": \"size\", \"operator\": \"eq\", \"attributeValue\": 0 \}, \{ \"attributeName\": \"fileSize\", \"operator\": \"eq\", \"attributeValue\": 0 \} \] \} \} \] \}, \"limit\": 1 \} \},\}, |
-
-
 #### 
 
 ### POST - Onboarded Asset Count
@@ -784,8 +712,6 @@ The POST onboarded asset count is part of the Data Catalog. This microservice is
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -793,8 +719,6 @@ The POST onboarded asset count is part of the Data Catalog. This microservice is
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -804,16 +728,12 @@ The POST onboarded asset count is part of the Data Catalog. This microservice is
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -822,7 +742,6 @@ The POST onboarded asset count is part of the Data Catalog. This microservice is
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -911,8 +830,6 @@ The POST onboarded asset count is part of the Data Catalog. This microservice is
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard( | \"variables\": \{ \"version\": \"2022-08-01-preview\", \"payload\": \{ \"keywords\": null, \"limit\": 25, \"facets\": \[ \{\"facet\": \"objectType\", \"count\": 10, \"sort\": \{\"count\": \"desc\" \} \}, \{ \"facet\": \"assetType\",\"count\": 10, \"sort\": \{ \"count\": \"desc\" \} \} \], \"filter\": \{ \"and\": \[ \{ \"not\":\{\"classification\": \"MICROSOFT.SYSTEM.TEMP_FILE\"\} \}, \{ \"not\": \{ \"or\": \[ \{ \"entityType\": \"AtlasGlossary\" \} \] \} \}, \{ \"not\": \{ \"or\": \[ \{ \"attributeName\": \"size\", \"operator\": \"eq\", \"attributeValue\": 0 \}, \{ \"attributeName\": \"fileSize\", \"operator\": \"eq\", \"attributeValue\": 0 \} \] \} \} \] \} \} \}, |
-
-
 ### 
 
 ## Search Bar APIs 
@@ -929,8 +846,6 @@ The POST Asset suggestion for searching suitable asset wrt entered keyword is pa
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Asset_Suggestion_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -938,8 +853,6 @@ The POST Asset suggestion for searching suitable asset wrt entered keyword is pa
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -949,16 +862,12 @@ The POST Asset suggestion for searching suitable asset wrt entered keyword is pa
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -967,8 +876,6 @@ The POST Asset suggestion for searching suitable asset wrt entered keyword is pa
 | 500 | 500 | Invalid Data |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
 ##### 
 
 #### Output Request Body
@@ -977,8 +884,6 @@ The POST Asset suggestion for searching suitable asset wrt entered keyword is pa
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | MyQuery | query MyQuery(\$version: String!, \$payload: queryInput_purviewAssetSuggestion_input_Input) \{\ | \"variables\": \{ \"version\": \"2023-02-01-preview\", \"payload\": \{ \"keywords\": \"Doc\" \} \}, |
-
-
 #### 
 
 ### POST - Autocomplete
@@ -992,8 +897,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -1001,8 +904,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1012,16 +913,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1030,7 +927,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -1089,8 +985,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | MyQuery | query MyQuery(\$version: String!, \$payload: queryInput_purviewAutoComplete_input_Input) \{\ | \"variables\": \{ \"version\": \"2023-02-01-preview\", \"payload\": \{ \"keywords\": \"rev\" \} \}, |
-
-
 ### 
 
 ## Search Screen APIs 
@@ -1107,8 +1001,6 @@ The POST Asset suggestion is used for searching the suitable assets as per the e
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Search_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1116,8 +1008,6 @@ The POST Asset suggestion is used for searching the suitable assets as per the e
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1127,16 +1017,12 @@ The POST Asset suggestion is used for searching the suitable assets as per the e
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1145,7 +1031,6 @@ The POST Asset suggestion is used for searching the suitable assets as per the e
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Output Request Body
@@ -1154,8 +1039,6 @@ The POST Asset suggestion is used for searching the suitable assets as per the e
 | Operation name | Query | variables |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard(\$version: String!, \$payload: queryInput_purviewDashboard_input_Input) \{\ | \"variables\": \{ \"version\": \"2023-09-01\", \"payload\": \{ \"keywords\": \"doc\", \"limit\": 25, \"offset\": 0, \"facets\": \[ \{facet\":\"collectionId\",\"count\": 1000,\"sort\": \{\"count\": \"desc\"\} \}, \{\"facet\": \"assetType\", \"count\": 50, \"sort\": \{\"count\": \"desc\" \} \}, \{\"facet\": \"termGuid\", \"count\": 50, \"sort\": \{ \"count\": \"desc\" \}\}, \{\"facet\": \"contactId\", \"count\": 50, \"sort\": \{ \"count\": \"desc\"\} \}, \{\"facet\": \"classification\", \"count\": 50,\"sort\": \{\"count\": \"desc\"\} \}, \{\"facet\": \"tag\", \"count\": 20, \"sort\": \{\"count\": \"desc\" \} \} \], \"filter\": \{ \"and\": \[ \{ \"not\":\{\"classification\":MICROSOFT.SYSTEM.TEMP_FILE\" \} \}, \{ \"not\": \{ \"or\": \[ \{ \"entityType\": \"AtlasGlossary\" \}\] \} \}, \{ \"not\": \{ \"or\": \[ \{\"attributeName\":\"size\",\"operator\":\"eq\",\"attributeValue\": 0 \}, \{ \"attributeName\":\"fileSize\",\"operator\":\"eq\", \"attributeValue\": 0 \} \] \} \} \] \} \} \}, |
-
-
 ### 
 
 ## Filter APIs
@@ -1171,8 +1054,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -1180,8 +1061,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1191,16 +1070,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1209,7 +1084,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -1256,8 +1130,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewMetadata | Query purviewMetadata(\$api_version:JSON!, \$servicetype: String!, \$type: String!) \{\ | \"variables\": \{ \"api_version\": \"2023-09-01\", \"servicetype\": \"Purview Data\", \"type\": \"ENTITY\" \}, |
-
-
 #### 
 
 ### POST - Business Asset type
@@ -1271,8 +1143,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -1280,8 +1150,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1291,16 +1159,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1309,7 +1173,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -1358,8 +1221,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewMetadata | Query purviewMetadata(\$api_version:JSON!, \$servicetype: String!, \$type: String!) \{\ | \"variables\": \{ \"api_version\": \"2023-09-01\", \"servicetype\":\"Purview Business\", \"type\": \"ENTITY\" \}, |
-
-
 #### 
 
 ### POST - Data Source and Assigned Term Option
@@ -1374,8 +1235,6 @@ This API is used for searching suitable assets as per the entered keyword. It is
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Data_Source_and_Assigned_Term_Option_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1383,8 +1242,6 @@ This API is used for searching suitable assets as per the entered keyword. It is
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1394,16 +1251,12 @@ This API is used for searching suitable assets as per the entered keyword. It is
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1412,7 +1265,6 @@ This API is used for searching suitable assets as per the entered keyword. It is
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Output Request Body
@@ -1421,8 +1273,6 @@ This API is used for searching suitable assets as per the entered keyword. It is
 | Operation name | Query | variables |
 | --- | --- | --- |
 | urviewDashboard | query purviewDashboard(\$version: String!, \$payload: queryInput_purviewDashboard_input_Input) \{\ | \"variables\": \{ \"version\": \"2023-09-01\", \"payload\": \{ \"keywords\": \"doc\", \"limit\": 25, \"offset\": 0, \"facets\": \[ \{facet\":\"collectionId\",\"count\": 1000,\"sort\": \{\"count\": \"desc\"\} \}, \{\"facet\": \"assetType\", \"count\": 50, \"sort\": \{\"count\": \"desc\" \} \}, \{\"facet\": \"termGuid\", \"count\": 50, \"sort\": \{ \"count\": \"desc\" \}\}, \{\"facet\": \"contactId\", \"count\": 50, \"sort\": \{ \"count\": \"desc\"\} \}, \{\"facet\": \"classification\", \"count\": 50,\"sort\": \{\"count\": \"desc\"\} \}, \{\"facet\": \"tag\", \"count\": 20, \"sort\": \{\"count\": \"desc\" \} \} \], \"filter\": \{ \"and\": \[ \{ \"not\":\{\"classification\":MICROSOFT.SYSTEM.TEMP_FILE\" \} \}, \{ \"not\": \{ \"or\": \[ \{ \"entityType\": \"AtlasGlossary\" \}\] \} \}, \{ \"not\": \{ \"or\": \[ \{\"attributeName\":\"size\",\"operator\":\"eq\",\"attributeValue\": 0 \}, \{ \"attributeName\":\"fileSize\",\"operator\":\"eq\", \"attributeValue\": 0 \} \] \} \} \] \} \} \}, |
-
-
 #### 
 
 ### POST - Collection
@@ -1436,8 +1286,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -1445,8 +1293,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1456,16 +1302,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1474,7 +1316,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -1543,8 +1384,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewMetadata | query purviewEntityDef \{\ | \"variables\": \{ \}, |
-
-
 #### 
 
 ### POST - Classification
@@ -1559,8 +1398,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Classification_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1568,8 +1405,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1579,16 +1414,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1597,16 +1428,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 | Invalid Data |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 ##### Output Request Body
 
 
 | Operation name | Query |
 | --- | --- |
 | purviewEntityDef | Query purviewEntityDef\{\ purviewEntityDef\{\ classificationDefs\ \_\_typename\ \}\ \} |
-
 #### 
 
 ### POST - Applying and Removing of Filters
@@ -1621,8 +1448,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Applying_Removing_Filters_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1630,8 +1455,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1641,16 +1464,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1659,7 +1478,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Output Request Body
@@ -1668,8 +1486,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation Name | Query | variables |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard(\$version: String!, \$payload: queryInput_purviewDashboard_input_Input) \{\ | \"variables\":\{\"version\":\"2023-09-01\", \"payload\": \{\"keywords\": \"\",\"limit\":25, \"offset\":0,\" facets\": \[\{\"facet\":\"collectionId\",\"count\":1000,\"sort\":\{\"count\":\"desc\"\}\},\{\"facet\":\"assetType\",\"count\":50,\"sort\":\{\"count\":\"desc\"\}\},\{\"facet\":\"termGuid\",\"count\":50,\"sort\":\{\"count\":\"desc\"\}\},\{\"facet\":\"contactId\",\"count\":50,\"sort\":\{\"count\":\"desc\"\}\},\{\"facet\":\"classification\",\"count\":50,\"sort\":\{\"count\":\"desc\"\}\},\{\"facet\":\"tag\",\"count\":20,\"sort\":\{\"count\":\"desc\"\}\}\],\" filter\": \{\"and\":\[\{\"or\":\[\{\"collectionId\":\"ix-dev-purview\"\},\{\"collectionId\":\"n28vvq\"\}\]\},\{\"and\":\[\{\"updateTime\":\"LAST_30D\"\}\]\},\{\"not\":\{\"classification\":\"MICROSOFT.SYSTEM.TEMP_FILE\"\}\},\{\"not\":\{\"or\":\[\{\"entityType\":\"AtlasGlossary\"\}\]\}\},\{\"not\":\{\"or\":\[\{\"attributeName\":\"size\",\"operator\":\"eq\",\"attributeValue\":0\},\{\"attributeName\":\"fileSize\",\"operator\":\"eq\",\"attributeValue\":0\}\]\}\}\]\}\}\} |
-
-
 #### 
 
 ### POST - Custom Filter Option 
@@ -1684,8 +1500,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Custom_Filter_Option.txt) |
-
-
 ##### Input Header
 
 
@@ -1693,8 +1507,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1704,16 +1516,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1722,17 +1530,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 | Invalid Data |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 ##### Output Request Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | MyQuery | query MyQuery(\$type: String!) \{\ | \"variables\": \{ \"type\": \"BUSINESS_METADATA\" \}, |
-
-
 ### 
 
 ## Business Asset APIs
@@ -1749,8 +1552,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Business_Asset_Overview_Tab_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1758,8 +1559,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1769,16 +1568,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1787,7 +1582,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -1864,8 +1658,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query purviewBulkEntities(\$guid: String!) \{ | variables: \{ \"guid\":\"21ced9c3-86ca-4fee-ac06-dad11f9dcaa8\" \}, |
-
-
 #### 
 
 ### POST - Business/Technical Asset Overview Collection Path Details 
@@ -1879,8 +1671,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -1888,8 +1678,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -1899,16 +1687,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -1917,7 +1701,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -1982,8 +1765,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewCollections | query purviewCollections(\$version: String!) \{ | \"variables\": \{ \"version\": \"2019-11-01-preview\", \}, |
-
-
 #### 
 
 ### POST - Business/Technical Asset Overview Tab Glossary Terms
@@ -1997,8 +1778,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -2006,8 +1785,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2017,16 +1794,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2035,7 +1808,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -2114,8 +1886,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query purviewBulkEntities(\$guid: String!) \{ | variables: \{ \"guid\":\"1e1749c8-3c7e-40a8-8c7d-30f6f6f60000\" \}, |
-
-
 #### 
 
 ### POST - Glossary Terms Inner Page Overview Tab Details 
@@ -2130,8 +1900,6 @@ This microservice is a POST call to the Query engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Asset_Glossary%20Terms_Inner_Page_Overview_Tab_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2139,8 +1907,6 @@ This microservice is a POST call to the Query engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
-
-
 ##### Output Header
 
 
@@ -2150,16 +1916,12 @@ This microservice is a POST call to the Query engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes \*Mandatory / Optional |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2168,16 +1930,12 @@ This microservice is a POST call to the Query engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request **Sample JSON Response** \{ \"data\": \{ \"purviewBulkEntities\": \{ \"entity\": \{ \"typeName\": \"AtlasGlossaryTerm\", \"attributes\": \{ \"longDescription\": \"Windchill System\", \"qualifiedName\": \"Windchill@Glossary\", \"nickName\": \"Windchill\", \"name\": \"Windchill\", \"resources\": null, \}, \"guid\": \"e897f0e4-1fa5-4eb6-b753-ae8d6b2d627b\", \"createTime\": 1708596505726, \"updateTime\": 1718953323190, \"hierarchyInfo\": \[ \{ \"guid\": \"e897f0e4-1fa5-4eb6-b753-ae8d6b2d627b\", \"typeName\": \"AtlasGlossaryTerm\", \"properties\": \{ \"nickName\": \"Windchill\" \} \} \], \"displayText\": \"Windchill\", \}, \} \} \} |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query purviewBulkEntities(\$guid: String!) \{ | variables: \{ \"guid\":\"e897f0e4-1fa5-4eb6-b753-ae8d6b2d627b\" \}, |
-
-
 #### 
 
 ### POST - Asset Glossary Terms Catalog Assets Count Details
@@ -2192,8 +1950,6 @@ The POST asset glossary term\'s catalog assets count details are part of the Dat
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Asset_Glossary_Terms_Inner_Page_Overview_Tab_Catalog_Assets_Count_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2201,8 +1957,6 @@ The POST asset glossary term\'s catalog assets count details are part of the Dat
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2212,16 +1966,12 @@ The POST asset glossary term\'s catalog assets count details are part of the Dat
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2230,7 +1980,6 @@ The POST asset glossary term\'s catalog assets count details are part of the Dat
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Output Body
@@ -2239,8 +1988,6 @@ The POST asset glossary term\'s catalog assets count details are part of the Dat
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard( | variables: \{ \"version\": \"2023-09-01\", \"payload\": \{ \"keywords\": null, \"filter\": \{ \"and\": \[ \{ \"termGuid\":\"f7e67f83-5a82-4918-a5cf-27c86c5aa019\" \}, \{ \"not\": \{ \"classification\": \"MICROSOFT.SYSTEM.TEMP_FILE\" \} \}, \{ \"not\": \{ \"or\": \[ \{ \"entityType\": \"AtlasGlossary\" \} \] \} \}, \{ \"not\": \{ \"or\": \[ \{ \"attributeName\": \"size\", \"operator\": \"eq\", \"attributeValue\": 0 \}, \{ \"attributeName\": \"fileSize\", \"operator\": \"eq\", \"attributeValue\": 0 \} \] \} \} \] \} \} \} , |
-
-
 #### 
 
 ### POST - Asset Glossary Terms Related Tab Details 
@@ -2254,8 +2001,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -2263,8 +2008,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2274,16 +2017,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2292,7 +2031,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ##### 
 
 #### Sample JSON Response
@@ -2321,8 +2059,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewGlossaryTerm | query MyQuery(\$guid:String!, \$termHierarchy:Boolean!) \{ | variables: \{ \"guid\": \"f7e67f83-5a82-4918-a5cf-27c86c5aa019\", \"termHierarchy\": true \} , |
-
-
 #### 
 
 ### POST - Business Asset Metadata Tab Details 
@@ -2337,8 +2073,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Business_Asset_Metadata_Tab_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2346,8 +2080,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2357,16 +2089,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2375,16 +2103,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query purviewBulkEntities(\$guid: String!) \{ | variables: \{ \"guid\":\"1e1749c8-3c7e-40a8-8c7d-30f6f6f60000\" \}, |
-
-
 #### 
 
 ### POST - Business Asset Metadata Tab API for empty attribute
@@ -2399,8 +2123,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Business_Asset_Metadata_Tab_API_for_empty_attribute_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2408,16 +2130,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2426,15 +2144,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Output Body
 
 
 | Operation name | Query Variable |
 | --- | --- |
 | purviewEntityDef | query purviewEntityDef(\$name: String!) \{ purviewEntityDef(name: \$name) \{ entityDefs \_\_typename\}\} variables:\{name: \" BSP091_purchasingHeader\"\} |
-
 #### 
 
 ### POST - Business Asset Related Tab Details 
@@ -2448,8 +2163,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -2457,8 +2170,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2468,25 +2179,18 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewRelationship | query purviewRelationship(\$guid: String!) \{ | variables: \{ \"guid\": \"613cd3a5-014b-45c5-bcad-adf2d785a8e1\" \}, |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2495,8 +2199,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 | Invalid Data |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
 ##### 
 
 #### Sample JSON Response
@@ -2589,8 +2291,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Business_Asset_Data_Quality_Tab_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2598,8 +2298,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2609,16 +2307,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2627,17 +2321,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | allDataqualityInfosList | query dataquality(\$condition:DataqualityInfoCondition) \{ | variables: \{ \"condition\": \{ \"datasetName\": \"C19_ProblemReportRevision\", \} \}, |
-
-
-
 ### Technical Asset APIs
 
 #### POST - Technical Asset Overview Tab Details
@@ -2652,8 +2341,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Technical_Asset_Overview_Tab_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2661,8 +2348,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2672,25 +2357,18 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query purviewBulkEntities(\$guid: String!) \{ | variables: \{ \"guid\":\"1e1749c8-3c7e-40a8-8c7d-30f6f6f60000\" \}, |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2699,7 +2377,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 #### 
 
 ### POST - Technical Asset Schema Tab Details
@@ -2714,8 +2391,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Technical_Asset_Schema_Tab_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2723,16 +2398,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2741,8 +2412,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Output Header
 
 
@@ -2752,16 +2421,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query purviewBulkEntities(\$guid: String!) \{ | variables: \{ \"guid\":\"45ae6ad6-d38d-40cf-b380-8bf6f6f60000 \" \}, |
-
-
 #### 
 
 ### POST - Technical Asset Lineage Tab Details
@@ -2776,8 +2441,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Technical_Asset_Lineage_Tab_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2785,16 +2448,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2803,8 +2462,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Output Header
 
 
@@ -2814,7 +2471,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
 ##### 
 
 #### Output Body
@@ -2823,8 +2479,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query MyQuery(\$guid: String!) \{ | variables: \{ \"guid\":\"000c528f-f8b6-4fbe-91c6-06f6f6f60000\" \}, |
-
-
 #### 
 
 ### POST - Technical Asset Lineage Tab Nodes Details
@@ -2838,8 +2492,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -2847,8 +2499,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Output Header
 
 
@@ -2858,16 +2508,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2876,16 +2522,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 | Invalid Data |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
 ***Output Body***
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBulkEntities | query purviewBulkEntities(\$guid: String!) \{ | variables: \{ \"guid\":\"000c528f-f8b6-4fbe-91c6-06f6f6f60000\" \}, |
-
-
 **Sample JSON Response**
 
 \{
@@ -2952,8 +2594,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_Technical_Asset_Related_Tab_Details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -2961,16 +2601,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -2979,8 +2615,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ##### Output Header
 
 
@@ -2990,17 +2624,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewBrowse | query MyQuery( | variables: \{ \"version\": \"2021-05-01-preview\", \"payload\": \{ \"limit\": 100, \"offset\": null, \"path\": \"/mssql_instance#tc-training13%2FMSSQLSERVER/mssql_db#tc/mssql_schema#dbo\" \} \}, |
-
-
-
 #### POST - Domain 
 
 This microservice is a POST call to the Query Engine server hosted at the backend to get details of technical asset lineage nodes as data sources and destinations when the user accesses overall asset information and selects the browse by domain options.
@@ -3012,8 +2641,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 ##### Input Header
 
 
@@ -3021,17 +2648,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
-
-
 ##### Output Body
 
 
 | Operation name | Query | Variable |
 | --- | --- | --- |
 | purviewDashboard | query purviewDashboard(\$version: String!, \$payload: queryInput_purviewDashboard_input_Input) \{purviewDashboard(version: \$version, input: \$payload) \{ \_AT_search_count | \"variables\":\{\"version\":\"2023-10-01-preview\",\"payload\":\{\"keywords\":null,\"limit\":1,\"filter\":\{\"and\":\[\{\"entityType\":\"Purview_Asset\",\"includeSubTypes\":true\},\{\"not\":\{\"classification\":\"MICROSOFT.SYSTEM.TEMP_FILE\"\}\},\{\"not\":\{\"or\":\[\{\"entityType\":\"AtlasGlossary\"\}\]\}\},\{\"not\":\{\"or\":\[\{\"attributeName\":\"size\",\"operator\":\"eq\",\"attributeValue\":0\},\{\"attributeName\":\"fileSize\",\"operator\":\"eq\",\"attributeValue\":0\}\]\}\}\]\},\"facets\":\[\{\"facet\":\"domainId\",\"count\":200\}\]\}\} |
-
-
-
 ##### Sample JSON Response
 
 \{
@@ -3082,8 +2704,6 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | CONTENT TYPE | application / json |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_BOM_View_API_details_JSON_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -3091,16 +2711,12 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | --- | --- |
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String \*Mandatory / Optional |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -3109,13 +2725,9 @@ This microservice is a POST call to the Query Engine server hosted at the backen
 | 500 | 500 | Invalid Data |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 ##### Output Body
 
 
 | Operation | Query | Variable |
 | --- | --- | --- |
 | tcDataRefreshness | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Data%20Catalog/POST_BOM_View_API_details_Query.txt) | variables: \{ Ocp_Apim_Subscription_Key:bomApimSubscriptionKey, transaction_id:123456, itemId: \'000295\', revId: \'A\' \}, |
-

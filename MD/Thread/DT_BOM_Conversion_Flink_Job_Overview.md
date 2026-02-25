@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** |  |
 | **Related Assets / Alternatives** | AOT / Engineering Orch / Engineering Agents |
-
 ## 
 
 # 
@@ -119,11 +118,7 @@ The Flink job is comprised of the following steps:
 | 3 | Rules Application | The transformation rules are dynamically loaded from the Rules Repository. Then, the input data is updated into the template as per the transformation rules loaded. |
 | 4 | Mapping | Fields are matched and mapped using JSON Path expressions. |
 | 5 | Validation and Exception Handling | The job validates the mapping process to ensure that all required fields in the MBOM template are present. If any required fields are missing, an exception is thrown. |
-| 6 | Output Data Delivery | The transformed MBOM data is sent to a Kafka topic, making it available for downstream systems or further processing. |
-
-
-![BOM Conversion workflow diagram](./media/DT_BOM_Conversion_Flink_Job_Overview/image2.png)
-
+| 6 | Output Data Delivery | The transformed MBOM data is sent to a Kafka topic, making it available for downstream systems or further processing. ![BOM Conversion workflow diagram](./media/DT_BOM_Conversion_Flink_Job_Overview/image2.png) |
 The Flink job orchestrates the entire flow by connecting the Kafka source, transformation logic, and Kafka sink into a seamless pipeline. The job processes incoming events in real time, ensuring efficient and reliable data transformation.
 
 These components are described in the subsequent sections.
@@ -403,8 +398,6 @@ This API retrieves a list of all running or completed Flink jobs.
 | AWS DEV ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header
 
 
@@ -412,16 +405,12 @@ This API retrieves a list of all running or completed Flink jobs.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier / subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -432,7 +421,6 @@ This API retrieves a list of all running or completed Flink jobs.
 | 401 | Invalid Subscription key / Invalid Token |
 | 403 | Forbidden |
 | 500 | Project Specific error **Response**\ \{ \"jobs\": \[ \{ \"id\": \" edf541eb49a2e98f4820e28b2044b540", \"status\": \"RUNNING\" \} \] \} |
-
 ### 
 
 ## Taskmanagers
@@ -450,8 +438,6 @@ This API retrieves a list of task managers in the Flink cluster.
 | AWS DEV ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -459,16 +445,12 @@ This API retrieves a list of task managers in the Flink cluster.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -478,7 +460,6 @@ This API retrieves a list of task managers in the Flink cluster.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Taskmanager Log
@@ -496,16 +477,12 @@ This API retrieves the log of a specific task manager.
 | AWS DEV ENDPOINT | [https://ixdt-bom-dev.accenture.com/mbomflinkjob/taskmanagers/\{tm-id\}/log](https://ixdt-bom-dev.accenture.com/mbomflinkjob/taskmanagers/%7btm-id%7d/log) |
 | METHOD | POST |
 | CONTENT TYPE | application/json |
-
-
 #### Input Path
 
 
 | Parameter | Description |
 | --- | --- |
 | tm-id | Unique identifier and specifies the type of data to retrieve |
-
-
 #### Input Header
 
 
@@ -513,16 +490,12 @@ This API retrieves the log of a specific task manager.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -532,7 +505,6 @@ This API retrieves the log of a specific task manager.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## JobManager Log
@@ -550,8 +522,6 @@ This API retrieves the log of the job manager.
 | AWS DEV ENDPOINT |  |
 | METHOD | POST |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -559,16 +529,12 @@ This API retrieves the log of the job manager.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -578,7 +544,6 @@ This API retrieves the log of the job manager.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ## 
 
 # Defining Requests and Responses

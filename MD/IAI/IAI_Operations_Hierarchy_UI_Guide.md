@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Operations Hierarchy Deployment Guide, Operations Hierarchy API Reference |
-
 </div>
 
 ## Introduction
@@ -91,7 +90,6 @@ The following must be deployed before using the UI:
 | **RAG Status** | Red, Amber, Green indicator for asset KPIs, refreshed based on events. |
 | **KPI (Key Performance Indicator)** | Metrics to assess asset status or performance, visualized with RAG status. |
 | **Entity Viewer Template** | Configuration file (.xlsx, .xlsm, .csv) for customizing the Entity Viewer UI. |
-
 ## 
 
 # Launch the Application
@@ -170,7 +168,6 @@ As shown on the right, the tree structure view includes the following details:
 | Instrument |
 | ![icon for Not Tagged to any Level](./media/IAI_Operations_Hierarchy_UI_Guide/image6.png)
 | Not Tagged to any Level |
-
 ## 
 
 # 

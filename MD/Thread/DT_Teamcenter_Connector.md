@@ -267,8 +267,6 @@ Whenever a certain operation encounters an error, the same structure should be r
 | errorManagement | Object identifying the error O\* Object |
 | errorCode | Code that identifies the error occurred O\* String |
 | errorDescription | Error description O\* String |
-
-
 #### Example Error Response
 
 > \{
@@ -351,8 +349,6 @@ The table below includes a short description of every Product Name API.
 | BOM Conversion | This API performs BOM conversion operations in Teamcenter, typically EBOM-to-MBOM conversions |
 | GET Batch Processing | This API is used for posting requests to generate .csv files at the TC Server. |
 | POST Set Preferences | This API is used to add items in Teamcenter based on the provided request object. Each API is detailed on the pages that follow. |
-
-
 ### Get Item Revision
 
 This API facilitates the retrieval of item revisions from Teamcenter. It is designed to fetch specific items based on various parameters, including but not limited to id, type, attributes, and modifiedAfter. Users can tailor their requests to efficiently obtain the desired information from Teamcenter, enhancing flexibility and precision in data retrieval.
@@ -365,8 +361,6 @@ This API facilitates the retrieval of item revisions from Teamcenter. It is desi
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/GET_Item_Revision_Sample_Response.txt) |
-
-
 #### Path Parameters
 
 
@@ -378,8 +372,6 @@ This API facilitates the retrieval of item revisions from Teamcenter. It is desi
 | modifiedAfter | Optional param to fetch records which modified on or after specified date |
 | cdc | Optional param added for cdc specific use case. |
 | maxResults | Used to fetch specific number of records from TC in the cdc use case. This will work only if CDC is true. Max value allowed 50. |
-
-
 #### Pagination Parameters
 
 
@@ -387,16 +379,12 @@ This API facilitates the retrieval of item revisions from Teamcenter. It is desi
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0), Mandatory param added for pagination. |
 | limits | Mandatory param added for pagination. Max Value allowed is 100. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -407,7 +395,6 @@ This API facilitates the retrieval of item revisions from Teamcenter. It is desi
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Post Item Revision
@@ -423,16 +410,12 @@ This API allows the creation of items in Teamcenter based on the provided reques
 | CONTENT TYPE | application / json |
 | SAMPLE REQUEST | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/POST_Item_Revision_Sample_Request.txt) |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/GET_Item_Revision_Sample_Response.txt) |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -449,7 +432,6 @@ This API allows the creation of items in Teamcenter based on the provided reques
 | 2. | CAD, PDF, and Text files can be uploaded. The request body structure for uploading the file is as follows. |
 | a. | Sample Request body to upload the file at the time of creation of Item ID - [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/File_Upload_Creation_Request_Body.txt) |
 | b. | Sample Request body to upload file to existing item - [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/File_Upload_Existing_Request_Body.txt) |
-
 ### 
 
 ## Put Item Revision
@@ -465,17 +447,12 @@ This API facilitates the creation of a revision object in Teamcenter and subsequ
 | CONTENT TYPE | application / json |
 | SAMPLE REQUEST | \[ \{ \"clientId\": \"Digital-Thread\", \"itemId\": \"003674\", \"revId\": \"A\", \"properties\": \{ \"object_name\": \"DriverAirBag\", \"object_desc\": \"This is a Demo Part to Create DriverAirBag\" \} \} \] |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/PUT_Item_Revision_Sample_Response.txt) |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -486,7 +463,6 @@ This API facilitates the creation of a revision object in Teamcenter and subsequ
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Patch Item Revision
@@ -502,9 +478,6 @@ This API allows updating the properties of an item in Teamcenter. Provide the it
 | CONTENT TYPE | application / json |
 | SAMPLE REQUEST | \[ \{ \"clientId\": \"Digital-Thread\", \"itemId\": \"003676\", \"revId\": \"A\", \"properties\": \{ \"object_name\": \"003666_ItemObjectNameA\", \"object_desc\": \"Demo Item related to Air Bag\" \} \} \] |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/PATCH_Item_Revision_Sample_Response.txt) |
-
-
-
 #### Result
 
 
@@ -517,7 +490,6 @@ This API allows updating the properties of an item in Teamcenter. Provide the it
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Delete Item
@@ -531,8 +503,6 @@ This API enables the deletion of items or a specific revision or dataset in Team
 | QA ENDPOINT | [https://ix-qa-apimgmt.azure-api.net/teamcenter-api/v1/](https://ix-qa-apimgmt.azure-api.net/teamcenter-api/)items[/revisions] |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Request and Response
 
 [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Delete_Item_Request_Response.txt)
@@ -543,8 +513,6 @@ This API enables the deletion of items or a specific revision or dataset in Team
 | HTTP Code | Result Description |
 | --- | --- |
 | 204 | Entry deleted successfully |
-
-
 #### Error Management
 
 
@@ -555,7 +523,6 @@ This API enables the deletion of items or a specific revision or dataset in Team
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Search BOM Item Details
@@ -577,8 +544,6 @@ It supports keyword-based searches along with attribute filtering and pagination
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -588,16 +553,12 @@ It supports keyword-based searches along with attribute filtering and pagination
 | attributes | Optional. Comma-separated list of attributes to fetch from parent BOM properties. |
 | offset | Required. Page number for pagination. |
 | limits | Required. Maximum number of records to fetch per page. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | BOM details fetched successfully |
-
-
 #### Error Management
 
 
@@ -608,7 +569,6 @@ It supports keyword-based searches along with attribute filtering and pagination
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get BOM Item Details
@@ -633,8 +593,6 @@ This API facilitates the retrieval of BOM details from Teamcenter. It supports f
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/GET_BOM_Item_Details_Sample_Response.txt) |
-
-
 #### Path Parameters
 
 
@@ -648,16 +606,12 @@ This API facilitates the retrieval of BOM details from Teamcenter. It supports f
 | fetch_children | Optional. Default 0. If set to 1, includes child BOM items in the response. |
 | offset | Required. Starting index for paginated results. |
 | limits | Required. Maximum number of records to fetch in one request. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -668,8 +622,6 @@ This API facilitates the retrieval of BOM details from Teamcenter. It supports f
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 ### Get BOM Items for CDC
 
 This API fetches BOM data from Teamcenter specifically for CDC (Change Data Capture) use cases.
@@ -687,8 +639,6 @@ It retrieves BOMs that have been created or updated after the specified modified
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -696,16 +646,12 @@ It retrieves BOMs that have been created or updated after the specified modified
 | --- | --- |
 | modified_after | Required. Fetch BOM records created or modified on or after the specified date (dd-MMM-yyyy HH:mm). |
 | max_results | Required. Maximum number of records to fetch (for CDC use case). Max allowed: 50. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -716,7 +662,6 @@ It retrieves BOMs that have been created or updated after the specified modified
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Post Create BOM Item
@@ -732,17 +677,12 @@ This API allows the creation of BOM items in Teamcenter based on the provided re
 | CONTENT TYPE | application / json |
 | SAMPLE REQUEST | \[ \{ \"parentProperties\": \{ \"item\": \"003409/A\" \}, \"childProperties\": \{ \"item\": \[\"003410/A\",\"003412/A\"\] \} \} \] |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/POST_Create_BOM_Item_Sample_Response.txt) |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -753,7 +693,6 @@ This API allows the creation of BOM items in Teamcenter based on the provided re
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Put Update BOM Item
@@ -769,17 +708,12 @@ This API allows the updating of BOM items in Teamcenter based on the provided re
 | CONTENT TYPE | application / json |
 | SAMPLE REQUEST | \[ \{ \"parentBOMLineItem\": \{ \"itemId\": \"003409\", \"revId\": \"A\" \}, \"childBOMLineItems\": \{ \"oldItemId\": \"003410\", \"oldRevId\": \"A\", \"newItemId\": \"003413\", \"newRevId\": \"A\" \} \} \] |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/PUT_Update_BOM_Item_Sample_Response.txt) |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -790,7 +724,6 @@ This API allows the updating of BOM items in Teamcenter based on the provided re
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Delete BOM Item
@@ -806,17 +739,12 @@ This API enables the deletion of BOM details in Teamcenter. Depending on the req
 | CONTENT TYPE | application / json |
 | SAMPLE REQUEST | \[ \{ \"itemId\": \"003409\", \"revId\": \"A\" \} \] |
 | SAMPLE RESPONSE | **HttpStatusCode: 204 No Content** \{ \"statusCode\": \"204\", \"statusMessage\": \"Entry deleted successfully.\" \} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -827,7 +755,6 @@ This API enables the deletion of BOM details in Teamcenter. Depending on the req
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get Metadata
@@ -842,16 +769,12 @@ This API retrieves metadata and relationship details for a particular type or al
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/GET_Metadata_Sample_Response.txt) |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -862,7 +785,6 @@ This API retrieves metadata and relationship details for a particular type or al
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get Item Details
@@ -877,8 +799,6 @@ This API facilitates the retrieval of items from Teamcenter, a comprehensive pro
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | SAMPLE RESPONSE | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Teamcenter%20Connector/GET_Item_Details_Sample_Response.txt) |
-
-
 #### Path Parameters
 
 
@@ -888,8 +808,6 @@ This API facilitates the retrieval of items from Teamcenter, a comprehensive pro
 | type | Optional param added to fetch response only for mentioned type |
 | attributes | Optional param added to fetch response only for specified attributes |
 | modifiedAfter | Optional param to fetch records which modified on or after specified date, accepts format dd-MMM-yyyy and yyyy-MM-dd\'T\'HH:mm:ss\'Z\' |
-
-
 #### Pagination Parameters
 
 
@@ -897,16 +815,12 @@ This API facilitates the retrieval of items from Teamcenter, a comprehensive pro
 | --- | --- |
 | offset | Optional param added for pagination. It represents Page Number. Default value is 1. Offset should be greater than 0 |
 | limits | Optional param added for pagination. It represents Page Size. Default Value is 100. Max Value allowed is 100. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -917,8 +831,6 @@ This API facilitates the retrieval of items from Teamcenter, a comprehensive pro
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 ### Fetch Bulk Import Template
 
 This API fetches a template from Teamcenter for a specified object type and pushes it to blob storage. It is primarily used to provide users with a pre-defined template for bulk importing BOM or other Teamcenter items.
@@ -932,24 +844,18 @@ The \'type\' parameter specifies the type of object for which the template is to
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | type | Optional param added to fetch response only for mentioned type |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Template fetched and pushed to blob storage successfully |
-
-
 #### Error Management
 
 
@@ -960,7 +866,6 @@ The \'type\' parameter specifies the type of object for which the template is to
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Set Workflow for Teamcenter Items
@@ -986,8 +891,6 @@ This API triggers workflow actions for specified Teamcenter items. It allows upd
 | QA ENDPOINT |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -996,16 +899,12 @@ This API triggers workflow actions for specified Teamcenter items. It allows upd
 | itemId | Required. The ID of the Teamcenter item. |
 | revId | Required. The revision ID of the Teamcenter item. |
 | policyStatus | Required. Policy verification status (compliant / not-compliant). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Workflow action applied successfully |
-
-
 #### Error Management
 
 
@@ -1016,7 +915,6 @@ This API triggers workflow actions for specified Teamcenter items. It allows upd
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get Bulk Import
@@ -1031,17 +929,12 @@ This API is used for importing data for a particular object type in Teamcenter.
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | SAMPLE RESPONSE | HttpStatusCode: 202 Accepted \{ \"statusCode\": \"202\", \"statusMessage\": \"Accepted\" \} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 202 | Accepted |
-
-
 #### Error Management
 
 
@@ -1052,7 +945,6 @@ This API is used for importing data for a particular object type in Teamcenter.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## BOM Conversion
@@ -1077,8 +969,6 @@ It tracks the conversion using a unique conversionId.
 | QA ENDPOINT |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -1087,16 +977,12 @@ It tracks the conversion using a unique conversionId.
 | bom_id | Required. The BOM ID in Teamcenter to be converted. |
 | bom_rev_id | Required. The revision ID of the BOM. |
 | conversion_id | Required. Unique ID used to track the conversion process. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 202 | Request for bom id and conversion id has been processed successfully. |
-
-
 #### Error Management
 
 
@@ -1107,8 +993,6 @@ It tracks the conversion using a unique conversionId.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 ### Get Batch Processing
 
 This API is for posting requests to generate .csv files at the Teamcenter Server.
@@ -1121,17 +1005,12 @@ This API is for posting requests to generate .csv files at the Teamcenter Server
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | SAMPLE RESPONSE | HttpStatusCode: 202 Accepted \{ \"statusCode\": \"202\", \"statusMessage\": \"Accepted\" \} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 
@@ -1142,7 +1021,6 @@ This API is for posting requests to generate .csv files at the Teamcenter Server
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Post Set Preferences
@@ -1157,17 +1035,12 @@ This API allows the set preferences for items in Teamcenter based on the provide
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | SAMPLE REQUEST | \{ \"mode\":\"Add\", \"ids\": \[ \{ \"src\": \"TC\", \"object_type\": \"Dtt5_Air_Bag\", \"id\": \"001824\" \} \] \} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Item Revision details fetched successfully |
-
-
 #### Error Management
 
 

@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ### Purpose
@@ -94,8 +93,6 @@ The Query Engine uses GraphQL Mesh as follows:
 | --- | --- |
 | DEV | [link](https://ix-dev-apimgmt.azure-api.net/query-engine-api) |
 | QA | [link](https://ix-qa-apimgmt.azure-api.net/query-engine-api) |
-
-
 ### Example API Request
 
 curl \--location \--request POST \'https://ix-dev-apimgmt.azure-api.net/test-query-engine-api\' \\
@@ -158,7 +155,6 @@ If the Ocp-Apim-Subscription-Key is omitted or incorrect, then APIM will respond
 | Query Engine | 2547a337c5c048afa719197ba4ac4ffe f52bc8ee32cd438f8f7de86201311832 |
 | Team center | 969ffc37d81444809de91a0af5d5756e 94ea8e19a94a4b8d8cfea5816a44d2f6 |
 | Aveva MES | e2b971909d634b1495a2a86bab87d518 ff506fa4134f4054aa56a8c0b2765231 |
-
 ## 
 
 # External Systems Queries

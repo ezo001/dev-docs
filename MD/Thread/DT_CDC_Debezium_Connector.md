@@ -62,7 +62,6 @@ Software architects, developers, and integrators with IT backgrounds.
 | Connector | A component that integrates Debezium with source databases and sinks, enabling change data capture and streaming. |
 | Change Data Capture (CDC) | A technique for identifying and capturing changes made to data in a database so that downstream systems can respond in real time. |
 | Zookeeper | A centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services, often used with Kafka. |
-
 ## 
 
 # Prerequisites
@@ -84,9 +83,6 @@ The following prerequisites are required to create the Debezium connector. Acces
 | 10 | Kusto Query let \_startTime = datetime(2024-03-08T09:01:58Z); let \_endTime = datetime(2024-04-18T09:01:58Z); utilization_table |
 |  | \ | where (unixtime_nanoseconds_todatetime(tolong(after.event_time_utc))) between (\[\'\_startTime\'\] .. \[\'\_endTime\'\]) and after.ent_id == 5 and after.reas_cd == 69 where isnotnull(after.event_time_utc) project event_time = (unixtime_nanoseconds_todatetime(tolong(after.event_time_utc))), reas_cd = toint(after.reas_cd), adx_time = unixtime_milliseconds_todatetime(tolong(ts_ms)) order by event_time asc take 5 |
 | 11 | [HTTP Connector](https://github.com/castorm/kafka-connect-http) |
-
-
-
 ## API Management Service
 
 In this service, several APIs are configured to streamline functionality and enhance integration.

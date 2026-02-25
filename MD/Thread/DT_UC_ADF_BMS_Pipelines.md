@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -115,7 +114,6 @@ This document guides users through extracting, transforming, and loading data in
 | Data Transformation | Converting data from its original format into a structure suitable for analysis or integration. |
 | Contributor Role | An access role that allows users to make changes and contribute to resources within a directory or system. |
 | Reader Role | An access role that allows users to view resources without making changes. |
-
 ## 
 
 # PL_BatteryManagementSystem Pipeline

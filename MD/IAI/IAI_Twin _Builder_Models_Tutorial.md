@@ -89,7 +89,6 @@ This tutorial teaches the reader how to upload, edit, and view models directly i
 | Rotational Angle | The orientation or spin applied to a 3D model along its axes. |
 | Scaling | The process of resizing a 3D model to fit specific dimensions or proportions. |
 | Tag Field | The area in the application where the selected plant or object is displayed. |
-
 ## 
 
 # Working with Models

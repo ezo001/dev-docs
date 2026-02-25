@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | Summary - Overview |
 | **Related Assets / Alternatives** | Operations Hierarchy Deployment Guide, Operations Hierarchy API Reference |
-
 </div>
 
 ## Introduction
@@ -99,8 +98,6 @@ This guide is designed for use by developers with the following skills:
 | KPI Config Template | A configuration template in the Smart KPIs application used to set up parameters and their standard units of measure. |
 | Equivalent Value | The converted value of a parameter or KPI, shown in the user\'s configured unit of measure to ensure consistency and usability. |
 | Unit System ID | An identifier for a specific system of units, used to distinguish between standard and user-default unit systems. |
-
-
 ## Background
 
 As per requirement, different or multiple units of measure (UoM) may be required to enhance usability of any application. Thus, IAI is designed to support multiple units of measure to handle mismatches and conversions between standard and configured values.
@@ -264,8 +261,6 @@ The configuration APIs to provide the information on Units of Measurement are as
 | &gt; GET- GetUoM | API for fetching the unit of measurement details. |
 | &gt; GET- GetUoMByUnitSystemId | API for fetching the list of UoM by using unit system ID. |
 | &gt; GET- GetUoMEquivalents | API for fetching a list of UoM Equivalents in other unit systems of a particular UoM by using source UoM ID, source Unit System ID, Destination UoM ID, and Destination Unit System ID. |
-
-
 The APIs listed in the table above are described on the pages that follow.
 
 ### 
@@ -283,8 +278,6 @@ This API is used for fetching the list of units based on unit system and unit ty
 | PATH IAI (Azure) (Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/unit-of-measurement/metadata/measurementUnit/byunitsystemandtype?unitSystemId=\{unitSystemId\}&amp;unitType=\{unitType\}) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -292,8 +285,6 @@ This API is used for fetching the list of units based on unit system and unit ty
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -301,8 +292,6 @@ This API is used for fetching the list of units based on unit system and unit ty
 | --- | --- |
 | unitSystemId | Provide a unique identifier of the unit system M String |
 | unitType | Provide the type of unit of measurement M String |
-
-
 #### Output Header Parameters
 
 
@@ -313,8 +302,6 @@ This API is used for fetching the list of units based on unit system and unit ty
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters 
 
 
@@ -327,16 +314,12 @@ This API is used for fetching the list of units based on unit system and unit ty
 | DisplayName | The name of the unit that will be displayed as the unit name String |
 | Symbol | Symbol of the unit of measurement String |
 | IsPrimary | Returns true if the unit of measurement is the Primary unit of measurement String |
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | The list of units based on unit system and unit type is fetched. |
-
-
 #### Error Management
 
 
@@ -345,9 +328,6 @@ This API is used for fetching the list of units based on unit system and unit ty
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 #### Sample JSON Responses
 
 -   If the unit system is given as Null:
@@ -385,8 +365,6 @@ This API is used for fetching the list of all the unit systems in IAI.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -394,8 +372,6 @@ This API is used for fetching the list of all the unit systems in IAI.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -406,8 +382,6 @@ This API is used for fetching the list of all the unit systems in IAI.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes. String |
-
-
 #### Output Body Parameters
 
 
@@ -423,16 +397,12 @@ This API is used for fetching the list of all the unit systems in IAI.
 | UpdatedOn | Date of last update of the unit system in the units of measurement database String |
 | UpdatedById | User ID of the user who last updated the unit system in the units of measurement database String |
 | UpdatedByUserName | The username of the user who last updated the unit system in the units of measurement database String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | A list of all the unit systems in IAI is fetched. |
-
-
 #### Error Management
 
 
@@ -441,9 +411,6 @@ This API is used for fetching the list of all the unit systems in IAI.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 #### Sample JSON Response
 
 \{
@@ -495,8 +462,6 @@ This API is used for fetching the list of all unit conversions.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -504,8 +469,6 @@ This API is used for fetching the list of all unit conversions.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -516,8 +479,6 @@ This API is used for fetching the list of all unit conversions.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes. String |
-
-
 #### Output Body Parameters
 
 
@@ -531,16 +492,12 @@ This API is used for fetching the list of all unit conversions.
 | b | Value of \'b\' variable in standard conversion formula i.e. (a+bx)/(cx+d) where x is the value in source unit which needs to be converted Float |
 | c | Value of \'c\' variable in standard conversion formula i.e. (a+bx)/(cx+d) where x is the value in source unit which needs to be converted Float |
 | d | Value of \'d\' variable in standard conversion formula i.e. (a+bx)/(cx+d) where x is the value in source unit which needs to be converted Float |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | A list of all the unit conversions is fetched. |
-
-
 #### Error Management
 
 
@@ -549,8 +506,6 @@ This API is used for fetching the list of all unit conversions.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
 **Sample JSON Response**
 
 \{
@@ -596,8 +551,6 @@ This API is used for fetching the unit of measurement details.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/unit-of-measurement/metadata/measurementUnit?QueryString=\{QueryString\}] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -605,16 +558,12 @@ This API is used for fetching the unit of measurement details.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | QueryString | Provide measurement unit, display name or symbol of the unit as a QueryString M String |
-
-
 #### Output Header Parameters
 
 
@@ -625,8 +574,6 @@ This API is used for fetching the unit of measurement details.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes. String |
-
-
 #### Output Body Parameters
 
 
@@ -637,16 +584,12 @@ This API is used for fetching the unit of measurement details.
 | MeasurementUnit | Unit of Measurement String |
 | DisplayName | The name of the unit that will be displayed as the unit name String |
 | Symbol | Symbol of the unit of measurement String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The Unit of Measurement is fetched based on the provided QueryString. |
-
-
 #### Error Management
 
 
@@ -655,8 +598,6 @@ This API is used for fetching the unit of measurement details.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
 **Sample JSON Response**
 
 \{
@@ -688,9 +629,6 @@ This API is used for fetching the list of UoM by using unitSystemId.
 | ### PATH IAI (Azure) (Public Exposure) | ### [link](https://apim-aot-azure-dev.azure-api.net/api/unit-of-measurement/measurementUnits/byUnitSystemId/\{unitSystemId\}) |
 | ### METHOD | ### GET |
 | ### CONTENT TYPE | ### application / json |
-
-
-
 #### Input Header Parameters
 
 
@@ -698,16 +636,12 @@ This API is used for fetching the list of UoM by using unitSystemId.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M string |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | unitSystemId | Provide unique identifier of existing unit system. M String |
-
-
 #### Output Header Parameters
 
 
@@ -718,8 +652,6 @@ This API is used for fetching the list of UoM by using unitSystemId.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -732,16 +664,12 @@ This API is used for fetching the list of UoM by using unitSystemId.
 | DisplayName | The name of the unit that will be displayed as the unit name String |
 | Symbol | Symbol of the unit of measurement String |
 | IsPrimary | Returns true if the unit of measurement is the Primary unit of measurement String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | A list of Units of Measurement is fetched based on the provided unitSystemId. |
-
-
 #### Error Management
 
 
@@ -750,9 +678,6 @@ This API is used for fetching the list of UoM by using unitSystemId.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 #### Sample JSON Response
 
 \{
@@ -796,9 +721,6 @@ This API fetches the list of UoM Equivalents in other unit systems of a particul
 | ### PATH IAI (Azure) (Public Exposure) | ### |
 | ### METHOD | ### GET |
 | ### CONTENT TYPE | ### application / json |
-
-
-
 #### Input Header Parameters
 
 
@@ -806,8 +728,6 @@ This API fetches the list of UoM Equivalents in other unit systems of a particul
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Query Parameters
 
 
@@ -817,8 +737,6 @@ This API fetches the list of UoM Equivalents in other unit systems of a particul
 | destination_uom_id | Provide uom_id of the destination uom M String |
 | source_unitsystem_id | Provide unitsystem_id of the source unit system M String |
 | destination_unitsystem_id | Provide unitsystem_id of the destination unit system M String |
-
-
 #### Output Header Parameters
 
 
@@ -829,8 +747,6 @@ This API fetches the list of UoM Equivalents in other unit systems of a particul
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -844,16 +760,12 @@ This API fetches the list of UoM Equivalents in other unit systems of a particul
 | source_uom | UoM name of the source_uom String |
 | destination_unit_system | Unit system name of the destination unit system String |
 | destination_uom | UoM name of the destination UoM String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | A list of Units of Measurement is fetched based on the provided unitSystemId. |
-
-
 #### Error Management
 
 
@@ -862,8 +774,6 @@ This API fetches the list of UoM Equivalents in other unit systems of a particul
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
 **Sample JSON Response**
 
 \{

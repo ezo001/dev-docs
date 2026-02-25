@@ -28,7 +28,6 @@ hide_title: true
 | **Source of Truth** |  |
 | **Related Assets / Alternatives** | AOT / Engineering Orch / Engineering Agents |
 | # | Introduction A digital thread refers to the continuous and consistent flow of information throughout the entire lifecycle of a product or system -- from design and development to operation and maintenance. It enables the integration of data from different stages and sources, allowing effective traceability, seamless collaboration, and efficient decision-making by unleashing the power of sleeping data. The digital thread is considered a key aspect of Industry 4.0 and the digital transformation of the manufacturing industry. It is the core of the Enterprise Operating System (EOS). Digital Thread is a communication framework that helps integrate various enterprise systems involved in the engineering and manufacturing product life cycle. The EBOM to MBOM Conversion feature in BOM Management is designed to help users efficiently transform an Engineering Bill of Materials (EBOM) into a Manufacturing Bill of Materials (MBOM) within a structured workflow. This conversion process ensures that engineering data is accurately translated into a manufacturable format while maintaining traceability and version control. |
-
 </div>
 
 ### Purpose
@@ -87,8 +86,6 @@ The following table outlines the details needed to connect with the database ser
 | **Port** | 5432 |
 | **Username** | ix_postgres_admin |
 | **Maintenance database** | postgres |
-
-
 ## Connection Procedure
 
 Below are the steps to connect to the ixts-dev-psqldb using PgAdmin,
@@ -96,12 +93,15 @@ Below are the steps to connect to the ixts-dev-psqldb using PgAdmin,
 1.  Open the PgAdmin application on the local machine and go to servers in Object Explorer. Now right-click on Object Explorer \&gt; Register \&gt; Server.
 
 > ![PgAdmin screenshot showing the Register and server options](./media/DT_BOM_Management_Database_Technical_Overview/image3.png)
+
 2.  In the popup window, provide details in the General tab as depicted in the image.
 
 > ![MyPG popup window showing general tab](./media/DT_BOM_Management_Database_Technical_Overview/image4.png)
+
 3.  Go to the Connection tab. Enter the Host name/address, port, username, etc., and click on the Save option to save the details.
 
 > ![MyPG popup window showing connection tab details](./media/DT_BOM_Management_Database_Technical_Overview/image5.png)
+
 4.  After clicking on Save, the details will be shown in the Object Explorer,
 
 > ![Object explorer screenshot after saving](./media/DT_BOM_Management_Database_Technical_Overview/image6.png)
@@ -129,7 +129,6 @@ The metadata and sample data are provided for each table in the subsequent secti
 | 2 | bom.ix_business_rules |
 | 3 | bom.ix_mbom_conversions |
 | 4 | bom.ix_part_replacement |
-
 #### 
 
 ### bom.ix_templates

@@ -28,7 +28,6 @@ Release Version: 2.5 \{#release-version-2.5 .TOC-Heading\}
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Extractors Architecture Blueprint, IAI Extractors Getting tarted |
-
 </div>
 
 ## Introduction
@@ -77,8 +76,6 @@ This guide is designed for use by developers with the following skills:
 | Open Data Protocol (OData) | A standard protocol for building and consuming RESTful APIs, enabling data access and manipulation over the web. |
 | Transport and Package | Mechanisms in SAP for bundling and moving development objects between systems (e.g., from development to production). |
 | t-code | Transaction code in SAP, a shortcut used to access specific application functions or screens directly. |
-
-
 ## SAP PM Configuration
 
 SAP PM configuration includes the following deployment tasks:
@@ -137,12 +134,15 @@ Subprograms that contain a set of reusable source code statements with importing
 13. Edit the source code to suit the use case.
 
 > ![screenshot of SAP with source code](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image4.png)
+
 14. In the Import tab, enter any parameters (e.g. Root Functional Location) that will be needed during the execution of the function module.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image5.png)
+
 15. Execute the function model using F8 or the button highlighted in the screenshot below.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image6.png)
+
 16. Enter the parameter and execute it using F8 or the button highlighted in the screenshot below.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image7.png)
@@ -157,12 +157,15 @@ OData is a Web protocol for querying and updating data, applying, and building o
 1.  Open the t-code \"SEGW\" and create a new project using the highlighted Create Project button.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image8.png)
+
 2.  Create a new Entity type and Entity sets using the Import option\&gt;DDIC structure by right-clicking on the Data Model.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image9.png)
+
 3.  Enter the name and the ABAP structure that was created during the creation of the function module.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image10.png)
+
 4.  After creation, it will look similar to the image below.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image11.png)
@@ -175,6 +178,7 @@ OData is a Web protocol for querying and updating data, applying, and building o
 7.  Check for the successful creation of the service and model.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image13.png)
+
 8.  Use the t-code \"IWFND/MAINT_SERVICE\" to activate and maintain the nodes.
 
 > ![Screenshot of SAP](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image14.png)
@@ -341,6 +345,7 @@ The Build Pipeline is used to Dockerize the Extractor Package. The artifacts cre
 5.  Select the branch and provide the pipeline file path as \"Source/Extractors/sap-extractor/pipeline/Dev/azure-pipelines.yml\" and click on Continue.
 
 > ![screenshot of azure devops](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image28.png)
+
 6.  Review and save.
 
 7.  Run the pipeline and wait for its successful completion.
@@ -365,6 +370,7 @@ The Release pipeline deploys the Docker Image of the SAP PM Extractor created by
 3.  Update the AKS file location in the tasks.
 
 > ![screenshot of azure devops](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image31.png)
+
 4.  If this is the first run, then disable the delete task from the pipeline.
 
 > ![screenshot of azure devops](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image32.png)
@@ -381,15 +387,19 @@ The Release pipeline deploys the Docker Image of the SAP PM Extractor created by
 8.  After deployment is complete, validate the successful deployment to the AKS cluster in the Azure portal.
 
 > ![screenshot of azure devops](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image35.png)
+
 9.  Validate SAP PM Extractor logs on the [Lens](https://k8slens.dev/) app.
 
 > ![screenshot of lens app](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image36.png)
+
 10. If everything looks good and the AKS POD has been created, re-enable the delete task that was previously disabled.
 
 > ![screenshot of azure devops](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image37.png)
+
 11. Validate the creation of the database and table with asset hierarchy data on CDF Portal.
 
 > ![screenshot of azure devops](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image38.png)
+
 12. On Deployment Completion, an extraction pipeline is created in CDF based on the details provided in the configuration file. Success/Failure messages can be visualized on the CDF portal. Also, a notification is sent to the respective email address.
 
 ![screenshot of success message in cdf](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image39.png)
@@ -457,6 +467,7 @@ The SAP PM Extractor Windows Service is created to give users the option of depl
 | Extractor_key | Provide an asset hierarchy type whose last run date is required that is stored in Extractor_Last Run table from CDF RAW. |
 | Log_Table | Provide a log table name that will be used in CDF RAW. |
 | 2. | Edit the WSInstallation.bat file to add the absolute path of the Python folder and SAPWindowsService.py file as shown below. &gt; ![screenshot of wsinstallation.bat file](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image43.png)
+
 3. |
 | 4. | To install the SAP Extractor on the premise, right-click on the WSInstallation.bat file and select Run as Administrator. It will install all the required Python modules and SAP extractor as a windows service. &gt; ![screenshot of windows start menu](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image44.png)
 |  |
@@ -475,14 +486,17 @@ The SAP PM Extractor Windows Service is created to give users the option of depl
 1.  Click the Start button, search for \"Services\", and select Run as Administrator.
 
 > ![screenshot of windows services app actions](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image46.png)
+
 2.  Search for the \"SAPExtractor\" service name, right-click on it, and select Start.
 
 > ![screenshot of sap extractor in windows services](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image47.png)
+
 3.  Once the SAPExtractor starts running, check the logs in the log file on the given path in the configuration file.
 
 4.  Validate the creation of the database and tables with asset hierarchy data on the CDF portal.
 
 > ![screenshot of cdf portal](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image48.png)
+
 5.  Validate the creation of the extraction pipeline with a success message on the CDF portal.
 
 > ![screenshot of success message in cdf](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image49.png)
@@ -493,6 +507,7 @@ The SAP PM Extractor Windows Service is created to give users the option of depl
 1.  Click the Start button, search for \"Services\", and select Run as Administrator.
 
 > ![screenshot of windows services app actions](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image46.png)
+
 2.  Search for the \"SAPExtractor\" service name, right-click on it, and select Stop.
 
 > ![SAPExtractor service with option to Stop](./media/IAI_SAP_PM_AH_Extractor_Deployment_Guide/image50.png)

@@ -28,7 +28,6 @@ Release Version: 2.5
 | **Status** | Published / Complete |
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) **Related Assets / Alternatives** |
-
 </div>
 
 ## Introduction
@@ -94,8 +93,6 @@ To visualize contextualized data on Twin Viewer, a plant layout (2D and/or 3D) m
 | Twin Builder | A tool used to create and save plant layouts for visualization in Twin Viewer. |
 | Plant Layout | The schematic representation of a plant\'s floor, which can be viewed in 2D or 3D. |
 | 2D Schematic Layout | A two-dimensional representation of the plant\'s layout, providing a simplified overview. |
-
-
 ## 3D Twin Viewer
 
 ### Load Plant Layout

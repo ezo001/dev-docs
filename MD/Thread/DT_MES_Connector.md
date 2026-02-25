@@ -144,8 +144,6 @@ This API fetches data from MES DB based on source parameters, used in ADF and Qu
 | CONTENT TYPE | application / json |
 | Sample Request | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/MES%20Connector/GET_Product_Data_Sample_Request.txt) |
 | Sample Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/MES%20Connector/GET_Product_Data_Sample_Response.txt) |
-
-
 #### Input
 
 
@@ -155,17 +153,12 @@ This API fetches data from MES DB based on source parameters, used in ADF and Qu
 | limits | Page size, maximum value is 500 (greater than 0) |
 | modified_after | Sample date: 2023-01-01 15:45:03.012 |
 | source | Data source name from the given list: - manufacturing_batch - production_schedule - production_performance - manufacturing_performance_metrics - manufacturing_scrap_wastage - production_downtime - production_shift - production_resource - resource - electronic_batch_record - Maintenance |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 201 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -173,8 +166,6 @@ This API fetches data from MES DB based on source parameters, used in ADF and Qu
 | --- | --- |
 | 401 | HTTP 401 Unauthorized error An invalid or expired JWT token is provided to the MES Connector. |
 | 401 | HTTP 401 Access Denied Error If the Ocp-Apim-Subscription-Key is omitted or incorrect, then APIM will respond with an Access denied error due to an invalid subscription key. Make sure to provide a valid key for an active subscription. |
-
-
 ### Get Product Data With Common Format
 
 This API fetches battery data with a common response format, used in Purview.
@@ -188,8 +179,6 @@ This API fetches battery data with a common response format, used in Purview.
 | CONTENT TYPE | application / json |
 | Sample Request | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/MES%20Connector/GET_Product_Common_Format_Sample_Request.txt) |
 | Sample Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/MES%20Connector/GET_Product_Common_Format_Sample_Response.txt) |
-
-
 #### Input
 
 
@@ -199,17 +188,12 @@ This API fetches battery data with a common response format, used in Purview.
 | limits | Page size, maximum value is 500 (greater than 0) |
 | modified_after | Sample date: 2023-01-01 15:45:03.012 |
 | source | Data source name from the given list: - manufacturing_batch - production_schedule - production_performance - manufacturing_performance_metrics - manufacturing_scrap_wastage - production_downtime - production_shift - production_resource - resource - electronic_batch_record - Maintenance |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 201 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -217,8 +201,6 @@ This API fetches battery data with a common response format, used in Purview.
 | --- | --- |
 | 401 | HTTP 401 Unauthorized error An invalid or expired JWT token is provided to the MES Connector. |
 | 401 | HTTP 401 Access Denied Error If the Ocp-Apim-Subscription-Key is omitted or incorrect, then APIM will respond with an Access denied error due to an invalid subscription key. Make sure to provide a valid key for an active subscription. |
-
-
 ### Get Product Metadata
 
 This API fetches metadata for battery-related data attributes which are mapped to MES DB.
@@ -232,8 +214,6 @@ This API fetches metadata for battery-related data attributes which are mapped t
 | CONTENT TYPE | application / json |
 | Sample Request | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/MES%20Connector/GET_Product_Metadata_Sample_Request.txt) |
 | Sample Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/MES%20Connector/GET_Product_Metadata_Sample_Response.txt) |
-
-
 #### Input
 
 
@@ -243,17 +223,12 @@ This API fetches metadata for battery-related data attributes which are mapped t
 | limits | Page size, maximum value is 500 (greater than 0) |
 | modified_after | Sample date: 2023-01-01 15:45:03.012 |
 | source | Data source name from the given list: - manufacturing_batch - production_schedule - production_performance - manufacturing_performance_metrics - manufacturing_scrap_wastage - production_downtime - production_shift - production_resource - resource - electronic_batch_record - Maintenance |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 201 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -261,8 +236,6 @@ This API fetches metadata for battery-related data attributes which are mapped t
 | --- | --- |
 | 401 | HTTP 401 Unauthorized error An invalid or expired JWT token is provided to the MES Connector. |
 | 401 | HTTP 401 Access Denied Error If the Ocp-Apim-Subscription-Key is omitted or incorrect, then APIM will respond with an Access denied error due to an invalid subscription key. Make sure to provide a valid key for an active subscription. |
-
-
 ## Database Setup
 
 The below tables from the MES DB are used in Battery data APIs.
@@ -288,8 +261,6 @@ The below tables from the MES DB are used in Battery data APIs.
 | job_event | Logs events related to jobs |
 | item_cons | Details consumed items during production. |
 | shift_sched | Manages shift scheduling information |
-
-
 ### Script Details
 
 -   [View Creation](https://dev.azure.com/IXDigitalThread/IXThreadComponents/_git/ix-thread-components?path=/connector/ix-aveva-mes-api/db/sql/BatteryManagementScript.sql) defines multiple views that aggregate and summarize manufacturing and production data for efficient reporting and analysis.

@@ -29,7 +29,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Operations Hierarchy Deployment Guide, Operations Hierarchy API Reference |
-
 </div>
 
 ## Introduction
@@ -92,7 +91,6 @@ This document explains how to access PowerBI Reports in IAI and outlines the bac
 | Release Notes | Documentation that describes the new features, enhancements, and fixes included in a particular release of a product. |
 | Group ID | A unique identifier for a group or workspace in PowerBI, used to organize and manage reports and datasets. |
 | Report ID | A unique identifier assigned to each report in PowerBI for tracking and referencing purposes. |
-
 ## 
 
 # Background
@@ -217,9 +215,6 @@ An API is used to get a token and embed a URL into the tile.
 | **Header Authorization** | token |
 | **Method** | POST |
 | **Sample Response** | \{ PowerbiEmbedToken:\[\{ EmbedToken:\" H4sIAAAAAAAEAB2Wxw6sSBJF\_-VtGQmKw\", EmbedURL:\"https://app.powerbi.com/reportEmbed?reportId=b72191d5-7ac8-4e44-adf4-cd334216644a&amp;groupID=82e09c53-370d-41ec-8519-ed4561b2bbe2\" \}\] \} |
-
-
-
 ### Git
 
 Email [dmo.infraanddevops@accenture.com](mailto:dmo.infraanddevops@accenture.com) to request access to the [Git folder](https://dev.azure.com/DigitalPlantProject/Marilyn%20V/_git/MarilynVPlatform?path=/Consumption/UI/reports-micro-app/reports-micro-app-ui).

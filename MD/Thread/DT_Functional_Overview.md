@@ -68,7 +68,6 @@ Software architects, developers, and integrators with IT backgrounds.
 | ERP | Integrated system that unifies core business functions such as finance, HR, and supply chain. |
 | ALM | End to end management of an application\'s lifecycle-from requirements to maintenance. |
 | MES | System that manages and monitors real‑time manufacturing operations on the shop floor. |
-
 ## 
 
 # Background
@@ -380,8 +379,6 @@ The three pillars of the Metadata component are described in the table below.
 | - | Data Catalog |
 | - | Data Sources |
 | - | Entities, Relationships, Ownership, Transformations/ Pipelines |
-
-
 #### Data Integration Services
 
 One of the core principles of Thread is to help connect multiple systems that play a role in the product lifecycle, manufacturing, or industrial scenarios. This integration happens at two levels: Data Integration and Process Integration.
@@ -438,7 +435,6 @@ As shown in the table below, cost data is flagged as sensitive data, and this cl
 | Cost | \$172.60 Flagged: Sensitive Data |
 | Quantity on Hand | 1720 |
 | Purchase Orders (PO) Open | 890 |
-
 #### 
 
 ### Digital Twin Interoperability
@@ -474,7 +470,6 @@ Workflows are a way to make business processes, or flows (control sequences) aut
 | --- | --- |
 | Authoring Tools | UIs with the ability to create, deploy, and monitor complex workflows. |
 | Workflow Service | This is the backend service or the execution environment that executes the workflows. The Workflow service component comes with a set of pre-built workflows that are ready-to-use as well as customizable and can create a custom workflow from scratch. Since connectors to enterprise systems are commonly used in several workflow steps, integration with the ingestion/Data Acquisition layer is needed. |
-
 #### 
 
 ### Change Data Capture (CDC) 

@@ -73,8 +73,6 @@ The prerequisites listed above are specific to the Extractors component. For inf
 | Cognite Custom Extractor Framework | A development framework for building reusable extractors that connect to various source systems and transfer data to CDF RAW. |
 | Azure Data Factory | A cloud-based ETL (Extract, Transform, Load) tool from Microsoft Azure, used to develop custom extractors for unsupported source systems. |
 | ETL (Extract, Transform, Load) | A process for extracting data from source systems, transforming it as needed, and loading it into a target system like CDF RAW. |
-
-
 ## User Journey
 
 
@@ -89,7 +87,6 @@ The prerequisites listed above are specific to the Extractors component. For inf
 | 7 | IAI delivery team configures the extractor parameters such as frequency and data specifics |
 | 8 | IAI delivery team deploys the extractor |
 | 9 | IAI delivery team configures and schedules transformation logic in CDF |
-
 ## 
 
 # Resources
@@ -105,9 +102,6 @@ The prerequisites listed above are specific to the Extractors component. For inf
 | [IAI Flat File Extractor Deployment Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Flat_File_Extractor_Deployment_Guide_2_5.pdf) | This document explains how to extract data from the source system and load it into CDF RAW using the Flat File extractor. It covers the prerequisites for deploying the Extractor and provides step-by-step instructions for configuring and deploying it either in the cloud or on-premises. After reading the document, a developer should be able to configure and run the Extractor and verify the data flow from the source system to CDF. | Features -- 4 Cloud Deployment -- 5 On-Prem Deployment -- 15 |
 | [Automatic Asset Hierarchy Accelerator Deployment Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Automatic_Asset_Hierarchy_Accelerator_Deployment_Guide_2_5.pdf) | This document explains how to configure and run the automatic asset hierarchy element and verify the resulting transformation and asset hierarchy, events, relationships, or label actions in CDF. It also provides an understanding of the process of configuring the automatic asset hierarchy element and validating it in CDF. After reading the document, a developer should be able to perform these tasks successfully. | Prepare Azure - 5 Prepare Accelerator Config File - 7 Cognite Parameters - 7 Transformation Parameters - 8 Extraction Parameters - 9 Create a Build Pipeline - 10 Create a Release Pipeline - 12 Result - 17 |
 | [IAI Simulator and IoT Hub Extractor Deployment Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Simulator_IoTHub_Extractor_Deployment_Guide_2_5.pdf) | This document explains the prerequisites and steps to configure and deploy the simulator on the cloud including the understanding of configuring the device twin to send data to IoT Hub. | Simulator Deployment -- 4 IoT Hub Extractor Deployment -- 12 Simulator Usage -- 17 First-time Configuration -- 21 Changing Attribute Value of a Device - 21 |
-
-
-
 #### Metadata Table
 
 
@@ -122,5 +116,4 @@ The prerequisites listed above are specific to the Extractors component. For inf
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Extractors Architecture Blueprint |
-
 </div>

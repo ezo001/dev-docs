@@ -27,7 +27,6 @@ Metadata Table
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs UI Guide, Smart KPIs Admin Guide |
 | # | \{#section .TOC-Heading\} |
-
 </div>
 
 ## Introduction
@@ -76,7 +75,6 @@ This document explains how the Asset Hierarchy is created and updated through th
 | JOBSAPI | An API provided by Azure Digital Twin for creating and managing digital twins based on the processed asset hierarchy data. |
 | Durable Azure Function | A serverless function in Azure that performs long-running operations, such as updating or archiving assets in the digital twin environment. |
 | isActive Property | A property of a digital twin asset indicating whether it is active (true) or archived (false). |
-
 ### Technology Stack
 
 -   Azure data factory pipeline

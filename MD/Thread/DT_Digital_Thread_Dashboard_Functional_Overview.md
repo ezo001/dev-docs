@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -97,7 +96,6 @@ This document provides an overview of the Digital Thread Dashboard.
 | Role-Based Access | User management approach where permissions are assigned based on roles within the organization. |
 | Deployment Readiness | Objective, data-driven metrics indicating whether systems and projects are prepared for launch. |
 | Asset-Relevant Information | Data that is directly related to specific assets, enhancing operational efficiency and business value. |
-
 ## 
 
 # Background
@@ -178,8 +176,6 @@ The dashboard transforms disconnected system data into actionable intelligence, 
 | Integration Management | Custom-coded, isolated Centralized, reusable connectors |
 | User Management | Manual, multi-system Centralized role-based access |
 | Deployment Readiness | Subjective and scattered Objective, data-driven metrics |
-
-
 ## Core Functionalities
 
 The following two are the core functionalities of the Digital Thread Dashboard.

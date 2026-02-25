@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -100,6 +99,7 @@ Dashboards provide a consolidated view of metrics, logs, and insights, offering 
 1.  From the left navigation bar in Azure, select Dashboard.
 
 ![dashboard selection option in left navigation bar](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image2.png)
+
 2.  On the default dashboard, use the pull-down menu to select the dashboard to view or click on *Browse all dashboards* to view all the dashboards that have been created.
 
 ![pull-down menu on the dashboard](./media/DT_Azure_Monitoring_Dashboards_UI_Guide/image3.png)

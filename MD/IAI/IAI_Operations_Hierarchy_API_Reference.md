@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Operations Hierarchy Deployment Guide, Operations Hierarchy UI Guide |
-
 </div>
 
 ## Introduction
@@ -98,8 +97,6 @@ An API testing tool such as [Postman](https://app.getpostman.com/app/download/wi
 | Entity Viewer Configuration | APIs and templates for configuring the Entity Viewer component, specifying how asset data is displayed and organized. |
 | ORM (Object Relational Mapper) | Programming technique for interacting with databases by mapping objects to tables, here using SQL Alchemy. |
 | Epoch Time (UTC) | Time format representing seconds since January 1, 1970 (UTC), used for timestamps in the system. |
-
-
 ## OH Module APIs
 
 Operations Hierarchy Module APIs help in fetching the Operations Hierarchy information for the End Users to visualize and perform actions on the Operations Hierarchy data such as root assets, child assets, and asset details.
@@ -163,16 +160,12 @@ To fetch the response from the APIs, the following entities must exist:
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M string |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Assetid | Provide the Asset External ID of an existing asset. If the Asset is present, it will return the assets that are level(s) below. M String |
-
-
 #### Output Header Parameters
 
 
@@ -183,8 +176,6 @@ To fetch the response from the APIs, the following entities must exist:
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -204,8 +195,6 @@ To fetch the response from the APIs, the following entities must exist:
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/assets/\{assetId\}](https://apim-aot-azure-dev.azure-api.net/api/oh-module/assets/%7bassetId%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 \"Assets\" : \[
@@ -238,8 +227,6 @@ To fetch the response from the APIs, the following entities must exist:
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Operation hierarchy is fetched. |
-
-
 #### Error Management
 
 
@@ -248,9 +235,6 @@ To fetch the response from the APIs, the following entities must exist:
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter a valid asset ID |
-
-
-
 ### GET- GetParentOperationsHierarchy
 
 This API is used to get all the parent/root assets. This will return a success message or validation message. If the asset only has metadata associated with it, then the API will fetch that asset.
@@ -266,8 +250,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Query Parameters
 
 
@@ -275,8 +257,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Cursor | Cursor value generated to point next set of information which needs to fetch on load more request from UI. O String |
 | Limit | The limit is a number to fetch assets. O String |
-
-
 #### Output Header Parameters
 
 
@@ -287,8 +267,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes. String |
-
-
 #### Output Body Parameters
 
 
@@ -300,9 +278,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | AssetType | This information is fetched from metadata which indicates the Type of asset. | String |
 | PlantId | The external ID of the Plant asset | String |
 | nextCursor | Cursor for paging through results. | String |
-
-
-
 #### API Specifications
 
 
@@ -312,8 +287,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/oh-module/parentassets) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 > \{
@@ -346,8 +319,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | All parent/root assets fetched using pagination |
-
-
 #### Error Management
 
 
@@ -356,9 +327,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Error while fetching Root assets |
-
-
-
 ### GET- GetChildOperationsHierarchy
 
 This API is used to get children assets for a particular parent asset. This returns a success message or validation message. If AssetType is not present in the asset metadata, the default value for AssetType is \"NA\".
@@ -373,8 +341,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Query Parameters
 
 
@@ -383,8 +349,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | Asset_ExternalIds | Provide asset external IDs of assets. M String |
 | Cursor | Cursor value generated to point next set of information which needs to fetch on load more request from UI. O String |
 | Limit | The limit is a number to fetch assets. O String |
-
-
 #### Output Header Parameters
 
 
@@ -395,8 +359,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -408,9 +370,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | AssetType | This information is fetched from metadata which indicates the Type of asset. | String |
 | PlantId | The external ID of the Plant asset | String |
 | nextCursor | Cursor for paging through results. | String |
-
-
-
 ####  API Specifications
 
 
@@ -420,8 +379,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 > \{
@@ -456,8 +413,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | All child assets for a particular asset get fetched using pagination. |
-
-
 #### Error Management
 
 
@@ -466,8 +421,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request - Error while fetching Root assets |
-
-
 ### POST- CreatePinAsset 
 
 This API is used to pin the given asset in the asset hierarchy using the AssetId and ParentAssetId.
@@ -491,8 +444,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -500,8 +451,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | AssetId | Provide assetid of the existing asset hierarchy to pin it. M String |
 | ParentAssetId | Provide RootAssetId of an asset, which the given assetid needs to follow to be pinned in the asset hierarchy. M String |
-
-
 #### Output Header Parameters
 
 
@@ -518,8 +467,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/oh-module/assets/pin) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Request and Response
 
 
@@ -529,17 +476,12 @@ To fetch the response from the APIs, the following entities must exist.
 | Response Type 1 | Whenever the asset is pinned successfully, then the following response will be returned. \{\"message\":\"Asset successfully pinned in the asset hierarchy\"\} |
 | Response Type 2 | Whenever the given AssetExternalId / ParentExternalId already has a preexisting asset, which is pinned, the following response will be returned. \{\"message\":\"Pinned asset already exists with the given AssetExternalId / ParentExternalId \"\} |
 | Response Type 3 | Whenever the given AssetExternalId / ParentExternalId is not valid or not present, then the following response will be returned. \{\"message\":\"The given AssetExternalId / ParentExternalId is not valid or does not exist\"\} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | \"Asset successfully pinned in the asset hierarchy.\" |
-
-
 #### Error Management
 
 
@@ -548,8 +490,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request - Error while fetching Root assets |
-
-
 ### DELETE- UnpinAsset
 
 This API is used to unpin the asset from the pinned assets list.
@@ -569,16 +509,12 @@ To fetch the response from the APIs, the following entities exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | AssetId | Provide AssetId of a pinned asset which needs to be unpinned from the list of pinned assets and to be deleted from the database as well M String |
-
-
 #### Output Header Parameters
 
 
@@ -595,8 +531,6 @@ To fetch the response from the APIs, the following entities exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/assets/\{assetid\}/unpin](https://apim-aot-azure-dev.azure-api.net/api/oh-module/assets/%7bassetid%7d/unpin) |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 
@@ -604,17 +538,12 @@ To fetch the response from the APIs, the following entities exist.
 | --- | --- |
 |  | \{\"message\":\"Asset successfully unpinned in the asset hierarchy\"\} |
 | Response Type 2 | Whenever the given AssetId is not valid and does not exist in the pinned asset list, the following response will be returned. \{\"message\":\"Cannot Delete: This Assetid is not valid or not pinned\"\} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | \" Asset successfully unpinned in the asset hierarchy.\" |
-
-
 #### Error Management
 
 
@@ -623,8 +552,6 @@ To fetch the response from the APIs, the following entities exist.
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 This Assetid is not valid or not pinned, so you cannot delete it. |
-
-
 ### GET- GetPinAsset
 
 This API is used to retrieve the assets pinned by the user.
@@ -644,8 +571,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -656,8 +581,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
   -----------------------------------------------------------------------------------------------------------
@@ -669,8 +592,6 @@ To fetch the response from the APIs, the following entities must exist.
 | AssetId | ID of asset String |
 | ParentExternalId | Id of parent asset. String |
 | AssetType | This information is fetched from metadata which indicates the Type of asset. String |
-
-
 #### API Specifications
 
 
@@ -680,8 +601,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/assets/getpinasse t](https://apim-aot-azure-dev.azure-api.net/api/oh-module/assets/getpinasse%20t) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 > \{
@@ -712,8 +631,6 @@ To fetch the response from the APIs, the following entities must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | AssetId and UserId mapping is present then returns the aforementioned response. |
-
-
 #### Error Management
 
 
@@ -722,8 +639,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 This Assetid is not valid or not pinned, so you cannot delete it. |
-
-
 ### POST- SearchAssets
 
 This API is used to search the given assets in the asset hierarchy using the AssetName. It will show the first 10 search results.
@@ -743,16 +658,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | AssetName | Provide asset name for search M String |
-
-
 #### Output Header Parameters
 
 
@@ -763,8 +674,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -780,8 +689,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/searchassetspath/\{assetname\}](https://apim-aot-azure-dev.azure-api.net/api/oh-module/searchassetspath/%7bassetname%7d) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Request and Response
 
 
@@ -790,17 +697,12 @@ To fetch the response from the APIs, the following entities must exist.
 | \{ | \{ |
 | \"Filter\": \[\"\"\] | \"Assets\": \[ |
 | \} | \{ \"AssetName\": \"\", \"AssetExternalId\": \"\", \"AssetType\": \"\", \"AssetPath\": \"\" \} \} |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | The result is a list of all searched assets whose names consist of the searched asset name |
-
-
 #### Error Management
 
 
@@ -809,9 +711,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Error while searching Assets in Asset Hierarchy |
-
-
-
 ### POST- GetAssetRagInsightPriority
 
 GetAssetRagInsightPriority API provides the color of the dot that is displayed on the OH UI. Internally, this API integrates RAG Status API and Insights list API. The color of the dot is assigned as per the conditions mentioned in the table on the side.
@@ -823,8 +722,6 @@ For any other scenario or condition, the API returns \'NA\' for that particular 
 | --- | --- |
 | Amber | RAG Status is Amber or Insight Priority is Medium |
 | Green | RAG Status is Green or Insight Priority is Low. |
-
-
 #### API Preconditions
 
 To fetch the response from the APIs, the following entities must exist.
@@ -840,16 +737,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Asset_ExternalIds | Provide asset external IDs of assets. M String |
-
-
 #### Output Header Parameters
 
 
@@ -860,16 +753,12 @@ To fetch the response from the APIs, the following entities must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
 | Parameter | Description Type |
 | --- | --- |
 | Asset_ExternalId | External id of the asset. String |
-
-
 #### API Specifications
 
 
@@ -879,8 +768,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Request and Response
 
 
@@ -889,17 +776,12 @@ To fetch the response from the APIs, the following entities must exist.
 | \{ | \{ |
 | \" Asset_ExternalIds\": \"\" | \"AssetsDotColor\": |
 | \} | \[ \{ \"Asset_ExternalId\": \"Dot Colour\" \} \] \} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The result is the asset external ID and the color of the dot |
-
-
 #### Error Management
 
 
@@ -908,9 +790,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Error while fetching RAG Status and Insight priority of Assets |
-
-
-
 ### POST- SearchStringToDB
 
 This API is used to store the searched asset\'s ExternalId, AssetName, AssetType, AssetPath in the OH Database.
@@ -936,8 +815,6 @@ To fetch the response from the APIs, the following entities must exist:
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Query Parameters
 
 
@@ -947,8 +824,6 @@ To fetch the response from the APIs, the following entities must exist:
 | AssetName | Provide asset name of existing asset M String |
 | AssetType | Provide asset type of existing asset O String |
 | AssetPath | Provide asset path of existing asset M String |
-
-
 #### Output Header Parameters
 
 
@@ -969,16 +844,12 @@ To fetch the response from the APIs, the following entities must exist:
 |  |  |  | \{ |  |
 |  |  |  | \} |  | Response Type2 | Whenever any issue occurs in storing the search asset details in the database, the following response will be returned. |  |
 |  |  |  | \{ |  |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Recent Search saved into Database. |
-
-
 #### Error Management
 
 
@@ -987,9 +858,6 @@ To fetch the response from the APIs, the following entities must exist:
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Missing request body |
-
-
-
 ### GET- GetEVStatusDetails
 
 This API is used to get all the asset-specific information. This will return asset details from the general and metadata fields or a validation message for the provided asset external ID.
@@ -1013,8 +881,6 @@ To fetch the response from the APIs, the following entities must exist:
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M string |
-
-
 #### Input Query Parameters
 
 
@@ -1023,8 +889,6 @@ To fetch the response from the APIs, the following entities must exist:
 | AssetExternalId | Provide the Asset External ID of an existing asset. M String |
 | SubSectionName | Provide the subsection name of the entity viewer tab O String |
 | Dimension | It will consist of the parameter list which needs to be fetched. O String |
-
-
 #### Output Header Parameters
 
 
@@ -1035,8 +899,6 @@ To fetch the response from the APIs, the following entities must exist:
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -1050,8 +912,6 @@ To fetch the response from the APIs, the following entities must exist:
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/getevstatusdetails?AssetExternalId=\{AssetExternalId\}&amp;SubSectionName=\{SubSectionName\}&amp;Dimension=\{Dimension\}](https://apim-aot-azure-dev.azure-api.net/api/oh-module/getevstatusdetails?AssetExternalId=%7bAssetExternalId%7d&amp;SubSectionName=%7bSubSectionName%7d&amp;Dimension=%7bDimension%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 > \{
@@ -1084,8 +944,6 @@ To fetch the response from the APIs, the following entities must exist:
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Get asset details |
-
-
 #### Error Management
 
 
@@ -1094,9 +952,6 @@ To fetch the response from the APIs, the following entities must exist:
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please provide a valid asset - Please pass the required query string parameters |
-
-
-
 ### GET- GetOHAssetPath
 
 This API is used to get the Operations Hierarchy asset\'s name and path.
@@ -1116,16 +971,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | AssetExternalId | Provide the Asset External ID of an existing asset. M String |
-
-
 #### Output Header Parameters
 
 
@@ -1136,8 +987,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -1153,8 +1002,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/getohassetpath/\{asset_external_id\}](https://apim-aot-azure-dev.azure-api.net/api/oh-module/getohassetpath/%7basset_external_id%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 > \{
@@ -1183,8 +1030,6 @@ To fetch the response from the APIs, the following entities must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Fetched Asset details successfully. |
-
-
 #### Error Management
 
 
@@ -1193,9 +1038,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - The given AssetId / ParenetAssetId is not valid or does not exist. |
-
-
-
 ### GET- GetAssetDetails
 
 This API is used to get one or more specific asset details based on the asset external ID.
@@ -1215,16 +1057,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Assets | Provide the Asset External ID of an existing asset. M String |
-
-
 #### Output Header Parameters
 
 
@@ -1235,16 +1073,12 @@ To fetch the response from the APIs, the following entities must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | If all the external IDs in the assets list are found. |
-
-
 #### Error Management
 
 
@@ -1253,9 +1087,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ####  API Specifications
 
 
@@ -1265,8 +1096,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/assetdetails?Assets=\{Assets\}](https://apim-aot-azure-dev.azure-api.net/api/oh-module/assetdetails?Assets=%7bAssets%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 > \{
@@ -1303,9 +1132,6 @@ To fetch the response from the APIs, the following entities must exist.
 |  | \{ \"message\": \"No assets found for the following external IDs: asset1, asset2. \" \} |
 | 2 | If all the external IDs are not found, then the following response will be returned. \{ \"message\": \"No assets found for the provided external IDs.\" \} |
 | 3 | If the assets list is empty, then the following response will be returned. \{ \'message\':\" Assets list is empty. Please provide a list of external IDs to retrieve asset details.\" \} |
-
-
-
 ### POST- SearchAssetsPath
 
 This API is used to get the path of the searched assets in the asset hierarchy.
@@ -1325,16 +1151,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | AssetName | Please provide the asset name of an existing asset M String |
-
-
 #### Output Header Parameters
 
 
@@ -1351,8 +1173,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/searchassetspath/\{assetname\}](https://apim-aot-azure-dev.azure-api.net/api/oh-module/searchassetspath/%7bassetname%7d) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Request and Response
 
 
@@ -1361,17 +1181,12 @@ To fetch the response from the APIs, the following entities must exist.
 | \{ | &gt; \{ &gt; |
 | \"Filter\": \[\"\"\] | &gt; \"Assets\": \[ &gt; |
 | \} | &gt; \{ &gt; &gt; \"AssetName\": \"\", &gt; &gt; \"AssetExternalId\": \"\", &gt; &gt; \"AssetType\": \"\", &gt; &gt; \"Assetrootid\": \"\", &gt; &gt; \"RootAssetName\": \"\", &gt; &gt; \"Path\": \"\" &gt; &gt; \} &gt; &gt; \] &gt; &gt; \} |
-
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The result is a list of all searched assets along with their paths whose names consist of the searched asset name |
-
-
 #### Error Management
 
 
@@ -1380,9 +1195,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### GET- GetPlantAssets
 
 This API is used to get the list of all the plant-level assets from the asset hierarchy.
@@ -1398,8 +1210,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -1410,8 +1220,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -1419,8 +1227,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | PlantId | The plant\'s asset external ID String |
 | PlantName | The plant\'s asset name String |
-
-
 #### API Specifications
 
 
@@ -1430,8 +1236,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 \{
@@ -1464,8 +1268,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of all the plant level assets fetched along with their Plant IDs and Plant Names. |
-
-
 #### Error Management
 
 
@@ -1474,9 +1276,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### GET- GetAssetTypes
 
 This API is used to get the asset types of assets in the asset hierarchy.
@@ -1492,8 +1291,6 @@ To fetch the response from the APIs, the ·Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -1504,8 +1301,6 @@ To fetch the response from the APIs, the ·Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### API Specifications
 
 
@@ -1515,8 +1310,6 @@ To fetch the response from the APIs, the ·Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 > \{
@@ -1545,8 +1338,6 @@ To fetch the response from the APIs, the ·Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of all the asset types is fetched. |
-
-
 #### Error Management
 
 
@@ -1555,9 +1346,6 @@ To fetch the response from the APIs, the ·Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### GET- GetUnitSystemandTimezoneByUser
 
 This API is used to fetch user-specific Unit System and Time Zone.
@@ -1573,8 +1361,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -1585,8 +1371,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### API Specifications
 
 
@@ -1596,8 +1380,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 \{
@@ -1614,8 +1396,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The user-specific UoM and Time Zone are fetched. |
-
-
 #### Error Management
 
 
@@ -1624,9 +1404,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### GET- GetAssetTypesByPlant 
 
 This API is used to get all asset types present for a specific plant in the asset hierarchy.
@@ -1646,8 +1423,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
   ---------------------------------------------------------------------------------------------------
@@ -1655,8 +1430,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Parameter | Description M/O Type |
 | --- | --- |
 | AssetExternalID | Please provide the asset external ID of an existing plant asset M String |
-
-
 #### Output Header Parameters
 
 
@@ -1673,8 +1446,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/oh-module/assettypes/byplant?asset_id=\{asset_id\}](https://apim-aot-azure-dev.azure-api.net/api/oh-module/assettypes/byplant?asset_id=%7basset_id%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 \{
@@ -1689,8 +1460,6 @@ To fetch the response from the APIs, the following entities must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of all the asset types is fetched for the given plant asset external ID. |
-
-
 #### Error Management
 
 
@@ -1699,9 +1468,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### GET- GetPlantsByUser
 
 This API is used to get the list of asset details of plants and assets above the plant level based on the User Roles.
@@ -1719,8 +1485,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -1728,8 +1492,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -1740,8 +1502,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Sample Response
 
 > \{
@@ -1774,8 +1534,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The user-specific plant assets and assets above plant level are fetched. |
-
-
 #### Error Management
 
 
@@ -1784,9 +1542,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### POST- ManageAssetRolePermissions
 
 This API is used to create, update or delete role permissions for assets.
@@ -1809,8 +1564,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | ### | Result |
 | HTTP Code | Result Description |
 | 200 | The result is the details of the assets and their associated role permissions. |
-
-
 #### Error Management
 
 
@@ -1819,8 +1572,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request |
-
-
 #### Input Header Parameters
 
 
@@ -1835,7 +1586,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
 ## 
 
 # OH Config APIs
@@ -1869,8 +1619,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -1881,16 +1629,12 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Role-to-asset mappings are successfully Created/Updated/Revived/Deleted. Error Management | HTTP Code | Error Code | Error Description |  | --- | --- | --- |  | 500 | 500 | Generic Error |  | 400 | 401 | &gt; Unauthorized User or Header Token missing |  | 400 | 400 | &gt; Bad request |  |
-
-
 #### API Specifications
 
 
@@ -1901,8 +1645,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | Sample Request Body | [**Link**](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/OH%20API%20Reference/POST_CreateOrUpdateOrReviveOrDeleteRoleAssetMappings_Request_Body.txt) |
-
-
 #### Sample Response
 
 
@@ -1915,9 +1657,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 5 | If the *RoleOperation* is \'Revive\', the API will revive the role that belongs to the plant mapping and the role to asset mappings, as well as create or remove the role to asset mappings based on the request body. The following response will be returned. \{ \"details\": \"\", \"message\":\" Role to Assets mappings successfully revived.\" \} |
 | 6 | If the *RoleOperation* is \'Delete\', the API will delete the role belonging to the plant mapping and the role to asset mappings. The following response will be returned. \{ \"details\": \"\", \"message\":\" Role to Assets mappings successfully deleted.\" \} |
 | 7 | If any unknown exception occurs in the API, the following response will be returned. \{ \"error\": \"\", \"message\": \"Error occurred while creating or updating or reviving or deleting Role to Assets mappings in OH config database.\" \} |
-
-
-
 ### GET- GetAssetsByRole
 
 This API is used to retrieve all assets by role.
@@ -1933,8 +1672,6 @@ To fetch the response from the APIs, the · Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -1942,8 +1679,6 @@ To fetch the response from the APIs, the · Authorization token must exist.
 | --- | --- |
 | Source (optional) | Please specify to fetch specific Role to Asset mappings from the OH config database. M String |
 | IsDeletedRole (optional) | Please specify as **true** to fetch inactive Role to Asset mappings from the OH config database. M String |
-
-
 #### Output Header Parameters
 
 
@@ -1954,16 +1689,12 @@ To fetch the response from the APIs, the · Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | A list of assets is retrieved based on the RoleID. |
-
-
 #### Error Management
 
 
@@ -1972,9 +1703,6 @@ To fetch the response from the APIs, the · Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - The pinned asset is not present for this user |
-
-
-
 #### API Specifications
 
 
@@ -1984,8 +1712,6 @@ To fetch the response from the APIs, the · Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/roles/\{roleId\}/Assets](https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/roles/%7broleId%7d/Assets) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 \{
@@ -2033,8 +1759,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
   --------------------------------------------------------------------------------------------------------------------------------
@@ -2042,8 +1766,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Parameter | Description M/O Type |
 | --- | --- |
 | IncludeDeletedRoles (optional) | Please specify as true to fetch both active &amp; inactive Roles based on Plant. M String |
-
-
 #### Output Header Parameters
 
 
@@ -2060,8 +1782,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/plant/\{plant_id\}/Roles](https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/plant/%7bplant_id%7d/Roles) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 \{
@@ -2082,8 +1802,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | A list of roles is retrieved based on the AssetExternalID of the Plant. |
-
-
 #### Error Management
 
 
@@ -2092,9 +1810,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - The pinned asset is not present for this user |
-
-
-
 ### GET- GetPlantsByRoleIds
 
 This API is used to retrieve the Plant details based on Role IDs.
@@ -2110,16 +1825,12 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleIds | Please provide the list of RoleIDs. M String |
-
-
 #### Output Header Parameters
 
 
@@ -2130,8 +1841,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -2139,8 +1848,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | --- | --- |
 | Plant External ID | External ID of the plant asset String |
 | PlantName | The plant\'s asset name String |
-
-
 #### API Specifications
 
 
@@ -2151,16 +1858,12 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | METHOD | GET |
 | CONTENT TYPE | application / json **\ ** |
 | ### | Sample JSON Response \{ \"\\": \{ \"PlantExternalId\": \"\", \"PlantName\": \"\" \}, \"\\": \{ \"PlantExternalId\": \"\", \"PlantName\": \"\" \} \} |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | A list of Plants with associated Plant IDs and Plant Names is retrieved based on the Role IDs. |
-
-
 #### Error Management
 
 
@@ -2169,9 +1872,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### GET- GetHighestLevelAssetsbyRoles
 
 This API is used to retrieve the highest-level assets for provided list of role ids in the query parameter from OH config database.
@@ -2187,8 +1887,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
   --------------------------------------------------------------------------
@@ -2196,8 +1894,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleIds | Please provide the list of RoleIDs. M String |
-
-
 #### Output Header Parameters
 
 
@@ -2208,8 +1904,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Output Body Parameters
 
 
@@ -2222,8 +1916,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/assets/highest-level/byRoleIds?ids=\{ids\}](https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/assets/highest-level/byRoleIds?ids=%7bids%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Sample JSON Response
 
 \{
@@ -2254,8 +1946,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | A list of assets with associated Asset External IDs is retrieved based on the Role IDs. |
-
-
 #### Error Management
 
 
@@ -2264,7 +1954,6 @@ To fetch the response from the APIs, the Authorization token and the list of Rol
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## GET- BatchDetails API
@@ -2288,8 +1977,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. . e.g., msal, accesstoken : \{ token: \"Bearer \{token\}\" \} M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -2300,16 +1987,12 @@ To fetch the response from the APIs, the following entities must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Operation executed successfully |
-
-
 #### Error Management
 
 
@@ -2323,8 +2006,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/productionmanager/batches/\{batchid\}](https://apim-aot-azure-dev.azure-api.net/api/productionmanager/batches/%7bbatchid%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Output Body Parameters
 
 
@@ -2346,8 +2027,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Expected_Start_Time | Batch Expected_Start_Time String |
 | Expected_End_Time | Batch Expected_End_Time String |
 | Status | Status of the Batch String |
-
-
 #### Sample JSON Response
 
 [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/OH%20API%20Reference/GET_BatchDetails_Response.txt)
@@ -2376,8 +2055,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2385,8 +2062,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. . e.g., msal, accesstoken : \{ token: \"Bearer \{token\}\" \} M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Sample Request
 
 \{starttime=2025-06-29T10:10:43.911Z,\
@@ -2419,8 +2094,6 @@ backward_ref=\"PROC_001\"\}
 | Product | Name of the Product String |
 | UOM | Unit of Measure String |
 | UpperControlLimit | Value of Upper Control Limit String |
-
-
 #### Sample JSON Response
 
 \{\
@@ -2447,8 +2120,6 @@ backward_ref=\"PROC_001\"\}
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Operation executed successfully |
-
-
 #### Error Management
 
 
@@ -2457,8 +2128,6 @@ backward_ref=\"PROC_001\"\}
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request - The pinned asset is not present for this user |
-
-
 ## Entity Viewer Config APIs
 
 Operations Hierarchy Entity Viewer Configuration APIs help in configuring the Entity Viewer component of Operations Hierarchy which is used to show 360-degree information of an asset in the Asset Hierarchy.
@@ -2486,16 +2155,12 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | foldername/filename | Please provide a valid path for the entity viewer template M String |
-
-
 #### Output Header Parameters
 
 
@@ -2506,8 +2171,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### API Specficiations
 
 
@@ -2517,8 +2180,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Sample Response
 
 >  \{
@@ -2533,8 +2194,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Successfully added entity viewer template to OH config database |
-
-
 #### Error Management
 
 
@@ -2543,9 +2202,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 ### GET- GetEntityViewerConfig
 
 This API is used to get Entity Viewer config details.
@@ -2563,8 +2219,6 @@ To fetch the response from the APIs, the authorization token and PlantName query
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/entity-viewer-config/configuration/entityviewer/getconfig?plant_name=\{plant_name\}](https://apim-aot-azure-dev.azure-api.net/api/entity-viewer-config/configuration/entityviewer/getconfig?plant_name=%7bplant_name%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2572,8 +2226,6 @@ To fetch the response from the APIs, the authorization token and PlantName query
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -2581,8 +2233,6 @@ To fetch the response from the APIs, the authorization token and PlantName query
 | --- | --- |
 | PlantName | Please provide the name of the Plant. M String |
 | AssetType (optional) | Please provide the Type of the asset. |
-
-
 #### Output Header Parameters
 
 
@@ -2593,8 +2243,6 @@ To fetch the response from the APIs, the authorization token and PlantName query
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Sample Response
 
  \{
@@ -2635,8 +2283,6 @@ To fetch the response from the APIs, the authorization token and PlantName query
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Get entity viewer config details according to the asset type and plant name |
-
-
 #### Error Management
 
 
@@ -2645,8 +2291,6 @@ To fetch the response from the APIs, the authorization token and PlantName query
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## GET- GetEntityViewerConfigByAssetTypeAndPlantName
@@ -2667,8 +2311,6 @@ To fetch the response from the APIs, the Authorization token, AssetType, and Pla
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | SAMPLE RESPONSE | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/AOT_GetEntityViewerConfigByAssetTypeAndPlantName_Sample_Response.txt) |
-
-
 #### Input Header Parameters
 
 
@@ -2676,8 +2318,6 @@ To fetch the response from the APIs, the Authorization token, AssetType, and Pla
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 #### Input Path Parameters
 
 
@@ -2685,8 +2325,6 @@ To fetch the response from the APIs, the Authorization token, AssetType, and Pla
 | --- | --- |
 | Assettype | Provide the asset type M String |
 | Plantname | Provide the plant name M String |
-
-
 #### Output Header Parameters
 
 
@@ -2697,16 +2335,12 @@ To fetch the response from the APIs, the Authorization token, AssetType, and Pla
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Get entity viewer config details according to the asset type and plant name |
-
-
 #### Error Management
 
 
@@ -2715,9 +2349,6 @@ To fetch the response from the APIs, the Authorization token, AssetType, and Pla
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
-
 #### Sample Response
 
 [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/OH%20API%20Reference/GET_GetEntityViewerConfigByAssetTypeAndPlantName_Sample_Response.txt)

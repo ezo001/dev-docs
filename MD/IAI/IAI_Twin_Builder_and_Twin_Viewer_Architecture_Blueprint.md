@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) **Related Assets / Alternatives** |
 | # | \{#section .TOC-Heading\} |
-
 </div>
 
 ## Introduction
@@ -88,7 +87,6 @@ When accessing the Twin Viewer, Azure AD authenticates the app, retrieves the MS
 | Model -- 3D CMS | A page within the Twin Builder application where users can upload, create, edit, delete, or view 3D models required for asset mapping and layout creation. |
 | Mapper (Model Mapping and POI Mapping) | A feature in the Twin Builder app that enables users to link 3D models to the asset hierarchy (Model Mapping) and associate Points of Interest (POI Mapping) with the models. |
 | POI (Point of Interest) Editor | A tool within Twin Builder that allows users to add and manage specific points of interest on a 3D model. |
-
 ## 
 
 # Twin Builder Unity Application

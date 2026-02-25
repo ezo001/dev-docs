@@ -26,7 +26,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Intelligent Advisor Delivery Guide |
-
 </div>
 
 ## Introduction
@@ -100,8 +99,6 @@ This guide explains how to use IAI\'s Intelligent Advisor UI with Template Viewe
 | &gt; Edit Insight / Edit Action | &gt; Pop-up windows for modifying existing insights or actions, with editable fields depending on how the item was generated. |
 | &gt; Closed Insights / Actions | &gt; Items that have been resolved and are no longer active, viewable via filter options. |
 | &gt; Archived Insights | &gt; Insights automatically closed due to expiration, with system-generated reasoning. |
-
-
 ## 
 
 # Intelligent Advisor Applications

@@ -24,7 +24,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs UI Guide, Smart KPIs API Reference |
-
 </div>
 
 ## Introduction
@@ -88,8 +87,6 @@ IAI\'s People Management (PM) component may be integrated with other IAI compone
 | Message Broker | A system component that handles event-driven communication between microservices, especially for updating permissions and roles. |
 | Microservice | A small, independent service that performs a specific function within the larger IAI architecture, such as managing roles or permissions. |
 | M/O | Mandatory/Optional |
-
-
 ## Permissions
 
 As shown in the table below, two different types of permissions are managed.
@@ -99,8 +96,6 @@ As shown in the table below, two different types of permissions are managed.
 | --- | --- |
 | Functional Permissions | Permission to access configuration pages of various components. Access to configuration screens will be restricted to admin role users. |
 | Data Permissions | Permission defined to IAI business objects (asset hierarchy, KPIs, Insights, etc.) based on roles and responsibilities. The users have access only to the data their roles are mapped to. The following sections describe the two different permission types in detail. |
-
-
 ### Functional Permissions
 
 The direction of the flow of the functional permissions for People Management is shown below.
@@ -136,8 +131,6 @@ The diagram on the right illustrates the integration of IAI components and data 
 | --- | --- |
 | People Management Configuration UI | &gt; An interface that is provided to admin users where IAI Roles can be created and managed, different Active directory groups can be linked to IAI Roles, user permissions can be changed, etc. |
 | People Management APIs and Backend services | &gt; These services enable querying and updating User and Role information, mapping the Roles to Active Directory Groups, checking user authorizations, etc. All IAI backend services will use People Management services/APIs to determine the exact data access the IAI user has and limit the returned datasets only to the data accessible by the user based on their role. |
-
-
 ### 
 
 # Authentication and Authorization
@@ -163,8 +156,6 @@ To fetch the People Management APIs, an authentication token must already exist.
 | PATH (Public Exposure0 | [https://apim-mw-aot-dev.azure-api.net/api/people-management/users/bytoken](https://apim-aot-mw-dev.azure-api.net/api/people-management/users/bytoken) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 ### Caching
 
 To enable fast authorization of the user to IAI, each microservice must locally cache mappings between both users and roles as well as between AD groups and roles.
@@ -232,16 +223,12 @@ This API fetches the RoleIDs for the plant. For example, if the assetId is C-B1-
 | **CONTENT TYPE** | application / json |
 | **Request URL** | [https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/plant/assetId/Roles](https://apim-aot-azure-dev.azure-api.net/api/operation-heirarchy/plant/%7bassetId%7d/Roles) |
 | **JSON Response** | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/PM%20Integration%20with%20SmartKPIs/2.0/PM_Role_Retrieval_JSON_Response.txt) |
-
-
 ##### Input Header Parameters
 
 
 | ***Parameter*** | ***Description*** ***M/O*** ***Max Length*** ***Type*** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 ##### Input Path Parameters
 
 
@@ -255,16 +242,12 @@ This API fetches the RoleIDs for the plant. For example, if the assetId is C-B1-
 | **CONTENT TYPE** | application / json |
 | **Request URL** |  |
 | **JSON Response** | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/PM%20Integration%20with%20SmartKPIs/2.0/PM_Role_Detail_JSON_Response.txt) |
-
-
 ##### Input Header Parameters
 
 
 | ***Parameter*** | ***Description*** ***M/O*** ***Max Length*** ***Type*** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 ### Workflow Diagram
 
 The following diagram illustrates the workflow of the Data Permission Microservice.
@@ -308,8 +291,6 @@ Examples of Owner and Viewer accesses provided by the People Management APIs are
 | --- | --- |
 | Owner Access | RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_R True RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_W True |
 | Viewer Access | RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_R True RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_R True RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_W False |
-
-
 After role permissions are assigned, users can view the dashboard or drill down based on their role and permission.\
 
 **Conditions to View KPIs**
@@ -496,7 +477,6 @@ The RAG status with highest priority will be picked. For example, consider an as
 | 2. | For KPIs to be factored into the RAG calculation, it is necessary that all User Roles have a minimum of Viewer access to the KPIs associated with an Asset. |
 | 3. | For the RAG calculation, all non-sensitive KPIs will be included, taking into account point 2. |
 | 4. | Sensitive KPIs will only factor into the RAG calculation if the user role includes viewer permissions for that KPI and if Role Sensitivity is marked as *Yes* for that specific role. |
-
 ## 
 
 # Result

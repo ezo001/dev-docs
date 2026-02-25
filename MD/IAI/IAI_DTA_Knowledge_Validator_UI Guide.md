@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | DTA Expert Knowledge Architecture Blueprint |
-
 </div>
 
 ## Introduction
@@ -90,8 +89,6 @@ This guide explains how to use Expert Knowledge functionality in IAI. It covers 
 | Knowledge Validator | A user interface within the IAI application to approve/reject the expert knowledge. |
 | Validator_ExpertKnowledge | A designated admin role responsible for reviewing, approving, or rejecting submitted expert knowledge entries. |
 | Generate Recommendation | A button used to generate recommendations based on approved expert knowledge related to similar insights. |
-
-
 ## Background
 
 The Knowledge Validator UI is one part of IAI\'s Expert Knowledge component, which integrates human expertise with AI scalability to optimize productivity and support informed decision-making. This feature allows users to systematically capture, validate, and reuse expert insights within the IAI platform. Submissions are assessed by the Knowledge Validation Agent and then reviewed by an appointed human Validator. Upon successful validation, these insights become part of IAI\'s Recommendation Framework, which delivers actionable guidance for comparable scenarios and fosters continuous operational improvement. The Expert Knowledge component provides a comprehensive process for capturing, documenting, and disseminating valuable operational insights, facilitating the preservation and application of effective solutions and best practices for future use across similar contexts. The following sections describe how other IAI components are involved with Expert Knowledge.

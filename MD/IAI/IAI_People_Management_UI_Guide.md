@@ -24,7 +24,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | People Management Architecture Blueprint, People Management API Reference |
-
 </div>
 
 ## Introduction
@@ -88,8 +87,6 @@ This document explains how to navigate through the People Management configurati
 | Department | An organizational unit within IAI, used to group roles and users for management and reporting purposes. |
 | Group | A collection of users within IAI, often used for assigning roles or permissions collectively. |
 | Asset Level | The hierarchical level of assets (such as plants or equipment) to which roles and permissions can be assigned. |
-
-
 ## Getting Started
 
 Launch the IAI application and select People Management from the drop-down navigation menu.
@@ -115,9 +112,6 @@ After clicking on the People Management option in the navigation menu or the Peo
 | 2 | Run Sync Services | &gt; On clicking the Run sync services button, the backend service is triggered. This will synchronize all the User details in the People Management database. On sync service completion a popup with a success message is populated. |
 | 3 | Create Role | &gt; Clicking the Create Role button results in redirection to the Create Role page where the user can create a new Role as described in the Roles section of this document. Note that for non-Admin users, the Create Role button remains disabled until a plant is selected from the drop-down menu. |
 | 4 | Create Department | &gt; On clicking this button, the user is redirected to the \'create department\' page. The user can fill in the details and create a new Department as described in the \'Departments\' section of this document. |
-
-
-
 ## Roles
 
 After a plant has been chosen from the drop-down menu (1), the available Roles (2) under the selected plant appear in the list. The search field (3) allows the user to search for roles by name or creator. Columns can be sorted using the controls in the header (4).

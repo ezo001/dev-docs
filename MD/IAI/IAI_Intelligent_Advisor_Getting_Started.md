@@ -66,9 +66,6 @@ The Intelligent Advisor (IA) is an IAI component and an AI-based solution that e
 | &gt; SAP | &gt; An enterprise resource planning (ERP) system that must be integrated with IAI for asset hierarchy and data communication. |
 | &gt; People Management Component | &gt; A module that manages user rights and access within IAI and IA. |
 | &gt; ML Ops Toolchain | &gt; A blueprint for integrating Azure machine learning infrastructure with IAI\'s Intelligent Advisor framework, covering design patterns, workflows, and architecture. |
-
-
-
 ## User Journey
 
 ![](./media/IAI_Intelligent_Advisor_Getting_Started/image3.png)
@@ -83,7 +80,6 @@ The Intelligent Advisor (IA) is an IAI component and an AI-based solution that e
 | 6 | [[IAI Intelligent Advisor Delivery Guide]](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Intelligent_Advisor_Delivery_Guide_2_5.pdf) 20 |
 | 7 | [[IAI Intelligent Advisor UI Guide]](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Intelligent_Advisor_UI_Guide_2_5.pdf) 6 |
 | 8 | [[IAI Intelligent Advisor UI Guide]](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Intelligent_Advisor_UI_Guide_2_5.pdf) 27 |
-
 ## 
 
 # Resources
@@ -100,8 +96,6 @@ The documents listed in the table are also available at the [IX Developer Hub](h
 | [Intelligent Advisor Configuration UI Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Intelligent_Advisor_Configuration_UI_Guide_2_5.pdf) | This guide explains how to use IAI\'s Intelligent Advisor Configuration UI. | Launch the Configuration UI -- 5 IA Configuration Landing Page -- 6 Configure Insights -- 8 Predictive Failure Configuration -- 13 Custom Insight Category -- 21 |
 | [Intelligent Advisor API Reference](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Intelligent_Advisor_API_Reference_2_4.pdf) | This reference document includes information about paths, inputs, outputs, and error management for APIs related to IAI Intelligent Advisor. The document includes descriptions of APIs used for configuration as well as descriptions of APIs that provide middleware functionality | Event Data APIs -- 4 Configuration APIs -- 7 ML Model Microservice APIs -11 |
 | [ML Ops Toolchain Blueprint](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_ML_OPS_Toolchain_Blueprint_2_5.pdf) | This document provides an overview of the Azure machine learning infrastructure and describes how to integrate it with IAI\'s Intelligent Advisor framework. | MLOps Design Patterns -- 4 What is MLOps Azure -- 4 MLOps Versus DevOps -- 4 Architecture -- 5 MLOps Workflow Pipeline - 7 |
-
-
 ## 
 
 # Prerequisites
@@ -151,5 +145,4 @@ The prerequisites listed below are unique to Intelligent Advisor. For general pr
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Intelligent Advisor UI Guide, Intelligent Advisor Delivery Guide |
-
 </div>

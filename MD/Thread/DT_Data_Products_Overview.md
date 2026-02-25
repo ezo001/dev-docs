@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -166,8 +165,6 @@ An example data contract for a data product created by IX Digital Thread (Batter
 | Field Data | BMS/Battery Data Real-time Cell Voltage Actual voltage of the battery during operation |
 | BMS/Battery Data | Real-time Cell Temperature Actual temperature of the battery during operation |
 | BMS/Battery Data | Real-time Cell Current Actual current flowing into or out of the battery |
-
-
 ## Data Product Definition
 
 A data product is a digital product that supplies information or knowledge to clients, usually in an organized and uniform structure. Data products are created to satisfy specific business requirements or to address particular issues, and they can serve as the foundation for decision-making, operational enhancement, or the generation of new revenue streams.

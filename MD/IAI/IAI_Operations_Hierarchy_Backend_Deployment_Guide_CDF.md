@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Operations Hierarchy UI Guide, Operations Hierarchy API Reference |
-
 </div>
 
 ## Introduction
@@ -111,7 +110,6 @@ Developers deploying the IAI/OH application.:
 | API Management (APIM) | An Azure service for publishing, securing, transforming, and monitoring APIs. |
 | Swagger File | A machine-readable file (OpenAPI Specification) that describes the structure and endpoints of an API for documentation and automation. |
 | Artifact | A packaged output from a pipeline stage, such as a built image or deployment file, used as an input for subsequent stages. |
-
 ## 
 
 # Deployment Pipeline

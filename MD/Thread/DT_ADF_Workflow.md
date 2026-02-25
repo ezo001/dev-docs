@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** |  |
 | **Related Assets / Alternatives** | AOT / Engineering Orch / Engineering Agents |
-
 </div>
 
 ## Introduction \{#introduction .unnumbered\}
@@ -67,8 +66,6 @@ This document provides an overview of the ADF workflow implemented for Digital T
 | PLM | Product Lifecycle Management |
 | ML | Machine Learning |
 | UNSPSC | United Nations Standard Products and Services Code |
-
-
 ### Business Contacts \{#business-contacts .unnumbered\}
 
 -   [florian.tournier@accenture.com](mailto:florian.tournier@accenture.com)

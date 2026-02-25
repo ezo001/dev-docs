@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs API Reference, Smart KPIs Admin Guide |
-
 </div>
 
 ## Introduction
@@ -43,7 +42,6 @@ Key Performance Indicators (KPIs) are measurable factors that are tracked to mea
 | Historical Benchmark | Best performance value observed in the last 12 months. |
 | Target Value | Desired performance/value of the KPI. |
 | Forecast | Forecast for the current time interval, which is calculated as a 7-day moving average. IAI is integrated with Azure Resources where Schedulers are used to calculate the KPI data using the factors above and to insert data points into the timeseries. For the scheduler to work, a KPI Hierarchy must first be established. |
-
 ### 
 
 ## Purpose
@@ -128,7 +126,6 @@ This document explains:
 | WebPubSub Service | Azure service used for real-time notifications and auto-refreshing KPI calculations in the UI. |
 | API (Application Programming Interface) | Defined endpoints and protocols used for interacting with backend services (e.g., UoM APIs, Computation Engine APIs). |
 | Batch KPI | KPIs based on event-driven time-series data from operational technology assets, calculated continuously. |
-
 ## 
 
 # KPI Hierarchies
@@ -314,8 +311,6 @@ The following table describes how the Orchestrator services receive and send Kaf
 | The following code depicts how the Orchestrator Service receives Kafka Messages from the Computation Engine when the status equals *COMPLETED*. | \"Type\": \"Calculation Event\", |
 | After receiving the message, the document (record or file) in the Mongo DB is updated with the status *COMPLETED*. | \"Scopes\": \[\"Smart KPI Orchestration\"\], |
 | A Kafka message is triggered when the KPI\'s contributing relationships are identified. This Kafka message initiates the computation of the contributing KPIs as well. Additionally, another Kafka event is created which triggers the computations of the forecast, historical, and target values of the KPI (Actual Productivity) | \"Timestamp\": \"2023-08-24 09:31:16\", \"Version\": \"1\", \"Payload\": \[\{ \"Attribute\": \"Actual\", \"uid\": \"f7c66e19-03a3-44b2-af5a-5bd4de87af2d\", \"kpi_config_id\": \"\" \"timestamp\": \"2023-08-24 09:31:16\", \"Status\": \"Completed\", \"Level\": \"System\", \"kpiname\": \"Actual Prodcutivity\", \"actual_starttime\": \"2023-08-24 09:20:00\", \"actual_endtime\": \"2023-08-24 09:30:00\", \"execution_endtime\": \"2023-08-24 09:31:16\" \}\]\} |
-
-
 ##### 
 
 #### Table Details
@@ -328,8 +323,6 @@ The Orchestrator service uses the following tables from the \"sqldb-skpi-dev\" t
 | KPIMaster | This table stores information about KPI details. |
 | MasterRelationship | This table stores information about contributors. |
 | RelationshipKPI | This table stores the information (list) of the contributing KPIs of the source KPI. |
-
-
 ##### API Specifications
 
 The orchestrator microservice uses the POST KPI upper-level call API to manage upper-level KPI calls efficiently.
@@ -341,16 +334,12 @@ The orchestrator microservice uses the POST KPI upper-level call API to manage u
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request and Response | Not Applicable |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -359,8 +348,6 @@ The orchestrator microservice uses the POST KPI upper-level call API to manage u
 | 500 | 500 | Invalid Data |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## Simulated Value Creation
@@ -427,8 +414,6 @@ The APIs used in the UoM implementation are as follows:
 | - | y= target UoM data |
 | - | x=source UoM data, |
 | - | a, b, c, and d= pre-defined values to convert from source UoM to target. The Actual calculation formula consists of all contributors: child1, child2, child3 |
-
-
 #### Conversion Procedure
 
 The following steps describe the process of converting the standard IAI UoM to the user-configured (local) UoM.
@@ -600,8 +585,6 @@ The Orchestrator service uses the following tables from the \" sqldb-skpi-dev\" 
 | KPIAcutalTimeseriesData | This table stores information on the actual data of KPs. |
 | KPIForecastTimeseriesData | This table stores information on the Forecast data of KPIs. |
 | KPIHistoricalTimeseriesData | This table stores information on the Historical data of KPIs. |
-
-
 #### POST Web PubSub API 
 
 The computation engine microservice calls the POST Web PubSub API to send a notification to the UI for auto-refreshing the tiles.
@@ -618,8 +601,6 @@ The computation engine microservice calls the POST Web PubSub API to send a noti
 | #### | Result |
 | **HTTP Code** | **Result Description** |
 | 200 | successful operation |
-
-
 ##### Error Management
 
 
@@ -628,4 +609,3 @@ The computation engine microservice calls the POST Web PubSub API to send a noti
 | 500 | 500 | Invalid Data |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-

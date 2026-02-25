@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 ## 
 
 
@@ -151,8 +150,6 @@ The parameters listed below are used to configure the Flink environment for dist
 | rest.profiling.enabled | Enables profiling for Flink. (true) |
 | pekko.framesize | Configures the maximum frame size for Pekko. (512MiB) |
 | pekko.remote.maximum-frame-size | Sets the maximum frame size for remote communication. (512MiB) |
-
-
 ### Flink Plugins
 
 
@@ -160,7 +157,6 @@ The parameters listed below are used to configure the Flink environment for dist
 | --- | --- |
 | S3 | \$FLINK_HOME/plugins/s3-fs-hadoop |
 | Azure | \$FLINK_HOME/plugins/azure-fs-hadoop |
-
 ### 
 
 # Components
@@ -363,8 +359,6 @@ This API retrieves a list of all running or completed Flink jobs
 | AWS DEV ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header
 
 
@@ -372,16 +366,12 @@ This API retrieves a list of all running or completed Flink jobs
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -391,8 +381,6 @@ This API retrieves a list of all running or completed Flink jobs
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Response
 
 \{
@@ -425,8 +413,6 @@ This API retrieves a list of task managers in the Flink cluster
 | AWS DEV ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header
 
 
@@ -434,16 +420,12 @@ This API retrieves a list of task managers in the Flink cluster
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -453,8 +435,6 @@ This API retrieves a list of task managers in the Flink cluster
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Response
 
 [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Flink%20Job/BOM%20Data%20Quality%20Check/Taskmanagers_Response.txt)
@@ -473,16 +453,12 @@ This API retrieves the log of a specific task manager.
 | AWS DEV ENDPOINT | [https://ixdt-bom-dev.accenture.com/bomDataqualityEngine/taskmanagers/\{tm-id\}/log] |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Path
 
 
 | Parameter | Description |
 | --- | --- |
 | Tm-id | Unique identifier and specifies the type of data to retrieve |
-
-
 #### Input Header
 
 
@@ -490,16 +466,12 @@ This API retrieves the log of a specific task manager.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -509,8 +481,6 @@ This API retrieves the log of a specific task manager.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Response
 
 [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Flink%20Job/BOM%20Data%20Quality%20Check/Taskmanagers_Logs_Response.txt)
@@ -529,8 +499,6 @@ This API retrieves the log of the job manager.
 | AWS DEV ENDPOINT |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header
 
 
@@ -538,16 +506,12 @@ This API retrieves the log of the job manager.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -557,8 +521,6 @@ This API retrieves the log of the job manager.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Response
 
 [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Flink%20Job/BOM%20Data%20Quality%20Check/Jobmanager_Logs_Response.txt)

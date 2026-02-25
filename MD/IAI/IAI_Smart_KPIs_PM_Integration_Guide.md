@@ -22,7 +22,6 @@ Release Version: 2.5
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs API Reference, Smart KPIs Admin Guide |
-
 ## 
 
 
@@ -102,7 +101,6 @@ IAI\'s People Management (PM) component may be integrated with other IAI compone
 | Sensitivity Tag | A metadata flag indicating whether a KPI or user role involves sensitive information. Access to sensitive KPIs is restricted based on this tag. |
 | CDF (Cognite Data Fusion) Portal | The platform where data (assets, timeseries, events) is stored and tagged with metadata, enabling users to access and manage data permissions. |
 | Postman | An API testing tool used to manually update roles and permissions in IAI assets and timeseries. |
-
 ## 
 
 # Smart KPI -- People Management Integration
@@ -152,8 +150,6 @@ For role addition/removal, a single list of owner/viewer role details of the giv
 | --- | --- |
 | Owner Access | RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_R True RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_W True |
 | Viewer Access | RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_R True RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_R True RoleID_3BF3AFE6-8DE4-403A-932F-D84C24D4BCE9_W False |
-
-
 After role permissions are assigned, users can view the dashboard or drill down based on their role and permission.
 
 #### 
@@ -223,8 +219,6 @@ An authentication token is required to fetch the People Management APIs.
 | PATH (Public Exposure) (AWS) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### People Management Role Retrieval API
 
 This API fetches the RoleIDs for the plant. For example, if the assetId is C-B1-G1-R1-F1 then the API fetches all RoleIDs that are associated with this plant. To fetch the RoleID, the Authorization token for access valid user must exist.
@@ -240,23 +234,18 @@ This API fetches the RoleIDs for the plant. For example, if the assetId is C-B1-
 | CONTENT TYPE | application / json |
 | Request URL | [https://apim-mw-aot-dev.azure-api.net/api/operation-heirarchy/plant/\{assetId\}/Roles](https://apim-mw-aot-dev.azure-api.net/api/operation-heirarchy/plant/%7bassetId%7d/Roles) |
 | JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/PM%20Integration%20with%20SmartKPIs/2.0/PM_Role_Retrieval_JSON_Response.txt) |
-
-
 ##### Input Header Parameters
 
 
 | ***Parameter*** | ***Description*** ***M/O*** ***Max Length*** ***Type*** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 ##### Input Path Parameters
 
 
 | ***Parameter*** | ***Description*** ***M/O*** ***Max Length*** ***Type*** |
 | --- | --- |
 | assetid | External id of the KPI the asset is linked to \[e.g., path value\\] M 255 String |
-
 #### 
 
 ### People Management Role Detail API 
@@ -274,15 +263,12 @@ This API fetches details for selected RoleIDs. The details fetched are RoleName,
 | CONTENT TYPE | application / json |
 | Request URL |  |
 | JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/PM%20Integration%20with%20SmartKPIs/2.0/PM_Role_Detail_JSON_Response.txt) |
-
-
 ##### Input Header Parameters
 
 
 | ***Parameter*** | ***Description*** ***M/O*** ***Max Length*** ***Type*** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
 ## 
 
 ## Adding Roles to Assets

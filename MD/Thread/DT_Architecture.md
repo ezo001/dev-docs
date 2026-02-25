@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -106,8 +105,6 @@ The purpose of this document is to provide an overview of Industry X Digital Thr
 | CI/CD | Continuous Integration (CI) and Continuous Delivery/Deployment (CD) are practices that automate code integration, testing, and delivery processes, enabling frequent and reliable software releases. |
 | Dashboard | A visual interface that displays key metrics, data, and analytics to help users monitor the status and performance of applications, systems, or business processes. |
 | Knowledge Graph | A data structure that represents relationships between entities in a network, allowing for enhanced data retrieval, integration, and semantic analysis within business solutions. |
-
-
 ## Architecture Constraints
 
 ### 
@@ -211,8 +208,6 @@ The table below lists the roles and functions of the various parts of the IX Dig
 | ACL / Role Mapping | To manage Access Control Logic and provide Role mapping capability. The combination of both enables the definition of fine fine-grained access logic. |
 | Callback Manager | It provides endpoints, notification mechanisms, and retry logic to receive callback in an asynchronous process. |
 | Connector Catalog | It is the catalog of all the available connectors. The connector can be a ready-to-use one or just the template to facilitate the creation of a new connector. Release by release the catalog will be enriched with the ad hoc connectors created to integrate specific system industry by industry. To simplify the creation of the connector by the External Team, a connector SDK on Java will be created supporting the main important protocols and already aligned with the DT platform security, logging, and monitoring approaches. |
-
-
 ### Configurable Data Processing
 
 
@@ -226,8 +221,6 @@ The table below lists the roles and functions of the various parts of the IX Dig
 | Workflow Management | When data processing requires human interaction or complex asynchronous execution, workflow management is needed. Workflow Management includes event-based processing and time-scheduled processing. |
 | Tasks Catalog | Catalogue of tasks, actions, and operations provided by the framework within the data processing context. Functional container of tasks that can be activated for the connectors and ETL pipelines. |
 | Rule Management | Rule Management defines, implements, and maintains rules governing data processing. It ensures data integrity, consistency, and compliance by automating validation, transformation, and quality checks. The Rule Manager integrates with data sources, executes rules, monitors performance, and supports scalability, compliance, and auditing for reliable data management. |
-
-
 ### Data Catalog and Conceptual Data Modeling
 
 
@@ -239,8 +232,6 @@ The table below lists the roles and functions of the various parts of the IX Dig
 | Data Discovery/Search | Thanks to the Metadata Model and the out-of-the-box text search capability it is possible to search for asset information and get asset dependency and related information |
 | Data Federation | Integrating the Metadata Model with the Virtualization engine and the Identity access management, it is possible to create a use case where different data systems are federated to provide authenticated users access to the required data meshed in a single view. |
 | Data Virtualization | To enable data Federation or the Data Mesh use case, a Data Virtualization engine is required to get data from heterogeneous sources in a near/ real-time approach |
-
-
 ### Analytics
 
 
@@ -248,8 +239,6 @@ The table below lists the roles and functions of the various parts of the IX Dig
 | --- | --- |
 | Model Catalog | Set of Model use case based to provide insight on the processed data |
 | MLOPs | Tooling to support Data Scientists and Data Engineering in the full Model life cycle management |
-
-
 ### Control Plane
 
 
@@ -261,8 +250,6 @@ The table below lists the roles and functions of the various parts of the IX Dig
 | Dev Ops / Resource Management | Dev Ops Tooling and Set of CI/CD pipeline to speed up the Deployment of the Digital Thread use case infrastructure and Applications |
 | Orchestration and Control | Workflow Manager and Orchestrator Framework to develop and control data flow and data Pipelines |
 | Access and Routing | Identity Access Management System to enable user and System Access to API and Data for the Defined Use cases. |
-
-
 ### Dev Toolkit
 
 
@@ -272,7 +259,6 @@ The table below lists the roles and functions of the various parts of the IX Dig
 | Application Template | An application template is a pre-designed framework or blueprint that serves as a foundation for creating software applications. It provides a structured starting point, including predefined components, layouts, and functionality, to streamline the development process. Application templates are often used to accelerate the creation of common types of applications |
 | Use Case Template | Patterns or common application use cases based on the connectors, data catalog, workflow engine, data storage, etc. |
 | OpenAPI Editor | OpenAPI editor to create and document API definitions. OpenAPI descriptors are used to define the API behavior and provide API documentation. |
-
 ## 
 
 # Adoption Approach
@@ -454,7 +440,6 @@ The following requirements are based on standard software qualities.
 | Isolation | Isolation is inherited by software infrastructural components that provide out-of-the-box capabilities. |
 | Scalability | DT inherits scalability from the founding technologies like Kubernetes and the Azure PaaS services. |
 | Availability | DT implements high availability by adopting an architecture void of a single point of failure. |
-
 ### 
 
 # Data Architecture Approach and Principles
@@ -471,7 +456,6 @@ The following requirements are based on standard software qualities.
 | Availability | DT sets different levels of availability depending on the use case, the amount of data to be searched, and the used storage. |
 | Portability | Data import and data export scenario is enabled, thus leveraging the selected data pipeline and DT connector to also enable the data migration use case. This can also be integrated with data validation, data enrichening, or data transformation tasks that are provided or templatized or through How to Documentation |
 | Recoverability | Disaster Recovery Procedures are implemented. |
-
 ## 
 
 # Deployment View

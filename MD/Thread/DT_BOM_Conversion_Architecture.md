@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** |  |
 | **Related Assets / Alternatives** | AOT / Engineering Orch / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -80,9 +79,6 @@ Developers, Business Analysts, and Accenture teams deploying the BOM Management 
 | - swimlane/ngx-graph - 8.0.2 |  |
 | - azure/msal-angular - 3.0.9 |  |
 | - rxjs -- 7.8.0 |  |
-
-
-
 ### Related Links
 
 -   [IX Digital Thread Foundations Documentation](https://industryxdevhub.accenture.com/asset-home;search_text=ix%20digital%20thread)

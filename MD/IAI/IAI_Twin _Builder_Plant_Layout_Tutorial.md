@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Twin Builder UI Guide |
-
 </div>
 
 ## Introduction
@@ -80,8 +79,6 @@ This tutorial teaches the reader how to work with plant layouts in Twin Builder.
 | Model | A digital representation of equipment or asset that can be placed on the plant layout grid. |
 | Grid | The visual structure of tiles used to organize and position models within the plant layout. |
 | Tile | An individual cell within the grid, used as a location for placing models. |
-
-
 ## Create Layout
 
 To create a new plant layout or update an existing layout, open the \'Plant Layout\' tab from the header.

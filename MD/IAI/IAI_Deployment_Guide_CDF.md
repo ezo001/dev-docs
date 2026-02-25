@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Azure Deployment Guide |
-
 </div>
 
 ## Introduction
@@ -97,8 +96,6 @@ Developers/Azure resources with the following skills:
 | MS | Micro Service |
 | VNet | Virtual Network |
 | ARM | Azure Resource Manager |
-
-
 ## Deployment Prerequisites 
 
 An Azure subscription and an Azure DevOps organization must be already in place with necessary roles provided to perform the deployment.
@@ -183,11 +180,7 @@ Set up the app registration/Service Principal to facilitate the authentication o
 | 3 | Secret |
 | 4 | Goto Authentication in App Registration under Manager and click on Add Platform and select Single page application URLS - \/auth e.g., [link](https://app-hostapp-ui-prod.azurewebsites.net/auth) - \ e.g., [link](https://app-hostapp-ui-prod.azurewebsites.net) - \ e.g., [https://app-entity-viewer-template-upload-\.azurewebsites.net](https://app-entity-viewer-template-upload-.azurewebsites.net) - \ /auth e.g., - \ e.g., - \ e.g., - \ e.g., [https://app-3d-builder-\.azurewebsites.net](https://app-3d-builder-.azurewebsites.net) - \/auth e.g., [https://app-mv-ui-intelligent-advisor-config-\.azurewebsites.net/auth](https://app-mv-ui-intelligent-advisor-config-.azurewebsites.net/auth) - \/auth e.g., - \/auth e.g\... [https://app-smartkpiconfig-\.azurewebsites.net/auth](https://app-smartkpiconfig-.azurewebsites.net/auth) - \ e.g., - \/home/dashboard e.g., [link](https://app-header-micro-app-prod.azurewebsites.net/) |
 | 5 | API Permissions See detailed permissions below. |
-| 6 | Expose API. Use the screenshot on the right as a guide: |
-
-
-![](./media/IAI_Deployment_Guide_CDF/image4.png)
-
+| 6 | Expose API. Use the screenshot on the right as a guide: ![](./media/IAI_Deployment_Guide_CDF/image4.png) |
 #### Detailed API Permissions
 
 ##### Microsoft Delegate
@@ -201,8 +194,6 @@ Set up the app registration/Service Principal to facilitate the authentication o
 | DATA.VIEW | Delegated Date view Yes |
 | IDENTITY | Delegated Identity Yes |
 | user_impersonation | Delegated Impersonate the user Yes |
-
-
 ### Create ARM Service Connection
 
 -   Set Up ARM Service Connection: In the DevOps portal, manually create an ARM service connection using the previously noted client ID and client secret.
@@ -250,8 +241,6 @@ The following tables provide the pipeline details, the YML file, and any additio
 | Pub-Sub | N/A | Processing/Middleware_IaC/Middleware-IAC-arm-templates/application-deployment\- azure-app-deployment-pipelines-pubsub.yml | N/A |
 | SQL Server and DB | N/A | Processing/Middleware_IaC/Middleware-IAC-arm-templates/application-deployment\-azure-app-deployment-pipelines-sql-server.yml | Ensure that the SQL server is configured to AKS VNet |
 | Storage Account | N/A | Processing/Middleware_IaC/Middleware-IAC-arm-templates/application-deployment\-azure-app-deployment-pipelines-storageaccount.yml | CORS must be updated in the 3d storage account, Refer to the [CORS (Storage Account) section](https://ts.accenture.com/sites/GlobalDocTemplates/AOT/AOT%20Documents/Previous%20Releases/2.4%20Aquarius/AOT_CDF_Deployment_Guide_Aquarius.docx#_CORS_(Storage_Account)) for more information. Provide Storage Blob data contributor to app registration. |
-
-
 ### 
 
 ## 
@@ -425,8 +414,6 @@ This section describes the APIs for each application, their pipeline details, an
 | PM pipeline must be deployed. | OperationHierarchy_configuration Consumption/DataAccess/\-pm-azure-pipelines.yml \&gt;\&gt; OH Config MS |
 | PM pipeline must be deployed. | OperationHierarchy_DataPermissions Consumption/DataAccess/\-pm-azure-pipelines.yml \&gt;\&gt; OH DP MS |
 | OperationHierarchy_configuration and OperationHierarchy_DataPermissions microservices must be deployed. and Asset Hierarchy must be created. | OperationHierarchy_module Consumption/DataAccess/\-pm-azure-pipelines.yml \&gt;\&gt; OH Module MS |
-
-
 ##### Independent Component
 
 
@@ -438,25 +425,18 @@ This section describes the APIs for each application, their pipeline details, an
 | Production Manager Component | NA Production Manager Common/\-azure-pipelines.yml \&gt;\&gt; Production Manager |
 | Generic Scheduler Component | This pipeline must be deployed before SKPI Pipelines GenericScheduler Common/\-azure-pipelines.yml \&gt;\&gt; Generic Scheduler MS |
 | Unit of Measurement | This Pipeline must be deployed before SKPI orchestrator and Data Permission pipelines. N/A Common/\-azure-pipelines.yml \&gt;\&gt; Unit of Measurement MS |
-
-
 ##### Smart KPIs Component
 
 
 | Subcomponent | Prerequisites | Services | Azure Pipeline YAML file path |
 | --- | --- | --- | --- |
 | Smart KPIs Component | Ensure that People Management Microservice must be deployed. | Smartkpi_cdf\_\_func | Processing/SmartKPIs/\- skpi-cdf-azure-pipelines-push.yml \&gt;\&gt; SmartKPI CDF Func Processing/SmartKPIs/\-skpi-azure-pipelines.yml \&gt;\&gt; SmartKPI Config MS Processing/SmartKPIs/\- skpi -azure-pipelines.yml\&gt;\&gt; SmartKPI_MS Processing/SmartKPIs/\- skpi -azure-pipelines.yml\&gt;\&gt; SmartKPI Datapermission SVC MS Processing/SmartKPIs/\- skpi -azure-pipelines.yml\&gt;\&gt; SmartKPI Orchestrator SVC MS Processing/SmartKPIs/\- skpi -azure-pipelines.yml\&gt;\&gt; SmartKPI Computation MS |
-
-
-
 ##### IA Component
 
 
 | **Subcomponent** | **Prerequisites** | **Services** | **Azure Pipeline YAML file path** |
 | --- | --- | --- | --- |
 | N/A | Generic Schedular should be deployed. | Ia_CDF_Func | Processing/ IntelligentAdvisor /\- ia-cdf-azure-pipelines-push.yml \&gt;\&gt; IA CDF Func Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA FUNC MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA FUNC MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA Excel File Upload Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA DB Update Function App Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA Model MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA Middleware MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA Evaluate MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA Action WorkOrder MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA KPI Role update MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA Config MS Processing/IntelligentAdvisor/\-ia-azure-pipelines.yml \&gt;\&gt; IA Workorder MS |
-
-
 ### 
 
 # UI Artifacts 
@@ -490,7 +470,6 @@ UI artifacts must be created before deploying the UI components. The following s
 | Asset Hierarchy Widgets Demo | Consumption/UI/Common/Components/Angular/angular-reusable-components/projects/asset-hierarchy-widgets |
 | Smart KPI Widgets Demo | Consumption/UI/Common/Components/Angular/angular-reusable-components \&gt;\&gt; smart-kpis-widgets |
 | Template Viewer Widgets Demo | Consumption/UI/Common/Components/Angular/angular-reusable-components \&gt;\&gt; template-viewer-widgets |
-
 ## 
 
 # UI Deployment 
@@ -524,9 +503,6 @@ All UI components are found under the following Repository structure: Consumptio
 | Smart-kpi-config | This is a separate application used to configure the KPIs. |
 | Smart-kpis-micro-app | Smart-kpis-micro-app is a micro-frontend application that is the landing page of the IAI application. It helps to track performance in the form of KPIs. Get the required custom npm package before building the application. \"@aot/smart-kpis-widgets\": \"\^0.6.6\" |
 | HostApps | HostApp is the host application that is the container to host all other Micro-frontend apps. |
-
-
-
 ### Deployment Steps
 
 1.  Navigate to the corresponding pipeline for the UI component.
@@ -553,8 +529,6 @@ All UI components are found under the following Repository structure: Consumptio
 | PROD-IAI-IA-FE-VARIABLE |
 | PROD-IAI-HOSTAPP-VARIABLE |
 | PROD-IAI-3D-FE-VARIABLE |
-
-
 5.  Enable CORS for the app service as needed. We need to add respective origin URLs as shown in the [CORS (App Services)](#section-12) section and their corresponding pipelines.
 
 ### Deployment Details
@@ -569,8 +543,6 @@ The following tables provide the deployment details for the UI components.
 | 2D SVG Builder | Consumption/UI/\-3d-ui-azure-pipelines.yml \&gt;\&gt; 2D SVG MFE Eg: [link](https://app-aot-ui-2d-builder-prod.azurewebsites.net) |
 | 3D Visualizer | Consumption/UI/\-3d-ui-azure-pipelines.yml \&gt;\&gt; 3D Visualizer \- |
 | MAP MFE UI | Consumption/UI/\-3d-ui-azure-pipelines.yml \&gt;\&gt; MAP MFE Eg: [link](https://aot.accenturedigitalplant.com) |
-
-
 #### 2D and 3D Component
 
 
@@ -580,8 +552,6 @@ The following tables provide the deployment details for the UI components.
 | 3D Builder | Consumption/UI/\-configurator-ui-azure-pipelines.yml \&gt;\&gt; 3D Builder \- |
 | SVG Viewer MFE | Consumption/UI/svg-mfe/svg-iac/Application-deployment/\-azure-app-deployment-pipelines.yml Eg: [link](https://aot.accenturedigitalplant.com) |
 | Twin Viewer UI | Consumption/UI/3D-Visualizer/3D-Visualizer-iac/Application-deployment/\-azure-app-deployment-pipelines.yml Eg: [link](https://aot.accenturedigitalplant.com) |
-
-
 #### Host App Configurator
 
 
@@ -591,9 +561,6 @@ The following tables provide the deployment details for the UI components.
 | Header-micro-app (Header and Menu) | Consumption/UI/\-hostapp-ui-azure-pipelines.yml \&gt;\&gt; Header MicroApp | Eg: [link](https://aot.accenturedigitalplant.com) \ \ \ \ \ [link](https://app-peoplemanagementconfig-prod.azurewebsites.net) |
 | Reports-micro-app | Consumption/UI/\-hostapp-ui-azure-pipelines.yml \&gt;\&gt; Reports Microapp | Eg: [link](https://aot.accenturedigitalplant.com) |
 | HostApp | Consumption/UI/\-hostapp-ui-azure-pipelines.yml \&gt;\&gt; Hostapp | \- |
-
-
-
 #### Intelligent Advisor Frontend Component.
 
 
@@ -602,8 +569,6 @@ The following tables provide the deployment details for the UI components.
 | Intelligent-advisor-config-app | Consumption/UI/\-ia-ui-azure-pipelines.yml \&gt;\&gt; IA Config \- |
 | Intelligent-advisor-micro-app | Consumption/UI/\-ia-ui-azure-pipelines.yml \&gt;\&gt; IA Microapp E.g.: [link](https://aot.accenturedigitalplant.com) |
 | Intelligent-advisor-template-viewer-micro-app | Consumption/UI/\-ia-ui-azure-pipelines.yml \&gt;\&gt; IA Template Viewer E.g.: [link](https://aot.accenturedigitalplant.com) |
-
-
 #### OH and PM Frontend Component
 
 
@@ -613,8 +578,6 @@ The following tables provide the deployment details for the UI components.
 | Operation-Hierarchy-entity-viewer-template-upload-micro-app | Consumption/UI/\-pm-ui-azure-pipelines.yml \&gt;\&gt; OH Entity Viewer Template Upload \- |
 | Operations-Hierarchy-micro-app | Consumption/UI/\-pm-ui-azure-pipelines.yml \&gt;\&gt; OH Microapp E.g.: [link](https://aot.accenturedigitalplant.com) |
 | People Management UI | Consumption/UI/\-pm-ui-azure-pipelines.yml \&gt;\&gt; PM Config \- |
-
-
 #### SmartKPI Frontend Component
 
 
@@ -622,7 +585,6 @@ The following tables provide the deployment details for the UI components.
 | --- | --- |
 | Smart-kpi-config | Consumption/UI/\-skpi-ui-azure-pipelines.yml \&gt;\&gt; SKPI Config |
 | Smart-kpis-micro-app | Consumption/UI/\-skpi-ui-azure-pipelines.yml \&gt;\&gt; SKPI Microapp E.g.: [link](https://aot.accenturedigitalplant.com) |
-
 ### 
 
 ## 
@@ -713,8 +675,6 @@ We need to get the connection string from the Cosmos DB instance and make sure i
 | --- | --- |
 |  | - Create a key vault with the client ID and client secret, - Add the key vault name to the variable group used in the simulator release pipeline. - Once the simulator release is executed, it will automatically add the following to the key vault: - DPSConnectionString - SmartDevicesEnrollmentGroupKey - SmartDeviceSimulatorKey - IngestionIotHubConnectionString - Add the saskey of IoTHub in the above key vault. Note: The two endpoints have different saskey values. Use the service endpoint to get the required saskey Follow the same steps for the extractor, but for the IOT hub extractor variable group, update IOThubendpoints and root node name from CDF. |
 | Getting the function secret value for the key vault | Encrypt the following value through the base64 encoder and put the encrypted value in the function secret in the key vault. \"\{\"clientidkey\":\"\\",\"clientsecretkey\":\"\\",\"scdfprojectkey\":\"\\",\"stenandidkey\":\"\\"\}\" |
-
-
 ### 
 
 # 
@@ -739,8 +699,6 @@ The deployment of some IAI components depends on the configuration of other IAI 
 | 9 | IAI-UnitOfMeasurement-Config-MS No Dependency |
 | 10 | IAI-CommonServices-IotHubSimulator-Prod No Dependency |
 | 11 | IAI-ControlTower-IoTHubExtractor-prod No Dependency |
-
-
 ### SmartKPI
 
 
@@ -752,17 +710,12 @@ The deployment of some IAI components depends on the configuration of other IAI 
 | 4 | IAI-SmartKPIS-CDF-Function | No Dependency |
 | 5 | IAI-Consumer-KPI-Orchestrator-svc | Ensure ports 10255 and 9093 are open for connections in the VNet. Ensure that contributor access for the MongoDB and Storage Blob container is provided. Azure WebPubSub API |
 | 6 | IAI-Computation-Engine | Ensure that contributor access for the MongoDB and Storage Blob container is provided. Azure WebSubPub API |
-
-
-
 ### Generic Scheduler
 
 
 | **\#** | **Pipeline** **Dependency** |
 | --- | --- |
 | 1 | IAI-Generic-Scheduler Smartkpi pipelines have run. |
-
-
 ### Intelligent Advisor 
 
 
@@ -777,16 +730,12 @@ The deployment of some IAI components depends on the configuration of other IAI 
 | 7 | IAI-IA-SAP-MW SAP instance |
 | 8 | IAI-IA-AWO-MS Azure WebPubSub API and People Management API |
 | 9 | IAI-IA-Config-APIM SQL DB server |
-
-
 ### 3D
 
 
 | **\#** | **Pipeline** **Dependency** |
 | --- | --- |
 | 1 | IAI-3D-CMS No Dependency |
-
-
 ### POWERBI
 
 

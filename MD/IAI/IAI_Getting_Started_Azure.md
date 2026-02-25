@@ -156,7 +156,6 @@ IAI and Plant Control Tower will continue to evolve within the Industrial AI Fou
 | 10 | [3D Twin component configuration/ customization and sanity check](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Twin_Builder_and_Viewer_Getting_Started_2_4.pdf) |
 | 11 | [Customization of components and overall Application sanity check, data verification, trial run](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Azure_Deployment_Guide_2_4.pdf) |
 | 12 | Handover to client |
-
 ## 
 
 # General Prerequisites

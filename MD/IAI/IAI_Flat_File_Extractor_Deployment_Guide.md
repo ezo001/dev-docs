@@ -81,8 +81,6 @@ This guide is designed for use by developers with the following skills:
 | Wildcard Characters | Special symbols used in file names or search queries to represent one or more unspecified characters, enabling flexible matching and filtering. |
 | Exception Handling | The process of managing errors or unusual conditions that may occur during software execution, ensuring system stability and user notifications. |
 | On-premises | A deployment model where applications or services are hosted within an organization\'s own infrastructure rather than in the cloud. |
-
-
 ## Features
 
 IAI\'s Flat File Extractor has Extraction pipeline functionality to get an overview of successful and failed pipeline runs in CDF. On every run, the extractor sends a detailed Success/Failure message about the run and notifies the list of contacts configured about the status. It also features:
@@ -152,9 +150,11 @@ Two pipelines are needed to deploy the Flat File Extractor to an AKS Cluster. Th
 > ![Screenshot of a create a secret window](./media/IAI_Flat_File_Extractor_Deployment_Guide/image3.png)
 >
 > ![image](./media/IAI_Flat_File_Extractor_Deployment_Guide/image4.png)
+
 3.  Create a key vault library in Azure DevOps and add the secrets created in the previous step.
 
 > ![Screenshot of the vault library with the secrets added](./media/IAI_Flat_File_Extractor_Deployment_Guide/image5.png)
+
 4.  Create a Library/Variable Group in Azure DevOps with the following parameters:
 
 > ![screenshot of the Variable group showing the project key, project name, and the config file name](./media/IAI_Flat_File_Extractor_Deployment_Guide/image6.png)
@@ -213,6 +213,7 @@ The Build Pipeline is used to Dockerize the Extractor Package. The artifacts cre
 4.  Select the Repository Name that contains the Flat File Extractor code and pipeline files.
 
 > ![Screenshot of ADO showing the \'Azure Repos Git\' option](./media/IAI_Flat_File_Extractor_Deployment_Guide/image13.png)
+
 5.  Select \'Existing Azure Pipelines YAML file\'.
 
     ![Screenshot of Azure DevOps showing the Configure tab and the \'Existing Azure Pipelines YAML file\' option.](./media/IAI_Flat_File_Extractor_Deployment_Guide/image14.png)
@@ -247,15 +248,19 @@ The Release pipeline deploys the Docker Image of the Flat File Extractor created
 4.  Update the AKS file location in the tasks.
 
 > ![Screenshot of the updated AKS file location in the tasks](./media/IAI_Flat_File_Extractor_Deployment_Guide/image18.png)
+
 5.  If this is the first run, then disable the delete task from the pipeline.
 
 > ![Screenshot showing the option to enable and disable the selected task](./media/IAI_Flat_File_Extractor_Deployment_Guide/image19.png)
+
 6.  Create a release from the release pipeline created in the previous step.
 
 > ![Screenshot showing the Create release option](./media/IAI_Flat_File_Extractor_Deployment_Guide/image20.png)
+
 7.  Once the release is completed, confirm successful deployment on Azure DevOps.
 
 > ![Screenshot of the successful deployment on Azure DevOps](./media/IAI_Flat_File_Extractor_Deployment_Guide/image21.png)
+
 8.  After deployment is complete, validate successful deployment to the AKS cluster in the Azure portal.
 
 ![Screenshot of successful deployment to AKS cluster in Azure portal](./media/IAI_Flat_File_Extractor_Deployment_Guide/image22.png)
@@ -272,6 +277,7 @@ The Release pipeline deploys the Docker Image of the Flat File Extractor created
 12. Validate the creation of the database and the table with asset hierarchy data on the CDF portal.
 
 > ![Screenshot of CDF showing the created database and tables with asset hierarchy data](./media/IAI_Flat_File_Extractor_Deployment_Guide/image25.png)
+
 13. When the deployment is complete, an extraction pipeline is created in CDF based on the details provided in the configuration file. A Success/Failure message is presented on the CDF portal, and another notification is sent to the email address that was specified in the configuration.
 
 > ![Screenshot of the Success message in CDF. The message reads: Extraction pipeline ran successfully for 1 sec and uploaded 206 rows. The execution start and end time is also specified.](./media/IAI_Flat_File_Extractor_Deployment_Guide/image26.png)
@@ -349,9 +355,11 @@ C.  Add the mandatory details for Cognite.
 1.  Click the *Start* button and search for \"Services\" and select *Run as Administrator.*
 
 > ![Screenshot of the Start menu showing the Services App and the run as administrator option.](./media/IAI_Flat_File_Extractor_Deployment_Guide/image33.png)
+
 2.  Search for \"FlatFileExtractor\" service name, right-click on it, and select *Start*.
 
 > ![Screenshot to show how to search for "FlatFileExtractor" and select "Start".](./media/IAI_Flat_File_Extractor_Deployment_Guide/image34.png)
+
 3.  Use the path in the configuration file to check the logs in the log file.
 
 4.  Validate the creation of the database and tables with asset hierarchy data on the CDF portal.
@@ -367,6 +375,7 @@ C.  Add the mandatory details for Cognite.
 1.  Click the *Start* button, search for \"Services\", and select *Run as Administrator.*
 
 > ![Screenshot of Windows Start menu showing the Services App and the run as administrator option](./media/IAI_Flat_File_Extractor_Deployment_Guide/image33.png)
+
 2.  Search for \"FlatFileExtractor\" service name, right-click on it, and select *Stop*.
 
 > ![Screenshot of the services app where the option to Stop the Flat File Extractor service is shown](./media/IAI_Flat_File_Extractor_Deployment_Guide/image35.png)

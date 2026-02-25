@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Intelligent Advisor UI Guide, Intelligent Advisor Delivery Guide |
-
 </div>
 
 ## Introduction
@@ -89,9 +88,6 @@ An API testing tool such as [Postman](https://app.getpostman.com/app/download/wi
 | &gt; Content-Type | &gt; HTTP header specifying the media type of the resource or data being sent (e.g., application/json). |
 | &gt; Error Management | &gt; Standardized handling of API errors, including HTTP codes (e.g., 400 for Bad Request, 401 for Unauthorized, 500 for Invalid Data). |
 | &gt; M/O (Mandatory/Optional) | &gt; M designates that a value is Mandatory, while O designates it as Optional. |
-
-
-
 ## Events Data APIs
 
 The APIs now integrated into the Intelligent Advisor microservice were originally designed for the Operations Hierarchy component.
@@ -103,7 +99,6 @@ The Operations Hierarchy Entity Viewer is a micro front end within the IAI appli
 | --- | --- |
 | GetAssetEventsData | Use this API to fetch asset specific events data. Events can be Insights, Actions or WorkOrder. Based on asset external ID, type of event and dimension(event properties), the API will return the event data. |
 | GetEventsParameterCount | Use this API to fetch count of asset specific events data types. Based on asset external ID, type of event and event property, the API will return the count of events data. |
-
 ### 
 
 ## GetAssetEventsData
@@ -118,24 +113,18 @@ Use this API to fetch asset specific events data. Events can be Insights, Action
 | PATH (Public Exposure) | [https://\$(APIM_NAME).azure-api.net/intelligent-advisor/asseteventsdata?asset_external_id=\{asset_external_id\}&amp;event_type=\{event_type\}](https://$(APIM_NAME).azure-api.net/intelligent-advisor/asseteventsdata?asset_external_id=%7basset_external_id%7d&amp;event_type=%7bevent_type%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/intelligent-advisor/asseteventsdata?asset_external_id=\{asset_external_id\}&amp;event_type=\{event_type\} M \*\* Multipart /Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -144,7 +133,6 @@ Use this API to fetch asset specific events data. Events can be Insights, Action
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
 #### 
 
 ### Error Management
@@ -154,8 +142,6 @@ Use this API to fetch asset specific events data. Events can be Insights, Action
 | --- | --- |
 | 400 | 400 Bad Request |
 | 401 | 401 Unauthorized |
-
-
 #### Sample Request
 
 
@@ -252,24 +238,18 @@ Use this API to fetch count of asset specific events data types. Based on asset 
 | PATH (Public Exposure) | [https://\$(APIM_NAME).azure-api.net/intelligent-advisor/eventsparametercount?asset_external_id=\{asset_external_id\}&amp;event_type=\{event_type\}&amp;property=\{property\}](https://$(APIM_NAME).azure-api.net/intelligent-advisor/eventsparametercount?asset_external_id=\{asset_external_id\}&amp;event_type=\{event_type\}&amp;property=\{property\}) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/intelligent-advisor/eventsparametercount?asset_external_id=\{asset_external_id\}&amp;event_type=\{event_type\}&amp;property=\{property\} M \*\* Multipart/ Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -278,8 +258,6 @@ Use this API to fetch count of asset specific events data types. Based on asset 
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
@@ -287,7 +265,6 @@ Use this API to fetch count of asset specific events data types. Based on asset 
 | --- | --- |
 | 400 | 400 Bad Request |
 | 401 | 401 Unauthorized |
-
 #### 
 
 ### Sample Request 
@@ -320,9 +297,6 @@ Use this API to fetch count of asset specific events data types. Based on asset 
 | Create configuration | This API inserts the configurations as configured from UI into to model_configuration and dedicated_model_configuration table in the Azure DB. |
 | Update configuration | This API updates the model_configuration and dedicated_model_configuration tables based on the configuration ID in Azure DB. For Insight based on KPIs configurations, only the ActionIn field may be updated. For Predictive configurations, the Theme, Sub-type, Priority, Department, Role, Action in, Description, Frequency, Threshold, and Impacted KPIs may be updated. |
 | Delete configuration | This API deletes the configuration from model_configuration and dedicated_model_configuration tables based on the configuration ID in Azure DB. |
-
-
-
 ### Create configuration
 
 This API inserts the configurations as configured from UI into to model_configuration and dedicated_model_configuration table in the Azure DB.
@@ -337,24 +311,18 @@ This API inserts the configurations as configured from UI into to model_configur
 | CONTENT TYPE | application / json |
 | Sample Request | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/IA%20API%20Reference/Create_Configuration_Sample_JSON_Request.txt) |
 | Sample Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/IA%20API%20Reference/Create_Configuration_Sample_JSON_Response.txt) |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iaconfig/insights/configurations M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -363,16 +331,12 @@ This API inserts the configurations as configured from UI into to model_configur
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
 | **HTTP Code** | **Error Code** **Error Description** |
 | --- | --- |
 | 500 | 500 Invalid data |
-
-
 ### Update configuration
 
 This API updates the model_configuration and dedicated_model_configuration tables based on the configuration ID in Azure DB. For Insight based on KPIs configurations, only the ActionIn field may be updated. For Predictive configurations, the Theme, Sub-type, Priority, Department, Role, Action in, Description, Frequency, Threshold, and Impacted KPIs may be updated.
@@ -387,24 +351,18 @@ This API updates the model_configuration and dedicated_model_configuration table
 | CONTENT TYPE | application / json |
 | Sample Request | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/IA%20API%20Reference/Update_Configuration_Sample_JSON_Request.txt) |
 | Sample Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/IA%20API%20Reference/Update_Configuration_Sample_JSON_Response.txt) |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iaconfig/insights/configurations /\{id\} M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -413,15 +371,12 @@ This API updates the model_configuration and dedicated_model_configuration table
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
 | **HTTP Code** | **Error Code** **Error Description** |
 | --- | --- |
 | 500 | 500 Invalid data |
-
 ### 
 
 ## Delete configuration
@@ -436,24 +391,18 @@ This API deletes the configuration from model_configuration and dedicated_model_
 | PATH (Public Exposure) | [https://\$(APIM_NAME).azure-api.net/api/iaconfig/insights/configurations/\{id\}](https://$(APIM_NAME).azure-api.net/api/iaconfig/insights/configurations/%7bid%7d) |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iaconfig/insights/configurations /\{id\} M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -462,16 +411,12 @@ This API deletes the configuration from model_configuration and dedicated_model_
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
 | **HTTP Code** | **Error Code** **Error Description** |
 | --- | --- |
 | 500 | 500 Invalid data |
-
-
 #### Sample Response Body
 
 \{
@@ -490,7 +435,6 @@ This API deletes the configuration from model_configuration and dedicated_model_
 | UpdateModelParameter | This API updates the model details into the ModelExecutionParameters Table in sql-ia-model-db based on the ID. |
 | DeleteModelParameter | This API deletes the model details from the ModelExecutionParameters Table in sql-ia-model-db based on the ID. |
 | ModelTrigger | This API triggers the model and start consuming the messages and perform the operations. |
-
 ### 
 
 ## RegisterModelParameter
@@ -505,24 +449,18 @@ This API inserts model parameter details into the ModelExecutionParameters Table
 | PATH (Public Exposure) |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iamodel/modelParameter M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -531,8 +469,6 @@ This API inserts model parameter details into the ModelExecutionParameters Table
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
@@ -540,7 +476,6 @@ This API inserts model parameter details into the ModelExecutionParameters Table
 | --- | --- |
 | 500 | 500 Invalid Data |
 | 401 | 401 Unauthorized |
-
 #### 
 
 ### Sample Request Body
@@ -615,24 +550,18 @@ This API retrieves the model parameters from ModelExecutionParameters Table in s
 | PATH (Public Exposure) | [https://\$(APIM_NAME).azure-api.net/api/iamodel/modelParameter/\{id\}](https://$(APIM_NAME).azure-api.net/api/iamodel/modelParameter/%7bid%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iamodel/modelParameter/\{id\} M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -641,8 +570,6 @@ This API retrieves the model parameters from ModelExecutionParameters Table in s
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
@@ -650,7 +577,6 @@ This API retrieves the model parameters from ModelExecutionParameters Table in s
 | --- | --- |
 | 500 | 500 Invalid ID |
 | 401 | 401 Unauthorized |
-
 #### 
 
 ### Sample Response Body
@@ -721,24 +647,18 @@ This API updates the model details into the ModelExecutionParameters Table in sq
 | PATH (Public Exposure) | [https://\$(APIM_NAME).azure-api.net/api/iamodel/modelParameter/\{id\}](https://$(APIM_NAME).azure-api.net/api/iamodel/modelParameter/%7bid%7d) |
 | METHOD | PUT |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iamodel/modelParameter/\{id\} M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -747,8 +667,6 @@ This API updates the model details into the ModelExecutionParameters Table in sq
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
@@ -756,7 +674,6 @@ This API updates the model details into the ModelExecutionParameters Table in sq
 | --- | --- |
 | 500 | 500 Invalid ID |
 | 401 | 401 Unauthorized |
-
 #### 
 
 ### Sample Request Body
@@ -879,24 +796,18 @@ This API deletes the model details from the ModelExecutionParameters Table in sq
 | PATH (Public Exposure) | [https://\$(APIM_NAME).azure-api.net/api/iamodel/modelParameter/\{id\}](https://$(APIM_NAME).azure-api.net/api/iamodel/modelParameter/%7bid%7d) |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iamodel/modelParameter/\{id\} M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -905,8 +816,6 @@ This API deletes the model details from the ModelExecutionParameters Table in sq
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
@@ -914,8 +823,6 @@ This API deletes the model details from the ModelExecutionParameters Table in sq
 | --- | --- |
 | 500 | 500 Invalid ID |
 | 401 | 401 Unauthorized |
-
-
 #### Sample Response Body
 
 \{
@@ -936,24 +843,18 @@ This API triggers the model and start consuming the messages and perform the ope
 | PATH (Public Exposure) |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | [link](https://\$(APIM_NAME)).azure-api.net/api/iamodel/modelTrigger M \*\* Multipart/Form-data |
-
-
 #### Output Header Parameters
 
 
@@ -962,8 +863,6 @@ This API triggers the model and start consuming the messages and perform the ope
 | Content-Type | Type of the content. It could be application/json, text/html, application/xml, etc. It lets the receiving entity know how to interpret the data. M-Public 255 |
 | Content-Length | Length of the content. This is an HTTP header that indicates the size of the body data in bytes. It is used to let the receiving entity know how much data to expect. O-Public 255 |
 | date | Date of operation execution O-Public 255 |
-
-
 #### Error Management
 
 
@@ -971,8 +870,6 @@ This API triggers the model and start consuming the messages and perform the ope
 | --- | --- |
 | 500 | 500 Invalid Data |
 | 401 | 401 Unauthorized |
-
-
 #### Sample Response Body
 
 \{

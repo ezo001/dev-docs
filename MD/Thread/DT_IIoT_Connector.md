@@ -79,7 +79,6 @@ To use the IIoT Connector, the following must be completed:
 | Eclipse Paho | An open-source client library used for implementing MQTT protocol support in IIoT solutions. |
 | Eclipse Milo | An open-source Java stack that provides OPC UA client and server functionality for industrial automation integration. |
 | DevOps Team | The group responsible for deployment, access, and operational tasks within the IIoT infrastructure. |
-
 ## 
 
 # Key Features
@@ -117,7 +116,6 @@ The diagram on the side illustrates the integration of devices with the Azure Io
 | 1 | Device to Azure IoT Hub Devices generate telemetry data and send it to the Azure IoT Hub using the MQTT protocol. The IoT Hub acts as an MQTT Broker, managing device connections and ensuring secure data transmission. |
 | 2 | Azure IoT Hub to Azure EventHub The IoT Hub forwards the received telemetry data to the Azure Event Hub. The Event Hub, configured to use the Kafka protocol, acts as a Kafka Broker to handle high-throughput data streams. |
 | 3 | Azure Event Hub to Function App The Function App, configured as a Kafka Consumer, reads the data streams from the Azure Event Hub (Kafka Broker). The Function App processes the incoming data and can perform various actions, such as data transformation, analytics, or triggering other processes based on the business logic. |
-
 ## 
 
 # Sequence Diagram
@@ -134,7 +132,6 @@ As shown above, the sequence involves the components listed in the table below:
 | Azure IoT Hub | Azure IoT Hub receives the message and routes it to an Event Hub. |
 | Azure Event Hub | The Event Hub processes the message and forwards it to an Azure Function App. |
 | Function App | The Function App logs the received sensor payload. |
-
 ## 
 
 # Configuration Procedure 
@@ -234,8 +231,6 @@ The IIoT connector utilizes the POST Publish API that is described in the follow
 | QA ENDPOINT |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 ##### Input
 
 
@@ -244,8 +239,6 @@ The IIoT connector utilizes the POST Publish API that is described in the follow
 | transaction-id | Any random integer value e.g., 1234. |
 | Authorization | Bearer Token |
 | Ocp-Apim-Subscription-Key | Subscription-Key |
-
-
 ##### Result
 
 
@@ -257,8 +250,6 @@ The IIoT connector utilizes the POST Publish API that is described in the follow
 | 403 | Forbidden |
 | 404 | Not Found |
 | 500 | Internal Server Error |
-
-
 ##### Error Management
 
 
@@ -349,8 +340,6 @@ This API reads temperature and pressure from the OPC server.
 | QA ENDPOINT | [link](https://ix-qa-apimgmt.azure-api.net/iiot-api/opcua/temperature) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
   --------------------------------------------------------------------------
 
 | Header | Description |

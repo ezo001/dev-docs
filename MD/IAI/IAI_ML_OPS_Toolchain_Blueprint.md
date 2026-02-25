@@ -94,7 +94,6 @@ This document provides an overview of the Azure machine learning infrastructure 
 | Data Engineer | An expert responsible for preparing and managing data flows, supporting machine learning processes in IAI and Azure MLOps. |
 | Predictive Maintenance | An AI-driven use case enabled by integrating IAI Intelligent Advisor with Azure MLOps, focusing on forecasting asset failures to optimize maintenance schedules. |
 | IT and OT Systems | Information Technology (IT) and Operational Technology (OT) systems, whose data integration is a central feature of IAI. |
-
 ## 
 
 # Background
@@ -184,8 +183,6 @@ IAI provides the UI to configure model parameters such as frequency to trigger, 
 | 2. The model microservice from IA invokes the handler for the model when the configuration is saved from the IAI UI. | 2. The model microservice deployed in the IAI framework invokes the handler for Model type 2 when the configuration is saved from the IAI UI. | 2. The model microservice deployed in the IAI framework invokes the handler for Model type 3 when the configuration is saved from the IAI UI. |
 | 3. The handler checks the model configuration, retrieves the data from the IAI knowledge graph, and pre-processes it. | 3. The handler checks the model configuration, retrieves the data from the IAI knowledge graph, and pre-processes it. | 3. The handler checks the data identifier from the model configuration and sends it to the ML Model engine deployed in Azure MLops. |
 | 4. The pre-processed data is sent as input to the in-memory model engine, which is the ML model (pkl) file directly deployed in Kubernetes with the docker in the IAI IA framework. | 4. The pre-processed data is sent to the ML Model deployed on Azure MLOps. | 4. The ML Model engine fetches the data from the IAI Knowledge graph and uses it as input. |
-
-
 The figure below depicts the ML model execution scenarios. Click on the image for an enlarged view.
 
 ![Flowchart titled \'ADT ML model execution architecture\' showing how an external system triggers machine learning model execution via a data model microservice connected to Azure Digital Twins. The microservice routes data to model-specific handlers and an in-memory ML engine, which processes and returns results. Machine learning models are trained and deployed for scoring. Arrows indicate data flow between components.](./media/IAI_ML_OPS_Toolchain_Blueprint/image4.png)
@@ -203,8 +200,6 @@ As diagrammed above, Machine Learning (ML) projects are constructed by several d
 | Evaluate Model | Compare the performance of the newly trained model with the model in production. If the new model performs better than the production model, the following steps are executed. If not, they will be skipped. |
 | Register Model | Take the best model and register it with the Azure ML Model registry, which allows version-control. |
 | Deploy Model | Deploy the registered model on Azure MLOps as an endpoint. |
-
-
 ### Operationalization of the MLOps Model
 
 This architecture describes how continuous integration (CI), continuous delivery (CD), and retraining pipelines are implemented for an AI application using Azure DevOps and Azure Machine Learning.

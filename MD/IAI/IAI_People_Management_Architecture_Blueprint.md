@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | People Management UI Guide, People Management API Reference |
-
 </div>
 
 ## Introduction
@@ -92,8 +91,6 @@ This document briefly describes the architecture, components, and layers of the 
 | Microservice | An independent backend service within IAI that uses People Management APIs to determine user access and cache role mappings for efficient authorization. |
 | Configuration UI | The user interface for administrators to manage roles, departments, and permissions within IAI People Management. |
 | Knowledge Graph | The data structure used to manage metadata and access rights for business objects in IAI, such as assets, timeseries, and events. |
-
-
 ## Layers
 
 The main layers of the People Management functionality are listed in the table below.
@@ -104,9 +101,6 @@ The main layers of the People Management functionality are listed in the table b
 | &gt; People Management Configuration UI | &gt; This layer is the interface provided to admin users. Using this interface, admin users can create and manage IAI Roles and Departments. Additionally, this layer can be used to assign IAI roles to various Departments, Active Directory groups, and users. |
 | &gt; People Management APIs and Backend Services | &gt; This layer enables querying and updating User and Role information, mapping the Roles to Active Directory Groups, and checking user authorizations. All IAI backend services use People Management services/APIs to determine the exact data access the IAI user has and limit the returned datasets only to the data accessible by the user, based on their role. |
 | &gt; CDF DataOps platform | &gt; The platform where the data is stored and tagged (in CDF resource metadata) with all the relevant information, enabling the user to access the data and also determines the level of access (read/write) |
-
-
-
 ## Authentication and Authorization
 
 For user Authentication, Azure Active Directory is used.
@@ -175,8 +169,6 @@ The role of the People Management module is to enable administrators to manage a
 | --- | --- |
 | Functional Permissions | These are the permissions required to access configuration pages of various IAI components such as Smart KPI and Twin Builder. Access to configuration screens is restricted to users with an Admin role. |
 | Data Permissions | These are permissions defined for IAI business objects (asset hierarchy, KPIs, Insights, etc.) based on roles and responsibilities. The users have access only to the data their roles are mapped to. |
-
-
 ### Functional Permissions
 
 While deploying the people management code, an Admin Role is created. The Admin Role has access to the configurable pages of various IAI components such as Smart KPI, Twin Builder, People Management, etc. In addition, the Admin Role could further create new roles and new departments. It can assign AD groups and users as well. Hence, an Admin role can give new roles, departments, groups, and users the type of access they require.
@@ -243,9 +235,6 @@ The tenants i.e., the components of the IAI application that use People Manageme
 | **Twin Builder** | **Twin Viewer** |
 | --- | --- |
 | - Admin roles have permission to access the Twin Builder component. | - Based on the role assigned, the user can view KPIs, Insights, and Actions data on Twin Viewer. - No additional restrictions as of the current implementation. |
-
-
-
 ### Integration with Smart KPIs
 
 
@@ -255,9 +244,6 @@ The tenants i.e., the components of the IAI application that use People Manageme
 | - Admin should have the flexibility to define if the role has access to sensitive data (KPI). | - Users cannot see information beyond the AH level they belong to. |
 | - The PM engine should auto-assign owner and viewer access based on the KPI hierarchy (Contributing and Influencing KPIs). | - In the landing screen of the Smart KPIs, the user will see the KPIs for whom they are an owner. |
 | - A sensitivity tag is enabled in the Smart KPI configuration for sensitive KPIs and the Roles that could access it. | - Users will have access to underlying contributing/ influencing KPIs provided the AH rule is honored. - Users will have access to sensitive information if the sensitive tag is enabled for their role. |
-
-
-
 ### Integration with Intelligent Advisor
 
 
@@ -267,4 +253,3 @@ The tenants i.e., the components of the IAI application that use People Manageme
 | - Relates Insight with KPI(s). | - Users cannot see information beyond the AH level they belong to. |
 | - Leverages KPI configuration (to the maximum extent possible) for Insight configuration for KPI-based Insights. | - Users will see the list of Insights that they are responsible for (assigned to) -- in the capacity of Insight owner. |
 | - The PM engine should auto-assign Owner and viewer access based on Insight configuration (Refer to items on the right side) | - Through the KPIs that the user has access to, they can view the insights related to those KPIs, even if these insights in question have not been directly assigned to the user. - If the user has access to an Action (in the capacity of the owner/assigned to), then they will have viewer access to Insight. - If the user has access to an Insight, then they should have access to all the underlying Actions devoid of the Action responsibility (assigned to). - Collaborators: The list of collaborators (users) is displayed per the following logic: - Role assigned to Insight. - Role(s) assigned to underlying action(s) - Roles assigned to related KPIs -- only the owners |
-

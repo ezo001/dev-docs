@@ -97,8 +97,6 @@ Additional prerequisites for deployment are mentioned in respective sections.
 | On-Prem | Short for \"on-premises\", referring to systems and software deployed within an organization\'s local infrastructure rather than in the cloud. |
 | Exception Handling | Built-in methods for detecting and managing errors during the process, ensuring system stability. |
 | Timer Option | A configurable feature that enables automatic operation at specified intervals. |
-
-
 ## Features
 
 IAI\'s PI AF Extractor provides users the flexibility to pre-configure multiple source systems, root assets, and other required details in a configuration file. A pipeline is used for both containerizing the extractor and running it on an Azure Kubernetes Cluster. It also includes an extraction pipeline for tracking both successful and failed pipeline runs on CDF UI. On every run, the extractor sends a Success/Failure message about the run and notifies the list of contacts about the same based on the configurations.

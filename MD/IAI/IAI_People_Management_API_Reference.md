@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | People Management Architecture Blueprint, People Management API Reference |
-
 </div>
 
 ## Introduction
@@ -92,7 +91,6 @@ An API testing tool such as [Postman](https://app.getpostman.com/app/download/wi
 | Azure Web PubSub | A service used to send messages to users, groups, or all users via the backend of an IAI application. |
 | Admin Roles | Special roles in IAI with administrative privileges, retrievable via the API. |
 | RoleId / DepartmentId / GroupId / UserId | Unique identifiers for roles, departments, groups, and users within IAI and AD. |
-
 ## 
 
 # People Management APIs
@@ -242,8 +240,6 @@ This API is used to Create, Update, or Revive an IAI Department based on the req
 | Parameter | Description M/O\* Type |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -253,8 +249,6 @@ This API is used to Create, Update, or Revive an IAI Department based on the req
 | DepartmentName | Provide a department name if new a department needs to be created. M String |
 | DepartmentDescription | Provide a department description for departments O String |
 | ReviveArchivedDepartment | Provide reviveArchivedDepartment as true to revive the IAI department. O Boolean \*Mandatory / Optional |
-
-
 #### Output Header Parameters
 
 
@@ -264,8 +258,6 @@ This API is used to Create, Update, or Revive an IAI Department based on the req
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -274,8 +266,6 @@ This API is used to Create, Update, or Revive an IAI Department based on the req
 | Department Id | Department ID from departments String |
 | Department name | Department name from departments String |
 | Department Description | Department description from departments String |
-
-
 #### Sample JSON Request
 
 \{
@@ -312,8 +302,6 @@ This API is used to Create, Update, or Revive an IAI Department based on the req
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | IAI department information is based on the created, updated, or revived departments. |
-
-
 #### Error Management
 
 
@@ -322,8 +310,6 @@ This API is used to Create, Update, or Revive an IAI Department based on the req
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token could be missing |
 | 400 | 400 | &gt; Bad request - Please enter valid department details |
-
-
 ### 
 
 ## POST- CreateOrUpdateAOTRole
@@ -339,8 +325,6 @@ This API is used to Create, Update, or Revive an IAI Role based on the request b
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/roles) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -348,8 +332,6 @@ This API is used to Create, Update, or Revive an IAI Role based on the request b
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -363,8 +345,6 @@ This API is used to Create, Update, or Revive an IAI Role based on the request b
 | Departments | Provide the departmentId to add or remove a RolesDepartmentsMapping in the Add or Remove list, respectively O String |
 | Users | Provide the userId to add or remove a UserRolesMapping in the Add or Remove list, respectively O String |
 | Groups | Provide the groupId to add or remove an ADGroupsMapping in the Add or Remove list, respectively O String |
-
-
 #### Output Header Parameters
 
 
@@ -374,8 +354,6 @@ This API is used to Create, Update, or Revive an IAI Role based on the request b
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -386,7 +364,6 @@ This API is used to Create, Update, or Revive an IAI Role based on the request b
 | RoleDescription | The role description of an IAI roles String |
 | RoleType | Role type of IAI roles String |
 | IsSensitive | This is a Boolean value. If the value is true, there are some sensitive KPIs that users in those roles can access, otherwise not. Boolean |
-
 #### 
 
 ### Sample JSON Request
@@ -509,7 +486,6 @@ This API is used to Create, Update, or Revive an IAI Role based on the request b
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | IAI Role information is based on the created, updated, or revived roles. **Error Management** | HTTP Code | Error Code | Error Description |  | --- | --- | --- |  | 500 | 500 | Generic Error |  | 400 | 401 | &gt; Unauthorized User or Header Token could be missing |  | 400 | 400 | &gt; Bad request - Please enter valid details |  |
-
 ### 
 
 ## GET- ValidateRoleName
@@ -525,32 +501,24 @@ This API is used for validating the IAI role name within a plant based on a know
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/\{roleName\}/validateName?roleIds=\{roleIds\}] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleName | Provide a valid IAI role name M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleIds | Provides a list of active and inactive Role IDs associated with the specific Plant M String |
-
-
 #### Output Header Parameters
 
 
@@ -560,8 +528,6 @@ This API is used for validating the IAI role name within a plant based on a know
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -570,8 +536,6 @@ This API is used for validating the IAI role name within a plant based on a know
 | RoleArchived | The value of this parameter specifies whether the role name is active or not in the database. Boolean |
 | RoleExists | The value of this parameter specifies whether the role exists or not in the database. Boolean |
 | DeletedRoleId | DeletedRoleId based on the role name provided Boolean |
-
-
 #### Sample JSON Response
 
 \{
@@ -590,8 +554,6 @@ This API is used for validating the IAI role name within a plant based on a know
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Boolean output for RoleExists, RoleArchived, and DeletedRoleId based on the role name provided. |
-
-
 #### Error Management
 
 
@@ -600,8 +562,6 @@ This API is used for validating the IAI role name within a plant based on a know
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token could be missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid role name for the request URL |
-
-
 ### 
 
 ## GET- ValidateDepartmentName
@@ -617,24 +577,18 @@ This API is used for validating the IAI department name.
 | PATH IAI(Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/departments/\{departmentName\}/validateName] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description Mandatory / Optional Type |
 | --- | --- |
 | departmentName | Provide a valid IAI department name M String |
-
-
 #### Output Header Parameters
 
 
@@ -644,8 +598,6 @@ This API is used for validating the IAI department name.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -654,8 +606,6 @@ This API is used for validating the IAI department name.
 | DepartmentArchived | Specifies whether the department name is active or not in the database. Boolean |
 | DepartmentExists | Specifies whether the department exists or not in the database. Boolean |
 | DeletedDepartmentId | Deletes department ID based on the department name provided. Boolean |
-
-
 #### Sample JSON Response
 
 \{
@@ -674,8 +624,6 @@ This API is used for validating the IAI department name.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Based on the department name, Boolean output for DepartmentExists, DepartmentArchived, and DeletedDepartmentId. |
-
-
 #### Error Management
 
 
@@ -684,8 +632,6 @@ This API is used for validating the IAI department name.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid department name for the request URL |
-
-
 ### 
 
 ## GET- ValidateDepartmentDeletion
@@ -701,24 +647,18 @@ This API is used for validating IAI department deletion.
 | PATH IAI(Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/departments/\{departmentId\}/validateDeletion] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | DepartmentId | Provide a valid IAI department ID M String |
-
-
 #### Output Header Parameters
 
 
@@ -728,16 +668,12 @@ This API is used for validating IAI department deletion.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
 | Parameter | Description Type |
 | --- | --- |
 | CanbeDeleted | Return true/false value Boolean |
-
-
 #### Sample JSON Response
 
 \{
@@ -752,8 +688,6 @@ This API is used for validating IAI department deletion.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Showing CanbeDeleted value which is in Boolean type |
-
-
 #### Error Manegement
 
 
@@ -762,8 +696,6 @@ This API is used for validating IAI department deletion.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid department ID for the request URL |
-
-
 ### 
 
 ## GET- ValidateRoleDeletion
@@ -787,24 +719,18 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI(Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/\{roleId\}/validateDeletion) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleId | Provide a valid IAI role ID M String |
-
-
 #### Output Header Parameters
 
 
@@ -816,8 +742,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Length | Length of the content Bytes Output Body Parameters |
 | Parameter | Description Type |
 | CanbeDeleted | Return true/false value Boolean |
-
-
 #### Sample JSON Response
 
 \{
@@ -832,8 +756,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Showing CanbeDeleted value which is in Boolean type |
-
-
 #### Error Management
 
 
@@ -842,8 +764,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid role name for the request URL |
-
-
 ### 
 
 ## POST- SearchADGroups
@@ -870,8 +790,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of content. E.g.- application/json M String **Input Body** **BODY PARAM** |
 | Parameter | Description M/O Type |
 | QueryString | Provide a query string to filter AD groups by name M String **Sample JSON Request** \{ \"QueryString\": \"\" \} |
-
-
 #### Output Header
 
 
@@ -881,8 +799,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body
 
 
@@ -890,16 +806,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | GroupId | Group ID of the AD group String |
 | GroupName | Group Name of the AD group String **Sample JSON Response** \{ \"Groups\": \[ \{ \"GroupId\": \"\", \"GroupName\": \"\" \} \] \} |
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | The result is a list of all AD groups or selected AD groups whose names start with the query string present in the request body |
-
-
 #### Error Management
 
 
@@ -908,8 +820,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter valid query details |
-
-
 ### 
 
 ## POST- SearchUser
@@ -936,8 +846,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/users/search) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -945,8 +853,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -955,8 +861,6 @@ To fetch the response from the APIs, the following entities must exist.
 | QueryString | Provide a query string to filter users whose display name or email starts with the query string M String |
 | AOTUsersOnly | Provide a Boolean value. This value is true if the search is only for IAI users and false for all AD users. M Boolean |
 | RoleIds | Provide an IAI Role ID (AOTUsersOnly as True, if IAI users with given roles need to be searched. AOTUsersOnly as False, RoleIds cannot be provided in case of AD users.) O String |
-
-
 #### Output Header Parameters
 
 
@@ -966,8 +870,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -980,8 +882,6 @@ To fetch the response from the APIs, the following entities must exist.
 | UserPrincipalName | User principal name of the IAI user String |
 | PhoneNumber | Phone number of the IAI user String |
 | Email | Email of the IAI user String |
-
-
 #### Sample JSON Request
 
 \{
@@ -1034,8 +934,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Displaying a user\'s IAI or AD |
-
-
 #### Error Management
 
 
@@ -1044,8 +942,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter valid query details |
-
-
 ### 
 
 ## GET- GetUsers
@@ -1068,17 +964,12 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | Without userId: [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/users) With userId: [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/users/\{userId\}) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
@@ -1086,8 +977,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | userId | Provide a valid user ID for the request URL O String |
 | IncludeUserRolesDepts | Provides IncludeUserRolesDepts as false to get only User info in the response. O String |
-
-
 #### Output Header Parameters
 
 
@@ -1097,8 +986,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -1115,8 +1002,6 @@ To fetch the response from the APIs, the following entities must exist.
 | RoleName | Role Name of the IAI user roles String |
 | DepartmentId | Department ID of the IAI user departments String |
 | DepartmentName | Department name of the IAI user departments String |
-
-
 #### Sample JSON Response
 
 \{
@@ -1175,8 +1060,6 @@ To fetch the response from the APIs, the following entities must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | IAI users based on userId provided or all users |
-
-
 #### Error Management
 
 
@@ -1185,9 +1068,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid Authorization token |
-
-
-
 ### GET- GetUsersByToken
 
 This API is used for fetching user information by token. UserId is retrieved by decoding the token and the user will be returned.
@@ -1205,25 +1085,18 @@ To fetch the response from the APIs, the following entities exist.
 | PATH IAI (Azure) (Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/users/bytoken) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description | M/O |
 | --- | --- | --- |
 | QueryString | Provide QueryString as UseToken to get Adgroups from tokens and fetch associated roles. | O |
-
-
-
 #### Output Header Parameters
 
 
@@ -1233,8 +1106,6 @@ To fetch the response from the APIs, the following entities exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -1251,8 +1122,6 @@ To fetch the response from the APIs, the following entities exist.
 | RoleName | Role Name of the IAI user roles String |
 | DepartmentId | Department ID of the IAI user departments String |
 | DepartmentName | Department name of the IAI user departments String |
-
-
 #### Sample JSON Response
 
 \{
@@ -1311,8 +1180,6 @@ To fetch the response from the APIs, the following entities exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | IAI user is based on the UserId present in token |
-
-
 #### Error Management
 
 
@@ -1321,9 +1188,6 @@ To fetch the response from the APIs, the following entities exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid authorization token |
-
-
-
 ### POST- GetUsersByRole
 
 This API is for retrieving the list of users based on the RoleId present in the request body.
@@ -1346,8 +1210,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/users/byRoles) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -1355,16 +1217,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleIds | Provide a list of roleIds whose associated users need to be retrieved M String |
-
-
 #### Output Header Parameters
 
 
@@ -1374,8 +1232,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -1392,16 +1248,12 @@ To fetch the response from the APIs, the following entities must exist.
 | RoleName | Role Name of the IAI user roles String |
 | DepartmentId | Department ID of the IAI user departments String |
 | DepartmentName | Department name of the IAI user departments String **Sample JSON Request** \{ \"RoleIds\": \[ \"\", \"\" \] \} **\ Sample JSON Response** \{ \"Users\": \[ \{ \"UserId\": \"\", \"DisplayName\": \"\", \"FirstName\": \"\", \"LastName\": \"\", \"UserPrincipalName\": \"\", \"PhoneNumber\": \"\", \"Email\": \"\", \"UserRoles\": \[ \{ \"RoleId\": \"\", \"RoleName\": \"\" \} \], \"UserDepartments\": \[ \{ \"DepartmentId\": \"\", \"DepartmentName\": \"\" \} \] \} \] \} |
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | list of IAI users based on the RoleId present in the request body |
-
-
 #### Error Management
 
 
@@ -1410,8 +1262,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid authorization token - Please enter valid role IDs |
-
-
 ### 
 
 ## POST- GetUsersByDepartment
@@ -1436,8 +1286,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/users/byDepartments) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -1445,16 +1293,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | DepartmentIds | Provide a list of departmentIds whose associated users need to be retrieved O String |
-
-
 #### Output Header Parameters
 
 
@@ -1464,8 +1308,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -1482,8 +1324,6 @@ To fetch the response from the APIs, the following entities must exist.
 | RoleName | Role Name of the IAI user roles String |
 | DepartmentId | Department ID of the IAI user departments String |
 | DepartmentName | Department name of the IAI user departments String |
-
-
 #### Sample JSON Request
 
 \{
@@ -1554,8 +1394,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | list of IAI users based on the DepartmentId present in the request body |
-
-
 #### Error Management
 
 
@@ -1564,8 +1402,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request / Please enter the valid authorization token / Please enter valid department Ids |
-
-
 ### 
 
 ## 
@@ -1585,25 +1421,18 @@ To fetch the response from the APIs, the following entities must exist: Authoriz
 | PATH IAI (Azure)(Public Exposure) | Without RoleId: [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/roles) With RoleId: [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/\{roleId\}) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | roleId | Provide a valid role ID passed from the request URL O String |
-
-
 #### Output Header Parameters
 
 
@@ -1613,8 +1442,6 @@ To fetch the response from the APIs, the following entities must exist: Authoriz
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -1637,7 +1464,6 @@ To fetch the response from the APIs, the following entities must exist: Authoriz
 | DepartmentId | Department ID of the IAI Department String |
 | DepartmentName | Department name of the IAI Department String |
 | DepartmentDescription | Department Description of the IAI Department String |
-
 #### 
 
 ### Sample JSON Response
@@ -1716,8 +1542,6 @@ To fetch the response from the APIs, the following entities must exist: Authoriz
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | The list of all the IAI roles or a single role with a given RoleId |
-
-
 #### Error Management
 
 
@@ -1726,7 +1550,6 @@ To fetch the response from the APIs, the following entities must exist: Authoriz
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## POST- GetRolesByUser
@@ -1750,8 +1573,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/byUser) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -1759,16 +1580,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | UserIds | Provide a list of user IDs whose associated roles need to be retrieved M String |
-
-
 #### Sample JSON Request
 
 \{
@@ -1792,8 +1609,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -1806,8 +1621,6 @@ To fetch the response from the APIs, the following entities must exist.
 | IsSensitive | This is a Boolean value. If the value is true, there are some sensitive KPIs that users in those roles can access, otherwise not Boolean |
 | DepartmentId | Department ID of IAI user departments String |
 | DepartmentName | Department name of the IAI user department String |
-
-
 #### Sample JSON Response
 
 \{
@@ -1850,8 +1663,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | The list of the roles associated with the users present in the request body |
-
-
 #### Error Management
 
 
@@ -1860,8 +1671,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request - Please enter valid userIds |
-
-
 ### 
 
 ## GET- GetAdminRoles
@@ -1879,8 +1688,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/admin] |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -1888,8 +1695,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Output Header Parameters
 
 
@@ -1899,8 +1704,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -1913,8 +1716,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | IsSensitive | This is a Boolean value. If the value is true, there are some sensitive KPIs that users in those roles can access, otherwise not Boolean |
 | DepartmentId | Department ID of IAI user departments String |
 | DepartmentName | Department name of the IAI user department String |
-
-
 #### Sample JSON Response
 
 \{
@@ -1993,8 +1794,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of the admin roles in IAI |
-
-
 #### Error Management
 
 
@@ -2003,8 +1802,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token missing |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## GET- GetRoleById
@@ -2022,8 +1819,6 @@ To fetch the response from the APIs, the Authorization token and RoleId must exi
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/\{roleId\}] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2031,8 +1826,6 @@ To fetch the response from the APIs, the Authorization token and RoleId must exi
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
@@ -2040,8 +1833,6 @@ To fetch the response from the APIs, the Authorization token and RoleId must exi
 | --- | --- |
 | RoleId | Provide a valid existing roleId M String |
 | IsDeletedRole | Provides \'true\' if this role is deleted and is being fetched as a query parameter. O String |
-
-
 #### Output Header Parameters
 
 
@@ -2051,8 +1842,6 @@ To fetch the response from the APIs, the Authorization token and RoleId must exi
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -2065,16 +1854,12 @@ To fetch the response from the APIs, the Authorization token and RoleId must exi
 | IsSensitive | This is a Boolean value. If the value is true, there are some sensitive KPIs that users in those roles can access, otherwise not Boolean |
 | DepartmentId | Department ID of IAI user departments String |
 | DepartmentName | Department name of the IAI user department String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of the roles associated with the RoleId provided in the query parameter. |
-
-
 #### Error Management
 
 
@@ -2083,7 +1868,6 @@ To fetch the response from the APIs, the Authorization token and RoleId must exi
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## GET- GetRolesByIds
@@ -2101,8 +1885,6 @@ To fetch the response from the APIs, the Authorization token and List of RoleIds
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/\{roleId\}] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2110,16 +1892,12 @@ To fetch the response from the APIs, the Authorization token and List of RoleIds
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleId | Provide a list of existing valid RoleIds M String |
-
-
 #### Output Header Parameters
 
 
@@ -2129,8 +1907,6 @@ To fetch the response from the APIs, the Authorization token and List of RoleIds
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -2143,8 +1919,6 @@ To fetch the response from the APIs, the Authorization token and List of RoleIds
 | IsSensitive | This is a Boolean value. If the value is true, there are some sensitive KPIs that users in those roles can access, otherwise not Boolean |
 | DepartmentId | Department ID of IAI user departments String |
 | DepartmentName | Department name of the IAI user department String |
-
-
 #### Sample JSON Response
 
 \{
@@ -2223,8 +1997,6 @@ To fetch the response from the APIs, the Authorization token and List of RoleIds
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of the roles associated with the list of RoleIds provided in the query parameter. |
-
-
 #### Error Management
 
 
@@ -2233,8 +2005,6 @@ To fetch the response from the APIs, the Authorization token and List of RoleIds
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User / Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 ### GET- GetDepartments
 
 This API is used for fetching all IAI departments. If DepartmentID is given, it will return the corresponding IAI Department.
@@ -2250,25 +2020,18 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure) (Public Exposure) | Without department Id: [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/departments) With department Id: [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/departments/\{departmentId\}) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | departmentId | Provide a valid department ID passed from the request URL O String |
-
-
 #### Output Header Parameters
 
 
@@ -2278,8 +2041,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -2291,8 +2052,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | CreatedBy | Name of the user who created the IAI department String |
 | CreatedTime | Creation Time of the IAI Department Date Time |
 | RolesCount | Count of roles in the IAI department String |
-
-
 #### Sample JSON Response
 
 \{
@@ -2325,8 +2084,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of IAI users based on the DepartmentId present in the request body |
-
-
 #### Error Management
 
 
@@ -2335,8 +2092,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User &gt; &gt; Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
 ### 
 
 ## POST- GetRolesByDepartment
@@ -2361,8 +2116,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/byDepartment) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2370,16 +2123,12 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Body Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | DepartmentIds | Provide a list of departmentIds whose associated roles need to be retrieved M String |
-
-
 #### Output Header Parameters
 
 
@@ -2389,8 +2138,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -2403,7 +2150,6 @@ To fetch the response from the APIs, the following entities must exist.
 | IsSensitive | This is a Boolean value. If the value is true, there are sensitive KPIs that users in those roles can access. Boolean |
 | DepartmentId | Department ID of an IAI user department String |
 | DepartmentName | Department name of an IAI user department String |
-
 #### 
 
 ### Sample JSON Request
@@ -2464,8 +2210,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | The list of the roles associated with departments present in the request body |
-
-
 #### Error Management
 
 
@@ -2474,8 +2218,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token could be missing |
 | 400 | 400 | &gt; Bad request - Please enter valid departmentIds |
-
-
 ### 
 
 ## DELETE- DeleteAOTDepartment
@@ -2493,24 +2235,18 @@ To fetch the response from the APIs, the Authorization token and DepartmentId mu
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/departments/\{departmentId\}) |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | DepartmentId | Provide a valid department ID in the request URL M String |
-
-
 #### Output Header Parameters
 
 
@@ -2520,8 +2256,6 @@ To fetch the response from the APIs, the Authorization token and DepartmentId mu
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Sample JSON Response
 
 \{
@@ -2536,8 +2270,6 @@ To fetch the response from the APIs, the Authorization token and DepartmentId mu
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Department deleted successfully |
-
-
 #### Error Management
 
 
@@ -2546,8 +2278,6 @@ To fetch the response from the APIs, the Authorization token and DepartmentId mu
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Header Token could be missing or Unauthorized User |
 | 400 | 400 | &gt; Bad request - Please enter the valid department id for the request URL |
-
-
 ### 
 
 ## DELETE- DeleteAOTRole
@@ -2565,24 +2295,18 @@ To fetch the response from the APIs, the Authorization token and ruleId must exi
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/roles/\{roleId\}) |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | RoleId | Provide a valid role ID in the request URL M String |
-
-
 #### Output Header Parameters
 
 
@@ -2592,8 +2316,6 @@ To fetch the response from the APIs, the Authorization token and ruleId must exi
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Sample JSON Response
 
 \{
@@ -2608,8 +2330,6 @@ To fetch the response from the APIs, the Authorization token and ruleId must exi
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Role deleted successfully |
-
-
 #### Error Management
 
 
@@ -2618,8 +2338,6 @@ To fetch the response from the APIs, the Authorization token and ruleId must exi
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Header Token could be missing or Unauthorized User |
 | 400 | 400 | &gt; Bad request - Please enter the valid role id for the request URL. |
-
-
 ### 
 
 ## POST- SyncServiceAPI
@@ -2637,24 +2355,18 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/syncservice] |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 202 | Return sync service status |
-
-
 #### Error Management
 
 
@@ -2662,8 +2374,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- | --- |
 | 400 | 401 | &gt; Header Token could be missing / Unauthorized User |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## GET- LastRunSyncServiceAPI
@@ -2681,16 +2391,12 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/syncservice/lastRun] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Sample JSON Response:
 
 \{
@@ -2707,8 +2413,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Return the end time of the last sync service run and the user\'s name who triggered it |
-
-
 #### Error Management
 
 
@@ -2716,8 +2420,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- | --- |
 | 400 | 401 | &gt; Header Token could be missing / Unauthorized User |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## POST- MapUsersandRoles
@@ -2742,8 +2444,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/mappings/UsersWithRoles] |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2751,8 +2451,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content/Type | application / json M String |
-
-
 #### Input Body Parameters
 
 
@@ -2760,7 +2458,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | UserId | Provide valid UserId of existing IAI users who needs to be mapped to the given role String |
 | RoleId | Provide valid RoleId of existing IAI roles which need to be mapped to the given IAI user String |
-
 #### 
 
 ### Sample JSON Request 
@@ -2795,8 +2492,6 @@ To fetch the response from the APIs, the following entities must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Returns when the user successfully mapped to the given IAI role |
-
-
 #### Error Management
 
 
@@ -2804,8 +2499,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- | --- |
 | 400 | 401 | &gt; Header Token could be missing / Unauthorized User |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## POST- MapGroupsandRoles
@@ -2830,8 +2523,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/mappings/GroupsWithRoles] |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2839,8 +2530,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content/Type | application / json M String |
-
-
 #### Input Body Parameters
 
 
@@ -2848,7 +2537,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | GroupId | Provide valid GroupId of existing AD groups which need to be mapped to the given role String |
 | RoleId | Provide valid RoleId of existing IAI roles which need to be mapped to the given AD group String |
-
 #### 
 
 ### Sample JSON Request 
@@ -2883,8 +2571,6 @@ To fetch the response from the APIs, the following entities must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Returns when the user successfully mapped to the given IAI role |
-
-
 #### Error Management
 
 
@@ -2892,8 +2578,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- | --- |
 | 400 | 401 | &gt; Header Token could be missing / Unauthorized User |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## POST- MapDepartmentsandRoles
@@ -2918,8 +2602,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/mappings/RolesWithDepartment] |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -2927,8 +2609,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content/Type | application / json M String |
-
-
 #### Input Body Parameters
 
 
@@ -2936,8 +2616,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | DepartmentId | Provide valid DepartmentId of existing IAI departments that needs to be mapped to the given role String |
 | Roleid | Provide valid Role ID of existing IAI roles which needs to be mapped to the given IAI user String |
-
-
 #### Sample JSON Request 
 
 \{
@@ -2970,8 +2648,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Returns when the department successfully mapped to the given IAI role |
-
-
 #### Error Management
 
 
@@ -2979,8 +2655,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- | --- |
 | 400 | 401 | &gt; Header Token could be missing \\ Unauthorized User |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## DELETE- DeleteDepartmentandRoleMapping
@@ -3007,8 +2681,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/mappings/RolesWithDepartments/\{deparmentId\}/\{roleId\}] |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -3016,8 +2688,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Path Parameters
 
 
@@ -3025,8 +2695,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | DepartmentId | Provide a valid department ID in the request URL M String |
 | RoleId | Provide a valid IAI role ID in the request URL M String |
-
-
 #### Output Header Parameters
 
 
@@ -3036,8 +2704,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Sample Response
 
 \{ \"message\": \"Department Mapping to the Role successfully deleted.\" \}
@@ -3048,8 +2714,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Department Mapping to the Role successfully deleted |
-
-
 #### Error Management
 
 
@@ -3058,8 +2722,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token could be missing |
 | 400 | 400 | &gt; Bad request - Please enter the valid departmentId and roleId for the request URL |
-
-
 ### 
 
 ## DELETE- DeleteGroupandRoleMapping
@@ -3085,8 +2747,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure) (Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/mappings/GroupsWithRoles/\{groupId\}/\{roleId\}] |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -3094,8 +2754,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Path Parameters
 
 
@@ -3103,8 +2761,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | groupId | Provide a valid ADGroupId in the request URL M String |
 | roleId | Provide a valid IAI role ID in the request URL M String |
-
-
 #### Output Header Parameters
 
 
@@ -3114,8 +2770,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Sample Response
 
 \{ \"message\": \"ADGroup Mapping to the Role successfully deleted.\" \}
@@ -3126,8 +2780,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | ADGroup Mapping to the Role was successfully deleted. |
-
-
 #### Error Management
 
 
@@ -3136,8 +2788,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request / Please enter the valid ADGroup and roleId for the request URL |
-
-
 ### 
 
 ## DELETE- DeleteUserandRoleMapping
@@ -3163,8 +2813,6 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/mappings/UsersWithRoles/\{userId\}/\{roleId\}) |
 | METHOD | DELETE |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
@@ -3172,8 +2820,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. E.g.- application/json M String |
-
-
 #### Input Path Parameters
 
 
@@ -3181,8 +2827,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | UserId | Provide an IAI userId in the request URL M String |
 | RoleId | Provide a valid IAI role ID in the request URL M String |
-
-
 #### Output Header Parameters
 
 
@@ -3192,8 +2836,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Sample Response
 
 \{ \"message\": \"User Mapping to the Role successfully deleted.\" \}
@@ -3204,8 +2846,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | User Mapping to the Role successfully deleted |
-
-
 #### Error Management
 
 
@@ -3214,8 +2854,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request / Please enter the valid userId and roleId for the request URL |
-
-
 ### 
 
 ## GET- GetADGroupRoleMappings
@@ -3233,16 +2871,12 @@ To fetch the response from the APIs, the Authorization token must exist.
 | PATH IAI (Azure)(Public Exposure) | [https://apim-aot-azure-dev.azure-api.net/api/people-management/groups/directRoles] |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Output Header Parameters
 
 
@@ -3252,8 +2886,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -3261,8 +2893,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | --- | --- |
 | adgroup_id | Object ID of the AD Group String |
 | RoleId | Role ID of the IAI roles String |
-
-
 #### Sample JSON Response
 
 \{
@@ -3295,8 +2925,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | The key is AD Group Id and value is the list of IAI Roles |
-
-
 #### Error Management
 
 
@@ -3305,8 +2933,6 @@ To fetch the response from the APIs, the Authorization token must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
 ### 
 
 ## GET- GetUserRoleMappings
@@ -3328,24 +2954,18 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/users/\{UserId\}/directRoles) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | userId | Provide a valid user ID for the request URL M String |
-
-
 #### Output Header Parameters
 
 
@@ -3355,8 +2975,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -3364,8 +2982,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | user_id | User ID of the IAI user String |
 | RoleId | Role ID of the IAI user roles String |
-
-
 #### Sample JSON Response
 
 \{
@@ -3394,8 +3010,6 @@ To fetch the response from the APIs, the following entities must exist.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The list of IAI Roles based on the User ID |
-
-
 #### Error Management
 
 
@@ -3404,8 +3018,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## GET- GetUserAdGroupMappings
@@ -3427,24 +3039,18 @@ To fetch the response from the APIs, the following entities must exist.
 | PATH IAI (Azure)(Public Exposure) | [link](https://apim-aot-azure-dev.azure-api.net/api/people-management/user/\{UserId\}/groups) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
-
-
 #### Input Path Parameters
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | userId | Provide a valid user ID for the request URL M String |
-
-
 #### Output Header Parameters
 
 
@@ -3454,8 +3060,6 @@ To fetch the response from the APIs, the following entities must exist.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Output Body Parameters
 
 
@@ -3463,8 +3067,6 @@ To fetch the response from the APIs, the following entities must exist.
 | --- | --- |
 | user_id | User ID of the IAI user String |
 | GroupId | Object ID of the AD Group String |
-
-
 #### Sample JSON Response
 
 \{
@@ -3493,8 +3095,6 @@ To fetch the response from the APIs, the following entities must exist.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | List of AD Groups based on User ID |
-
-
 #### Error Management
 
 
@@ -3503,8 +3103,6 @@ To fetch the response from the APIs, the following entities must exist.
 | 500 | 500 | Generic Error |
 | 400 | 401 | &gt; Unauthorized User / Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
 ## 
 
 ## POST- Azure Web PubSub
@@ -3524,16 +3122,12 @@ To fetch the response from the APIs, the following entities must exist:
 | --- | --- |
 | PATH |  |
 | METHOD | POST |
-
-
 #### Input Header Parameters
 
 
 | Parameter | Description M/O |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M |
-
-
 #### Input Body Parameters
 
 
@@ -3544,9 +3138,6 @@ To fetch the response from the APIs, the following entities must exist:
 | userId | Provide a list of user IDs whenever the sendTo parameter is set to \"User\" | M | String |
 | groupId | Provide a list of group IDs whenever the sendTo parameter is set to \"Group\" | M | String |
 | message | Provide the message that should be sent to | M | String/JSON |
-
-
-
 #### Sample JSON Request
 
 The following is the request body to send a message to one or more users.
@@ -3599,8 +3190,6 @@ The following is the request body to send a message to All users.
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Message sent successfully |
-
-
 #### Error Management
 
 
@@ -3608,4 +3197,3 @@ The following is the request body to send a message to All users.
 | --- | --- | --- |
 | 401 | 401 | &gt; Unauthorized User / Header Token could be missing, expired, or invalid |
 | 400 | 400 | &gt; Bad request / Invalid Request Body |
-

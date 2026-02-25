@@ -198,8 +198,6 @@ The Jira Connector offers a suite of APIs designed to streamline interactions wi
 | Download Bulk Creation Template | This API returns a CSV Bulk issue creation template |
 | Bulk Issue Creation | This API is used to create issues in bulk using the data provided in CSV template. |
 | Metrics | This API provides metrics for a project based on filter criteria if provided any. Users must obtain appropriate access to generate a JWT token for authentication, a product subscription key from Azure application management for the Jira connector, and a transaction-id. Include all this information in the request headers. Append specific endpoints to the base URL to use the API as needed. |
-
-
 ### Get Board
 
 This API retrieves details about a board using the /board endpoint.
@@ -211,8 +209,6 @@ This API retrieves details about a board using the /board endpoint.
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Pagination Parameters
 
 
@@ -220,16 +216,12 @@ This API retrieves details about a board using the /board endpoint.
 | --- | --- |
 | Offset | Page number of the dataset to retrieve (greater than 0) |
 | Limits | Page size, maximum value is 50 (greater than 0) **Sample Response** &gt; \{ &gt; &gt; \"offset\": "", &gt; &gt; \"limits\": "", &gt; &gt; \"total\": "", &gt; &gt; \"values\": \[ &gt; &gt; \{ &gt; &gt; \"id\": "", &gt; &gt; \"self\": \"\", &gt; &gt; \"name\": \"\", &gt; &gt; \"type\": \"\" &gt; &gt; \} &gt; &gt; \] &gt; &gt; \} |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Board details fetched successfully as mentu |
-
-
 #### Error Management
 
 
@@ -240,7 +232,6 @@ This API retrieves details about a board using the /board endpoint.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get Sprint
@@ -254,16 +245,12 @@ This API retrieves details about the sprints associated with a specific board. S
 | QA ENDPOINT | [https://ix-qa-apimgmt.azure-api.net/jira-api/board/\{board_id\}/sprint](https://ix-qa-apimgmt.azure-api.net/jira-api/board/%7bboard_id%7d/sprint) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | boardId | Unique identifier of the board |
-
-
 #### Pagination Parameters
 
 
@@ -271,8 +258,6 @@ This API retrieves details about the sprints associated with a specific board. S
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0 |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Sample Response
 
 > \{
@@ -319,8 +304,6 @@ This API retrieves details about the sprints associated with a specific board. S
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Sprint details will be fetched successfully as mentioned in the sample response. |
-
-
 #### Error Management
 
 
@@ -331,7 +314,6 @@ This API retrieves details about the sprints associated with a specific board. S
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get Project Bulk
@@ -345,8 +327,6 @@ This API retrieves information about all projects in a single response, i.e., in
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Pagination Parameters
 
 
@@ -354,8 +334,6 @@ This API retrieves information about all projects in a single response, i.e., in
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0) |
 | limits | Page size, maximum value is 50 (greater than 0) |
-
-
 #### Sample Response
 
 > \[
@@ -398,8 +376,6 @@ This API retrieves information about all projects in a single response, i.e., in
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -410,7 +386,6 @@ This API retrieves information about all projects in a single response, i.e., in
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get Project
@@ -424,16 +399,12 @@ This API is used to retrieve details of a specific project identified by its uni
 | QA ENDPOINT | [https://ix-qa-apimgmt.azure-api.net/jira-api/project/\{projectId\}](https://ix-qa-apimgmt.azure-api.net/jira-api/project/%7bprojectId%7d) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | projectId | Unique identifier of the project |
-
-
 #### Pagination Parameters
 
 
@@ -441,8 +412,6 @@ This API is used to retrieve details of a specific project identified by its uni
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0) |
 | limits | Page size, maximum value is 50 (greater than 0) |
-
-
 #### Sample Response: [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Project_Response.txt)
 
 Projects represent individual units of work or initiatives within the system. The JSON response contains details of the project, including its name, description, creation date, and other relevant information.
@@ -459,7 +428,6 @@ Projects represent individual units of work or initiatives within the system. Th
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## Get Issue
@@ -474,16 +442,12 @@ The /project/issue/\{issueId\} endpoint is used to retrieve details of a specifi
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [DT_Get_Issue_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Issue_Response.txt) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | issueId | Unique identifier of the issue |
-
-
 #### Pagination Parameters
 
 
@@ -491,16 +455,12 @@ The /project/issue/\{issueId\} endpoint is used to retrieve details of a specifi
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0) |
 | limits | Page size, maximum value is 50 (greater than 0) |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Managment
 
 
@@ -511,7 +471,6 @@ The /project/issue/\{issueId\} endpoint is used to retrieve details of a specifi
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key or Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## Get Issue Types
@@ -526,16 +485,12 @@ The /project/\{projectId\}/issue/type endpoint retrieves all issue types within 
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [DT_Get_Issue_Types_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Issue_Types_Response.txt) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | projectId | The identifier of the project for which issue types are to be retrieved. |
-
-
 #### Pagination Parameters
 
 
@@ -543,16 +498,12 @@ The /project/\{projectId\}/issue/type endpoint retrieves all issue types within 
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0. Default is 0. |
 | limits | Page size, maximum value is 100 (greater than 0). Default is 100. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -563,7 +514,6 @@ The /project/\{projectId\}/issue/type endpoint retrieves all issue types within 
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key or Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## Create Issue
@@ -577,8 +527,6 @@ This API is for creating Jira issues within a project. It accepts a JSON represe
 | QA ENDPOINT |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Pagination Parameters
 
 
@@ -586,16 +534,12 @@ This API is for creating Jira issues within a project. It accepts a JSON represe
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0 |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -606,8 +550,6 @@ This API is for creating Jira issues within a project. It accepts a JSON represe
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key\ Invalid Token |
 | 400 | 400 Bad Request |
-
-
 #### Usage
 
 > POST-
@@ -645,16 +587,12 @@ This API is used to update details of a Jira issue within a project. Users can s
 | CONTENT TYPE | application / json |
 | REQUEST | [DT_Update_Issue_Request.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Update_Issue_Request.txt?csf=1&amp;web=1&amp;e=DNWHZv) |
 | RESPONSE | [DT_Update_Issue_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Update_Issue_Response.txt) |
-
-
 #### Path Parameter
 
 
 | Parameter | Description |
 | --- | --- |
 | issueId | The identifier of the issue for which details have to be updated. |
-
-
 #### Pagination Parameters
 
 
@@ -662,16 +600,12 @@ This API is used to update details of a Jira issue within a project. Users can s
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0 |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -682,7 +616,6 @@ This API is used to update details of a Jira issue within a project. Users can s
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key or Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## Upload Attachment
@@ -697,16 +630,12 @@ This API is used to upload attachments in a particular issue. Users can upload o
 | METHOD | POST |
 | CONTENT TYPE | multipart/form-data |
 | USAGE | [DT_Upload_Attachment_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Upload_Attachment_Response.txt) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | issueId | The identifier of the issue for which the attachment has to be validated. |
-
-
 #### Pagination Parameters
 
 
@@ -714,16 +643,12 @@ This API is used to upload attachments in a particular issue. Users can upload o
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0) |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -734,7 +659,6 @@ This API is used to upload attachments in a particular issue. Users can upload o
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key\ Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## Get Status
@@ -749,8 +673,6 @@ This API retrieves available status details for a Jira issue in a project. It al
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [DT_Get_Status_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Status_Response.txt) |
-
-
 #### Path Paramaters
 
   -----------------------------------------------------------------------------------------------------------------
@@ -758,8 +680,6 @@ This API retrieves available status details for a Jira issue in a project. It al
 | Parameter | Description |
 | --- | --- |
 | issueId | The unique identifier of the Jira issue for which available status details will be retrieved. |
-
-
 #### Pagination Paramaters
 
 
@@ -767,16 +687,12 @@ This API retrieves available status details for a Jira issue in a project. It al
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0 |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -787,7 +703,6 @@ This API retrieves available status details for a Jira issue in a project. It al
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key\ Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## **Get Comments**
@@ -802,8 +717,6 @@ This API retrieves all comments associated with a specific Jira issue. Users can
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [DT_Get_Comment_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Comment_Response.txt) |
-
-
 #### Path Parameters
 
   -------------------------------------------------------------------------------------------------
@@ -811,8 +724,6 @@ This API retrieves all comments associated with a specific Jira issue. Users can
 | Parameter | Description |
 | --- | --- |
 | issueId | The unique identifier of the Jira issue for which comments will be retrieved. |
-
-
 #### Pagination Parameters
 
 
@@ -820,16 +731,12 @@ This API retrieves all comments associated with a specific Jira issue. Users can
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0 |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -840,7 +747,6 @@ This API retrieves all comments associated with a specific Jira issue. Users can
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key\ Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## Get Meta
@@ -855,16 +761,12 @@ This endpoint retrieves metadata necessary for updating a specific Jira issue. I
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [DT_Get_Meta_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Meta_Response.txt) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | issueId | The ID of the Jira issue for which metadata is requested. |
-
-
 #### Pagination Parameters
 
 
@@ -872,16 +774,12 @@ This endpoint retrieves metadata necessary for updating a specific Jira issue. I
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0 |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Result
 
 
@@ -892,7 +790,6 @@ This endpoint retrieves metadata necessary for updating a specific Jira issue. I
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key or Invalid Token |
 | 400 | 400 Bad Request |
-
 ### 
 
 ## Get Worklog
@@ -907,16 +804,12 @@ This API retrieves all work logs associated with a Jira issue in a project. User
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [DT_Get_Worklog_Response.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Worklog_Response.txt) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | issueId | The unique identifier of the Jira issue for which all work logs will be retrieved. |
-
-
 #### Pagination Parameters
 
 
@@ -924,16 +817,12 @@ This API retrieves all work logs associated with a Jira issue in a project. User
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0 |
 | limits | Page size, the maximum value is 50 (greater than 0). |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -950,16 +839,12 @@ This API retrieves all work logs associated with a Jira issue in a project. User
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [Jira_Bulk_Issue_Details.csv](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Jira%20Connector/Jira_Bulk_Issue_Details.csv?d=w05401102c5854de59d2f054eb38c907c&amp;csf=1&amp;web=1&amp;e=jgF7SD) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | projectId | The unique identifier of the Jira project for which all issues will be retrieved. |
-
-
 #### Pagination Parameters
 
 
@@ -967,8 +852,6 @@ This API retrieves all work logs associated with a Jira issue in a project. User
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0). Default is 1. |
 | limits | Page size, the maximum value is 100 (greater than 0). Default is 100. |
-
-
 #### Query Parameters
 
 
@@ -986,16 +869,12 @@ This API retrieves all work logs associated with a Jira issue in a project. User
 | affectedVersion | Filter result set based on the affectedVersion. |
 | sprint | Filter result set based on the sprint. |
 | storyPoints | Filter result set based on the storyPoints. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -1006,8 +885,6 @@ This API retrieves all work logs associated with a Jira issue in a project. User
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key\ Invalid Token |
 | 400 | 400 Bad Request |
-
-
 ### Download Bulk Issue Creation Template
 
 This API is used to download the template which can be used for bulk issue creation.
@@ -1020,16 +897,12 @@ This API is used to download the template which can be used for bulk issue creat
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | The [bulk_Issue_Creation_Template.csv](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Jira%20Connector/bulk_Issue_Creation_Template.csv?d=w2d157727cbba4cefb50a126240315ed0&amp;csf=1&amp;web=1&amp;e=qRIFSf) template can be used to fill in the details and create issues in bulk. Other details related to the issues can be updated using the Update operation. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success Error Management |
-
-
 #### Error Management
 
 
@@ -1046,16 +919,12 @@ This API is used to download the template which can be used for bulk issue creat
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | USAGE | [bulk_Issue_Creation.csv](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Jira%20Connector/bulk_Issue_Creation.csv?d=w46cc10d739734523a8adaa2f856c443b&amp;csf=1&amp;web=1&amp;e=b9O0mA) |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 
@@ -1066,8 +935,6 @@ This API is used to download the template which can be used for bulk issue creat
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key or Invalid Token |
 | 400 | 400 Bad Request Note that when project settings are not appropriate, the following error may be encountered. &gt; \"errors\": \{ &gt; &gt; \"Environment\": \"Field environment cannot be set. It is not on the appropriate screen, or unknown.\" &gt; &gt; \}, &gt; &gt; \"failedElementNumber\": 0 To resolve, modify the project settings to ensure that these fields are included on the appropriate screen or component. By adjusting project settings, users can add these fields to the required screen or component, allowing them to be set in the API requests without encountering errors. |
-
-
 ### Metrics
 
 This API retrieves metrics for a specified project on the basis on filter criteria if provided.
@@ -1080,16 +947,12 @@ This API retrieves metrics for a specified project on the basis on filter criter
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | USAGE | [jira_metrics.xlsx](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Jira%20Connector/jira_metrics.xlsx?d=wf52a97cf3cb8472bb7df3df4272a1c1d&amp;csf=1&amp;web=1&amp;e=X3v1wm) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | projectId | The unique identifier of the Jira project for which all issues will be retrieved. |
-
-
 #### Pagination Parameters
 
 
@@ -1097,8 +960,6 @@ This API retrieves metrics for a specified project on the basis on filter criter
 | --- | --- |
 | offset | Page number of the dataset to retrieve (greater than 0). Default is 1. |
 | limits | Page size, the maximum value is 100 (greater than 0). Default is 100. |
-
-
 #### Query Parameters
 
 
@@ -1108,16 +969,12 @@ This API retrieves metrics for a specified project on the basis on filter criter
 | fixVersion | Filter result set based on the fixVersion. |
 | sprint | Filter result set based on the sprint. |
 | storyPoints | Filter result set based on the storyPoints. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Success |
-
-
 #### Error Management
 
 

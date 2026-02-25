@@ -263,8 +263,6 @@ Whenever a certain operation encounters an error, the same structure should be r
 | &gt; | \"errorCode\": \"CMPNT_02.100004\", &gt; |
 | &gt; | \"errorDescription\": \"db connection error\" &gt; |
 | &gt; | \} &gt; &gt; \} |
-
-
 ### Role-based Access Control 
 
 This sequence diagram represents the flow of user-role validation against a role mapping file in an SAP Connector.
@@ -330,7 +328,6 @@ The table below includes a short description of every Product Name API.
 | UPDATE Data | This API is used to update details. |
 | DELETE Data | This API serves as an endpoint to delete the data. |
 | BOM Fetch | This API is used to fetch BOM data from SAP ERP system. According to the environment, users will have to acquire proper access to generate a JWT token to be used for authentication. Additionally, users will require a product subscription key of the product created in Azure application management services for the SAP connector application and will have to pass a transaction-id. All this information needs to be passed in the request headers for authentication. The user can append specific endpoints after the base URL and utilize the API accordingly. |
-
 ### 
 
 ## Get Metadata
@@ -344,8 +341,6 @@ This API retrieves details about metadata using the /edm endpoint.
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Pagination Parameters
 
 
@@ -353,8 +348,6 @@ This API retrieves details about metadata using the /edm endpoint.
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | metadata | Unique identifier of the metadata |
-
-
 #### Sample Response
 
 \"entityTypes\": \[\{
@@ -391,8 +384,6 @@ This API retrieves details about metadata using the /edm endpoint.
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Metadata details fetched successfully |
-
-
 #### Error Management
 
 
@@ -403,7 +394,6 @@ This API retrieves details about metadata using the /edm endpoint.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Get Data
@@ -417,8 +407,6 @@ This API is used to fetch and retrieve the data present in SAP and can filter th
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -426,8 +414,6 @@ This API is used to fetch and retrieve the data present in SAP and can filter th
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
-
-
 #### Pagination Parameters
 
 
@@ -437,16 +423,12 @@ This API is used to fetch and retrieve the data present in SAP and can filter th
 | limits | Page size, the maximum value is 50 (greater than 0). |
 | filter | Is used to fetch materials based on given criteria or conditions |
 | attributes | Is used to fetch particular attributes in the response |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data details fetched successfully |
-
-
 #### Error Management
 
 
@@ -457,8 +439,6 @@ This API is used to fetch and retrieve the data present in SAP and can filter th
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request **Sample Response** &gt; \{ &gt; &gt; \"dataInstances\": \[\{ &gt; &gt; \"entityType\": \"Item\", &gt; &gt; \"instances\": \[\{ &gt; &gt; \"properties\": \{ &gt; &gt; \"Maktg\": \"\", &gt; &gt; \"Dispo\": \"\", &gt; &gt; \"Gewei\": \"KT\", &gt; &gt; \"Mtvep\": \"\", &gt; &gt; \"Vpreh\": 0, &gt; &gt; \"Lifnr\": \"\", &gt; &gt; \"Eislo\": 0, &gt; &gt; \}, &gt; &gt; \"workflows\": null, &gt; &gt; \"secondaryDatasets\": null &gt; &gt; \}\] &gt; &gt; \}\], &gt; &gt; \"offset\": 0, &gt; &gt; \"limits\": 0, &gt; &gt; \"totalRecords\": \"356\" &gt; &gt; \} |
-
-
 ### Get Lineage
 
 This API retrieves details of the Lineage data/lineage endpoint.
@@ -470,8 +450,6 @@ This API retrieves details of the Lineage data/lineage endpoint.
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Pagination Parameters
 
 
@@ -480,16 +458,12 @@ This API retrieves details of the Lineage data/lineage endpoint.
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
 | filter | Is used to fetch materials based on given criteria or conditions |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Lineage data details fetched successfully |
-
-
 #### Error Management
 
 
@@ -500,8 +474,6 @@ This API retrieves details of the Lineage data/lineage endpoint.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Get_Lineage_Response.txt)
@@ -519,8 +491,6 @@ This API retrieves details about the sprints associated with a specific board. S
 | QA ENDPOINT |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -528,16 +498,12 @@ This API retrieves details about the sprints associated with a specific board. S
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data created successfully |
-
-
 #### Error Management
 
 
@@ -548,7 +514,6 @@ This API retrieves details about the sprints associated with a specific board. S
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 #### 
 
 ### Sample Request Body
@@ -626,8 +591,6 @@ This API retrieves details about a board using the /board endpoint.
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Pagination Parameters
 
 
@@ -636,16 +599,12 @@ This API retrieves details about a board using the /board endpoint.
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
 | id | Specifies the Unique identifier. |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data update successful |
-
-
 #### Error Management
 
 
@@ -656,8 +615,6 @@ This API retrieves details about a board using the /board endpoint.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Request and Response
 
 [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Delete_Data_Request_Response.txt)
@@ -673,8 +630,6 @@ This API works for the Deletion of data, But in SAP, data will not be deleted fo
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -683,16 +638,12 @@ This API works for the Deletion of data, But in SAP, data will not be deleted fo
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
 | Id | Specifies the material Unique Identification |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Entry deleted successfully. |
-
-
 #### Error Management
 
 
@@ -703,8 +654,6 @@ This API works for the Deletion of data, But in SAP, data will not be deleted fo
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 > \{
@@ -728,8 +677,6 @@ This API is used to fetch BOM data from the SAP ERP system.
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -737,24 +684,18 @@ This API is used to fetch BOM data from the SAP ERP system.
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
-
-
 #### Pagination Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | filter | Is used to fetch materials based on given criteria or conditions |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data details fetched successfully |
-
-
 #### Error Management
 
 
@@ -765,8 +706,6 @@ This API is used to fetch BOM data from the SAP ERP system.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 > 200 Ok Success Response

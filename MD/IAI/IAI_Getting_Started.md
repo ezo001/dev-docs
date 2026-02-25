@@ -26,7 +26,6 @@ hide_title: true
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Release Notes, IAI Architecture Blueprint |
 | # | \{#section .unnumbered\} |
-
 </div>
 
 ## Introduction \{#introduction .unnumbered\}
@@ -100,8 +99,6 @@ Starting with version 2.5, IAI is now included in the Industrial AI (IAI) initia
 | Intelligent Advisor | An IAI component for providing recommendations and insights based on operational data. |
 | Automatic Asset Hierarchy Accelerator | A tool for defining and managing asset metadata in CDF, ensuring all required fields are set before use in IAI. |
 | # | \{#section-2 .unnumbered\} |
-
-
 ### Required Skills \{#required-skills .unnumbered\}
 
 -   Cognite Data Fusion
@@ -199,8 +196,6 @@ Starting with version 2.5, IAI is now included in the Industrial AI (IAI) initia
 | 12 | Deploy IAI [LINK](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Deployment_Guide_2_4.pdf) |
 | 13 | Hand over to client |
 | # | \{#section-3 .unnumbered\} |
-
-
 ## General Prerequisites \{#general-prerequisites .unnumbered\}
 
 The prerequisites listed below do not include special prerequisites that apply to individual components. To learn more about special prerequisites, see the [Getting Started Guide](https://industryxdevhub.accenture.com/assetdetails/75) for each IAI component. For more information about the following sections, see the [IAI Deployment Guide](https://industryxdevhub.accenture.com/assetdetails/53).

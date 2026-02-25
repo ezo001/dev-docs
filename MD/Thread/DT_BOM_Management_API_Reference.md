@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -82,7 +81,6 @@ Developers, Business Analysts, and Accenture teams deploying the IX Digital Thre
 | API (Application Programming Interface) | Protocols and tools that allow different software applications to communicate and perform operations such as fetching BOM details, managing conversions, and reviewing statuses. |
 | MSAL Authentication | Microsoft Authentication Library integration used for secure user login and access control within the BOM Management application. |
 | M/O | Mandatory/Optional. This indicates whether a parameter value is mandatory or optional to be specified for a particular API. |
-
 ## 
 
 ## Technology Stack
@@ -228,8 +226,6 @@ This API retrieves BOM conversion details from Postgres DB using the \`created_b
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | Query Parameters | created_by, offset, limits |
-
-
 #### Input Header
 
 
@@ -238,8 +234,6 @@ This API retrieves BOM conversion details from Postgres DB using the \`created_b
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -249,16 +243,12 @@ This API retrieves BOM conversion details from Postgres DB using the \`created_b
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 25 Mar 2025 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Successful Operations |
-
-
 #### Error Management
 
 
@@ -267,7 +257,6 @@ This API retrieves BOM conversion details from Postgres DB using the \`created_b
 | 500 | 500 Internal Server Error |
 | 400 | 400 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad Request **Sample JSON Response** \{ \"bomConversionData\": \[\{ \"conversionId\": \"CV357\", \"templateId\": \"T014\", \"templateName\": \"SAP MBOM Template\", \"ruleId\": \"R033\", \"eBOMId\": \"006010-Laptop Battery\", \"revisionId\": \"A\", \"mBOMId\": null, \"status\": \"In-Progress\", \"description\": \"Conversion initiated for BOM ID: 006010\", \"eBOMStoragePath\": null, \"mBOMStoragePath\": null, \"createdDate\": \"2025-03-20T04:35:20.872825\", \"createdBy\": \"Chevveti, Dhana\", \"updatedDate\": \"2025-03-20T04:35:20.872825\", \"updatedBy\": \"Chevveti, Dhana\" \} \] |
-
 ### 
 
 ## GET- EBOM Search Results
@@ -284,8 +273,6 @@ Once determined, the API sends other search parameters such as keywords, attribu
 | CONTENT TYPE | application / json |
 | Query Parameters | Keywords, offset, limits, source_system, attributes |
 | Sample Json Response | [[Link]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_EBOM_Search_Results_Response.txt) |
-
-
 #### Input Header
 
 
@@ -294,8 +281,6 @@ Once determined, the API sends other search parameters such as keywords, attribu
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String |
-
-
 #### Output Header
 
 
@@ -305,23 +290,18 @@ Once determined, the API sends other search parameters such as keywords, attribu
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Successful Operation |
-
-
 #### Error Management
 
 
 | HTTP Code | Error Code Error Description |
 | --- | --- |
 | 500 | 500 Internal Server Error |
-
 ### 
 
 ## GET- EBOM Details
@@ -336,8 +316,6 @@ This API retrieves EBOM data, allowing for keyword filtering and pagination to s
 | CONTENT TYPE | application / json |
 | Query Parameters | bom_id, bom_rev_id, offset, limits, source_system, fetch_children |
 | Sample Json Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_EBOM_Details_Response.txt) |
-
-
 #### Input Header
 
 
@@ -346,8 +324,6 @@ This API retrieves EBOM data, allowing for keyword filtering and pagination to s
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -357,16 +333,12 @@ This API retrieves EBOM data, allowing for keyword filtering and pagination to s
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -375,8 +347,6 @@ This API retrieves EBOM data, allowing for keyword filtering and pagination to s
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## GET - MBOM Templates 
@@ -391,8 +361,6 @@ This API retrieves MBOM (Manufacturing Bill of Materials) templates from a Postg
 | CONTENT TYPE | application / json |
 | Query Parameters | Offset, limits |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_MBOM_Template_Response.txt) |
-
-
 #### Input Header
 
 
@@ -401,8 +369,6 @@ This API retrieves MBOM (Manufacturing Bill of Materials) templates from a Postg
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -412,16 +378,12 @@ This API retrieves MBOM (Manufacturing Bill of Materials) templates from a Postg
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -430,8 +392,6 @@ This API retrieves MBOM (Manufacturing Bill of Materials) templates from a Postg
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | &gt; Unauthorized User or Header Token could be missing |
 | 400 | 400 | &gt; Bad request |
-
-
 ### 
 
 ## GET- MBOM Template Details API
@@ -446,8 +406,6 @@ This API facilitates the retrieval of detailed information regarding the MBOM (M
 | CONTENT TYPE | application / json |
 | Query Parameters | Keyword, offset, limits |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_MBOM_Template_Details_Response.txt) |
-
-
 #### Input Header
 
 
@@ -456,8 +414,6 @@ This API facilitates the retrieval of detailed information regarding the MBOM (M
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application. M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -466,16 +422,12 @@ This API facilitates the retrieval of detailed information regarding the MBOM (M
 | Server | Contains information about how the server handles requests \[e.g., Werkzeug/2.1.2 Python/3.9.7\] String |
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -484,8 +436,6 @@ This API facilitates the retrieval of detailed information regarding the MBOM (M
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
 ### 
 
 ## GET - Transformation Rules Details
@@ -500,8 +450,6 @@ This API enables the retrieval of Business Rules stored in a PostgreSQL database
 | CONTENT TYPE | application / json |
 | Query Parameter | offset, limits |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_Transformation_Rules_Details_Response.txt) |
-
-
 #### Input Header
 
 
@@ -510,8 +458,6 @@ This API enables the retrieval of Business Rules stored in a PostgreSQL database
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -521,16 +467,12 @@ This API enables the retrieval of Business Rules stored in a PostgreSQL database
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -539,7 +481,6 @@ This API enables the retrieval of Business Rules stored in a PostgreSQL database
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## POST - CONVERSION API
@@ -553,8 +494,6 @@ This API allows users to submit EBOM to MBOM conversion requests between systems
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Query Parameter | source_system, target_system |
-
-
 #### Input Header
 
 
@@ -563,8 +502,6 @@ This API allows users to submit EBOM to MBOM conversion requests between systems
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -574,16 +511,12 @@ This API allows users to submit EBOM to MBOM conversion requests between systems
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -592,8 +525,6 @@ This API allows users to submit EBOM to MBOM conversion requests between systems
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \[
@@ -624,8 +555,6 @@ This API retrieves the EBOM and MBOM file details from blob storage based on the
 | CONTENT TYPE | application / json |
 | Query Parameter | conversion_id |
 | Sample JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_Converted_MBOM_Review_Details_Response.txt) |
-
-
 #### Input Header
 
 
@@ -634,8 +563,6 @@ This API retrieves the EBOM and MBOM file details from blob storage based on the
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -645,16 +572,12 @@ This API retrieves the EBOM and MBOM file details from blob storage based on the
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -663,7 +586,6 @@ This API retrieves the EBOM and MBOM file details from blob storage based on the
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## POST - APPROVE API
@@ -677,8 +599,6 @@ This API will update the BOM review status as \`approved\`.
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Query Parameters | conversion_id, source_system, status, type, entity_set_name |
-
-
 #### Input Header
 
 
@@ -687,8 +607,6 @@ This API will update the BOM review status as \`approved\`.
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -698,16 +616,12 @@ This API will update the BOM review status as \`approved\`.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -716,8 +630,6 @@ This API will update the BOM review status as \`approved\`.
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 Status updated successfully for conversion ID: CV320 with status APPROVED
@@ -735,8 +647,6 @@ This API will update the BOM review status as \`REJECTED\`
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Query Parameter | conversion_id, source_system, status, bom_id, rev_id, type, entity_set_name |
-
-
 #### Input Header
 
 
@@ -745,8 +655,6 @@ This API will update the BOM review status as \`REJECTED\`
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -756,16 +664,12 @@ This API will update the BOM review status as \`REJECTED\`
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -774,9 +678,6 @@ This API will update the BOM review status as \`REJECTED\`
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 #### Sample Response
 
 \{
@@ -801,8 +702,6 @@ This API deletes an existing Converted MBOM using the Conversion ID.
 | CONTENT TYPE | application / json |
 | Query Parameter | conversion_id, source_system, status, type, entity_set_name |
 | Sample JSON Request | Query Parameter: Subscription-key of the application (example, query engine) |
-
-
 #### Input Header
 
 
@@ -811,8 +710,6 @@ This API deletes an existing Converted MBOM using the Conversion ID.
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -822,16 +719,12 @@ This API deletes an existing Converted MBOM using the Conversion ID.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -840,8 +733,6 @@ This API deletes an existing Converted MBOM using the Conversion ID.
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 Conversion ID Deleted successfully from the database: CV369
@@ -859,8 +750,6 @@ This API facilitates the creation of MBOM in the target system.
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Query Parameter | target_system, entity_set_name, type, conversion_id |
-
-
 #### Input Header
 
 
@@ -869,8 +758,6 @@ This API facilitates the creation of MBOM in the target system.
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -880,16 +767,12 @@ This API facilitates the creation of MBOM in the target system.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -898,8 +781,6 @@ This API facilitates the creation of MBOM in the target system.
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \{
@@ -920,8 +801,6 @@ This API will fetch the list of comparison input and output folders.
 | PATH (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Input Header
 
 
@@ -930,8 +809,6 @@ This API will fetch the list of comparison input and output folders.
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -941,16 +818,12 @@ This API will fetch the list of comparison input and output folders.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -959,8 +832,6 @@ This API will fetch the list of comparison input and output folders.
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \[
@@ -984,8 +855,6 @@ This API triggers the comparison operation.
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Query Parameter | source_folder, target_folder |
-
-
 #### Input Header
 
 
@@ -994,8 +863,6 @@ This API triggers the comparison operation.
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1005,16 +872,12 @@ This API triggers the comparison operation.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1023,8 +886,6 @@ This API triggers the comparison operation.
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \{
@@ -1046,8 +907,6 @@ This API is responsible for monitoring the progress of file comparisons, includi
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | Query Parameter | Job Id |
-
-
 #### Input Header
 
 
@@ -1056,8 +915,6 @@ This API is responsible for monitoring the progress of file comparisons, includi
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1067,16 +924,12 @@ This API is responsible for monitoring the progress of file comparisons, includi
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1085,8 +938,6 @@ This API is responsible for monitoring the progress of file comparisons, includi
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \{
@@ -1120,8 +971,6 @@ The Consolidated Summary Data API provides a comprehensive comparison of BOM fil
 | METHOD | GET |
 | CONTENT TYPE | text/csv |
 | Sample Response | [Comparison_Summary_Data_API.csv](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/Comparison_Summary_Data_API.csv?d=w69033428064344e5a86eabb215251b48&amp;csf=1&amp;web=1&amp;e=na1aOE) |
-
-
 #### Input Header
 
 
@@ -1130,8 +979,6 @@ The Consolidated Summary Data API provides a comprehensive comparison of BOM fil
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1141,16 +988,12 @@ The Consolidated Summary Data API provides a comprehensive comparison of BOM fil
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1159,7 +1002,6 @@ The Consolidated Summary Data API provides a comprehensive comparison of BOM fil
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## GET - Consolidated Table Details API
@@ -1174,8 +1016,6 @@ The comparison consolidated table details API provides a detailed analysis of Co
 | CONTENT TYPE | text/csv |
 | Query Parameter | offset, limits |
 | Sample Response | [Comparison_Consolidated_Table_Details_API.csv](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/Comparison_Consolidated_Table_Details_API.csv?d=w1b2044fb5fdf41d9a1077055a92162a7&amp;csf=1&amp;web=1&amp;e=deQjwj) |
-
-
 #### Input Header
 
 
@@ -1184,8 +1024,6 @@ The comparison consolidated table details API provides a detailed analysis of Co
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1195,16 +1033,12 @@ The comparison consolidated table details API provides a detailed analysis of Co
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1213,8 +1047,6 @@ The comparison consolidated table details API provides a detailed analysis of Co
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
 ### 
 
 ## GET - Item Level Summary Data API
@@ -1229,8 +1061,6 @@ The API provides a detailed comparison of BOM files, highlighting match and mism
 | CONTENT TYPE | text/csv |
 | Query Parameter | bom-id |
 | Sample Response | [Item_Level_Comparison_Summary_Details_API.csv](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/Item_Level_Comparison_Summary_Details_API.csv?d=w54b4af88d569441182f72d834f9b4969&amp;csf=1&amp;web=1&amp;e=3UBbpl) |
-
-
 #### Input Header
 
 
@@ -1239,8 +1069,6 @@ The API provides a detailed comparison of BOM files, highlighting match and mism
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1250,16 +1078,12 @@ The API provides a detailed comparison of BOM files, highlighting match and mism
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1268,7 +1092,6 @@ The API provides a detailed comparison of BOM files, highlighting match and mism
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## GET - Item Level Table Details API
@@ -1283,8 +1106,6 @@ The Item Level Comparison Table Details API provides a detailed comparison of in
 | CONTENT TYPE | text/csv |
 | Query Parameter | Bom-id, offset, limits |
 | Sample JSON Response | [Item_Level_Comparison_Table_Details_API.csv](https://ts.accenture.com/:x:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/Item_Level_Comparison_Table_Details_API.csv?d=wa976da7eb26f4f7d975bc2040c4a5c6f&amp;csf=1&amp;web=1&amp;e=awKOEq) |
-
-
 #### Input Header
 
 
@@ -1293,8 +1114,6 @@ The Item Level Comparison Table Details API provides a detailed comparison of in
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1304,8 +1123,6 @@ The Item Level Comparison Table Details API provides a detailed comparison of in
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
@@ -1316,7 +1133,6 @@ The Item Level Comparison Table Details API provides a detailed comparison of in
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## POST - Upload Rule API
@@ -1330,8 +1146,6 @@ By utilizing the upload rule API, users can submit a JSON file containing rule d
 | METHOD | POST |
 | CONTENT TYPE | multipart/form-data |
 | Sample input json file | [rule-template.json](https://ts.accenture.com/sites/GlobalDocTemplates/_layouts/15/download.aspx?UniqueId=bed7cab6eaaa42c382dc7d91c0554ce0&amp;e=AxRFVh) |
-
-
 #### Input Header
 
 
@@ -1340,8 +1154,6 @@ By utilizing the upload rule API, users can submit a JSON file containing rule d
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1351,16 +1163,12 @@ By utilizing the upload rule API, users can submit a JSON file containing rule d
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1369,8 +1177,6 @@ By utilizing the upload rule API, users can submit a JSON file containing rule d
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response 
 
 \{
@@ -1392,9 +1198,6 @@ By utilizing the add rule API, users can submit a JSON payload containing rule d
 | METHOD | POST |
 | CONTENT TYPE | application/json |
 | Sample Payload | \[ \{ \"ruleType\": \"Re-structuring\", \"ruleName\": \"SAP RULE\", \"ruleDescription\": \"SAP RULE\", \"ruleVersion\": \"V0.1\", \"active\": true \} \] |
-
-
-
 #### Input Header
 
 
@@ -1403,8 +1206,6 @@ By utilizing the add rule API, users can submit a JSON payload containing rule d
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1414,16 +1215,12 @@ By utilizing the add rule API, users can submit a JSON payload containing rule d
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1432,9 +1229,6 @@ By utilizing the add rule API, users can submit a JSON payload containing rule d
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 #### Sample Response 
 
 Rule saved successfully with ID: R232
@@ -1452,8 +1246,6 @@ The Fetch Rules API can be used to retrieve a list of rules with limit and offse
 | METHOD | GET |
 | CONTENT TYPE | application/json |
 | Query Parameter | offset, limits, keywords(optional) |
-
-
 #### Input Header
 
 
@@ -1462,8 +1254,6 @@ The Fetch Rules API can be used to retrieve a list of rules with limit and offse
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1473,16 +1263,12 @@ The Fetch Rules API can be used to retrieve a list of rules with limit and offse
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1491,9 +1277,6 @@ The Fetch Rules API can be used to retrieve a list of rules with limit and offse
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 #### Sample JSON Response
 
 \{
@@ -1544,8 +1327,6 @@ Update Rule API allows users to utilize a JSON payload containing rule details. 
 | PATH (Public Exposure) |  |
 | METHOD | PUT |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -1554,8 +1335,6 @@ Update Rule API allows users to utilize a JSON payload containing rule details. 
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1565,16 +1344,12 @@ Update Rule API allows users to utilize a JSON payload containing rule details. 
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1583,8 +1358,6 @@ Update Rule API allows users to utilize a JSON payload containing rule details. 
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Payload
 
 \{
@@ -1622,8 +1395,6 @@ Delete Rule API allows users to delete the rule by specifying the rule id.
 | METHOD | DELETE |
 | CONTENT TYPE | application/json |
 | Query Parameter | rule_id |
-
-
 #### Input Header
 
 
@@ -1632,8 +1403,6 @@ Delete Rule API allows users to delete the rule by specifying the rule id.
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1643,16 +1412,12 @@ Delete Rule API allows users to delete the rule by specifying the rule id.
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1661,8 +1426,6 @@ Delete Rule API allows users to delete the rule by specifying the rule id.
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 Rule deleted successfully with ID: R232
@@ -1678,8 +1441,6 @@ This API is used to upload a new MBOM template file. The request body typically 
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Request Body | [mbom_template_input.json](https://ts.accenture.com/sites/GlobalDocTemplates/_layouts/15/download.aspx?UniqueId=c7d7da867030410b9407a28e0531eb28&amp;e=9uH63h) |
-
-
 #### Input Header
 
 
@@ -1688,8 +1449,6 @@ This API is used to upload a new MBOM template file. The request body typically 
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1699,16 +1458,12 @@ This API is used to upload a new MBOM template file. The request body typically 
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1717,9 +1472,6 @@ This API is used to upload a new MBOM template file. The request body typically 
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 #### Sample Response
 
 \{
@@ -1741,8 +1493,6 @@ By utilizing this API, users can submit a JSON payload containing MBOM Template 
 | METHOD | POST |
 | CONTENT TYPE | application/json |
 | Sample Payload | [ADD_Template_API_Payload.txt](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/ADD_Template_API_Payload.txt) |
-
-
 #### Input Header
 
 
@@ -1751,8 +1501,6 @@ By utilizing this API, users can submit a JSON payload containing MBOM Template 
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1762,16 +1510,12 @@ By utilizing this API, users can submit a JSON payload containing MBOM Template 
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1780,8 +1524,6 @@ By utilizing this API, users can submit a JSON payload containing MBOM Template 
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 Template saved successfully with ID: T232
@@ -1800,8 +1542,6 @@ This API fetches MBOM (Manufacturing Bill of Materials) templates from a Postgre
 | CONTENT TYPE | application/json |
 | Query Parameter | offset, limits, keywords(optional) |
 | Sample JSON Response | [Link](https://ts.accenture.com/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_MBOM_Template_Response.txt?CID=4377af3d-700e-42d9-ad16-bbb244dcc849) |
-
-
 #### Input Header
 
 
@@ -1810,8 +1550,6 @@ This API fetches MBOM (Manufacturing Bill of Materials) templates from a Postgre
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1821,16 +1559,12 @@ This API fetches MBOM (Manufacturing Bill of Materials) templates from a Postgre
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1839,7 +1573,6 @@ This API fetches MBOM (Manufacturing Bill of Materials) templates from a Postgre
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## PUT - Update Template API
@@ -1857,8 +1590,6 @@ Update Template API allows users to utilize a JSON payload containing template d
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1868,16 +1599,12 @@ Update Template API allows users to utilize a JSON payload containing template d
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1886,8 +1613,6 @@ Update Template API allows users to utilize a JSON payload containing template d
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 Template updated successfully: T103
@@ -1905,8 +1630,6 @@ Delete Template API allows users to delete the template by specifying the templa
 | METHOD | DELETE |
 | CONTENT TYPE | application/json |
 | Query Parameter | template_id |
-
-
 #### Input Header 
 
 
@@ -1915,8 +1638,6 @@ Delete Template API allows users to delete the template by specifying the templa
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1926,16 +1647,12 @@ Delete Template API allows users to delete the template by specifying the templa
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -1944,8 +1661,6 @@ Delete Template API allows users to delete the template by specifying the templa
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 Template deleted successfully with ID: T013
@@ -1962,8 +1677,6 @@ This API retrieves the list of available folder names used in the Data Quality B
 | PATH (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -1972,8 +1685,6 @@ This API retrieves the list of available folder names used in the Data Quality B
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -1983,16 +1694,12 @@ This API retrieves the list of available folder names used in the Data Quality B
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -2001,8 +1708,6 @@ This API retrieves the list of available folder names used in the Data Quality B
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \[\"BomBatchDataQuality/Input/Prod_BB_Bom_S2\", \"BomBatchDataQuality/Input/Prod_BB_Bom_S3\", \"BomBatchDataQuality/Input/BQ_QA_Sample_V2_test\", \"BomBatchDataQuality/Input/BQ_Test_Sample_50\", \"BomBatchDataQuality/Input/Prod_BB_Bom_S1\", \"BomBatchDataQuality/Input/BQ_Sample_New10\", \"BomBatchDataQuality/Input/All_BB_PROD_4K\", \"BomBatchDataQuality/Input/Batch_DQ_Engine_Demo\", \"BomBatchDataQuality/Input/BQ_Test_Sample_100\", \"BomBatchDataQuality/Input/BQ_Sample_10\", \"BomBatchDataQuality/Input/BQ_QA_Sample_299\", \"BomBatchDataQuality/Input/BQ_Test_Sample_300\", \"BomBatchDataQuality/Input/BB_PROD_4K_Aug15\", \"BomBatchDataQuality/Input/testfolder_forlimitcheck\", \"BomBatchDataQuality/Input/All_BB_PROD_Big_B3\", \"BomBatchDataQuality/Input/BQ_Test_Sample_5500\", \"BomBatchDataQuality/Input/All_BB_PROD_4K_B2\"\]
@@ -2019,8 +1724,6 @@ This API triggers the BOM Batch Data Quality process for a specified folder with
 | PATH (Public Exposure) |  |
 | METHOD | POST |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -2029,8 +1732,6 @@ This API triggers the BOM Batch Data Quality process for a specified folder with
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -2040,16 +1741,12 @@ This API triggers the BOM Batch Data Quality process for a specified folder with
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -2058,8 +1755,6 @@ This API triggers the BOM Batch Data Quality process for a specified folder with
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \{
@@ -2080,8 +1775,6 @@ This API retrieves the current status of a BOM Batch Data Quality job. It provid
 | PATH (Public Exposure) | [link](https://ixts-dev-apim.azure-api.net/bom-management-api/v1/bom/data/quality/batch-process/\{job-id\}) |
 | METHOD | GET |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -2090,8 +1783,6 @@ This API retrieves the current status of a BOM Batch Data Quality job. It provid
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -2101,16 +1792,12 @@ This API retrieves the current status of a BOM Batch Data Quality job. It provid
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -2119,8 +1806,6 @@ This API retrieves the current status of a BOM Batch Data Quality job. It provid
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \{
@@ -2164,16 +1849,12 @@ This API fetches consolidated BOM summary details related to the Data Quality Ba
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -2182,8 +1863,6 @@ This API fetches consolidated BOM summary details related to the Data Quality Ba
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \"Consolidated TC BOM BatchQuality Summary Report\"
@@ -2243,8 +1922,6 @@ This API retrieves detailed records of the Data Quality Batch Process in a conso
 | METHOD | GET |
 | CONTENT TYPE | application/json |
 | Sample JSON Response | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/BOM%20Management%20UI%20API%20Reference/GET_Fetch_Consolidated_Data_Quality_Batch_Process_Details_Sample_Response.txt) |
-
-
 #### Input Header
 
 
@@ -2253,8 +1930,6 @@ This API retrieves detailed records of the Data Quality Batch Process in a conso
 | Authorization | Token acquired from Azure B2C based on the user credentials for further API calls. M String |
 | Content-Type | Length of content. M String |
 | Ocp-Apim-Subscription-Key | Subscription-key of the application M String \*Mandatory / Optional |
-
-
 #### Output Header
 
 
@@ -2264,16 +1939,12 @@ This API retrieves detailed records of the Data Quality Batch Process in a conso
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -2282,7 +1953,6 @@ This API retrieves detailed records of the Data Quality Batch Process in a conso
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## GET - BOM Data Quality Batch Process Summary for Particular BOM ID
@@ -2295,8 +1965,6 @@ This API retrieves summary details of the Data Quality Batch Process for a speci
 | PATH (Public Exposure) | &gt; [link](https://ixts-dev-apim.azure-api.net/bom-management-api/v1/bom/data/quality/batch-process/\{bom-id\}/summary/\{date\}/\{job-id\}) |
 | METHOD | &gt; GET |
 | CONTENT TYPE | &gt; application/json |
-
-
 **Input Header**
 
 
@@ -2313,8 +1981,6 @@ This API retrieves summary details of the Data Quality Batch Process for a speci
 | HTTP Code | Result Description |
 | 200 | successful operation **Error Management** | HTTP Code | Error Code | Error Description |  | --- | --- | --- |  | 500 | 500 | Internal Server Error |  | 400 | 401 | Unauthorized User |  |
 |  |  |  |  | Header Token could be missing |  | 400 | 400 | Bad request |  |
-
-
 #### Sample JSON Response
 
 \[\"Summary Report of BOM ID:\", \"1219-948-01\"\],
@@ -2357,9 +2023,6 @@ This API retrieves both summary and detailed reports of the Data Quality Batch P
 | PATH (Public Exposure) | &gt; [link](https://ixts-dev-apim.azure-api.net/bom-management-api/v1/bom/\{bom-id\}/data/quality/batch-process/\{date\}/\{job-id\}) |
 | METHOD | &gt; GET |
 | CONTENT TYPE | &gt; application/json |
-
-
-
 #### Input Header
 
 
@@ -2379,8 +2042,6 @@ This API retrieves both summary and detailed reports of the Data Quality Batch P
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 \[\"S.No\", \"Root Parent ID\", \"Root Parent Release Status\", \"Immediate Parent ID\", \"Immediate Parent Status\", \"Child ID\", \"Child Release Status\", \"Child Revision\", \"Child Item Type\", \"Is Allowed Status?\", \"Allowed Child Statuses\", \"Remarks\", \"Item Hierarchy\"\],
@@ -2392,9 +2053,6 @@ This API retrieves both summary and detailed reports of the Data Quality Batch P
 | PATH (Public Exposure) | &gt; |
 | METHOD | &gt; GET |
 | CONTENT TYPE | &gt; application/json |
-
-
-
 #### Input Header
 
 
@@ -2414,8 +2072,6 @@ This API retrieves both summary and detailed reports of the Data Quality Batch P
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response:
 
 \[
@@ -2448,9 +2104,6 @@ This API allows users to create a new folder for the Data Quality Batch Process 
 | PATH (Public Exposure) | &gt; |
 | METHOD | &gt; POST |
 | CONTENT TYPE | &gt; application/json |
-
-
-
 #### Input Header
 
 
@@ -2470,8 +2123,6 @@ This API allows users to create a new folder for the Data Quality Batch Process 
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response:
 
 \{
@@ -2500,8 +2151,6 @@ This API provides a list of folder names currently available for use in the BOM 
 | PATH (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -2521,8 +2170,6 @@ This API provides a list of folder names currently available for use in the BOM 
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response:
 
 \[
@@ -2559,8 +2206,6 @@ This API allows users to create a new folder for the BOM Comparison Process and 
 | PATH (Public Exposure) |  |
 | METHOD | POST |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -2579,8 +2224,6 @@ This API allows users to create a new folder for the BOM Comparison Process and 
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample response:
 
 \{
@@ -2609,8 +2252,6 @@ This API retrieves the list of available projects displayed on the Digital Threa
 | PATH (Public Exposure) |  |
 | METHOD | GET |
 | CONTENT TYPE | application/json |
-
-
 #### Input Header
 
 
@@ -2629,8 +2270,6 @@ This API retrieves the list of available projects displayed on the Digital Threa
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample response:
 
 \[
@@ -2678,8 +2317,6 @@ This API allows users to create a new project within the BOM Management system b
 | HTTP Code | Result Description |
 | 200 | successful operation **Error Management** | HTTP Code | Error Code | Error Description |  | --- | --- | --- |  | 500 | 500 | Internal Server Error |  | 400 | 401 | Unauthorized User |  |
 |  |  |  |  | Header Token could be missing |  | 400 | 400 | Bad request |  |
-
-
 #### Sample response:
 
 \{
@@ -2740,8 +2377,6 @@ This API allows users to update the details of an existing project in the Digita
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample Response:
 
 \{
@@ -2788,16 +2423,12 @@ This API allows users to delete an existing project from the Digital Thread syst
 | Server | Contains information about how the server handles requests \[e.g., Werkzeug/2.1.2 Python/3.9.7\] String |
 | Content-Type | Length of the content String |
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -2806,9 +2437,6 @@ This API allows users to delete an existing project from the Digital Thread syst
 | 500 | 500 | Internal Server Error |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-
-
-
 #### Sample response
 
 \{\"success\":true,\"message\":\"Id has been successfully deleted\",\"projectId\":123\}
@@ -2839,8 +2467,6 @@ This API retrieves the list of all available systems integrated within the Digit
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample response
 
 \[
@@ -2891,8 +2517,6 @@ The Teamcenter Health API is designed to monitor and validate the operational st
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### *Sample response*
 
 \{
@@ -2943,8 +2567,6 @@ The SAP Health Status API monitors and validates the connectivity, responsivenes
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample response
 
 \{
@@ -2995,8 +2617,6 @@ The SAP S/4 Hana Health Status API monitors and validates the connectivity, resp
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample response:
 
 \{
@@ -3047,8 +2667,6 @@ This API allows users to update the integration status of a specific project wit
 | 500 | 500 Internal Server Error |
 | 400 | 401 Unauthorized User or Header Token could be missing |
 | 400 | 400 Bad request |
-
-
 #### Sample response
 
 \[\

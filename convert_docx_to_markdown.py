@@ -434,7 +434,9 @@ def linkify_video_placeholder_images(content, image_links=None, link_below_image
 
 def merge_pipe_table_continuation_rows(content):
     """Merge pipe-table lines that are continuations of the previous row (e.g. first cell empty)
-    so that line breaks inside a cell do not split the row. Output keeps each logical row on one line.
+    so that line breaks inside a cell do not split the row. Also merges following non-pipe lines
+    that are image continuations (e.g. ![alt](path split across lines) or image-only lines into
+    the last cell. Removes pipe table rows that have all empty cells. Output keeps each logical row on one line.
     """
     lines = content.split("\n")
     result = []
@@ -444,35 +446,92 @@ def merge_pipe_table_continuation_rows(content):
     while i < len(lines):
         line = lines[i]
         stripped = line.strip()
-        # Detect pipe table row (starts and ends with |)
+        # Skip pipe table rows that have all empty cells (Pandoc sometimes emits these after cells with images)
+        if stripped.startswith("|") and stripped.endswith("|") and not table_sep.match(stripped):
+            cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            if cells and all(c == "" for c in cells):
+                i += 1
+                continue
+        # Detect pipe table data row (starts and ends with |, not separator)
         if stripped.startswith("|") and stripped.endswith("|") and not table_sep.match(stripped):
             cells = [c.strip() for c in stripped.split("|")[1:-1]]
             num_cols = len(cells)
-            # Look ahead: merge following lines that look like continuation (same col count, first cell empty)
             j = i + 1
             while j < len(lines):
                 next_stripped = lines[j].strip()
+                # Next line is not a pipe row: check if it's image continuation to merge into last cell
                 if not next_stripped.startswith("|") or not next_stripped.endswith("|"):
+                    if not next_stripped:
+                        j += 1
+                        continue
+                    # Merge image continuation into last cell (image on its own line or path split)
+                    if num_cols > 0 and (
+                        next_stripped.startswith("![") or
+                        next_stripped.startswith("(./media/") or
+                        next_stripped.startswith("(media/") or
+                        next_stripped.startswith("./media/") or
+                        next_stripped.startswith("media/") or
+                        (next_stripped.startswith(")") and "media" in cells[-1])
+                    ):
+                        cells[-1] = (cells[-1] + " " + next_stripped).strip()
+                        j += 1
+                        continue
                     break
                 if table_sep.match(next_stripped):
                     break
                 next_cells = [c.strip() for c in next_stripped.split("|")[1:-1]]
                 if len(next_cells) != num_cols:
                     break
-                # First cell empty (or all but last empty) => continuation of previous row
+                # All cells empty => skip this row (empty row after image cell)
+                if all(c == "" for c in next_cells):
+                    j += 1
+                    continue
+                # First cell empty => continuation of previous row
                 first_has_content = bool(next_cells[0]) if next_cells else False
                 if not first_has_content and num_cols > 0:
-                    # Append continuation to last cell of current row (as one line, use space)
                     last_cell_continuation = " ".join(next_cells[-1].split()) if next_cells else ""
                     if last_cell_continuation:
                         cells[-1] = (cells[-1] + " " + last_cell_continuation).strip()
                     j += 1
                     continue
                 break
-            # Emit single row
             result.append("| " + " | ".join(cells) + " |")
             i = j
             continue
+        result.append(line)
+        i += 1
+
+    return "\n".join(result)
+
+
+def fix_split_headings(content):
+    """Merge heading level and text that Pandoc/Word split across two lines (e.g. '##' on one line,
+    '# Prepare...' on the next) into a single ATX heading. Uses the first line's level.
+    """
+    lines = content.split("\n")
+    result = []
+    i = 0
+    # Line that is only hashes (and optional whitespace), no heading text
+    heading_level_only = re.compile(r"^(\s*)(#{1,6})\s*$")
+    # Line that is a full ATX heading (#+ text)
+    atx_heading = re.compile(r"^\s*#{1,6}\s+(.+)$")
+
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+        m = heading_level_only.match(line)
+        if m and i + 1 < len(lines):
+            indent, hashes = m.group(1), m.group(2)
+            next_line = lines[i + 1]
+            next_stripped = next_line.strip()
+            # Next line non-empty: treat as the heading text (possibly with its own # prefix)
+            if next_stripped:
+                text = next_stripped
+                if atx_heading.match(next_stripped):
+                    text = re.sub(r"^\s*#{1,6}\s+", "", next_stripped).strip()
+                result.append(indent + hashes + " " + text)
+                i += 2
+                continue
         result.append(line)
         i += 1
 
@@ -852,8 +911,11 @@ def clean_markdown_content(content, verbose=True, image_links=None):
         print("  Formatting doc title block (18pt / 24pt / 18pt)...")
     content = format_doc_title_block(content)
     if verbose:
-        print("  Merging pipe table continuation rows...")
+        print("  Merging pipe table continuation rows (and image continuations, removing empty rows)...")
     content = merge_pipe_table_continuation_rows(content)
+    if verbose:
+        print("  Fixing split headings (## on one line, text on next)...")
+    content = fix_split_headings(content)
     if verbose:
         print("  Wrapping metadata table for AI-only visibility...")
     content = wrap_metadata_for_agents(content)
@@ -870,6 +932,9 @@ def clean_markdown_content(content, verbose=True, image_links=None):
     if verbose:
         print("  Ensuring blank line after each image...")
     content = ensure_blank_after_images(content)
+    if verbose:
+        print("  Ensuring blank line before numbered list items...")
+    content = ensure_blank_before_numbered_list(content)
     return content
 
 
@@ -886,6 +951,24 @@ def ensure_blank_after_images(content):
             if next_line != "" and result and result[-1].strip() != "":
                 # Next line has content; ensure a blank after this image
                 result.append("")
+    return "\n".join(result)
+
+
+def ensure_blank_before_numbered_list(content):
+    """Ensure at least one blank line before any numbered list item (e.g. '1. ' or '2. ') so the number
+    is always the first character on its line and list items are not merged with images or prior text.
+    """
+    lines = content.split("\n")
+    result = []
+    # Numbered list: optional indent, digits, period, one or more spaces, then content
+    numbered_list = re.compile(r"^\s*\d+\.\s+\S")
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if numbered_list.match(line) and result:
+            prev = result[-1].strip()
+            if prev != "":
+                result.append("")
+        result.append(line)
     return "\n".join(result)
 
 
@@ -1228,6 +1311,22 @@ def main():
         help="Ensure blank line before headings that follow table rows/separators in existing .md (default: MD); no conversion",
     )
     parser.add_argument(
+        "--fix-split-headings",
+        metavar="DIR",
+        nargs="?",
+        const="MD",
+        default=None,
+        help="Merge split headings (e.g. '##' on one line, '# Text' on next) and fix table empty rows/image continuations in existing .md (default: MD)",
+    )
+    parser.add_argument(
+        "--fix-numbered-list-blanks",
+        metavar="DIR",
+        nargs="?",
+        const="MD",
+        default=None,
+        help="Ensure blank line before every numbered list item (1. 2.) in existing .md so numbers are always first on a line (default: MD)",
+    )
+    parser.add_argument(
         "--convert-dash-tables",
         metavar="DIR",
         nargs="?",
@@ -1528,6 +1627,51 @@ def main():
                     print(f"  Fixed: {path}")
                     fixed += 1
         print(f"Fixed table/heading spacing in {fixed} file(s) under {md_root}")
+        return 0
+
+    if args.fix_split_headings is not None:
+        md_root = os.path.expanduser(args.fix_split_headings)
+        if not os.path.isdir(md_root):
+            print(f"Error: Directory not found: {md_root}")
+            return 1
+        fixed = 0
+        for root, _dirs, files in os.walk(md_root):
+            for f in files:
+                if not f.endswith(".md") or f.startswith("."):
+                    continue
+                path = os.path.join(root, f)
+                with open(path, "r", encoding="utf-8") as fp:
+                    content = fp.read()
+                new_content = merge_pipe_table_continuation_rows(content)
+                new_content = fix_split_headings(new_content)
+                if new_content != content:
+                    with open(path, "w", encoding="utf-8") as fp:
+                        fp.write(new_content)
+                    print(f"  Fixed: {path}")
+                    fixed += 1
+        print(f"Fixed split headings and table rows in {fixed} file(s) under {md_root}")
+        return 0
+
+    if args.fix_numbered_list_blanks is not None:
+        md_root = os.path.expanduser(args.fix_numbered_list_blanks)
+        if not os.path.isdir(md_root):
+            print(f"Error: Directory not found: {md_root}")
+            return 1
+        fixed = 0
+        for root, _dirs, files in os.walk(md_root):
+            for f in files:
+                if not f.endswith(".md") or f.startswith("."):
+                    continue
+                path = os.path.join(root, f)
+                with open(path, "r", encoding="utf-8") as fp:
+                    content = fp.read()
+                new_content = ensure_blank_before_numbered_list(content)
+                if new_content != content:
+                    with open(path, "w", encoding="utf-8") as fp:
+                        fp.write(new_content)
+                    print(f"  Fixed: {path}")
+                    fixed += 1
+        print(f"Ensured blank before numbered list items in {fixed} file(s) under {md_root}")
         return 0
 
     if args.wrap_metadata_only is not None:

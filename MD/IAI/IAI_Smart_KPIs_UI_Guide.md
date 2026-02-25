@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs API Reference, Smart KPIs Admin Guide |
-
 </div>
 
 ## Introduction
@@ -103,8 +102,6 @@ The factors involved in calculating KPIs are listed below.
 | Contributing KPIs | KPIs that influence or contribute to the calculation of a parent KPI. |
 | RAG Logic | Visual representation of Actual data against Target using Red-Amber-Green status in KPI tiles. |
 | Intelligent Advisor | AI-powered assistant in Azure deployments, enabling interaction with operational data using natural language for insights and root-cause analysis. |
-
-
 ## Dashboard
 
 The Smart KPIs Dashboard is the landing page of the application and includes:

@@ -65,8 +65,6 @@ This document describes the prerequisites, and overall flow for setting up and c
 | 10 | Admin assigns one or more additional users to the role as needed. [LINK](https://ts.accenture.com/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_People_Management_UI_Guide_2_4.pdf) |
 | 11 | Delivery team hands off to client. |
 | 12 | Client Business User signs into IAI to view KPIs and insights data. [LINK](https://ts.accenture.com/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_People_Management_UI_Guide_2_4.pdf) |
-
-
 ## 
 
 # People Management Resources
@@ -81,4 +79,3 @@ This document describes the prerequisites, and overall flow for setting up and c
 | [IAI People Management API Reference](https://ts.accenture.com/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_People_Management_API_Reference_2_4.pdf) | &gt; This reference document includes information about paths, inputs, outputs, and error management for APIs related to IAI People management configuration. Additionally, the document includes APIs used for configuration along with those that provide middleware functionality. | People Management Configuration APIs -- 4 |  |
 | [IAI People Management Integration with SmartKPIs](https://ts.accenture.com/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_People_Management_Integration_with_SmartKPIs_2_4.pdf) | &gt; This guide explains how to integrate the people management (PM) component with IAI Smart KPIs by adding roles to the metadata for assets and time series. It should be used along with the API reference document that includes information about paths, inputs, outputs, and error management for APIs related to IAI Smart KPIs. | Authentication Token - 3 | Adding Roles to Assets - 16 |
 | [IAI Azure People Management Integration with Smart KPIs](https://ts.accenture.com/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Azure_People_Management_Integration_with_SmartKPIs_2_4.pdf) |  | Permission Types - 3 | Adding Roles to Timeseries - 17 Result - 18 |
-

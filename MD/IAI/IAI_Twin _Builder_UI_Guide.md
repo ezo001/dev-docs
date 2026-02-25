@@ -95,8 +95,6 @@ This document explains the features of both the 2D and 3D Twin Builder user inte
 | POI Editor | Point of Interest Editor; a tool for marking and managing specific locations or objects in the 3D environment. |
 | Mapper | A feature that allows users to visualize and link spatial data within the Twin Builder UI. |
 | Overview Page | The main dashboard or landing page in the IAI application, providing access to key features and tools. |
-
-
 ## 3D Twin Builder
 
 ### Launching the UI
@@ -122,9 +120,6 @@ The following table summarizes the main features of the Twin Builder UI, which a
 | - Model Catalog Page | - Asset List | - Model Mapping | - Create new layout |
 | - Model Viewer | - Add POI | - POI Mapping | - Load and modify the existing layout |
 | - Delete Model | - Remove POI |  | - Save the layout |
-
-
-
 ### Model Tab
 
 IAI Twin Builder can process GLB, GLTF, OBJ, and FBX 3D model file formats stored in the Azure Blob-like storage. Models can be a single mesh file or multi-mesh 3D file consolidated together.
@@ -315,6 +310,7 @@ The 2D Twin Builder can be launched from the IAI application in two ways.
     -   Click 2D Twin on the left side of the screen.
 
 > ![2D Twin option in side menu](./media/IAI_Twin%20_Builder_UI_Guide/image15.png)
+
 3.  **Overview page**:
 
     -   Access the overview page from the side menu panel.

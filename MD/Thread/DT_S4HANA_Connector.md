@@ -211,7 +211,6 @@ When a certain operation encounters an error, the same structure should be retur
 | errorManagement | Object identifying the error O\* Object |
 | errorCode | Code that identifies the error occurred O\* String |
 | errorDescription | Error description O\* String Example: error response message: &gt; \{ &gt; &gt; \"errorManagement\": \{ &gt; &gt; \"errorCode\": \"CMPNT_02.100004\", &gt; &gt; \"errorDescription\": \"db connection error\" &gt; &gt; \} &gt; &gt; \} |
-
 ## 
 
 # Connector Usage 
@@ -250,8 +249,6 @@ The S4HANA Connector offers a suite of APIs designed to streamline interactions 
 | UPDATE Data | This API is used to update details. |
 | DELETE Data | This endpoint deletes the data. |
 | BOM Fetch | This API is used to fetch BOM data from SAP ERP system. |
-
-
 ### API Prerequisites
 
 According to the environment, users will have to acquire proper access to generate a JWT token to be used for authentication. Additionally, users will require a product subscription key of the product created in Azure application management services for the SAP connector application and will have to pass a transaction-id. All this information needs to be passed on the request headers for authentication. The user can append specific endpoints after the base URL and utilize the API accordingly.
@@ -269,8 +266,6 @@ This API is used for fetching the data present in SAP and can also filter the re
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -278,8 +273,6 @@ This API is used for fetching the data present in SAP and can also filter the re
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
-
-
 #### Pagination Parameters
 
 
@@ -289,16 +282,12 @@ This API is used for fetching the data present in SAP and can also filter the re
 | limits | Page size, the maximum value is 50 (greater than 0). |
 | filter | Is used to fetch materials based on given criteria or conditions |
 | attributes | Is used to fetch particular attributes in the response |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data details fetched successfully |
-
-
 #### Error Management
 
 
@@ -309,8 +298,6 @@ This API is used for fetching the data present in SAP and can also filter the re
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 > \{
@@ -362,8 +349,6 @@ This API retrieves details about the sprints associated with a specific board. S
 | QA ENDPOINT | [https://ixts-qa-apim.azure-api.net/s4hana-api/v1/create] |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -371,16 +356,12 @@ This API retrieves details about the sprints associated with a specific board. S
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data details fetched successfully |
-
-
 #### Error Management
 
 
@@ -391,8 +372,6 @@ This API retrieves details about the sprints associated with a specific board. S
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Request and Response
 
 [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Create_Data_Request_Response.txt)
@@ -410,8 +389,6 @@ This API retrieves details about a board using the /board endpoint.
 | QA ENDPOINT |  |
 | METHOD | PUT |
 | CONTENT TYPE | application / json |
-
-
 #### Pagination Parameters
 
 
@@ -419,16 +396,12 @@ This API retrieves details about a board using the /board endpoint.
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data details fetched successfully |
-
-
 #### Error Management
 
 
@@ -439,7 +412,6 @@ This API retrieves details about a board using the /board endpoint.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 #### 
 
 ### Sample Request Body
@@ -545,8 +517,6 @@ This API is used to indicate deletion of data. There is no hard-delete option in
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -555,16 +525,12 @@ This API is used to indicate deletion of data. There is no hard-delete option in
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
 | Material Id | Specifies the material Unique Identification |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data details fetched successfully |
-
-
 #### Error Management
 
 
@@ -575,8 +541,6 @@ This API is used to indicate deletion of data. There is no hard-delete option in
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 \{
@@ -601,8 +565,6 @@ This API is used to fetch BOM data from the SAP ERP system. The user provides a 
 | QA ENDPOINT |  |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Path Parameters
 
 
@@ -610,24 +572,18 @@ This API is used to fetch BOM data from the SAP ERP system. The user provides a 
 | --- | --- |
 | type | Unique identifier and specifies the type of data to retrieve |
 | entitySetName | Specifies the name of the entity set to query |
-
-
 #### Pagination Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | filter | Is used to fetch materials based on given criteria or conditions |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Data details fetched successfully |
-
-
 #### Error Managment
 
 
@@ -638,8 +594,6 @@ This API is used to fetch BOM data from the SAP ERP system. The user provides a 
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Sample Response
 
 200 Ok Success Response

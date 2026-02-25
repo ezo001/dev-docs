@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -163,8 +162,6 @@ The method for all the Data Product APIs is GET. These APIs are described in det
 | SCM Platform | logisticData |
 | External Market Data | priceData |
 | Compliance Management | regulatory Each of the APIs listed above is described on the pages that follow. |
-
-
 ### LIMS
 
 #### Lab tests
@@ -178,8 +175,6 @@ This API is used to get Laboratory test-related data such as testID, test Name, 
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/LIMS/DT_Data_Product_Lab_Test_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -187,8 +182,6 @@ This API is used to get Laboratory test-related data such as testID, test Name, 
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | Authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -199,8 +192,6 @@ This API is used to get Laboratory test-related data such as testID, test Name, 
 | offset | pagination. offset start at 1 O 2 Integer |
 | filter | filtering condition for example \{name:\"seema\",id:100\} O 255 String |
 | order_by | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -211,17 +202,12 @@ This API is used to get Laboratory test-related data such as testID, test Name, 
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -231,7 +217,6 @@ This API is used to get Laboratory test-related data such as testID, test Name, 
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Lab samples
@@ -245,8 +230,6 @@ This API is used to collect sample data for laboratory such as sampletype, sampl
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [LINK](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/LIMS/DT_Data_Product_Lab_Sample_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -254,8 +237,6 @@ This API is used to collect sample data for laboratory such as sampletype, sampl
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -266,8 +247,6 @@ This API is used to collect sample data for laboratory such as sampletype, sampl
 | offset | pagination. offset start at 1 O 2 Integer |
 | filter | filtering condition for example \{name:\"seema\",id:100\} O 255 String |
 | order_by | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -278,16 +257,12 @@ This API is used to collect sample data for laboratory such as sampletype, sampl
 | modifiedby | User that modified the record M String |
 | modifiedtimestamp | Time of modification M String |
 | lastQueryRun | Time the query was last run M String |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -297,7 +272,6 @@ This API is used to collect sample data for laboratory such as sampletype, sampl
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Lab test results
@@ -311,8 +285,6 @@ The labtestresults API is used to get detailed outcomes from laboratory tests su
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/LIMS/DT_Data_Product_Lab_Test_Result_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -320,8 +292,6 @@ The labtestresults API is used to get detailed outcomes from laboratory tests su
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -332,8 +302,6 @@ The labtestresults API is used to get detailed outcomes from laboratory tests su
 | offset | pagination. offset start at 1 O 2 Integer |
 | filter | filtering condition for example \{name:\"seema\",id:100\} O 255 String |
 | order_by | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -344,17 +312,12 @@ The labtestresults API is used to get detailed outcomes from laboratory tests su
 | modifiedby | User that modified the record | M | String |
 | modifiedtimestamp | Time of modification | M | String |
 | lastQueryRun | Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -364,7 +327,6 @@ The labtestresults API is used to get detailed outcomes from laboratory tests su
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Lab test analyses
@@ -378,8 +340,6 @@ The labtestanalyses API is used for evaluation and interpretation of laboratory 
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/LIMS/DT_Data_Product_Lab_Test_Analysis_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -387,8 +347,6 @@ The labtestanalyses API is used for evaluation and interpretation of laboratory 
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -399,8 +357,6 @@ The labtestanalyses API is used for evaluation and interpretation of laboratory 
 | offset | pagination. offset start at 1 O 2 Integer |
 | filter | filtering condition for example \{name:\"seema\",id:100\} O 255 String |
 | order_by | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -411,17 +367,12 @@ The labtestanalyses API is used for evaluation and interpretation of laboratory 
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -431,7 +382,6 @@ The labtestanalyses API is used for evaluation and interpretation of laboratory 
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 ### 
 
 ## MES
@@ -447,8 +397,6 @@ The manufacturingBatch API is used to produce a unique identifier (Batch ID) to 
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Manufacturing_Batch_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -456,8 +404,6 @@ The manufacturingBatch API is used to produce a unique identifier (Batch ID) to 
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -466,8 +412,6 @@ The manufacturingBatch API is used to produce a unique identifier (Batch ID) to 
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -478,17 +422,12 @@ The manufacturingBatch API is used to produce a unique identifier (Batch ID) to 
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -498,8 +437,6 @@ The manufacturingBatch API is used to produce a unique identifier (Batch ID) to 
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
-
 #### Production Schedule
 
 The productionSchedule API is used to plan timing and sequence of production activities in a manufacturing or production environment. It helps ensure that resources such as raw materials, labor, and equipment are used efficiently and that products are produced on time.
@@ -511,8 +448,6 @@ The productionSchedule API is used to plan timing and sequence of production act
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Production_Schedule_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -520,8 +455,6 @@ The productionSchedule API is used to plan timing and sequence of production act
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -530,8 +463,6 @@ The productionSchedule API is used to plan timing and sequence of production act
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -542,17 +473,12 @@ The productionSchedule API is used to plan timing and sequence of production act
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -562,7 +488,6 @@ The productionSchedule API is used to plan timing and sequence of production act
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Production Performance
@@ -576,8 +501,6 @@ The productionPerformance API is used to refer to effectiveness and efficiency o
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Production_Performance_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -585,8 +508,6 @@ The productionPerformance API is used to refer to effectiveness and efficiency o
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -595,8 +516,6 @@ The productionPerformance API is used to refer to effectiveness and efficiency o
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -607,17 +526,12 @@ The productionPerformance API is used to refer to effectiveness and efficiency o
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -627,7 +541,6 @@ The productionPerformance API is used to refer to effectiveness and efficiency o
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Manufacturing Performance Metrics
@@ -641,8 +554,6 @@ The manufacturingPerformanceMetrics API is used to evaluate the efficiency, effe
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Manufacturing_Performance_Metrics_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -650,8 +561,6 @@ The manufacturingPerformanceMetrics API is used to evaluate the efficiency, effe
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -660,8 +569,6 @@ The manufacturingPerformanceMetrics API is used to evaluate the efficiency, effe
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -672,17 +579,12 @@ The manufacturingPerformanceMetrics API is used to evaluate the efficiency, effe
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -692,7 +594,6 @@ The manufacturingPerformanceMetrics API is used to evaluate the efficiency, effe
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Manufacturing Scrap Wastage
@@ -706,8 +607,6 @@ The manufacturingScrap API is used to refer to materials or products that are di
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Manufacturing_Scrap_Wastage.txt) |
-
-
 ##### Input Header
 
 
@@ -715,8 +614,6 @@ The manufacturingScrap API is used to refer to materials or products that are di
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -725,8 +622,6 @@ The manufacturingScrap API is used to refer to materials or products that are di
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -737,17 +632,12 @@ The manufacturingScrap API is used to refer to materials or products that are di
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -757,7 +647,6 @@ The manufacturingScrap API is used to refer to materials or products that are di
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Production Downtime
@@ -771,8 +660,6 @@ The productionDowntime API is used to refer to periods when manufacturing equipm
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Production_Downtime_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -780,8 +667,6 @@ The productionDowntime API is used to refer to periods when manufacturing equipm
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -790,8 +675,6 @@ The productionDowntime API is used to refer to periods when manufacturing equipm
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -802,17 +685,12 @@ The productionDowntime API is used to refer to periods when manufacturing equipm
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -822,7 +700,6 @@ The productionDowntime API is used to refer to periods when manufacturing equipm
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Production Shift
@@ -836,8 +713,6 @@ The productionShift API is used to refer to a scheduled period of work during wh
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Production_Shift_Response.txt) |
-
-
 ##### Input Header
 
   -----------------------------------------------------------------------------------------------------------------------------------------
@@ -858,8 +733,6 @@ The productionShift API is used to refer to a scheduled period of work during wh
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -870,17 +743,12 @@ The productionShift API is used to refer to a scheduled period of work during wh
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -890,7 +758,6 @@ The productionShift API is used to refer to a scheduled period of work during wh
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Production Resource
@@ -904,8 +771,6 @@ The production Resources API is used to refer to the various assets, tools, and 
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Production_Resource_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -913,8 +778,6 @@ The production Resources API is used to refer to the various assets, tools, and 
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -923,8 +786,6 @@ The production Resources API is used to refer to the various assets, tools, and 
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -935,17 +796,12 @@ The production Resources API is used to refer to the various assets, tools, and 
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -955,7 +811,6 @@ The production Resources API is used to refer to the various assets, tools, and 
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Resource
@@ -969,8 +824,6 @@ The Resource API is used to refer to any asset, tool, or support used to achieve
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Mes_Resource_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -978,8 +831,6 @@ The Resource API is used to refer to any asset, tool, or support used to achieve
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -988,8 +839,6 @@ The Resource API is used to refer to any asset, tool, or support used to achieve
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1000,17 +849,12 @@ The Resource API is used to refer to any asset, tool, or support used to achieve
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -1020,7 +864,6 @@ The Resource API is used to refer to any asset, tool, or support used to achieve
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Electronic Batch Record
@@ -1034,8 +877,6 @@ An Electronic Batch Record (EBR) API is used in manufacturing, particularly in i
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Electronic_Batch_Record.txt) |
-
-
 ##### Input Header
 
 
@@ -1043,8 +884,6 @@ An Electronic Batch Record (EBR) API is used in manufacturing, particularly in i
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -1053,8 +892,6 @@ An Electronic Batch Record (EBR) API is used in manufacturing, particularly in i
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1065,17 +902,12 @@ An Electronic Batch Record (EBR) API is used in manufacturing, particularly in i
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -1085,7 +917,6 @@ An Electronic Batch Record (EBR) API is used in manufacturing, particularly in i
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 #### 
 
 ### Maintenance
@@ -1099,8 +930,6 @@ The Maintenance API is used to refer to the actions taken to keep equipment, sys
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/MES/DT_Data_Product_Mes_Maintenance_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1108,8 +937,6 @@ The Maintenance API is used to refer to the actions taken to keep equipment, sys
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 2547a337c5c048afa719197ba4ac4ffe String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public String |
-
-
 ##### Input Body
 
 
@@ -1118,8 +945,6 @@ The Maintenance API is used to refer to the actions taken to keep equipment, sys
 | limit | Number of records per page M 10 Integer |
 | offset | pagination M 1 Integer |
 | modified_after | Date of aveva mes system M 2023-02-03 15:45:03.000 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1130,17 +955,12 @@ The Maintenance API is used to refer to the actions taken to keep equipment, sys
 | &gt; modifiedby | &gt; User that modified the record | M | String |
 | &gt; modifiedtimestamp | &gt; Time of modification | M | String |
 | &gt; lastQueryRun | &gt; Time the query was last run | M | String |
-
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -1150,7 +970,6 @@ The Maintenance API is used to refer to the actions taken to keep equipment, sys
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 ### 
 
 ## Siemens Simcenter Battery Design Studio
@@ -1166,8 +985,6 @@ The simulationData API is used to get data from Siemens Simcenter Battery Design
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/DT_Data_Product_Simulation_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1175,8 +992,6 @@ The simulationData API is used to get data from Siemens Simcenter Battery Design
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -1187,8 +1002,6 @@ The simulationData API is used to get data from Siemens Simcenter Battery Design
 | limit | pagination. default max limit of record is 100 O 2 Integer |
 | offset | pagination. offset start at 1 O 2 Integer |
 | orderBy | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1203,16 +1016,12 @@ The simulationData API is used to get data from Siemens Simcenter Battery Design
 | modifiedby | User that modified the record M String |
 | modifiedtimestamp | Time of modification M String |
 | lastQueryRun | Time the query was last run M String |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -1222,7 +1031,6 @@ The simulationData API is used to get data from Siemens Simcenter Battery Design
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 ### 
 
 ## BMS / Battery Data
@@ -1238,8 +1046,6 @@ The Field Data API is used to refer to information collected from real-world ope
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/DT_Data_Product_Field_Data_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1247,8 +1053,6 @@ The Field Data API is used to refer to information collected from real-world ope
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -1259,8 +1063,6 @@ The Field Data API is used to refer to information collected from real-world ope
 | limit | pagination. default max limit of record is 100 O 2 Integer |
 | offset | pagination. offset start at 1 O 2 Integer |
 | orderBy | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1276,16 +1078,12 @@ The Field Data API is used to refer to information collected from real-world ope
 | modifiedby | User that modified the record M String |
 | modifiedtimestamp | Time of modification M String |
 | lastQueryRun | Time the query was last run M String |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -1295,7 +1093,6 @@ The Field Data API is used to refer to information collected from real-world ope
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 ### 
 
 ## SCM Platform
@@ -1311,8 +1108,6 @@ This API is used to refer to information related to the management and movement 
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/DT_Data_Product_Logistic_Data_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1320,8 +1115,6 @@ This API is used to refer to information related to the management and movement 
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -1332,8 +1125,6 @@ This API is used to refer to information related to the management and movement 
 | limit | pagination. default max limit of record is 100 O 2 Integer |
 | offset | pagination. offset start at 1 O 2 Integer |
 | orderBy | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1349,16 +1140,12 @@ This API is used to refer to information related to the management and movement 
 | modifiedby | User that modified the record M String |
 | modifiedtimestamp | Time of modification M String |
 | lastQueryRun | Time the query was last run M String |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -1368,7 +1155,6 @@ This API is used to refer to information related to the management and movement 
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
 ### 
 
 ## External Market Data
@@ -1384,8 +1170,6 @@ The priceData API is used to refer to information about the cost or price of goo
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/DT_Data_Product_Price_Data_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1393,8 +1177,6 @@ The priceData API is used to refer to information about the cost or price of goo
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -1405,8 +1187,6 @@ The priceData API is used to refer to information about the cost or price of goo
 | limit | pagination. default max limit of record is 100 O 2 Integer |
 | offset | pagination. offset start at 1 O 2 Integer |
 | orderBy | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1421,16 +1201,12 @@ The priceData API is used to refer to information about the cost or price of goo
 | modifiedby | User that modified the record M String |
 | modifiedtimestamp | Time of modification M String |
 | lastQueryRun | Time the query was last run M String |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 
@@ -1440,8 +1216,6 @@ The priceData API is used to refer to information about the cost or price of goo
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 401 | Access denied Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API |
 | 404 | Not Found Resource not found |
-
-
 ### Compliance Management
 
 #### Regulatory
@@ -1455,8 +1229,6 @@ The Regulatory API is used to refer to the rules, laws, and standards establishe
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [[LINK]](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/DT_Data_Product/DT_Data_Product_Regulatory_Data_Response.txt) |
-
-
 ##### Input Header
 
 
@@ -1464,8 +1236,6 @@ The Regulatory API is used to refer to the rules, laws, and standards establishe
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Value of the subscription key M-Private 255 String |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Body
 
 
@@ -1476,8 +1246,6 @@ The Regulatory API is used to refer to the rules, laws, and standards establishe
 | limit | pagination. default max limit of record is 100 O 2 Integer |
 | offset | pagination. offset start at 1 O 2 Integer |
 | orderBy | order by asc and desc order for example orderBy:\{natural\} O 255 String \*M/O: Mandatory/Optional |
-
-
 ##### Output
 
 
@@ -1491,16 +1259,12 @@ The Regulatory API is used to refer to the rules, laws, and standards establishe
 | modifiedby | User that modified the record M String |
 | modifiedtimestamp | Time of modification M String |
 | lastQueryRun | Time the query was last run M String |
-
-
 ##### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 ##### Error Management
 
 

@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -214,7 +213,6 @@ The following parameters are used to decide the flow and invoke the pipelines ac
 | Execute_Business_DataInstance | String Specifies whether to execute the business data instance pipeline. Yes Yes |
 | Execute_DataQuality | String Specifies whether to execute the data quality pipeline. Yes Yes |
 | Execute_Glossary | String Specifies whether to execute the glossary pipeline. Yes Yes |
-
 ### 
 
 ## Business Metadata Execution Check
@@ -265,7 +263,6 @@ The key considerations are:
 | Source System | String Specifies the source system from which metadata and data instances are ingested. SAP |
 | Entity Prefix | String Defines a prefix for entities, used for naming and identification purposes. BST3 |
 | Metadata Approach | String Determines the approach used for metadata ingestion. Options include \'Connector\' and \'Data model\'. Connector |
-
 ##### 
 
 #### 
@@ -513,8 +510,6 @@ Update a pipeline variable with the result of the metadata ingestion.
 | Entities Array | Array An array of entity objects. Each object can have properties like name, type, and description. Customer, ListOfServices |
 | Modified After | String The datetime after which the data instances will be ingested. 50 |
 | Limit | Int The maximum number of records to be retrieved during data instance ingestion. 0 |
-
-
 #### Execution
 
 The Data Instance Pipeline consists of several activities that work together to process and ingest data instances. Each activity is described below:
@@ -635,8 +630,6 @@ These tables help enrich each business data instance with additional, structured
 | DrawingRevision | Revision PLM_revision |
 | documentRevision | DocumentID PLM_document |
 | documentRevision | Revision PLM_revision |
-
-
 ###### Managed Attributes
 
 
@@ -647,7 +640,6 @@ These tables help enrich each business data instance with additional, structured
 | BUSINESS_METADATA | Sensitive_Attributes Identifier linking the result to a specific test conducted testid testid string BLI1_labTestResults |
 | BUSINESS_METADATA | Sensitive_Attributes Unique identifier for each test result resultid resultid string BLI1_labTestResults |
 | BUSINESS_METADATA | Sensitive_Attributes Specific parameters or conditions defined for the analysis analysisparameters analysisparameters string BLI1_labTestAnalysis |
-
 #### 
 
 ### Approach-Specific Activities
@@ -767,7 +759,6 @@ The ADF pipeline for unsupported sources involves several steps to process and i
 | For Each - For Each Package | Iterate through each package component to process its metadata individually. This activity loops through the array created in the previous step. For each package component, it triggers a nested activity. |
 | Nested Activity - Azure Function - DI Tech Metadata | Extract and process technical metadata for the current package. This function connects to the source system (e.g., SAP ECC) using appropriate connectors or APIs. It extracts relevant technical metadata based on the package details. The function then transforms this metadata into a format compatible with Purview\'s data model. Processed metadata is returned to the ADF pipeline for further handling. |
 | Azure Function - DI Metadata Ingest | Ingest the processed metadata into Purview using Data Ingestion APIs. This function takes the processed metadata from the previous steps as input. The function retrieves Data Ingestion API credentials from Azure Key Vault. It then uses these credentials to obtain an access token from Azure Active Directory. It authenticates with the access token. The function then uses Data Ingestion APIs to ingest the technical metadata. It handles any necessary error checking and retries. Upon successful ingestion, it returns a status report to the ADF pipeline. |
-
 #### 
 
 ### Execution
@@ -832,7 +823,6 @@ The ADF pipeline for supported sources orchestrates the process of authenticatin
 | 3 | Web Activity - create Scan Use the prepared payload to create a new scan definition in Purview. This activity makes an HTTP POST request to Purview\'s API. It uses the authentication token from step 1 and the payload from step 2. The API response, including the scan ID, is captured for use in subsequent steps. |
 | 4 | Set Variable - Random GUID Generate a unique identifier for the scan run. This step uses an expression to generate a random GUID (Globally Unique Identifier). The GUID ensures that each scan run can be uniquely identified and tracked. |
 | 5 | Web Activity - Trigger Scan Initiate the actual scan process in Purview using the created scan definition. This activity makes an HTTP POST request to Purview\'s scan trigger API. It includes the scan ID from step 3 and the GUID. The API response confirms the successful triggering of the scan. |
-
 #### 
 
 ### Execution
@@ -979,8 +969,6 @@ The Glossary Execution Check Pipeline is designed to manage the ingestion of glo
 | **Parameter Name** | **Type** **Description** **Default Value** |
 | --- | --- |
 | CreateGlossary | String If yes, it will trigger glossary terms API to ingest glossary terms Yes |
-
-
 #### Glossary Terms Template
 
 Glossary terms represent business vocabulary shared across the organization, standardizing the language used to describe data assets and making it easier for different teams and stakeholders to communicate effectively.
@@ -1094,8 +1082,6 @@ The table below is an example of the values for an SAP Data quality validation f
 | entityprefix | String Defines a prefix for entities, used for naming and identification purposes. BST3 |
 | collectionname | String Indicates the collection name to which the ingested data belongs. BST3 |
 | checkpointname | String Specifies the name of the checkpoint used in data ingestion to track progress or state. ix_dt_datainstance_bomheader |
-
-
 #### Execution
 
 1.  Switch DQ Approach - Determines the appropriate approach based on the input parameter

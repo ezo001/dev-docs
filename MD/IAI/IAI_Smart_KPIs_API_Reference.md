@@ -29,7 +29,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs UI Guide, Smart KPIs Admin Guide |
-
 </div>
 
 ## Introduction
@@ -108,8 +107,6 @@ An API testing tool such as [Postman](https://app.getpostman.com/app/download/wi
 | Error Management | Object in API responses that provides details about errors encountered during processing, including error codes and descriptions. |
 | M/O (Mandatory/Optional) | M designates that a value is Mandatory, while O designates it as Optional. |
 | UI | User interface |
-
-
 ## Smart KPIs APIs
 
 The Python-based Smart KPIs microservices listed below are built and hosted in a cloud-agnostic Kubernetes environment that provides the APIs access to IAI functionalities and data through an API management service gateway---[AWS API Gateway REST API \| Microsoft Learn](https://learn.microsoft.com/en-us/rest/api/apimanagement/). It authenticates and authorizes registered APIs. See the related links section for more information on APIs.
@@ -168,16 +165,12 @@ The create config file CDF API is a part of the IAI-SmartKPI-Configuration Micro
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \*\* String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | File path | \{\"Path\":\"\{smartkpibase\}/initialtemplate/\/\.xlsm\"\} M \*\* Multipart / Form-data |
-
-
 #### Output Header
 
 
@@ -191,8 +184,6 @@ The create config file CDF API is a part of the IAI-SmartKPI-Configuration Micro
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. O-Public 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. O-Public 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. O-Public 255 |
-
-
 #### Output Body Parameters
 
 
@@ -201,8 +192,6 @@ The create config file CDF API is a part of the IAI-SmartKPI-Configuration Micro
 | errorManagement | This is an object that is included in the response only if an error has occurred during the processing of the request. It serves to identify the nature of the error and provides relevant information for understanding and potentially resolving the issue. O Object |
 | errorCode | This is a numeric identifier associated with the specific type of error that occurred. Each type of error has a unique code. These codes can be used for categorizing, prioritizing, and systematically handling errors. M String |
 | errorDescription | This is an alphanumeric string that provides a human-readable explanation of the error. It is designed to give developers a clear understanding of what went wrong during the processing of the request. This could involve issues like invalid input data, problems with the server, or other unexpected conditions. The description often includes suggestions for how to avoid or fix the error. M String \*M/O: Mandatory/Optional |
-
-
 #### API Precondition
 
 To upload the KPI Template and to validate, the following entities must exist. For convenience, they are listed in the order of creation.
@@ -221,16 +210,12 @@ To upload the KPI Template and to validate, the following entities must exist. F
 | **METHOD** | POST |
 | **CONTENT TYPE** | application / json |
 | **JSON Response** | \{\"message\": \"Request accepted\"\} |
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 202 | \{\"message\": \"Request accepted\"\} |
-
-
 #### Error Management
 
 
@@ -238,8 +223,6 @@ To upload the KPI Template and to validate, the following entities must exist. F
 | --- | --- | --- |
 | 500 | 500 | Generic Error |
 | 401 | 401 | Unauthorized, 401 \"Bearer \{token\}\" could be missing, |
-
-
 **Error message list which can be shown on the portal after validation**
 
 \"Invalid: Duplicated row with same KPI name and same Asset Hierarchy Mapping is present.\"
@@ -293,8 +276,6 @@ KPI creation is a POST call to the Smart KPI IAI server hosted at the back end. 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
@@ -302,8 +283,6 @@ KPI creation is a POST call to the Smart KPI IAI server hosted at the back end. 
 | --- | --- |
 | plantId | ExternalID of Uploading Plant M 255 String |
 | templatePath | File path M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -317,9 +296,6 @@ KPI creation is a POST call to the Smart KPI IAI server hosted at the back end. 
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -331,8 +307,6 @@ KPI creation is a POST call to the Smart KPI IAI server hosted at the back end. 
 | services | This refers to the array or list of Service objects that have been created because of the operation. O List |
 | Status | Displays the KPI creation status M String |
 | ### | API Precondition To fetch the response from the KPI creation operation, the authorization token must exist. |
-
-
 #### Specification
 
 
@@ -344,17 +318,12 @@ KPI creation is a POST call to the Smart KPI IAI server hosted at the back end. 
 | **CONTENT TYPE** | application / json |
 | **JSON Request Body** | \[ \{ \"plantId\": \"C-B1-G1-R1-F1\", \"templatePath\": \"\{smartkpibase\}/initialtemplate/C-B1-G1-R1-F1/Oil &amp; Gas Field 1.xlsm\" \} \] |
 | **JSON Response** | message: \"Successfully Uploaded &amp; defined KPI\" |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Operation executed successfully |
-
-
 #### Error Management
 
 
@@ -363,7 +332,6 @@ KPI creation is a POST call to the Smart KPI IAI server hosted at the back end. 
 | 500 | 500 Generic Error |
 | 400 | 400 Bad request |
 | 401 | 401 Unauthorized (authorization token is missing or expired) |
-
 ### 
 
 ## POST- DOWNLOAD EXCEL 
@@ -378,16 +346,12 @@ The Download template API is a POST call to the Smart KPI IAI server hosted at t
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Asset-files | It contains Key and ExternalId parameters M \- List |
-
-
 #### Output Header Parameters
 
 
@@ -401,9 +365,6 @@ The Download template API is a POST call to the Smart KPI IAI server hosted at t
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -416,8 +377,6 @@ The Download template API is a POST call to the Smart KPI IAI server hosted at t
 | errorManagement | The object identifying the error. Provided only if there is an error. O Object |
 | Asset-files | external_id, key, path (path of this plant e.g., Multi-Plant.xlsm) M String |
 | ### | API Precondition To fetch the response from the download template operation, the authorization token must exist. |
-
-
 #### Specification
 
 
@@ -429,17 +388,12 @@ The Download template API is a POST call to the Smart KPI IAI server hosted at t
 | **CONTENT TYPE** | application / json |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/POST_EXCELDOWNLOAD_JSON_Response.txt) |
 | **JSON Request Body** | \{ \"asset-files\": \[ \{\"key\":\" plant1 \",\"external_id\":\" b037e3dd-02f4-4e19-9020-6ab0006e7ce9 \"\} \] \} |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Operation executed successfully |
-
-
 #### Error Management
 
 
@@ -448,8 +402,6 @@ The Download template API is a POST call to the Smart KPI IAI server hosted at t
 | 500 | 500 | Generic Error |
 | 401 | 401 | Unauthorized \{Header Token\} Access token is missing or invalid |
 | 400 | 400 | Bad request **Example**: \"Invalid File or File name\" \"Unable to connect file storage\" |
-
-
 ### 
 
 ## 
@@ -464,16 +416,12 @@ The KPISPERPLANT API is a part of the IAI-SmartKPI-Configuration Microservice th
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \- String |
-
-
 #### Input Path Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | plantExternalId | External id of the KPI the asset is linked to \[e.g., path value\\] M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -487,9 +435,6 @@ The KPISPERPLANT API is a part of the IAI-SmartKPI-Configuration Microservice th
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -509,8 +454,6 @@ The KPISPERPLANT API is a part of the IAI-SmartKPI-Configuration Microservice th
 | Responsible Role | The role which is responsible for the KPI M String |
 | Status | The status of the KPI whether it is already published or ready to be published is generated by the system M String |
 | ### | API Precondition To fetch the response from the smart-kpititle, the authorization token must exist. |
-
-
 #### Specification
 
 
@@ -522,16 +465,12 @@ The KPISPERPLANT API is a part of the IAI-SmartKPI-Configuration Microservice th
 | **CONTENT TYPE** | application / json |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/GET_KPISPERPLANT_JSON_Response.txt) |
 | **Request URL** | [link](https://apim-mw-aot-dev.azure-api.net/api/smartkpi/assets/C-B1-G1-R1-F1/kpisperplant) |
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Operation executed successfully |
-
-
 #### Error Management
 
 
@@ -540,8 +479,6 @@ The KPISPERPLANT API is a part of the IAI-SmartKPI-Configuration Microservice th
 | 500 | 500 Generic Error |
 | 401 | 401 Unauthorized / \{Header Token\} could be missing or expired |
 | 400 | 400 Bad request |
-
-
 ## Smart KPIs Microservice APIs
 
 ### GET- KPI DASHBOARD
@@ -554,8 +491,6 @@ The KPI dashboard API, part of the IAI-SmartKPI-Middleware Microservice, is a GE
 | **Parameter** | **Description** **M/O\*** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g.- msal.accesstoken : \{token: \"\\" \} M-Public \- String |
-
-
 #### Input Path Parameters
 
 
@@ -563,8 +498,6 @@ The KPI dashboard API, part of the IAI-SmartKPI-Middleware Microservice, is a GE
 | --- | --- |
 | assetid | External id of the KPI the asset is linked to \[e.g., path value\\] M 255 String |
 | kpiname | UID of the KPI \[e.g., path value\\] M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -578,9 +511,6 @@ The KPI dashboard API, part of the IAI-SmartKPI-Middleware Microservice, is a GE
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -606,8 +536,6 @@ The KPI dashboard API, part of the IAI-SmartKPI-Middleware Microservice, is a GE
 | assetName | Asset name from asset hierarchy |  |  |
 | TimeseriesRole | Identify the timeseries access, being an \'owner\' implies that both read and write permissions are granted, whereas being a \'viewer\' means only read permission is provided |  |  |
 | disableFurtherDashboardDrilldown | The disableFurtherDashboardDrilldown attribute returns a boolean value, either true or false, which dictates whether additional drilldown from the dashboard is permitted or not. | M | Boolean |
-
-
 *\*M/O: Mandatory/Optional\
 ***API Preconditions**
 
@@ -626,16 +554,12 @@ The KPI dashboard API, part of the IAI-SmartKPI-Middleware Microservice, is a GE
 | **CONTENT TYPE** | application / json |
 | **Request URL** | [https://apim-mw-aot-dev.azure-api.net/api/smartkpi/assets/all/kpis/all](https://apim-aot-mw-dev.azure-api.net/api/smartkpi/assets/all/kpis/all) |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/GET_DASHBOARD_API_JSON_Response.txt) |
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Operation executed successfully |
-
-
 #### Error Management
 
 
@@ -644,8 +568,6 @@ The KPI dashboard API, part of the IAI-SmartKPI-Middleware Microservice, is a GE
 | 500 | 500 Generic Error |
 | 401 | 401 Unauthorized / \{Header Token\} could be missing or expired |
 | 400 | 400 Bad request |
-
-
 ### POST - KPI DRILLDOWN
 
 The KPI drilldown API is part of the IAI-SmartKPI-Middleware Microservice that is invoked and consumed by the UI. It is a POST call to the Smart KPI IAI server hosted at the backend to get the contributing and influencing KPI details (external IDs) which are displayed to the user on clicking on the KPI tile.
@@ -658,8 +580,6 @@ The drilldown details displayed to a user are based on the user's role authoriza
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 #### Input Path Parameters
 
 
@@ -667,8 +587,6 @@ The drilldown details displayed to a user are based on the user's role authoriza
 | --- | --- |
 | assetid | The external ID of the KPI the asset is linked to \[e.g., path value\\] M 255 String |
 | kpiname | UID of the KPI \[e.g., path value\\] M 255 String |
-
-
 #### Input Body Parameters
 
 
@@ -677,8 +595,6 @@ The drilldown details displayed to a user are based on the user's role authoriza
 | startdate | Start date to perform the calculation M 255 String |
 | enddate | End date to perform the calculation M 255 String |
 | calendarOption | Available calendar Options (noselection, hours, day, weeks, monthly, quarterly, half-yearly, yearly, custom) M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -692,8 +608,6 @@ The drilldown details displayed to a user are based on the user's role authoriza
 | ocp-apim-productid | Contains the product ID of the API it is tagged O-Public 255 |
 | ocp-apim-subscriptionid | Contains the subscription ID of the API Gateway instance O-Public 255 |
 | ocp-apim-trace-location | Contains the URL to trace the output O-Public 255 |
-
-
 #### Output Body Parameters
 
 
@@ -705,8 +619,6 @@ The drilldown details displayed to a user are based on the user's role authoriza
 | services | List of the created Service\ O List |
 | Contributing | Contributing KPIs represent all the KPIs of a selected KPI which directly influence the value/ performance of the selected KPI. For example: for OEE at the plant level, the contributing KPIs can be availability, performance, and OEE at the system level among other KPIs. M String |
 | Influencing | Influencing KPIs represent all the KPIs of a selected KPI that indirectly influence the value/ performance of the selected KPI. For example: for OEE at the plant level - the influencing KPIs can be no. of safety incidents among other KPIs. M String |
-
-
 #### API Precondition
 
 To fetch the KPI drilldown, the authorization token must exist.
@@ -723,17 +635,12 @@ To fetch the KPI drilldown, the authorization token must exist.
 | **Request URL** |  |
 | **JSON Request Body** | \{ \"startdate\":\"2023-12-01T09:00:39.308Z\", \"enddate\":\"2023-12-01T09:00:39.308Z\", \"calendarOption\":\"noselection\" \} |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/POST_DRILLDOWN_API_JSON_Response.txt) |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | operation executed successfully |
-
-
 #### Error Management
 
 
@@ -742,8 +649,6 @@ To fetch the KPI drilldown, the authorization token must exist.
 | 500 | 500 | Generic Error |
 | 401 | 401 | Unauthorized \"Bearer \{token\}\" could be missing or expired |
 | 400 | 400 | Bad request |
-
-
 #### 
 
 ## 
@@ -760,8 +665,6 @@ The smart kpitile API is a part of the IAI-SmartKPI-Middleware Microservice. It 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. Example: msal.accesstoken : \{ token: \"Bearer \{token\}\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
@@ -777,9 +680,6 @@ The smart kpitile API is a part of the IAI-SmartKPI-Middleware Microservice. It 
 | KPI_calculation_Actual | This parameter holds the calculation method for the KPI. Here, \"SK.average(\'Performance\')\" means the average of performance is calculated. | M | 255 | String |
 | startdate_aggregate | This parameter represents the start date and time for the data range used for aggregation, given in the ISO 8601 format. | M | 255 | String |
 | enddate_aggregate | This parameter represents the end date and time for the data range used for aggregation, given in the ISO 8601 format. | M | 255 | String |
-
-
-
 #### Input Path Parameters
 
 
@@ -787,8 +687,6 @@ The smart kpitile API is a part of the IAI-SmartKPI-Middleware Microservice. It 
 | --- | --- |
 | assetid | External id of the KPI the asset is linked to \[e.g., path value\\] M 255 String |
 | kpiname | UID of the KPI \[e.g., path value\\] M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -802,9 +700,6 @@ The smart kpitile API is a part of the IAI-SmartKPI-Middleware Microservice. It 
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 ####  Output Body Parameters
 
 
@@ -829,9 +724,6 @@ The smart kpitile API is a part of the IAI-SmartKPI-Middleware Microservice. It 
 | ConfiguredUoM | Configured "Unit of Measurement" on the KPI configuration template updated by the end-user | M | String |
 | StandardUoM | The standard unit of measurement as per asset system id. It retrieves the value from the Timeseries metadata | M | String |
 | UoM_SystemID | Returns the response of the respective unit of measurement system ID (e.g., kg). It retrieves the value Asset metadata | M | String |
-
-
-
 #### API Precondition
 
 To fetch the response from the smart-kpitile, the authorization token must exist.
@@ -848,29 +740,20 @@ To fetch the response from the smart-kpitile, the authorization token must exist
 | **REQUEST URL** | [link](https://apim-mw-aot-dev.azure-api.net/api/smartkpi/assets/C-B1-G1-R1-F1-P-PP-U3-SWLPC/kpis/d6b9f38e-28db-4eb7-806e-da9969e39ffb/detail) |
 | **REQUEST URL(PARAMETER)** |  |
 | **JSON Request Body** | \{ \"startdate\":\"2023-11-29T15:47:39.061Z\", \"enddate\":\"2023-11-29T15:47:39.061Z\", \"calendarOption\":\"noselection\" \} |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 +:-------------:+:--------------:+:-------------------------------------------------:+
 | **HTTP Code** | **Error Code** | **Error Description** |
-
 | 500 | 500 | Internal server error |
 | --- | --- | --- |
 | 401 | 401 | Unauthorized \{HeaderToken\} Access token is missing or invalid |
 | 400 | 400 | Bad request |
-
-
-
 #### Requests and Response
 
 ##### 
@@ -955,8 +838,6 @@ The Trendline API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
@@ -965,8 +846,6 @@ The Trendline API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | startdate | Start date to perform the calculation(Unix Timestamp) [Timestamp Converter (timestamp-converter.com)](http://www.timestamp-converter.com/) M 255 String |
 | enddate | End date to perform the calculation(Unix Timestamp) [Timestamp Converter (timestamp-converter.com)](http://www.timestamp-converter.com/) M 255 String |
 | kpilist | ExternalId of the KPI (e.g., C-B1-G1-R1-F1-P-PP-U1-EGCA:d6b9f38e-28db-4eb7-806e-da9969e39ffb) M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -980,9 +859,6 @@ The Trendline API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -1001,8 +877,6 @@ The Trendline API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | uid | UID is the Unique ID that automatically generates a unique identity for each KPI created by the user. M String |
 | assetid | Level in the asset hierarchy against which the KPI must be computed. M String |
 | UoM | Returns the response of the respective unit of measurement (e.g.: "kg"). It retrieves the value from the CDF KPI hierarchy in timeseries metadata. M String |
-
-
 #### API Precondition
 
 To fetch the response from the smart-kpitile, the authorization token must exist.
@@ -1019,17 +893,12 @@ To fetch the response from the smart-kpitile, the authorization token must exist
 | **REQUEST URL** | [https://apim-mw-aot-dev.azure-api.net/api/smartkpi/trendline](https://apim-aot-mw-dev.azure-api.net/api/smartkpi/trendline) |
 | **JSON Request** | \{ \"startedate\":1700764200000, \"enddate\":1701368999000, \"kpilist\":\"C-B1-G1-R1-F1-P-PP-U1-EGCA:d6b9f38e-28db-4eb7-806e-da9969e39ffb\" \} |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/POST_TRENDLINE_API_JSON_Response.txt) |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -1038,8 +907,6 @@ To fetch the response from the smart-kpitile, the authorization token must exist
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized / \{HeaderToken\} could be missing or expired |
 | 400 | 400 Bad request |
-
-
 ### GET- LIST
 
 The List API, part of the IAI-SmartKPI-Middleware Microservice, is a GET endpoint used by the UI to retrieve all available timeseries from the Smart KPI IAI DEV server in JSON format. It integrates with the People Management and GET Roles APIs, and requires a path parameter specifying a plant\'s external ID. For multi-plant queries, the external ID should be formatted as "Multi-Plant."
@@ -1050,9 +917,6 @@ The List API, part of the IAI-SmartKPI-Middleware Microservice, is a GET endpoin
 | **Parameter** | **Description** | **M/O** | **Max Length** | **Type** |
 | --- | --- | --- | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. | M-Public | \- | String |
-
-
-
 #### Output Header Parameters
 
 
@@ -1066,9 +930,6 @@ The List API, part of the IAI-SmartKPI-Middleware Microservice, is a GET endpoin
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -1087,8 +948,6 @@ The List API, part of the IAI-SmartKPI-Middleware Microservice, is a GET endpoin
 | role | Contains "roleId" and "roleName". Represent the Owner role assigned to the KPI in the KPI hierarchy M String |
 | type | Displays the type whether it is of type KPI or parameter M String |
 | uid | unique identity only for KPI that is created by the user M String |
-
-
 #### API Precondition
 
 To fetch the response from the smart-kpitile, the authorization token must exist.
@@ -1103,17 +962,12 @@ To fetch the response from the smart-kpitile, the authorization token must exist
 | **METHOD** | GET |
 | **CONTENT TYPE** | application / json |
 | **JSON Response** | Plant- [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.1/GET_List_Plant_JSON_Response.txt)\ Multi-plant - [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.1/GET_List_Multiplant_JSON_Response.txt) |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -1122,8 +976,6 @@ To fetch the response from the smart-kpitile, the authorization token must exist
 | 500 | 500 | Generic Error |
 | 400 | 401 | Unauthorized \{HeaderToken\} could be missing or expired |
 | 400 | 400 | Bad request |
-
-
 ### 
 
 ## POST- DEVIATION
@@ -1136,8 +988,6 @@ The Deviation API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | authorization | Token acquired from Azure AD based on the user credentials for further API calls. e.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
@@ -1146,8 +996,6 @@ The Deviation API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | startdate | Start date to perform the calculation M 255 String |
 | enddate | End date to perform the calculation M 255 String |
 | calendarOption | Available calendar Options (noselection, hours, day, weeks, monthly, quarterly, half-yearly, yearly, custom) M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -1161,9 +1009,6 @@ The Deviation API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -1178,8 +1023,6 @@ The Deviation API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | deviation | Deviation value M String |
 | error | Error object if any M String |
 | ### | API Precondition To fetch the response from the Deviation API the authorization token must exist. |
-
-
 #### Specification
 
 
@@ -1192,17 +1035,12 @@ The Deviation API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | **REQUEST URL** |  |
 | **JSON Request** | \{ \"startdate\":\"2023-11-29T16:09:05.594Z\", \"enddate\":\"2023-11-29T16:09:05.594Z\", \"calendarOption\":\"noselection\" \} |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/POST_DEVIATION_API_JSON_Response.txt) |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -1211,8 +1049,6 @@ The Deviation API is part of the IAI-SmartKPI-Middleware Microservice that is in
 | 500 | 500 | Generic Error |
 | 400 | 401 | Unauthorized \{HeaderToken\} could be missing or expired |
 | 400 | 400 | Bad request |
-
-
 ### 
 
 ## POST- DRILLDOWN DEVIATION
@@ -1225,8 +1061,6 @@ The drilldown deviation API is part of the IAI-SmartKPI-Middleware Microservice 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. E.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
@@ -1236,8 +1070,6 @@ The drilldown deviation API is part of the IAI-SmartKPI-Middleware Microservice 
 | enddate | End date to perform the calculation M 255 String |
 | calendarOption | Available calendar Options (noselection\} M 255 String |
 | kpiList | List of kpiList ex.\["C-B1-G1-R1-F1"\] M 255 List |
-
-
 #### Output Header Parameters
 
 
@@ -1251,8 +1083,6 @@ The drilldown deviation API is part of the IAI-SmartKPI-Middleware Microservice 
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs to. O-Public 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. O-Public 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. O-Public 255 |
-
-
 #### Output Body Parameters
 
 
@@ -1267,8 +1097,6 @@ The drilldown deviation API is part of the IAI-SmartKPI-Middleware Microservice 
 | deviation | Deviation value M String |
 | error | Error object if any M String |
 | ### | API Precondition To fetch the response from the drilldown deviation API, the authorization token must exist. |
-
-
 #### Specification
 
 
@@ -1280,17 +1108,12 @@ The drilldown deviation API is part of the IAI-SmartKPI-Middleware Microservice 
 | **CONTENT TYPE** | application / json |
 | **JSON Request** | \{ \"startdate\": \"2023-10-10T08:57:07.209Z\", \"enddate\": \"2023-10-10T08:57:07.209Z\", \"calendarOption\": \"noselection\", \"kpiList\": \[ \"C-B1-G1-R1-F1-P-PP-U2:ea737d1b-97f6-41cb-b6fa-159b47abb884\", \"C-B1-G1-R1-F1-P-PP-U1:ea737d1b-97f6-41cb-b6fa-159b47abb884\", \"C-B1-G1-R1-F1-P-PP-U3:ea737d1b-97f6-41cb-b6fa-159b47abb884\" \] \} |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/POST_DRILLDOWN_DEVIATION_JSON_Response.txt) |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -1299,7 +1122,6 @@ The drilldown deviation API is part of the IAI-SmartKPI-Middleware Microservice 
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized / \{HeaderToken\} could be missing or expired |
 | 400 | 400 Bad request |
-
 ### 
 
 ## 
@@ -1314,8 +1136,6 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. E.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
@@ -1325,8 +1145,6 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | enddate | End date to perform the calculation M 255 String |
 | calendarOption | Available calendar Options (noselection\} M 255 String |
 | Asset_ExternalIds | List of asset external IDs ex.\["C-B1-G1-R1-F1"\] M 255 List |
-
-
 #### Output Header Parameters
 
 
@@ -1340,9 +1158,6 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -1357,8 +1172,6 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | Asset_ExternalId | The external ID of the asset M String |
 | RAGStatus | RAG (Red, Amber, and Green) status of color that is updated in the RAG API M String |
 | ### | API Precondition To fetch the response from the smart-kpitile, the authorization token must exist. |
-
-
 #### Specification
 
 
@@ -1370,17 +1183,12 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | **CONTENT TYPE** | application / json |
 | **JSON Request** | \{ \"startdate\": \"2023-11-30T06:06:01.855Z \", \"enddate\": \"2023-11-30T06:06:01.855Z\", \"calendarOption\": \"noselection\", \"Asset_ExternalIds\": \[ \"C-B1-G2-R1-F1-P-PP-U2-MOLP1\", \"C-B1-G2-R1-F1\", \"C\", \"C-B1-G1-R1-F1-P-PP-U2-MOLP2\" \] \} |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/POST_RAG_API_JSON_Response.txt) |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -1390,16 +1198,12 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | 400 | 401 Unauthorized / \{HeaderToken\} could be missing or expired |
 | 400 | 400 Bad request |
 | ## | POST- INSIGHT API The INSIGHT API is part of the IAI-SmartKPI-Middleware Microservice that is invoked by the UI and consumed by the UI. Insight API is a POST call to the Smart KPI IAI DEV server is hosted at the backend to get the details of actual, forecast, historical, target, RAGStatus, and CompareActual calculations for a KPI. |
-
-
 #### Input Header Parameters
 
 
 | **Parameter** | **Description** **M/O** **Max Length** **Type** |
 | --- | --- |
 | authorization | Token acquired from Azure AD based on the user credentials for further API calls. E.g., msal.accesstoken : \{ token: \"\\" \} M-Public \- String |
-
-
 #### Input Body Parameters
 
 
@@ -1408,8 +1212,6 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | startdate | Start date to perform the calculation M 255 String |
 | enddate | End date to perform the calculation M 255 String |
 | calendarOption | Available calendar Options (custom) M 255 String |
-
-
 #### Output Header Parameters
 
 
@@ -1423,9 +1225,6 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | ocp-apim-productid | This field contains the unique identifier of the product with which the API is associated. In API Gateway, APIs can be grouped into products, and this field helps identify which product the API belongs | O-Public | 255 |
 | ocp-apim-subscriptionid | This field contains the unique identifier of the subscription associated with the API Gateway instance. In API Gateway, a subscription relates to the agreement to use an API and provides the primary means for authorization. | O-Public | 255 |
 | ocp-apim-trace-location | This field contains the URL where the trace output can be found. This is typically used for debugging purposes. When API Gateway tracing is enabled, detailed information about the request and response is written to this location, which can help troubleshoot issues. | O-Public | 255 |
-
-
-
 #### Output Body Parameters
 
 
@@ -1445,9 +1244,6 @@ The RAG API, a component of the IAI-SmartKPI-Middleware API, is both invoked and
 | isKpi | Returns a Boolean response (True or False) and checks whether the response is for KPI or Parameter. | M | String |
 | KPI direction | Returns response (Up or Down) arrow and checks whether it's best performing or worst performing. | M | String |
 | uid | Unique ID - The system automatically generates a unique identity for each KPI that is created by the user | M | String |
-
-
-
 ####  API Precondition
 
 To fetch the response from the response from the Insight API, the authorization token must exist.
@@ -1463,17 +1259,12 @@ To fetch the response from the response from the Insight API, the authorization 
 | **CONTENT TYPE** | application / json |
 | **JSON Request** | \{ \"startdate\":\"2022-07-13T06:30:00Z\", \"enddate\":\"2022-07-13T08:30:59Z\", \"calendarOption\":\"custom\" \} |
 | **JSON Response** | [Link](../../../../../:t:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/Linked%20Files/Smart%20KPIs%20API%20Reference/2.0/POST_INSIGHT_API_JSON_Response.txt) |
-
-
-
 #### Result
 
 
 | **HTTP Code** | **Result Description** |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 

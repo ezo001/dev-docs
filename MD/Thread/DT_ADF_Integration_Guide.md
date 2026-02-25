@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -328,7 +327,6 @@ The table below lists the columns present in the UpdateWatermarkTable.
 | Table_Name | This column indicates the name of the table from which data was extracted during the pipeline execution. These table names correspond to different object types within Teamcenter, such as ENGMFGPART_RAW or ROTATINGPART_RAW. |
 | Created_Date | This column holds the timestamp representing the date and time when each record was created in the Teamcenter. |
 | LastExtractedTimestamp | This crucial column stores the timestamp of the most recently processed data for the corresponding table object type identified in the Table Name column. This timestamp serves as a watermark for subsequent pipeline executions, ensuring that only data updates occurring after this timestamp are processed. The UpdateWatermarkTable plays a vital role in managing data extraction and incremental loading processes within the pipeline, ensuring accurate tracking of data extraction timestamps, and facilitating efficient data updates. |
-
 ### 
 
 ## PL_BatchDataLoadToTCFileSystem
@@ -460,8 +458,6 @@ The table below lists the columns present in the UpdateWatermarkTable_PC table.
 | Table_Name | This column indicates the name of the table from which data was extracted during the pipeline execution. These table names correspond to different object types within Teamcenter, such as ENGMFGPART or ROTATNGPART. |
 | Created_Date | This column holds the timestamp representing the date and time when each record was created in the Teamcenter. |
 | LastExtractedTimestamp | This crucial column stores the timestamp of the most recently processed data for the corresponding table object type identified in the Table Name column. This timestamp serves as a watermark for subsequent pipeline executions, ensuring that only data updates occurring after this timestamp are processed. The UpdateWatermarkTable_PC plays a vital role in managing data extraction and incremental loading processes within the pipeline, ensuring accurate tracking of data extraction timestamps, and facilitating efficient data updates. |
-
-
 ### PL_PC_DataLoadToTCFileSystem
 
 #### Use case Part Classification

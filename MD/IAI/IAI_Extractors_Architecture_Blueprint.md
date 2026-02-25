@@ -88,7 +88,6 @@ This overview document describes the architectural design of the data integratio
 | RESTful API | An application programming interface that adheres to the principles of Representational State Transfer, enabling interaction with web services. |
 | Extractor | A software component or tool that retrieves and processes data from a source system for integration. |
 | Azure Services | Cloud-based computing services provided by Microsoft Azure, used for hosting and managing various applications. |
-
 ## 
 
 # SAP PM Extractor

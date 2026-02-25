@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Extractors Architecture Blueprint, IAI Extractors Getting Started |
-
 </div>
 
 ## Introduction
@@ -77,8 +76,6 @@ This guide is designed for use by developers with the following skills:
 | OData | An open data protocol used for querying and updating data over the web, leveraging standard web technologies such as HTTP and AtomPub. |
 | Function module | A reusable set of source code statements in SAP, designed to perform specific tasks with defined importing and exporting parameters. |
 | Subprogram | A module containing reusable code statements, often used to structure and organize programming tasks within larger applications. |
-
-
 ## Architecture Diagram
 
 ![Diagram depicting the Data Integration Architecture](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image2.png)
@@ -149,6 +146,7 @@ An SAP Transport is a kind of \'Container/Collection\' of changes that are made 
 5.  Edit the source code to suit the use case.
 
 > ![Screenshot of the Function module showing the source code that can be edited.](/img/placeholder.png)
+
 6.  In the Import tab, enter any parameters (e.g., Root Functional Location) that are needed during the execution of the function module.
 
 > ![Screenshot of import tab where parameters can be entered](/img/placeholder.png)
@@ -157,6 +155,7 @@ An SAP Transport is a kind of \'Container/Collection\' of changes that are made 
 8.  Execute the function module using F8 or the button highlighted in the screenshot below.
 
 > ![Screenshot of the function module showing the execute button](/img/placeholder.png)
+
 9.  Enter the parameter and execute it using F8 or the button highlighted in the screenshot below.
 
 > ![Screenshot showing the execute button after entering the parameters](/img/placeholder.png)
@@ -169,9 +168,11 @@ An SAP Transport is a kind of \'Container/Collection\' of changes that are made 
 1.  Open the t-code \"SEGW\" and create a new project using the Create Project button.
 
 > ![Screenshot of SAP](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image8.png)
+
 2.  Create a new Entity type and Entity sets using the Import option \&gt; DDIC structure by right-clicking on the Data Model.
 
 > ![Screenshot of SAP](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image9.png)
+
 3.  Enter the name and the ABAP structure that was created during the creation of the function module.
 
 > ![Screenshot of SAP](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image10.png)
@@ -180,6 +181,7 @@ An SAP Transport is a kind of \'Container/Collection\' of changes that are made 
 5.  After creation, the screen is similar to as depicted in the image below.
 
 > ![Screenshot of SAP](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image11.png)
+
 6.  Use the red and white Generate Runtime Object button to launch the Model and Service Definition window.
 
 > ![](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image12.png)
@@ -187,6 +189,7 @@ An SAP Transport is a kind of \'Container/Collection\' of changes that are made 
 7.  Check for the successful creation of the service and model.
 
 > ![Screenshot of SAP](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image13.png)
+
 8.  Use the t-code \"IWFND/MAINT_SERVICE\" to activate and maintain the nodes.
 
 > ![Screenshot of SAP](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image14.png)
@@ -203,6 +206,7 @@ A Workbench request and a package to carry the TADIR objects are required to tra
 1.  Use the t-code \"SE80\" to create the package. Select the package from the dropdown list that is under the Repository Browser. To create a package, enter the package name and click on the **Display** icon.
 
 > ![Screenshot of SAP](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image16.png)
+
 2.  To capture all the details, add the new ZCDF package to the previous transport while creating the new package. Standard OData Service TADIR Objects are listed in the table below.
 
 
@@ -268,6 +272,7 @@ Before creating the pipelines, the Azure DevOps environment must be prepared.
 | SapUserName | Provide the SAP Username to perform authentication with the SAP system |
 | SapPassword | Provide the SAP Password to perform authentication with the SAP system |
 | SapWOkey | Provide the SAP key to perform authentication with the SAP system &gt; ![screenshot of secret creation ](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image19.png)
+
 3. |
 | 4. | Create a key vault library in Azure DevOps and add the secrets created in the previous step. &gt; ![screenshot of key vault creation](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image20.png)
 |  |
@@ -282,6 +287,7 @@ Before creating the pipelines, the Azure DevOps environment must be prepared.
 | SONARQUBE_SERVICE_CONNECTION | Provide service connection for SonarQube. |
 | SAP_CLI_PROJECT_KEY | Provide SonarQube project key for SAP WO extractor. |
 | SAP_CLI_PROJECT_NAME | Provide SonarQube project name for SAP WO extractor. &gt; ![screenshot of library](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image21.png)
+
 6. |
 | 7. | Navigate to the pipelines file location \"Source/Extractors/sap-extractor-work-order/pipeline/Dev/azure-pipelines.yml\" and ensure that the pipeline refers to the libraries created in the previous steps. &gt; ![Screenshot of the azure-pipeline.yml file ](/img/placeholder.png)
 |  |
@@ -336,6 +342,7 @@ The Build Pipeline is used to Dockerize the Extractor Package. The artifacts cre
 1.  Navigate to Azure DevOps, select pipelines, and then select *New Pipeline*.
 
 > ![screenshot of azure devops](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image27.png)
+
 2.  Select *Azure Repos Git* and then select the *Repository Name* that contains SAP WO Extractor code and pipeline files.
 
 ![screenshot of azure devops](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image28.png)
@@ -343,9 +350,11 @@ The Build Pipeline is used to Dockerize the Extractor Package. The artifacts cre
 3.  Select \'*Existing Azure Pipelines YAML file\'*.
 
 > ![screenshot of azure devops](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image29.png)
+
 4.  Select the branch, provide the pipeline file path as \"Source/Extractors/sap-extractor-work-order/pipeline/Dev/azure-pipelines.yml\", and click on Continue.
 
 > ![screenshot of azure devops](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image30.png)
+
 5.  Review and save.
 
 6.  Run the pipeline and wait for its successful completion.
@@ -366,6 +375,7 @@ The Release pipeline deploys the Docker Image of the SAP WO Extractor created by
 2.  Update the value of the service connection for the AKS cluster in the tasks.
 
 > ![Screenshot showing the field to update the value of the service connection for AKS cluster](/img/placeholder.png)
+
 3.  Update the AKS file location in the tasks.
 
 > ![Screenshot showing the field to update the AKS file location in the tasks](/img/placeholder.png)
@@ -374,6 +384,7 @@ The Release pipeline deploys the Docker Image of the SAP WO Extractor created by
 5.  If this is the first run, then disable the delete task from the pipeline.
 
 > ![Screenshot showing the option to enable/disable the delete task from the pipeline](/img/placeholder.png)
+
 6.  Create a release from the release pipeline created in the previous step.
 
 ![Screenshot depicting the \"Create release\" button](/img/placeholder.png)
@@ -386,6 +397,7 @@ The Release pipeline deploys the Docker Image of the SAP WO Extractor created by
 9.  After deployment is complete, validate the successful deployment to the AKS cluster in the Azure portal.
 
 > ![screenshot of azure devops](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image37.png)
+
 10. Validate SAP WO Extractor logs on the [Lens](https://k8slens.dev/) app.
 
 > ![screenshot of lens app](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image38.png)
@@ -394,6 +406,7 @@ The Release pipeline deploys the Docker Image of the SAP WO Extractor created by
 12. If everything looks good and the AKS POD has been created, re-enable the delete task that was previously disabled.
 
 > ![Screenshot depicting the option to enable the delete task that was previously disabled](/img/placeholder.png)
+
 13. Validate the creation of database and table with Work Order header, notification, operations, and components on CDF Portal.
 
     a.  WO Header
@@ -412,6 +425,7 @@ e.
 f.  WO Components
 
 > ![Screenshot of WO Components on CDF portal](/img/placeholder.png)
+
 14. On Deployment Completion, an extraction pipeline is created in CDF based on the details provided in the configuration file. Success/Failure messages can be visualized on the CDF portal. Also, a notification is sent to the respective email address.
 
 > ![Screenshot of success message in CDF portal](/img/placeholder.png)
@@ -506,14 +520,17 @@ SAP WO Extractor extracts work order data from one or more SAP systems and inser
 1.  Click the Start button, search for \"Services\", and select Run as Administrator.
 
 > ![screenshot of windows services app actions](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image51.png)
+
 2.  Search for the \"SAPWorkOrderExtractor\" service name, right-click on it, and select Start.
 
 > ![Screenshot of Services window showing the option to Start the "SAPWorkOrderExtractor\" service](/img/placeholder.png)
+
 3.  Once the SAPWorkOrderExtractor starts running, check the logs in the log file on the given path in the configuration file.
 
 4.  Validate the creation of database and table with Work Order header, notification, operations, and components on CDF Portal.
 
 > ![Screenshot of WO Header table](/img/placeholder.png)
+
 5.  Validate the creation of the extraction pipeline with a success message on the CDF portal.
 
 > ![Screenshot of success message in CDF portal](/img/placeholder.png)
@@ -524,6 +541,7 @@ SAP WO Extractor extracts work order data from one or more SAP systems and inser
 1.  Click the Start button, search for \"Services\", and select Run as Administrator.
 
 > ![screenshot of windows services app actions](./media/IAI_SAP_WO_Extractor_Deployment_Guide/image51.png)
+
 2.  Search for the \"SAPWorkOrderExtractor\" service name, right-click on it, and select Stop.
 
 > ![Screenshot of Services window showing the SAPWorkOrderExtractor service and the Stop option](/img/placeholder.png)

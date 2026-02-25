@@ -195,9 +195,6 @@ The following table lists all documentation assets related to IX Digital Thread 
 | [BOM Comparison Flink Job Overview](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/1.2/DT_BOM_Comparison_Flink_Job_Overview_1_2.pdf) | This document provides an overview of the Flink job used for the BOM Comparison feature of the BOM Management application. |
 | [BOM Data Quality Check Flink Job Overview](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/1.2/DT_BOM_Data_Quality_Check_Flink_Job_Overview_1_2.pdf) | This document provides an overview of the Flink jobs used for BOM Data Quality Check feature of the BOM Management application. |
 | [Timeseries Flink Job Overview](https://ts.accenture.com/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/1.2/DT_Timeseries_Flink_Job_Guide_1_2.pdf) | This document provides an overview of the Timeseries Flink job, which is designed to handle time-series data from IoT and OPC sensors. |
-
-
-
 ##### Metadata Table
 
 
@@ -212,5 +209,4 @@ The following table lists all documentation assets related to IX Digital Thread 
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** |  |
 | **Related Assets / Alternatives** | AOT / Engineering Orch / Engineering Agents |
-
 </div>

@@ -58,7 +58,6 @@ This document describes the overall flow for setting up, configuring, and visual
 | Dashboard | The user interface in IAI where KPIs are visualized, analyzed, and compared, supporting drilldown and time series analysis |
 | KPI Config Template | A template used to define, configure, and upload KPIs into the IAI platform, including hierarchy, UoM mapping, and contributing relationships |
 | Scheduler | A component or service that automates the execution of KPI calculations and other functions at defined intervals within the IAI platform |
-
 ## 
 
 # Smart KPIs User Journey
@@ -78,7 +77,6 @@ This document describes the overall flow for setting up, configuring, and visual
 | 10 | Client Business User reviews KPIs -- [LINK](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Smart_KPIs_UI_Guide_2_5.pdf) |
 | 11 | Client Business User drills down into KPIs to investigate contributing/influencing KPIs -- [LINK](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Smart_KPIs_UI_Guide_2_5.pdf) |
 | 12 | Client Business User Compare time series data between KPIs -- [LINK](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Smart_KPIs_UI_Guide_2_5.pdf) |
-
 ## 
 
 # Smart KPIs Resources
@@ -98,8 +96,6 @@ The links below are to documents related to the Smart KPIs component.
 | [IAI Smart KPIs UI Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Smart_KPIs_UI_Guide_2_5.pdf) | This guide explains how to use the IAI Smart KPIs UI after deployment. | Dashboard - 4 Trend Timeline - 7 KPI Tiles - 9 Aggregated Data -- 10 Contributing KPIs -- 11 Calendar and KPI Tiles -- 12 Role-based KPI Drilldown -- 13 KPI Drilldown Details - 13 Parameters Drilldown- 14 Access-based KPI Drilldown -- 16 Non-OT KPI Drilldown - 17 Calendar and Trend Trendlines -- 22 Date Picker -- 23 Pagination and Auto-refresh -- 26 KPI Details on Intelligent Advisor - 27 KPI Details on Operations Hierarchy-- 28 Digital Twin Assistant - 30 Troubleshooting - 31 |
 | [IAI UoM Technical Reference](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Units_of_Measurement_Technical_Reference_2_5.pdf) | This reference document includes information about the Middleware APIs that help in providing information on Units of Measurement like Unit Systems, Units of Measurement, and Units of Measurement Conversion Formulae that are utilized by other IAI components. | Background -- 3 UoM Conversion -- 4 Percentage Comparison -- 5 UoM Configuration APIs -- 5 |
 | [IAI Generic Scheduler Technical Reference](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.5/AOT_Generic_Scheduler_Technical_Overview_2_5.pdf) | The parameters and examples shown in this document may be used by the target audience to integrate, configure, and deploy IAI\'s Generic Scheduler into an application. | Generic Scheduler Architecture -- 5 Scheduling Expressions -- 6 API Specifications -- 7 Kafka Message Broker -- 14 Database Tables -- 15 Deployment -- 16 Use Case -- Schedling Smart KPIs -- 16 |
-
-
 ## 
 
 # Prerequisites
@@ -140,5 +136,4 @@ The prerequisites below are unique to the Smart KPIs component. For general prer
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs UI Guide, Smart KPIs Admin Guide |
-
 </div>

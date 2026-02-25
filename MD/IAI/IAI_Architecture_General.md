@@ -26,8 +26,6 @@ hide_title: true
 | **Status** | Draft / In Progress |
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) **Related Assets / Alternatives** |
-
-
 </div>
 
 ## Introduction
@@ -78,9 +76,6 @@ Familiarity with Cognite Data Fusion (CDF)
 | Business Logic | The business logic can appear in several forms inside IAI, including Insight generator data analytics models and KPI value calculation functions. The logic can involve advanced analytics, AI, ML, or conventional business logic to consume and manipulate the knowledge graph. |
 | APIs | Exposes data and business logic toward the external world. |
 | Applications | Business applications, reports, and dashboards are implemented on top of the business logic and knowledge graph of the solution. |
-
-
-
 ## Structure
 
 As illustrated right, IAI can be simplified into the following building blocks:
@@ -160,8 +155,6 @@ IAI sub-systems including Smart KPIs, Intelligent Advisor, 3D Visualizer, and Op
 | Security | &gt; Robust security features, including access controls, encryption, and authentication, are essential to protect sensitive data within the platform. |
 | Compliance and Auditing | &gt; DataOps platforms assist in maintaining compliance with data privacy regulations by tracking and auditing data access and changes. |
 | Cost Management | &gt; They often include cost management tools to optimize data storage and processing expenses in cloud environments. |
-
-
 The DataOps system of IAI is responsible for extracting data from external data sources, transforming and storing it in the knowledge graph. Furthermore, it holds tools for scaling the data contextualization work. The diagram below depicts the general context of the DataOps system.
 
 ![Diagram titled \'AOT DataOps Context\' showing relationships between components in the Accenture Operations Twin system. At the center is AOT DataOps, which ingests data from source systems (ETL) and stores it in a knowledge graph, providing infrastructure and tooling for contextualization. Below, Source Systems supply data to maintain the Operations Twin. Above, three modules---AOT Smart KPIs (for viewing KPIs in a hierarchy), AOT Intelligent Advisor (for creating insights about business operations), and AOT Operations Hierarchy (for displaying hierarchy details)---all use the knowledge graph provided by AOT DataOps. Arrows indicate data flow and dependencies.](./media/IAI_Architecture_General/image10.svg)
@@ -189,11 +182,7 @@ The following tables describe the role and functionality of the different compon
 | [Contextualization](https://docs.cognite.com/cdf/integration/concepts/contextualization/) Services | The advanced contextualization tools in Cognite Data Fusion enable users to combine machine learning with a powerful rules engine and the users' domain expertise to map data from different source systems to each other in a custom data model. |
 | [Knowledge Graph](https://docs.cognite.com/cdf/learn/cdf_basics/cdf_basics_datamodel) | A data model is an abstract model that organizes data elements and standardizes how they relate to one another and the properties of real-world entities. The CDF data model collects industrial data by resource types that let users define the data elements, specify their attributes, and model the relationships between them. The different resource types are used to both store and organize data. |
 | [API](https://api-docs.cognite.com/) | Cognite\'s RESTful web API enables users to access (read and write) resources in Cognite Data Fusion. |
-| [SDK](https://developer.cognite.com/sdks/) | Cognite has a large number of Software Development Kits (SDKs), both adapted to specific programming languages and specific use cases. All Cognite SDKs are open-source and available on GitHub. |
-
-
-![Diagram titled \'AOT DataOps with Cognitive Extractor\' showing the flow of data and components in the Accenture Operations Twin system. At the top are three modules: AOT Intelligent Advisor (creates insights), AOT Smart KPIs (views KPIs in hierarchy), and AOT Operations Hierarchy (displays hierarchy details). These connect to the Cognitive Data Fusion DataOps Platform, which includes the CDF API and AOT Knowledge Graph. Below are Contextualization Services and Transformation Services for refining and transforming data. Further down is the IAW Extractor for entity matching and pushing data to the CDF. At the bottom, various extractors (SAP PM, PI AF, Hexagon, Files, and CDF Extractors) pull data from source systems like SAP PM, PI AF, Hexagon, and file storage. Arrows indicate data flow from source systems through extractors, contextualization, and transformation into the knowledge graph, supporting insights and KPIs. A legend color-codes components for Smart KPIs, DataOps, Intelligent Advisor, and Operations Hierarchy.](./media/IAI_Architecture_General/image12.svg)
-
+| [SDK](https://developer.cognite.com/sdks/) | Cognite has a large number of Software Development Kits (SDKs), both adapted to specific programming languages and specific use cases. All Cognite SDKs are open-source and available on GitHub. ![Diagram titled \'AOT DataOps with Cognitive Extractor\' showing the flow of data and components in the Accenture Operations Twin system. At the top are three modules: AOT Intelligent Advisor (creates insights), AOT Smart KPIs (views KPIs in hierarchy), and AOT Operations Hierarchy (displays hierarchy details). These connect to the Cognitive Data Fusion DataOps Platform, which includes the CDF API and AOT Knowledge Graph. Below are Contextualization Services and Transformation Services for refining and transforming data. Further down is the IAW Extractor for entity matching and pushing data to the CDF. At the bottom, various extractors (SAP PM, PI AF, Hexagon, Files, and CDF Extractors) pull data from source systems like SAP PM, PI AF, Hexagon, and file storage. Arrows indicate data flow from source systems through extractors, contextualization, and transformation into the knowledge graph, supporting insights and KPIs. A legend color-codes components for Smart KPIs, DataOps, Intelligent Advisor, and Operations Hierarchy.](./media/IAI_Architecture_General/image12.svg) |
 ## 
 
 ## Extractors
@@ -220,7 +209,6 @@ One of the main use cases of the Transformation in IAI is the creation of the As
 | - | Other source systems using the Transformation and contextualization services |
 | - | An extractor (e.g., time series from sensors, events from alerting systems, etc.) |
 | - | External services (Azure Functions, Databricks, Azure Data Factory, etc.) See also: [IAI Extractors Architecture Blueprint](https://industryxdevhub.accenture.com/assetdetails/46) |
-
 ### Intelligent Advisor
 
 IAI's Intelligent Advisor (IA) is an AI-based solution that enables users of all types -- from shop floor workers to top management -- to focus on their most critical issues, with real-time generated, prioritized, and contextualized insights and recommendations. It can help all levels of the value chain by predicting useful insights, highlighting the root causes notifying relevant colleagues, recommending appropriate actions, and ultimately improving the performance of end-to-end operations.
@@ -294,8 +282,6 @@ The tables below define the responsibility of each of the components found in th
 | --- | --- |
 | Intelligent Advisor Sidepanel Application | Intelligent Advisor Sidepanel Application is a small micro-frontend application where insights and actions can be viewed and edited. |
 | Intelligent Advisor Insight Details Application | An application where a detailed view of an insight is shown together with recommendations, related actions, comments, graphical representation, and impacted KPIs. |
-
-
 #### Microservices
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -306,8 +292,6 @@ The tables below define the responsibility of each of the components found in th
 | Data Model | A microservice that is responsible for the execution of machine learning models. It is triggered by the Scheduler microservice on a periodic interval using a Kafka topic. When the execution finishes, a new message is published on the output Kafka topic. This microservice can either execute the model using a platform tool machine learning implementation or an in-memory module. |
 | Insight generator engine | This microservice consumes messages generated by the Data Model microservice and based on the output value will decide if insights need to be created. |
 | Intelligent Advisor Microservice | The IA Microservice provides APIs used to access insights and actions based on assigned roles. |
-
-
 #### Data Storage
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -318,8 +302,6 @@ The tables below define the responsibility of each of the components found in th
 | Intelligent Advisor Configuration Database | The IA config DB stores the insight categories configuration. |
 | Scheduler Configuration Database | The scheduler config db stores the current configuration of the Scheduler microservice. |
 | Sequence generator Database | The sequence generator db stores a unique sequence for each generated insight. |
-
-
 ### IA Insight Generation Interactions
 
 The diagram on the right shows the flow of the insight generation inside IAI.
@@ -432,9 +414,6 @@ The tables below describe the role and functionality of the different components
 | --- | --- |
 | &gt; Smart KPIs Configuration Application | &gt; The Smart KPIs Configuration Application is a standalone web application, which can be accessed by Smart KPIs admin users to configure the SmartKPIs calculation engine. It interacts with the Configuration API and microservice to read and write configuration to the system. |
 | &gt; SmartKPIs Dashboard Application | &gt; The Smart KPIs Dashboard application is a micro-frontend application embedded into the IAI business application. It provides a visualization layer of the SmartKPIs on a Dashboard. It interacts with the SmartKPIs API and microservice to retrieve KPI data. |
-
-
-
 #### Microservices
 
 
@@ -446,9 +425,6 @@ The tables below describe the role and functionality of the different components
 | &gt; Smart KPIs Calculation Microservice | &gt; The Smart KPIs Calculation microservice is responsible for calculating the KPI values based on the KPI configuration. It can evaluate the KPI calculation formula, read all the contributing values, and make the calculation which is then saved back to the IAI DataOps storage. This microservice can calculate actual, forecast, historical benchmark, and planned values of a KPI. |
 | &gt; Smart KPIs Data Permissions | &gt; The data permissions microservice is triggered by the Orchestrator or by the Scheduler microservice, It makes the different KPI calculations of a KPI instance (actual, forecast, historical benchmark, planned) |
 | &gt; Notification | &gt; The Notification microservice is a common microservice part of the Platform Tools of IAI. It facilitates communication between the IAI Backend and Frontend. It is used by the SmartKPIs engine to send notifications to the front end whenever a KPI calculation is completed. These notifications are used by the front end to refresh KPI data only if it changes. |
-
-
-
 #### Data Storage
 
 
@@ -458,9 +434,6 @@ The tables below describe the role and functionality of the different components
 | &gt; Configuration Database | &gt; Stores the current configuration of the SmartKPIs engine. |
 | &gt; Orchestration Database | &gt; Stores the intermediate data and the status of KPI calculations. It is maintained by the Orchestration service. It can be used also as a log of past calculations. |
 | &gt; Template Storage Blob | &gt; Blob storage is used to store the XLS configuration templates uploaded by the user. |
-
-
-
 ### Calculation Interactions
 
 The diagram on the right shows the interaction between the system components when performing KPI calculations.
@@ -528,8 +501,6 @@ The tables below describe the role and functionality of the different components
 | Operations Hierarchy Configuration Application | Operations Hierarchy Configuration Application provides the possibility to configure the OH and the roles assigned to the nodes of it |
 | Operations Hierarchy Side-panel Application | The Operations Hierarchy side panel application is responsible for visualizing the OH as an advanced tree view. It is a micro-frontend application that needs to be embedded into a host application. |
 | Entity Viewer Application | The Entity Viewer Application is responsible for showing detailed information about a selected node from the OH combining information both from the OH and other parts of the Knowledge Graph. It is a micro-frontend application that needs to be embedded into a host application. |
-
-
 #### Microservices
 
 
@@ -538,8 +509,6 @@ The tables below describe the role and functionality of the different components
 | Operations Hierarchy Microservice | This microservice is a data access microservice. It enables OH data querying for authenticated users based on their role assignments. |
 | Operations Hierarchy Configuration Microservice | The configuration microservice provides the possibility of configuring the OH and the roles assigned to the OH nodes. |
 | Operations Hierarchy Data Permissions Microservice | Whenever a role assignment to OH is changed an event is raised so that the PH Permission Manager microservice can apply the right permissions on the relevant OH nodes. Likewise, the DataOps platform is also raising events whenever changes are applied in the OH so that the OH Permission Manager can react to it by applying the right permissions. |
-
-
 #### Data Storage
 
 
@@ -547,7 +516,6 @@ The tables below describe the role and functionality of the different components
 | --- | --- |
 | Cognite Data Fusion / Knowledge Graph | Stores the operations hierarchy as the backbone of the knowledge graph. |
 | Configuration Database | Stores configuration for the Operations Hierarchy. |
-
 ### 
 
 ## Deployment
@@ -659,18 +627,12 @@ The API of the microservice exposes the possibility to create, modify, and delet
 | &gt; **Name** | &gt; **Responsibility** |
 | --- | --- |
 | &gt; Scheduler Microservice | &gt; This microservice has the role of triggering events based on user-defined schedules. It exposes an API to set up the required scheduler jobs and when, based on the configuration, the time elapses it creates the triggering messages, which are sent to a Kafka topic. These events are consumed by subscribers to the topic which triggers business logic in the backend (KPI calculations, Insight creation, etc.) |
-
-
-
 #### Data Storage
 
 
 | &gt; **Name** | &gt; **Responsibility** |
 | --- | --- |
 | &gt; Scheduler Configuration Database | &gt; Stores the scheduler configuration and historical information about scheduler executions. |
-
-
-
 ## 3D Visualization
 
 As shown in the diagram below, the 3D system of IAI provides 3D visualization of the Plant(s) with contextualized data (KPIs and Insights) displayed on the 3D model with the possibility to drill down inside the visualization.\
@@ -701,16 +663,12 @@ The tables below describe the role and functionality of the different components
 | --- | --- |
 | 3D Visualizer Application | It is a micro-frontend application that is integrated into the IAI Business Application, and it has the role of displaying the 3D models of the Plant or any other asset from the hierarchy. It also provides all the contextualized data of the asset and provides the users with the drill-down functionality, going deeper into the 3D model to see the subcomponents of the model and the contextualized data. |
 | 3D Builder/Configuration Application | This is a stand-alone micro-frontend application that combines all the tools necessary to upload, manage, enhance, and contextualize 3D models and create layouts from these models. The different tools are Unity3D and/or React-based components which enable Model Management, Point of Interest editing/mapping, Model mapping, and Twin builder. |
-
-
 #### Microservices
 
 
 | **Name** | **Responsibility** |
 | --- | --- |
 | 3D Configuration Microservice | This microservice provides access to the saved data (3D models, mappings, etc.) and the possibility to modify the data. |
-
-
 #### Data storage
 
 
@@ -797,8 +755,6 @@ The IAI Host App is built from embedded micro-frontend (MFE) applications. Each 
 | &gt; 3D Visualizer | &gt; Displays the 3D model of a plant or area configured in the 3D editor, along with adding insight, actions, and alerts on top of it. |
 | &gt; Entity Viewer | &gt; Displays a detailed dashboard for a selected asset. |
 | &gt; Reporting | &gt; This visualizes reports defined in the system. |
-
-
 ### 
 
 ## Configuration Apps
@@ -815,8 +771,6 @@ The IAI Configuration applications are a set of stand-alone MFE applications tha
 | &gt; Intelligent Advisor Config App | &gt; Allows the user to maintain the insight category and template configuration used by Intelligent Advisor. |
 | &gt; People Management Config App | &gt; The role of the People Management module is to enable admin users to administer a user's access to data and functionality in the platform. &gt; &gt; The People Management Configuration Application allows admin users to create and manage IAI Roles, link Active directory groups to IAI Roles, and change user permissions.\ &gt; People management has two components: 1. Functional permissions to access the configuration pages of various components. This will be a custom development and is part of IAI. 2. Data permissions defined to data points inside CDF (asset hierarchy, KPIs, Insights, etc.) that are based on roles and responsibilities. The users have access only to the data to which their permissions are mapped. |
 | &gt; Reporting Configuration Application | &gt; This configures reports to be presentable in IAI. The reports are preconfigured in their environment (currently PowerBI), however, whether they are visible and to whom are visible are controlled by IAI. |
-
-
 ## 
 
 # Appendix
@@ -833,8 +787,6 @@ The IAI Configuration applications are a set of stand-alone MFE applications tha
 | Prepare for failure | Recognize that every component, every process, and every person in your solution might become unavailable, and design the solution in a way that gracefully handles those situations. Evaluate failure modes and design a remediation that balances the cost of prevention with the cost of failure. |
 | Divide and conquer | Define precise interfaces between applications to improve maintainability. Separate different functions from each other and implement them in separate components. |
 | Black box | Don't expose the implementation details of one component to another. Define interfaces between functional components and hide implementation complexity behind the interfaces. |
-
-
 ### Patterns
 
 
@@ -847,4 +799,3 @@ The IAI Configuration applications are a set of stand-alone MFE applications tha
 | Event-based asynchronous | This enables the advantages of multithreaded applications while hiding many of the complex issues inherent in the multithreaded design. Using a class that supports this pattern can allow the execution of long-running tasks in the background without blocking tasks, running multiple tasks in parallel, and waiting for available resources. |
 | Publish-subscribe | This is a messaging pattern where senders of messages---called publishers---do not program the messages to be sent directly to specific receivers---called subscribers---but instead categorize published messages into classes without any information about the subscribers. The subscribers decide on the reception of the different data by subscribing to different topics. |
 | Adapter pattern | By applying this pattern to containers, communication between containers is kept consistent. Having a standard way of communicating via a set of contracts helps to make requests in the same way and lets the user expect the same response format. |
-

@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -97,7 +96,6 @@ This document delves into a specific Azure Data Factory (ADF) workflow designed 
 | ADF | Azure Data Factory |
 | ADX | Azure Data Explorer |
 | GE | Great Expectations |
-
 ## 
 
 # 

@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [[Summary - Overview]](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Getting Started |
-
 ## 
 
 
@@ -82,8 +81,6 @@ An API testing tool such as [Postman](https://app.getpostman.com/app/download/wi
 | &gt; Kubernetes | &gt; An open-source platform for automating deployment, scaling, and management of containerized applications. |
 | &gt; Authentication Token | &gt; A digital credential used to verify a user\'s identity and authorize access to APIs or services. |
 | &gt; Epoch Time | &gt; The number of seconds that have elapsed since January 1, 1970 (UTC), commonly used in computing for time representation. |
-
-
 ## 
 
 # API Architecture
@@ -101,7 +98,6 @@ The middleware APIs to upload and download files from Azure blob storage are lis
 | --- | --- |
 | POST-Upload File | This API is used for uploading files into the Azure blob account. |
 | POST-Download File | This API is used for downloading files from the storage blob. These APIs are described further in the subsequent sections. |
-
 ## 
 
 # POST-Upload File
@@ -119,8 +115,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | PATH IAI (Azure)(Public Exposure) | [[https://apim-aot-azure-dev.azure-api.net/api/filehandler/files/upload]](https://apim-aot-azure-dev.azure-api.net/api/filehandler/files/upload) |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 ### Input Header
 
 
@@ -128,8 +122,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String |
-
-
 ### Input Body
 
 
@@ -137,8 +129,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | --- | --- |
 | Path | Provides the file/folder path to upload the file to the Azure blob storage M String |
 | File | Provide the file that needs to be uploaded M File \* Mandatory/Optional |
-
-
 ### Output Header
 
 
@@ -149,24 +139,18 @@ To fetch the response from the APIs, the authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes String |
-
-
 ### Output Body
 
 
 | Parameter | Description Type |
 | --- | --- |
 | Path | Display path of the uploaded file String |
-
-
 ### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | The file is uploaded successfully to the blob storage. |
-
-
 ### Error Management
 
 
@@ -175,8 +159,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request - Please select the proper file extension - Storage account not configured for a given base - Please select the file for uploading |
-
-
 ### Sample JSON Response
 
 \{
@@ -206,8 +188,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | PATH IAI (Azure)(Public Exposure) |  |
 | METHOD | POST |
 | CONTENT TYPE | application / json |
-
-
 ### Input Header
 
 
@@ -215,16 +195,12 @@ To fetch the response from the APIs, the authorization token must exist.
 | --- | --- |
 | Authorization | Token acquired from Azure AD based on the user credentials for further API calls. M String |
 | Content-Type | Type of content. E.g.- application/json M String \* Mandatory/Optional |
-
-
 ### Input Body
 
 
 | Parameter | Description M/O Type |
 | --- | --- |
 | Path | Provides the path value for downloading files from the Azure blob storage. e.g., \"Path\":\[\"\{basename\}/folder1/filename\"\] where basename represents the folder name and storage account of the respective module like OHEntityViewer and SmartKPI. M String |
-
-
 ### Output Header
 
 
@@ -235,24 +211,18 @@ To fetch the response from the APIs, the authorization token must exist.
 | Date | Date of operation execution e.g. - \[Tue, 17 May 2022 06:30:16 GMT\] Datetime |
 | Content-Length | Length of the content Bytes |
 | Connection | A general header specifying whether the current network connection stays open once the current transaction finishes. String |
-
-
 ### Output Body
 
 
 | Parameter | Description Type |
 | --- | --- |
 | Content | Downloading the file into the local system String |
-
-
 ### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | file downloader (Sample success response) |
-
-
 ### Error Management
 
 
@@ -261,8 +231,6 @@ To fetch the response from the APIs, the authorization token must exist.
 | 500 | 500 Generic Error |
 | 400 | 401 Unauthorized User or Header Token missing |
 | 400 | 400 Bad request - Invalid file path. Please reach out to Admin for a resolution - Storage account not configured for the given base: \'\{base_name\}\'. Please reach out to Admin for resolution. |
-
-
 ### Sample JSON Request
 
 \{\

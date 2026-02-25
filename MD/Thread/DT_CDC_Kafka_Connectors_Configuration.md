@@ -73,7 +73,6 @@ In Kafka Connect, various types of connectors fall under the above-mentioned cat
 | HTTP Source Connector | An HTTP Source Connector reads data from an HTTP endpoint (REST API) and streams it into Kafka topics. It periodically polls the specified HTTP endpoint to retrieve data and publishes that data as messages in Kafka. |
 | HTTP Sink Connector | An HTTP Sink Connector writes data from Kafka topics to an HTTP endpoint (REST API). It takes messages from Kafka topics and sends them to a configured HTTP endpoint. |
 | Debezium Connector | Debezium connectors are used for change data capture (CDC) from database systems. Debezium captures the changes (inserts, updates, deletes) that occur in a database and streams them as events into Kafka topics. This allows the user to react to database changes in real time. Each connector type serves a distinct purpose in integrating data between systems/applications and Kafka. They might have different configurations, capabilities, and requirements based on their use case. |
-
 ## 
 
 # Connector Setup

@@ -28,7 +28,6 @@ hide_title: true
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Operations Hierarchy UI Guide, Operations Hierarchy API Reference |
 | # | \{#section .TOC-Heading\} |
-
 </div>
 
 ## Introduction
@@ -104,7 +103,6 @@ Developers with the following skills:
 | APIs | Application Programming Interfaces, which allow different software applications to communicate with each other. |
 | Image | A packaged version of an application or environment, often used to ensure consistency across deployments. |
 | Environment | A distinct configuration space (such as development, testing, or production) where applications are developed, tested, or deployed. |
-
 ## 
 
 # Deployment Pipeline
@@ -170,6 +168,7 @@ The YML files listed above can be found at the following file paths:
 -   Consumption/DataAccess/OperationsHierarchy/Configuration/oh_config_middleware/oh_config_ms/pipeline
 
 > ![azure pipeline yml file in folder structure for config middleware](./media/IAI_Operations_Hierarchy_Backend_Deployment_Guide_Azure/image7.png)
+
 7.  Open the YML files and verify that the parameters are present under the CreateImage, DeployApplication, and ApiImportAutomation stages.
 
 8.  

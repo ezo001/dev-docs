@@ -28,7 +28,6 @@ hide_title: true
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Extractors Architecture Blueprint, IAI Extractors Getting Started |
 | # | \{#section .TOC-Heading\} |
-
 </div>
 
 ## Introduction
@@ -99,7 +98,6 @@ It is assumed that the configurations described in this guide are made in the cl
 | SPFVNet Server Connection | A connection type required to access the HxGN SDx tool, established via specific network configurations. |
 | HxGN SDx | A Hexagon solution for managing engineering information, assets, and data throughout their lifecycle. |
 | Root Certificate | A trusted digital certificate used to authenticate users and devices on a network. |
-
 ## 
 
 # Hexagon SDx Configuration
@@ -314,6 +312,7 @@ A cloud subscription with the following:
 4.  Create a key vault library in Azure DevOps and add the secrets created in the previous step.
 
 > ![screenshot of variable group created for create pipeline steps](./media/IAI_Hexagon_Extractor_Deployment_Guide/image28.png)
+
 5.  Create a Library/Variable Group in Azure DevOps with the following parameters:
 
 
@@ -333,6 +332,7 @@ A cloud subscription with the following:
 | HXG_KEY_COLUMN | Provide a column name for filtering data to upload into the CDF RAW table |
 | HXG_SCOPE | Provide a Scope as the service ID from the SAM authentication server. The default value is \'ingr.api' |
 | HXG_TOKEN_ENDPOINT | Provide Hexagon client request access token &gt; ![Screenshot of variable group library created with the specified parameters](./media/IAI_Hexagon_Extractor_Deployment_Guide/image29.png)
+
 6. |
 | 7. | Navigate to the pipeline file location "Source/Extractors/HexagonExtractor/pipeline/Dev/azure-pipelines.yml" and ensure that the pipeline is referring to the libraries created in the previous steps. &gt; ![Specified pipeline that reflects the variable groups created in previous steps.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image30.png)
 |  |
@@ -371,9 +371,11 @@ The Build Pipeline is used to Dockerize the Extractor Package. The artifacts cre
 1.  Navigate to Azure DevOps, select pipelines, and then select **New Pipeline**.
 
 > ![Azure DevOps screenshot showing option to select New Pipeline](./media/IAI_Hexagon_Extractor_Deployment_Guide/image34.png)
+
 2.  Select **Azure Repos Git** and select the Repository Name that contains Hexagon Extractor code and pipeline files.
 
 > ![Screenshot highlighting \'Azure Repos Git\'](./media/IAI_Hexagon_Extractor_Deployment_Guide/image35.png)
+
 3.  Select \'Existing Azure Pipelines YAML file'.
 
 > ![Azure DevOps screenshot showing the option to select Existing Azure Pipelines YAML file.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image36.png)
@@ -382,6 +384,7 @@ The Build Pipeline is used to Dockerize the Extractor Package. The artifacts cre
 5.  Select the branch and provide the pipeline file path as "Source/Extractors/HexagonExtractor/pipeline/Dev/azure-pipelines.yml" and then select Continue.
 
 > ![Azure DevOps screenshot showing option to input pipeline file path](./media/IAI_Hexagon_Extractor_Deployment_Guide/image37.png)
+
 6.  Review and save.
 
 7.  Run the pipeline and wait for its successful completion.
@@ -401,27 +404,35 @@ The Release pipeline deploys the Docker Image of Hexagon Extractor created by th
 2.  Update the value of the service connection for the AKS cluster in the tasks.
 
 > ![Screenshot showing the value updated of service connection for AKS cluster in tasks](./media/IAI_Hexagon_Extractor_Deployment_Guide/image39.png)
+
 3.  Update the AKS file location in the tasks.
 
 > ![Screenshot showing the AKS file location in the tasks.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image40.png)
+
 4.  If this is the first run, then disable the delete task from the pipeline.
 
 > ![Screenshot showing options to enable and disable the task from the pipeline](./media/IAI_Hexagon_Extractor_Deployment_Guide/image41.png)
+
 5.  Create a release from the release pipeline created in the previous step.
 
 > ![Screenshot showing the \'Create release\' option.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image42.png)
+
 6.  Once the release is completed, confirm successful deployment on Azure DevOps.
 
 > ![Screenshot showing the successful deployment on Azure DevOps.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image43.png)
+
 7.  Next, validate the successful deployment to the AKS cluster in the Azure portal.
 
 > ![Screenshot showing the successful deployment to AKS cluster in Azure portal.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image44.png)
+
 8.  Validate Hexagon Extractor logs using the [Lens](https://k8slens.dev/) app.
 
 > ![Screenshot of Hexagon Extractor logs in Lens app.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image45.png)
+
 9.  If everything looks good and AKS POD is created, enable the delete task that was previously disabled.
 
 > ![Screenshot of Azure DevOps showing the option to enable the delete task that was previously disabled.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image46.png)
+
 10. Validate the creation of the database and table with asset hierarchy data on the CDF Portal.
 
 ## 
@@ -489,9 +500,11 @@ C.  Add mandatory Cognite-related details.
 1.  Click the Start button and search for "Services" and select **Run as Administrator**.
 
 > ![Start menu showing the Services App and Run as Administrator option](./media/IAI_Hexagon_Extractor_Deployment_Guide/image51.png)
+
 2.  Search for the "HexagonExtractor" service name, right-click on it, and select **Start**.
 
 > ![Screenshot showing the Hexagon Extractor in the services window](./media/IAI_Hexagon_Extractor_Deployment_Guide/image52.png)
+
 3.  Once the Hexagon Extractor starts running, check the logs in the log file on the given path in the configuration file.
 
 4.  Validate the creation of the database and tables with asset hierarchy data on the CDF portal.
@@ -503,6 +516,7 @@ C.  Add mandatory Cognite-related details.
 1.  Click the Start button and search for "Services" and select **Run** **as** **Administrator**.
 
 > ![Screenshot of Services app as searched in the Start menu showing option to Run as administrator.](./media/IAI_Hexagon_Extractor_Deployment_Guide/image51.png)
+
 2.  Search for the "HexagonExtractor" service name, right-click on it, and select **Stop**.
 
 > ![Screenshot of Services showing the options to Stop the Hexagon Extractor](./media/IAI_Hexagon_Extractor_Deployment_Guide/image53.png)

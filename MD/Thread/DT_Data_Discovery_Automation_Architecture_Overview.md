@@ -27,7 +27,6 @@ Metadata Table
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
 | # | Introduction A digital thread refers to the continuous and consistent flow of information throughout the entire lifecycle of a product or system - from design and development to operation and maintenance. It enables the integration of data from different stages and sources, allowing effective traceability, seamless collaboration, and efficient decision-making by unleashing the power of sleeping data. The digital thread is considered a key aspect of Industry 4.0 and the digital transformation of the manufacturing industry. It is the core of the Enterprise Operating System (EOS). Digital Thread is a communication framework that helps integrate various enterprise systems involved in the engineering and manufacturing product life cycle. Data Discovery Automation (DDA) is the process of employing advanced technologies to automatically locate, categorize, and analyze digital assets across an organization\'s data ecosystem. DDA is implemented for IX Digital Thread Foundations project framework to streamline the ingestion of business and technical metadata into a Data Catalog thereby enabling comprehensive data governance and discovery capabilities across various data sources within the organization. |
-
 </div>
 
 ### Purpose
@@ -90,8 +89,6 @@ This document provides an overview of IX Digital Thread\'s Data Discovery Automa
 | - pandas 2.1.4 |  |
 | - psycopg2-binary 2.9.9 |  |
 | - xlsxwriter 3.2.0 |  |
-
-
 ## 
 
 # Background
@@ -149,8 +146,6 @@ The following diagram depicts the DDA architecture. Click on the image to launch
 | Postgres | Open-source relational database management system. Storing business metadata quality results |
 | Query Engine | Gateway facilitates interaction between the user and external source systems. Integrated with Postgres data quality table and used in the Data Catalog UI |
 | Connector API | Responsible for extracting data from external systems or data sources. Fetch the data from data sources |
-
-
 ### Extraction and Ingestion 
 
 The system is designed to extract, transform, and ingest business metadata from various sources into Postgres, ensuring comprehensive metadata management and data governance across the organization. Business metadata and technical metadata extraction and ingestion methods vary.
@@ -176,8 +171,6 @@ The Connector Approach is designed to handle structured data from enterprise sys
 | Data Ingestion API | This component interfaces with Purview to ingest the processed metadata. It ensures that the transformed data is correctly formatted and submitted to Purview, handling any authentication and error handling required during the ingestion process. |
 | ADF Pipeline | An orchestration service that automates data movement and transformation. The ADF pipeline is responsible for triggering the metadata extraction process from registered data sources, coordinating the data flow, and ensuring that the extracted metadata is processed and ready for ingestion into Purview. |
 | Azure Key Vault | A secure storage solution for credentials required to access data sources. By storing and managing these access credentials, Azure Key Vault ensures that the data extraction processes remain secure and compliant with organizational security policies. |
-
-
 ##### Data Model Approach
 
 The Data model Approach is designed for sources where direct API connectivity is not available or practical, such as ER diagrams or custom file formats. The process flow for this approach begins with data extraction from ER diagrams or custom files. The extracted data is then converted into the required Excel formats for metadata, relationships, and instances. Like the Connector Approach, these individual Excel files are stored in Azure Blob Storage. The ingestion process uses Azure Function apps with SQL insert commands to ingest the stored CSV files into Postgres. The ingestion status for each component is also saved in separate files in Blob Storage.
@@ -193,8 +186,6 @@ The Data model Approach is designed for sources where direct API connectivity is
 | Data Ingestion API | This component functions similarly to its counterpart in the Connector Approach, interfacing with Purview to ingest the processed metadata from the Excel files. |
 | ADF Pipeline | An orchestration service that automates data movement and transformation. The ADF pipeline is responsible for triggering the metadata extraction process from registered data sources, coordinating the data flow, and ensuring that the extracted metadata is processed and ready for ingestion into Postgres. |
 | Azure Key Vault | A secure storage solution for credentials required to access data sources. By storing and managing these access credentials, Azure Key Vault ensures that the data extraction processes remain secure and compliant with organizational security policies. |
-
-
 #### Technical Metadata
 
 Digital Thread\'s technical metadata management is capable of handling diverse data sources. Sources that are supported by Microsoft Purview are extracted via Purview, and for sources that are not supported by Purview (non-supported sources), an ADF pipeline is directly integrated with the source system.
@@ -237,8 +228,6 @@ Finally, Purview\'s Data Ingestion APIs are used to programmatically ingest this
 | Custom Extraction Logic | These are custom components within the ADF pipeline that are designed to handle the extraction of metadata from unsupported sources. This logic includes custom code and processes to interact with source systems like SAP OData services, ensuring accurate and efficient metadata extraction. |
 | Transformation Component | A module within the ADF pipeline that is responsible for converting raw metadata into a format compatible with Purview. This component applies necessary transformations to ensure that the extracted metadata aligns with Purview\'s schema requirements, making it ready for ingestion. |
 | Data Ingestion API | An API provided by Microsoft Purview for programmatically ingesting metadata. This component submits the transformed metadata to the Purview Data Catalog, ensuring that it is correctly formatted and stored within Purview for centralized management and access. |
-
-
 ### Data Quality Pipeline
 
 The Data Quality Pipeline is designed to ensure that the data retrieved from various sources undergoes validation and quality checks before being used downstream. This pipeline now supports two approaches for data retrieval: the Connector approach and the Data Model approach. Both approaches follow similar steps for data extraction, transformation, validation, and reporting, but differ in how and where the data is sourced from.
@@ -259,7 +248,6 @@ By supporting both approaches, the Data Quality Pipeline can handle a wide range
 | PostgreSQL | A database used to store the results of data quality checks. |
 | ADF Pipeline | An orchestration service that automates data movement and transformation. The ADF pipeline is responsible for triggering the metadata extraction process from registered data sources, coordinating the data flow, and ensuring that the extracted metadata is processed and ready for ingestion into Postgres. |
 | Azure Key Vault | A secure storage solution for credentials required to access data sources. By storing and managing these access credentials, Azure Key Vault ensures that the data extraction processes remain secure and compliant with organizational security policies. |
-
 ### 
 
 ## Lineage
@@ -277,7 +265,6 @@ This functionality offers several benefits, including enhanced data governance, 
 | Connector Lineage APIs | Lineage APIs are implemented for all major systems including SAP, Teamcenter (TC), and Manufacturing Execution Systems (MES). These APIs are responsible for extracting lineage information from their respective systems. |
 | Query Engine | The query engine interfaces with the connector lineage APIs, processing requests and aggregating lineage data from multiple sources. |
 | Data Catalog UI | The user interface where lineage information is displayed and interacted with by users. |
-
 ## 
 
 # Implementation Considerations

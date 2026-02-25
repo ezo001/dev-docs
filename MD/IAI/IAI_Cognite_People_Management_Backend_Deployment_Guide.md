@@ -24,7 +24,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | People Management Architecture Blueprint, People Management API Reference |
-
 </div>
 
 ## Introduction
@@ -117,8 +116,6 @@ As explained in subsequent sections, the creation of these requirements is handl
 | Client ID / Tenant ID | Identifiers for Azure service principals, used for authentication and authorization in deployments. |
 | Middleware | Software that connects different applications or services, enabling communication and data management. |
 | YAML (YML) File | A human-readable data serialization format used for configuration files, such as pipeline definitions. |
-
-
 ## Required Pipelines
 
 
@@ -126,8 +123,6 @@ As explained in subsequent sections, the creation of these requirements is handl
 | --- | --- |
 | IAI-PeopleManagement-IaC-DB-&amp;-MS | This pipeline is used to deploy resources like SQL Server/Database and insert data into the SQL DB created. |
 | IAI-PM-API-Deployment-Using-SwaggerFile | This pipeline is used to deploy the APIs in the API Management using a swagger file. These pipelines are created and then both pipelines are run. Steps to create and deploy both pipelines are discussed in the subsequent sections of this document. The backend deployment for People Management takes about 30 minutes to complete. |
-
-
 ### IAI-PeopleManagement-IaC-DB-&amp;-MS
 
 In this pipeline, the stages mentioned below get executed. These stages have jobs and their location listed below them. The related YML files can be found at the following file path:
@@ -179,14 +174,13 @@ Consumption\\DataAccess\\PeopleManagement\\Configuration\\pm_config_middleware\\
 4.  Update the pipeline file with the relevant library name.
 
 > ![A screenshot showing how the pipeline file is updated with the library name](./media/IAI_Cognite_People_Management_Backend_Deployment_Guide/image3.png)
+
 5.  Go through all steps configured in all the YML files present in the below-listed paths and verify that configured values are updated as per the current request.
 
 
 | Consumption\\DataAccess\\PeopleManagement\\Configuration\\pm_config_middleware\\pm_config_arm_templates\\application-deployment\\pipelines |
 | --- |
 | Consumption\\DataAccess\\PeopleManagement\\Configuration\\pm_config_middleware\\pm_config_ms\\pipeline |
-
-
 6.  Open the YML files and verify the parameters are available under CreateAzureEnvironment_SQL, CreateImage, DeployApplication_MS, and DeployApplication_DB stages.
 
 7.  Open the file under the following path:
@@ -220,8 +214,6 @@ In this pipeline, the following stages get executed and the jobs are listed belo
 | pipelines/jobs-templates/pmapideployment.yml | This contains jobs to use the swagger document to create APIs in API Management and update their policies. |
 | Swagger-Import-Script-Peoplemanagement | This file contains API details to create APIs in API Management and update their policies. |
 | Azure PowerShell script: Backend-URL | People management middleware policy : YML FilesYML files and their description. |
-
-
 #### Deployment Steps
 
 1.  Create a library in DevOps portal e.g., IAI-PM-API-Deployment-Dev.

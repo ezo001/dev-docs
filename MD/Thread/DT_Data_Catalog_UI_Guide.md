@@ -27,7 +27,6 @@ Metadata Table
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
 | # | \{#section .TOC-Heading\} |
-
 </div>
 
 ## Introduction
@@ -124,7 +123,6 @@ The dashboard is the landing page after logging in. It gives a summary of asset 
 | 6 | Business Asset Count. Business assets are elements in the data catalog that provide a high-level, user-friendly view of data, focusing on the business context and utility. |
 | 7 | Technical Asset Count. Technical assets are elements in the data catalog that provide a detailed, technical view of data, focusing on the structure, storage, and processing. |
 | 8 | Logout Button |
-
 ## 
 
 # Overall Asset Information
@@ -163,11 +161,7 @@ The following image displays the Glossary page. Note that the SAP page has simil
 | 3 | The glossary items are displayed in the form of a table, organized as per name, parent term, description, and update date. Checkboxes are present to select assets for sharing and exporting. |
 | 4 | The share option enables sharing the assets to specified email addresses. |
 | 5 | The export option enables exporting the assets and their data in Excel (CSV) format. |
-| 6 | The sort dropdown enables sorting the glossary items as per name, relevance, and recently updated. |
-
-
-![Glossary Page with numbered callouts corresponding to the table](./media/DT_Data_Catalog_UI_Guide/image8.png)
-
+| 6 | The sort dropdown enables sorting the glossary items as per name, relevance, and recently updated. ![Glossary Page with numbered callouts corresponding to the table](./media/DT_Data_Catalog_UI_Guide/image8.png) |
 #### Glossary Term Page
 
 By clicking on any glossary term, i.e., the asset, the details of that term are displayed. This page has two tabs, Overview and Related.
@@ -280,8 +274,6 @@ A pop-up window is displayed which contains three mandatory fields that enable a
 | 2 | Operator dropdown. The options available are: - equals to - does not equal to - contains word - starts with |
 | 3 | Value. This is an input field to enter the value that the operator value checks for. For example: System Domain -- Equals to -- PLM, where PLM is the value entered. |
 | 4 | Apply button is enabled after all the fields are selected. |
-
-
 If an 'Activity within filter', for example, a 'Created Within' filter (5) is chosen for (1), then the Operator dropdown is removed as it is not needed to apply this filter. The Value field instead contains time ranges as options (6).
 
 ![Add Custom Filter page for Created Within filter ](./media/DT_Data_Catalog_UI_Guide/image21.png)
@@ -302,11 +294,7 @@ The following table explains the tabs and their features.
 | Overview | Displays a description, glossary terms, collection path, properties, data owner, data stewards, source system, and data quality status. |
 | Metadata | This tab displays the managed attribute groups including generic data attributes and generic system attributes, with search and filter options (search bar and 'show attributes without values' checkbox). |
 | Related | Displays the related details of the asset such as different databases, schema, tables, glossary, and other relevant data entities as a flow. On clicking on any element (related asset) of the flow, the information is expanded in a pop-up window. |
-| Data Quality | Displays metrics for uniqueness, completeness, and validity, and provides an option to filter data according to the rule type. |
-
-
-![Data_Catalog_Business_Meta_Data](./media/DT_Data_Catalog_UI_Guide/image22.jpeg)
-
+| Data Quality | Displays metrics for uniqueness, completeness, and validity, and provides an option to filter data according to the rule type. ![Data_Catalog_Business_Meta_Data](./media/DT_Data_Catalog_UI_Guide/image22.jpeg) |
 #### 
 
 ### 
@@ -322,8 +310,6 @@ The technical metadata asset page has the following tabs.
 | Schema | This tab displays the structure of the dataset. It displays the table\'s column name, classification, sensitivity label, glossary, data types, and description associated with the dataset. |
 | Lineage | This tab shows the data flow and transformations between data sources and destinations. It provides a visual representation of how data moves and changes from its origin to its final form. Clicking on any of the instances of the flow expands their details in a pop-up window. A 'View Details' link navigates to the overview page of that instance. |
 | Related | This tab lists linked tables, views, schemas, and other entities within the same data source. Clicking the data structure on the left reveals expanded details on the right. Details include: - Databases present on the server. - Schemas available in the database. - Details of tables and views present in the current schema. Note that 4c is the default view/landing page of the related tab. - Item name. Clicking on this launches the details of the item in a similar format. |
-
-
 Click on the image to play a video that shows all tabs of the Technical Metadata page.
 
 ![Data_Catalog_Technical_Meta_Data](./media/DT_Data_Catalog_UI_Guide/image23.jpeg)

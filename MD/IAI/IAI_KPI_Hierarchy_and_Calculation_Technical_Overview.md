@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs API Reference, Smart KPIs Admin Guide |
-
 ## 
 
 
@@ -46,7 +45,6 @@ Key Performance Indicators (KPIs) are measurable factors that are tracked to mea
 | Historical Benchmark | Best performance value observed in the last 12 months. |
 | Target Value | Desired performance/value of the KPI. |
 | Forecast | Forecast for the current time interval, which is calculated as a 7-day moving average. IAI is integrated with the Cognite Data Fusion (CDF) DataOps platform where the Computation engine is used to calculate the KPI data using the factors above and to insert data points into the timeseries. For the Computation engine to work, a KPI Hierarchy must first be established. |
-
 ### 
 
 ## Purpose
@@ -119,7 +117,6 @@ This document explains:
 | Simulated Value | Artificially generated data points used during development when real-time asset data is unavailable, typically produced via Azure IoT Hub. |
 | API (Application Programming Interface) | Interfaces used for interacting with various components, such as the Generic Scheduler, Computation Engine, and UoM conversion. |
 | Azure Blob Storage | Cloud storage service used to store configuration files, templates, and processed data for KPI hierarchy creation. |
-
 ## 
 
 # KPI Hierarchies
@@ -309,8 +306,6 @@ The following table describes how the Orchestrator services receive and send Kaf
 | The following code depicts how the Orchestrator Service receives Kafka Messages from the Computation Engine when the status equals *COMPLETED*. | \"Type\": \"Calculation Event\", |
 | After receiving the message, the document (record or file) in the Mongo DB is updated with the status *COMPLETED*. | \"Scopes\": \[\"Smart KPI Orchestration\"\], |
 | A Kafka message is triggered when the KPI\'s contributing relationships are identified. This Kafka message initiates the computation of the contributing KPIs as well. Additionally, another Kafka event is created which triggers the computations of the forecast, historical, and target values of the KPI (Actual Productivity) | \"Timestamp\": \"2023-08-24 09:31:16\", \"Version\": \"1\", \"Payload\": \[\{ \"Attribute\": \"Actual\", \"uid\": \"f7c66e19-03a3-44b2-af5a-5bd4de87af2d\", \"kpi_config_id\": \"\" \"timestamp\": \"2023-08-24 09:31:16\", \"Status\": \"Completed\", \"Level\": \"System\", \"kpiname\": \"Actual Prodcutivity\", \"actual_starttime\": \"2023-08-24 09:20:00\", \"actual_endtime\": \"2023-08-24 09:30:00\", \"execution_endtime\": \"2023-08-24 09:31:16\" \}\]\} |
-
-
 ### 
 
 ### Table Details
@@ -322,8 +317,6 @@ The Orchestrator service uses the following tables from the \" sql-scheduler-db-
 | --- | --- |
 | scheduled_tasks | This table stores information about the low-level KPI scheduler. |
 | scheduled_tasks_history | This table stores information about the task history of the scheduler. |
-
-
 #### API Specifications
 
 The orchestrator microservice uses the POST KPI upper-level call API to manage upper-level KPI calls efficiently.
@@ -337,16 +330,12 @@ The orchestrator microservice uses the POST KPI upper-level call API to manage u
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request and Response | Not Applicable |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | successful operation |
-
-
 #### Error Management
 
 
@@ -355,7 +344,6 @@ The orchestrator microservice uses the POST KPI upper-level call API to manage u
 | 500 | 500 Invalid Data |
 | 400 | 401 Unauthorized User / Header Token could be missing |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Simulated Value Creation
@@ -507,16 +495,12 @@ The computation engine microservice calls the POST Web PubSub API to send a noti
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | Sample JSON Request and Response | Not Applicable |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Successful operation |
-
-
 #### Error Management
 
 
@@ -525,4 +509,3 @@ The computation engine microservice calls the POST Web PubSub API to send a noti
 | 500 | 500 | Invalid Data |
 | 400 | 401 | Unauthorized User Header Token could be missing |
 | 400 | 400 | Bad request |
-

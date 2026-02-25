@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Operations Hierarchy Deployment Guide, Operations Hierarchy UI Guide |
-
 </div>
 
 ## Introduction
@@ -65,8 +64,6 @@ This document describes how parameters are created and updated in Azure Digital 
 | - | [florian.tournier@accenture.com](mailto:florian.tournier@accenture.com) |
 | - | [hanuman.prasad.gali@accenture.com](mailto:hanuman.prasad.gali@accenture.com) |
 | - | [s.prathamesh.pingale@accenture.com](mailto:s.prathamesh.pingale@accenture.com) |
-
-
 ### Related Links
 
 -   [IAI IX Developer Hub Resources](https://industryxdevhub.accenture.com/asset-home;search_text=aot)
@@ -93,7 +90,6 @@ This document describes how parameters are created and updated in Azure Digital 
 | Thread Lock Mechanism | A concurrency control technique ensuring thread-safe operations in the cache. |
 | Exception Blocks | Code structures used to capture and handle errors during execution. |
 | Simulator | The source of telemetry data sent to Azure IoT Hub. |
-
 ## 
 
 # 
@@ -126,7 +122,6 @@ This section introduces the architecture of Accenture\'s Parameter Azure Functio
 | Azure Function App | The central focus of this architecture, which receives processed data, interacts with Azure Digital Twins to synchronize digital twin states and manage twin relationships. |
 | Azure Digital Twins | The ADT instance where the digital twins are stored, updated, and managed based on the telemetry data. |
 | Cache System | A caching mechanism within the Function App to optimize performance and reduce load on Azure Digital Twins. |
-
 ## 
 
 # Azure Function App Logic

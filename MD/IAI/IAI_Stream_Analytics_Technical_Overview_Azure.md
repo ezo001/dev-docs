@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | IAI Azure Getting Started, IAI Azure Architecture Blueprint |
-
 </div>
 
 ## Introduction
@@ -76,7 +75,6 @@ This document describes the technical details of how Azure Stream Analytics is u
 | Azure IoT Hub | A cloud service that acts as a central message hub for secure and reliable communication between IoT applications and devices. |
 | Telemetry Data | Data collected from remote devices or sensors, typically used for monitoring, analysis, and decision-making purposes. |
 | User-Defined Functions (UDFs) | Custom functions written by users to extend the capabilities of query languages, enabling bespoke data processing logic. |
-
 ## 
 
 # Data Flow
@@ -117,7 +115,6 @@ Upon processing, the data is bifurcated along two paths:
 | Azure Stream Analytics | Processes and analyzes streaming data in real time, applying custom transformations and analytics to extract actionable insights from raw telemetry. |
 | Azure Data Explorer | Receives processed data for long-term storage and complex analysis, enabling deep insights into historical data patterns and trends. |
 | Azure Function App | Receives processed data, interacts with Azure Digital Twins to synchronize digital twin states, and manages twin relationships. |
-
 ## 
 
 # **Configuration**
@@ -140,8 +137,6 @@ To reference the real-time telemetry data streamed from IoT devices, Azure IoT H
 | Event Serialization Format | JSON The format in which event data is serialized. Here it is set to JSON, indicating that incoming events are expected to be in JSON format. |
 | Encoding | UTF-8 The character encoding used for the incoming event data. UTF-8 is the standard encoding that supports all characters and symbols. |
 | Event Compression Type | None Specifies if any compression is applied to the incoming event data. In this case, it is set to None, meaning there is no compression, and the data will be ingested as is. |
-
-
 ### Output
 
 Two outputs must be configured -- ADTFunctionAppOutput, and ADXOutput. For processed telemetry data to be sent to Azure Data Explorer (ADX), the output alias must be set to ADXOutput. This configuration ensures that the telemetry data is automatically forwarded to ADX after processing and analysis.
@@ -161,7 +156,6 @@ The table below includes the configuration values for the ADTFunctionAppOutput.
 | Key | \*\*\*\*\*\*\*\*\*\*\*\*\*\*\* The actual value of the authentication key is obscured for security purposes. This key is crucial to authenticate the data transfer between services. |
 | Max batch size | (blank by default) This optional setting allows specifying the maximum size of each data batch sent to the Function App. It is default in this case. |
 | Max batch count | 10 Specifies the maximum number of events in a batch sent to the Function App. Here, a maximum of 10 events will be grouped and sent together. |
-
 #### 
 
 ### ADXOutput
@@ -177,7 +171,6 @@ The table below includes the configuration values for the ADXOutput.
 | Database | adx-aot-test/AOTIAADX This is the target database present in the Azure Data Explorer cluster where the data is stored. This database holds the tables that are used for running queries and storing data. |
 | Authentication Mode | Managed Identity: System assigned This specifies the authentication method being used to access Azure Data Explorer. A system-assigned managed identity is an Azure Active Directory identity automatically created and managed by Azure. It\'s used by the Stream Analytics job to authenticate to the ADX cluster securely. |
 | Table | AllParametersTimeseriesData The name of the table within the specified database of Azure Data Explorer where the data will be inserted. |
-
 ## 
 
 # UDF Query

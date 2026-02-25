@@ -27,7 +27,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Smart KPIs UI Guide, Smart KPIs API Reference |
-
 </div>
 
 ## Introduction
@@ -93,8 +92,6 @@ The Administrator must have:
 | Asset Hierarchy | A systematic way to structure an organization\'s asset information. |
 | RAG | Visual indicator of KPI performance, where Red = poor, Amber = warning, Green = good. |
 | UoM | Unit of Measurement. The unit in which KPI values are expressed (e.g., kg, hours). |
-
-
 ## About KPIs
 
 Key Performance Indicators (KPIs) are measurable factors that are tracked to gauge performance, stimulate actions, and drive business productivity. The factors listed in the table below are used to form each KPI:
@@ -299,6 +296,7 @@ The Accenture team must preconfigure the template for use by the client administ
 3.  Click *Ok*.
 
 > ![Menu that comes up after right-clicking on the sheet tab. The option \"Unhide\" is highlighted.](./media/IAI_Smart_KPIs_Administration_Guide/image4.png)
+
 4.  Revise the sheets as follows:
 
     a.  [Asset hierarchy mapping] -- fill in according to the information provided by the Client Admin. See the [video](https://greetings.accenture.com/watch/1cCfmEk89o7zQqVhVGf17G?) for guidance.
@@ -368,6 +366,7 @@ When creating the KPIs from scratch:
 2.  When the *[Macros have been disabled]* security warning appears, click on the *Enable Content* button to enable macros.
 
 > ![Security warning shown in Excel Sheet with the Enable Content button.](./media/IAI_Smart_KPIs_Administration_Guide/image7.png)
+
 3.  Fill in all mandatory fields on all of the sheets as described below.
 
     -   KPI Configuration -- This is the main sheet that centralizes all the information that needs to be filled in. Before filling in the sheet, read the \"Dictionary\" and \"Guideline for Admins\" sheets to get familiar with the type of information and format you need to fill in this sheet.

@@ -25,7 +25,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** |  |
 | **Related Assets / Alternatives** | AOT / Engineering Orch / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -122,7 +121,6 @@ The parameters listed below ensure that the Flink environment is properly config
 | **Plugin** | **Path** |
 | S3 Plugin | \$FLINK_HOME/plugins/s3-fs-hadoop |
 | Azure Plugin | \$FLINK_HOME/plugins/azure-fs-hadoop |
-
 ##  
 
 # Flink Timeseries Overview Diagram
@@ -162,8 +160,6 @@ This API retrieves a list of all running or completed Flink jobs
 | Azure QA ENDPOINT | [https://ixts-qa-apim.azure-api.net/timeseries-data-api/jobs](https://ixts-qa-apim.azure-api.net/bomComparision-flink-file-reader-api/jobs) |
 | METHOD | GET |
 | CONTENT TYPE | application / json |
-
-
 #### Header Parameters
 
 
@@ -171,16 +167,12 @@ This API retrieves a list of all running or completed Flink jobs
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -190,8 +182,6 @@ This API retrieves a list of all running or completed Flink jobs
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
-
 #### Sample JSON Response
 
 
@@ -204,9 +194,6 @@ This API retrieves a list of all running or completed Flink jobs
 | \} |
 | \] |
 | \} |
-
-
-
 ###  Taskmanagers
 
 This API retrieves a list of task managers in the Flink cluster.
@@ -221,8 +208,6 @@ This API retrieves a list of task managers in the Flink cluster.
 | METHOD | GET |
 | CONTENT TYPE | application / json |
 | JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Flink%20Job/Timeseries/GET_Taskmanager_Sample_Response.txt?csf=1&amp;web=1&amp;e=7GKtsg) |
-
-
 #### Header Parameters
 
 
@@ -230,16 +215,12 @@ This API retrieves a list of task managers in the Flink cluster.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -249,7 +230,6 @@ This API retrieves a list of task managers in the Flink cluster.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ### 
 
 ## Taskmanager Log
@@ -266,16 +246,12 @@ This API retrieves the log of a specific task manager.
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Flink%20Job/Timeseries/POST_Taskmanager_Logs_Sample_Response.txt) |
-
-
 #### Path Parameters
 
 
 | Parameter | Description |
 | --- | --- |
 | Tm-id | Unique identifier and specifies the type of data to retrieve |
-
-
 #### Header Parameters
 
 
@@ -283,16 +259,12 @@ This API retrieves the log of a specific task manager.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -303,8 +275,6 @@ This API retrieves the log of a specific task manager.
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
 | ## | JobManager Log This API retrieves the log of the job manager. |
-
-
 #### API Specifications
 
 
@@ -315,8 +285,6 @@ This API retrieves the log of a specific task manager.
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | JSON Response | [Link](https://ts.accenture.com/:t:/r/sites/GlobalDocTemplates/Published%20Documents/IX%20Thread/Linked%20Files/Flink%20Job/Timeseries/POST_Jobmanager_Logs_Sample_Response.txt?csf=1&amp;web=1&amp;e=hhjWRk) |
-
-
 #### Header Parameters
 
 
@@ -324,16 +292,12 @@ This API retrieves the log of a specific task manager.
 | --- | --- |
 | Ocp-Apim-Subscription-Key | Unique identifier and specifies subscription key |
 | Authorization | JWT token |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | ok |
-
-
 #### Error Management
 
 
@@ -343,7 +307,6 @@ This API retrieves the log of a specific task manager.
 | 403 | 403 Forbidden |
 | 401 | 401 Invalid Subscription key / Invalid Token |
 | 400 | 400 Bad request |
-
 ## 
 
 # 
@@ -360,24 +323,18 @@ Flink jobs integrate with Kafka or other messaging systems. Below are guidelines
 | **Topic Name/Event Hub Name** | **Usage** **Sample Message Format (JSON):** |
 | --- | --- |
 | iiot.time.series.raw.data | Incoming requests for sensor, value and timestamp. \{\"sensor\":\"TagMFG1005.PV\",\"value\":\"62\",\"timestamp\":\"2025-11-07T18:10:29.582317330Z\"\} |
-
-
 ### IIOT Response Topics
 
 
 | **Topic Name/Event Hub Name** | **Usage** **Sample Message Format (JSON):** |
 | --- | --- |
 | iiot.time.series.transform.data | Outgoing responses from Flink jobs or APIs after transforming the request. \{\"sensor\":\"TagMFG1005.PV\",\"value\":\"16.67\",\"timestamp\":\"2025-11-07T18:10:29.582317330Z\"\} |
-
-
 ### OPC Request Topics
 
 
 | **Topic Name/Event Hub Name** | **Usage** **Sample Message Format (JSON):** |
 | --- | --- |
 | opc.time.series.raw.data | Incoming requests for sensor, value and timestamp. \{\"sensor\":\"TagMFG1005.PV\",\"value\":\"62\",\"timestamp\":\"2025-11-07T18:10:29.582317330Z\"\} |
-
-
 ### OPC Response Topics
 
 

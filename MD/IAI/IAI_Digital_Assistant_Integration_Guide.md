@@ -28,7 +28,6 @@ hide_title: true
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | Operations Hierarchy Deployment Guide, Operations Hierarchy API Reference |
 | # | \{#section .TOC-Heading\} |
-
 </div>
 
 ### Purpose 
@@ -93,8 +92,6 @@ This document provides detailed information on how to interact with the Digital 
 | Schema Generation | The automatic creation of data structure definitions for APIs or databases. |
 | Caching | Storing frequently accessed data temporarily to improve performance and reduce load times. |
 | Logging | The practice of recording system activities and events for monitoring, troubleshooting, and auditing purposes. |
-
-
 ### Background
 
 The assistant helps bridge the gap between raw data and meaningful, actionable insights by offering intuitive access to real-time status, historical trends, and operational parameters of digital twins. It is particularly valuable in domains such as manufacturing, energy, smart buildings, and industrial IoT, where system complexity and data volume demand a user-friendly and centralized interaction point.
@@ -178,6 +175,7 @@ The API responds with an HTTP 401 Unauthorized error when an invalid or expired 
     b.  Cmd 2: yarn run start -- This gives the internal servers and sources available along with the HTTP link which redirects to GRAPHQL MESH.
 
 > ![installation commands](./media/IAI_Digital_Assistant_Integration_Guide/image5.png)
+
 7.  Copy the HTTP URL , paste it into the Postman window, and check how things are working.
 
 8.  In the Postman when you hit the link and click on Query, it displays the result as shown in the figure below.
@@ -232,8 +230,6 @@ In the above example, the POST method is used, where the responses are fetched f
 | package.json (file) | This file defines the project\'s dependencies, scripts, and metadata (name, version, and entry point). Flow: It lists all the npm/yarn packages that your project depends on, as well as scripts that can be executed (e.g., for starting the app or running tests). It\'s a central piece of any Node.js project. |
 | readme.md (file) | The README file provides information about the project. It contains documentation on how to set up and run the project, as well as any other useful details for developers. Flow: This file is static and doesn\'t affect the actual code execution, but it\'s essential for understanding the project. |
 | yarn.lock (file) | This file locks the specific versions of the packages that your project uses. Flow: It ensures that everyone working on the project has the same versions of dependencies installed when running yarn install. |
-
-
 ### Gateway
 
 The GraphQL Gateway serves as the central query orchestration layer between GenAI clients and various source systems in the digital twin ecosystem. It acts as a unified access point, abstracting the complexity of heterogeneous data sources and providing a developer-friendly, schema-driven interface for querying and managing digital twin-related data.
@@ -255,8 +251,6 @@ The GraphQL Gateway routes the incoming queries to the appropriate source system
 | sqldb | [sql-hostapp-aot-azure-dev - Microsoft Azure](https://portal.azure.com/#@accenturedigitalplant.com/resource/subscriptions/9ea60d9d-0b63-493e-9ca6-ada9a643c79b/resourceGroups/rg-aot-azure-dev/providers/Microsoft.Sql/servers/sql-hostapp-aot-azure-dev/networking) |
 | Aot (smartkpi) |  |
 | Aot (People Management) |  |
-
-
 #### Specifications
 
 
@@ -267,16 +261,12 @@ The GraphQL Gateway routes the incoming queries to the appropriate source system
 | METHOD | POST |
 | CONTENT TYPE | application / json |
 | HEADER PARAM VALUE | Authorization: Bearer \ |
-
-
 #### Result
 
 
 | HTTP Code | Result Description |
 | --- | --- |
 | 200 | Service executed successfully |
-
-
 #### Error Management
 
 
@@ -285,7 +275,6 @@ The GraphQL Gateway routes the incoming queries to the appropriate source system
 | 400 | Bad Request Bad Request |
 | 401 | Unauthorized Unauthorized. Invalid access token or claim |
 | 404 | Not Found Resource not found |
-
 ### 
 
 ## APIs
@@ -317,16 +306,12 @@ MongoDB
 | Insights_findByIds | id\*, limit, sort |
 | Insights_findById | Id\* |
 | Insights_countby | groupBy Insights_count |
-
-
 ##### Input Header 
 
 
 | Parameter | Description M/O Max Length Type |
 | --- | --- |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -336,7 +321,6 @@ MongoDB
 | skip | param added for pagination. offset start at 1 O 2 Integer |
 | sort | param added for sorting condition. O String |
 | groupBy | param added for group by assetIds/name etc for example groupBy: \[\"assetIds\"\] O String \*M/O -- Mandatory/Optional |
-
 #### 
 
 ### Actions API
@@ -357,16 +341,12 @@ MongoDB
 | Actions_countBy | groupBy |
 | Actions_findByIds | Id\*, limit, sort |
 | Actions_count | \- |
-
-
 ##### Input Header
 
 
 | Parameter | Description M/O Max Length Type |
 | --- | --- |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -376,7 +356,6 @@ MongoDB
 | skip | param added for pagination. offset start at 1 O 2 Integer |
 | sort | param added for sorting condition. O \- String |
 | groupBy | param added for group by assetIds/name etc for example groupBy: \[\"assetIds\"\] O \- String |
-
 #### 
 
 ### **ADT** API
@@ -397,16 +376,12 @@ ADT
 | assetIntegrated | assetids, type, roleId, name |
 | assetKPISimplified | assetid, name |
 | childAssets | parentAssetId, type |
-
-
 ##### Input Header
 
 
 | Parameter | Description M/O Max Length Type |
 | --- | --- |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -416,8 +391,6 @@ ADT
 | name | This Param is used to filter based on name for example :(name:\"Bagg\") | O | String |
 | roleId | This Param is used to fetch roles based on roles added in the query | O | String |
 | type | This Param is used to filter based on the type for example: (type:\"Line\") | O | String |
-
-
 #### 
 
 ### **ADX** API
@@ -435,16 +408,12 @@ It is designed to fetch specific items based on various parameters/arguments.
 | --- | --- |
 | kpiTimeseries | kpiid, start_time,end_time, limit, valueLt, valueGt |
 | kpiTimeseriesAggregates | kpiid, start_time,end_time, limit |
-
-
 ##### Input Header
 
 
 | Parameter | Description M/O Max Length Type |
 | --- | --- |
 | authorization | Value of the Access Token \[e.g. Bearer \\] M-Public \- String |
-
-
 ##### Input Request
 
 
@@ -455,7 +424,6 @@ It is designed to fetch specific items based on various parameters/arguments.
 | end_time | This param is used to fetch the result from this end_time O \- String |
 | limit | param added for pagination. The default max limit of record is 100 O 100 Long |
 | valueLt | This param is used to give the result which are less than 70 O \70 Float |
-
 #### 
 
 ## People Management

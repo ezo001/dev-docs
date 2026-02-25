@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** |  |
 | **Related Assets / Alternatives** | AOT / Engineering Orch / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -84,7 +83,6 @@ BOM engineers, system integrators, and product data managers responsible for BOM
 | Data Migration | The process of transferring data between storage types, formats, or computer systems, often during system upgrades or replacements. |
 | System Integrator | An individual or company that specializes in bringing together various subsystems into a unified whole and ensuring that they function together effectively. |
 | Data Quality Check | The process of validating the accuracy, completeness, and reliability of data before it is used or migrated. |
-
 ## 
 
 # Background

@@ -86,8 +86,6 @@ Software architects, developers, and integrators with IT backgrounds.
 | - Kubernetes |  |
 | - JWT |  |
 | - Postman |  |
-
-
 ## 
 
 # HTTP Source Connector 
@@ -267,6 +265,7 @@ The data is displayed in a tabular format.
 > Update the password in sasl.jaas.config, producer.sasl.jaas.config, consumer.sasl.jaas.config with Connection string--primary key available in EventHub config.
 >
 > ![screenshot of the connnect-distributed_properties](./media/DT_CDC_HTTP_Connector/image11.jpeg)
+
 7.  Open cmd from kafka_installation_path\\bin\\windows and run the below commands one by one in separate cmd windows in order:
 
 > zookeeper-server-start.bat ../../config/zookeeper.properties
@@ -329,8 +328,6 @@ By calling the DELETE CONNECTOR API, a connector can be deleted.
 | 200 | OK: The request has succeeded |
 | 201 | Created: Connector is created successfully |
 | 204 | No Content: deleted connector successfully |
-
-
 ## Error Details
 
 

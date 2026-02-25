@@ -108,8 +108,6 @@ End users of the IAI UI.
 | Three Dots Menu | A menu providing options to edit or delete configurations. |
 | Dark/Light Theme Toggle | A UI feature allowing users to switch between dark and light themes for the application. |
 | Digital Twin Assistant | A generative AI-based assistant accessible when the platform is deployed in Azure. |
-
-
 ## Launch the Configuration UI
 
 1.  
@@ -184,8 +182,6 @@ Selecting Insights based on KPIs from the Configure Insights menu opens the KPI 
 | 7 | ACTION IN -- Selection of the number of days in which the KPI must be actioned. |
 | 8 | DELETE -- Removes the selected KPI row. |
 | 9 | INTELLIGENT ADVISOR -- This link redirects to the Landing page without saving any selections. |
-
-
 #### Select KPIs
 
 Clicking the *SELECT KPIS* button opens a screen for selecting KPIs to configure. The list of KPIs is based on the selected Plant. The callouts on the image below correspond with the numbered list at the bottom.
@@ -196,7 +192,6 @@ Clicking the *SELECT KPIS* button opens a screen for selecting KPIs to configure
 | --- | --- |
 | 2 | KPI OPTIONS -- Multiple KPIs can be selected. Configured KPIS are grayed out and cannot be selected. |
 | 3 | SELECT -- Displays the number of user-selected KPIs and saves them. |
-
 #### 
 
 ### KPI Configuration Validation

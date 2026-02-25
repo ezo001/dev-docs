@@ -24,7 +24,6 @@ hide_title: true
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [Summary - Overview](https://dev.azure.com/DigitalPlantProject/Marilyn%20V) |
 | **Related Assets / Alternatives** | People Management Architecture Blueprint, People Management API Reference |
-
 </div>
 
 ## Introduction
@@ -112,7 +111,6 @@ This tutorial is designed for use by developers with the following skills:
 | Active Directory (AD) | Microsoft\'s directory service for managing users, groups, and access permissions, integrated with People Management to avoid duplicity and ensure secure access. |
 | Infrastructure as Code (IaC) | The practice of managing and provisioning computing infrastructure through machine-readable definition files, rather than manual processes. |
 | Variable Library | A collection of configuration values stored in Azure DevOps, used to parameterize pipeline deployments for different environments. |
-
 ## 
 
 # Required Pipelines
@@ -122,7 +120,6 @@ This tutorial is designed for use by developers with the following skills:
 | --- | --- |
 | IAI-PeopleManagement-IaC-DB-and-MS | This pipeline is used to deploy resources like SQL Server/Database and insert data into the SQL DB created. |
 | IAI-PM-API-Deployment-Using-SwaggerFile | This pipeline is used to deploy the APIs in the API Management using a swagger file. These pipelines are created and then both pipelines are run. Steps to create and deploy both pipelines are discussed in the subsequent sections of this document. The backend deployment for People Management takes about 30 minutes to complete. |
-
 ### 
 
 ## IAI-PeopleManagement-IaC-DB-&amp;-MS
@@ -178,6 +175,7 @@ In this pipeline, the stages mentioned below get executed. These stages have job
 4.  Update the pipeline file with the relevant library name.
 
 > ![Contents tab showing variables](./media/IAI_People_Management_Backend_Deployment_Guide_Azure/image3.png)
+
 5.  Go through all steps configured in all the YML files present in the below-listed paths and verify that configured values are updated as per the current request.
 
 > Consumption\\DataAccess\\PeopleManagement\\Configuration\\pm_config_middleware\\pm_config_arm_templates\\application-deployment\\pipelines
@@ -195,6 +193,7 @@ In this pipeline, the stages mentioned below get executed. These stages have job
 > Post-deployment, the user added here can explore People Management UI and create the departments and roles as per the requirement.
 >
 > ![screenshot of pm_insert_data_system_roles.sql](./media/IAI_People_Management_Backend_Deployment_Guide_Azure/image4.png)
+
 9.  Create the pipeline from the following pipeline file and run it.
 
 > Consumption\\DataAccess\\PeopleManagement\\Configuration\\pm_config_middleware\\pm_config_arm_templates\\application-deployment\\pipelines\\client-azure-app-deployment-pipelines.yml
@@ -223,8 +222,6 @@ This file path contains the following YML files:
 | /pipeline/pmapideployment.yml | This contains jobs to use the swagger document to create APIs in API Management and update their policies. |
 | aot_pm_config_ms_swagger.json | This file contains API details to create APIs in API Management and update their policies. |
 | Azure PowerShell script: Backend-URL | People management middleware policy : YML FilesYML files and their description. |
-
-
 #### Deployment Steps
 
 -   Create a library in DevOps portal e.g., IAI-PM-API-Deployment-Dev.

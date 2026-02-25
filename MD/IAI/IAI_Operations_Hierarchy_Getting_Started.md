@@ -58,8 +58,6 @@ For general prerequisites, see the [IAI Getting Started](https://industryxdevhub
 | Middleware | Software that connects different applications or services, facilitating communication and data management. |
 | Entity Viewer | A tool or interface used to visualize and interact with different entities within the Operations Hierarchy. |
 | Cognite Data Fusion | A data platform designed to integrate, process, and analyze industrial data at scale. |
-
-
 ## Operations Hierarchy User Journey
 
 ![A diagram of a company AI-generated content may be incorrect.](./media/IAI_Operations_Hierarchy_Getting_Started/image3.png)
@@ -73,4 +71,3 @@ For general prerequisites, see the [IAI Getting Started](https://industryxdevhub
 | [IAI Operations Hierarchy UI Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Operations_Hierarchy_UI_Guide_2_4.pdf) | This document explains how to use the Operation Hierarchy component of the IAI UI. After reading this document, the user should understand how to launch the UI and perform various actions related to the hierarchy of assets. | Launch the Application -- 4 OH Interface -- 6 Structure and Status - 6 Search -- 7 Filter -- 8 Selection -- 8 Entity Viewer Interface -- 9 Entity Viewer Configuration -- 10 Sample Configuration - 11 |
 | [IAI Cognite Operations Hierarchy Backend Deployment Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Cognite_Operations_Hierarchy_Backend_Deployment_Guide_2_4.pdf) | This guide describes the deployment of the Operations Hierarchy Module APIs including Infrastructure as Code Microservice (IaC MS) and Swagger file deployment. | Deployment Pipeline -- 4 |
 | [IAI Azure Operations Hierarchy Deployment Guide](https://ts.accenture.com/:b:/r/sites/GlobalDocTemplates/Published%20Documents/AOT/AOT%202.4/AOT_Azure_Operations_Hierarchy_Backend_Deployment_Guide_2_4.pdf) |  | Deployment Steps -- 5 |
-

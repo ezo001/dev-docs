@@ -26,7 +26,6 @@ Metadata Table
 | **Confidentiality** | Internal / Confidential |
 | **Source of Truth** | [link](https://dev.azure.com/IXAssets/IXAssetsProject/\_git/ixassets) |
 | **Related Assets / Alternatives** | AOT / Engineering Orchestration / Engineering Agents |
-
 </div>
 
 ## Introduction
@@ -291,8 +290,6 @@ User roles are defined based on different authorization levels to grant people t
 | Data Engineer | The Data Engineer can perform the data transformation but cannot Classify or Edit the Classified data. |
 | PLM Manager | The PLM Manager can manage procurement and inventory of parts, classify the data as the UNSPSC code, and update the data as needed. |
 | Standard User | The Standard User has read-only access. |
-
-
 ### Feature Availability by Role 
 
 As each role has a different authorization level, the features of the Part Classification system available to them vary. The following table describes the features available for each user role.
