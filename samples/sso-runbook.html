@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSO integration runbook — Edward Olson</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="sample-page">
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="../index.html">Edward Olson</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#work">All samples</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p class="sample-nav"><a href="../index.html">← Back to portfolio</a></p>
+
+    <article class="article">
+      <h1>SSO integration runbook</h1>
+      <p class="article-meta">Operational runbook · Case study · Sanitized for public portfolio</p>
+
+      <h2>Problem</h2>
+      <p>
+        Teams provisioning Single Sign-On for a static documentation site faced scattered
+        Confluence pages, incorrect SAML callback URLs, and repeated stage/prod mistakes.
+        Identity engineers and doc platform owners used different vocabulary for the same
+        configuration surfaces.
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        I consolidated tribal knowledge into a <strong>one-page runbook</strong> with
+        explicit stage gates, checklists, and cross-links to a decision flowchart for
+        SAML vs. OpenID Connect paths.
+      </p>
+
+      <h2>Design choices</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Choice</th>
+            <th>Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Task-based structure (top to bottom)</td>
+            <td>Operators execute in order; no narrative to skim past</td>
+          </tr>
+          <tr>
+            <td>Three config surfaces</td>
+            <td>Entra app registration, Azure SWA settings, repo config file — matches how teams actually work</td>
+          </tr>
+          <tr>
+            <td>Fill-once identity table</td>
+            <td>Reduces copy-paste errors for hostnames and AIR IDs</td>
+          </tr>
+          <tr>
+            <td>Stage before Prod gate</td>
+            <td>Prevents prod secrets on stage hosts (common failure mode)</td>
+          </tr>
+          <tr>
+            <td>Warning callout at top</td>
+            <td>SAML Reply URL mismatch is a hard blocker — surfaced before any steps</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Writing excerpt (sanitized)</h2>
+      <pre><code># Identity provider → Azure Static Web Apps SSO — one-page runbook
+
+Fill in the blanks, then work top to bottom. Stage must be complete
+before Copy to Prod.
+
+## Identity &amp; hosts (fill once)
+
+| Item                  | Your value        |
+|-----------------------|-------------------|
+| Application record ID | ________________  |
+| SWA hostname (Stage)  | ________________  |
+| SWA hostname (Prod)   | ________________  |
+
+Redirect URI pattern (Entra on Static Web Apps):
+https://&lt;hostname&gt;/.auth/login/aad/callback
+
+## Config surface 1 — Entra app registration
+- [ ] Application (client) ID recorded (Stage / Prod)
+- [ ] Redirect URI added for Stage host
+- [ ] Redirect URI updated for Prod after copy
+
+## Config surface 2 — Azure Static Web Apps settings
+- [ ] AZURE_CLIENT_ID matches app registration
+- [ ] Secrets stored in approved locations only
+- [ ] Authentication mode matches roles design
+
+## Config surface 3 — Repo staticwebapp.config.json
+- [ ] Tenant ID placeholder replaced
+- [ ] Routes still correct for all doc plugins
+- [ ] Push triggers pipeline after Stage secrets are valid</code></pre>
+
+      <div class="outcome-list">
+        <h3>Outcomes</h3>
+        <ul>
+          <li>Single source of truth replaced 4+ fragmented wiki pages</li>
+          <li>Checklist format usable in change tickets and CAB reviews</li>
+          <li>Linked flowchart doc handles SAML/OIDC branching without bloating the runbook</li>
+        </ul>
+      </div>
+
+      <h2>Lessons</h2>
+      <p>
+        Runbooks fail when they try to teach <em>and</em> execute. This doc executes.
+        Conceptual explanation lives in a separate linked guide — a pattern I reuse for
+        any high-stakes ops doc.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Edward Olson</p>
+  </footer>
+</body>
+</html>

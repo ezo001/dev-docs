@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-product documentation platform — Edward Olson</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="sample-page">
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="../index.html">Edward Olson</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#work">All samples</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p class="sample-nav"><a href="../index.html">← Back to portfolio</a></p>
+
+    <article class="article">
+      <h1>Multi-product documentation platform</h1>
+      <p class="article-meta">Developer documentation · Case study · Sanitized for public portfolio</p>
+
+      <h2>Problem</h2>
+      <p>
+        A portfolio of enterprise AI and platform products each maintained its own
+        documentation in Word on SharePoint. Authors struggled with version drift,
+        broken links, and no unified search. The build artifact exceeded hosting limits
+        when images were bundled locally.
+      </p>
+
+      <h2>My role</h2>
+      <ul>
+        <li>Information architecture for 13 product doc sets under one site</li>
+        <li>Docusaurus configuration, sidebar generation, and search indexing</li>
+        <li>Authoring standards (MDX checklist, media handling, review workflow)</li>
+        <li>Operational docs: authentication setup, deployment runbooks, release process</li>
+      </ul>
+
+      <h2>Approach</h2>
+      <p>
+        I designed a <strong>docs-as-code</strong> model: Markdown in Git as source of truth,
+        automated build to Azure Static Web Apps, and optional DOCX export for stakeholders
+        who still work in SharePoint.
+      </p>
+
+      <h3>Information architecture</h3>
+      <ul>
+        <li>One landing page with filterable product cards</li>
+        <li>Separate route base paths per product (<code>/industrial-ai</code>, <code>/ix-substrate</code>, etc.)</li>
+        <li>Auto-generated sidebars from folder structure to reduce manual maintenance</li>
+        <li>Local full-text search across all doc sets</li>
+      </ul>
+
+      <h3>Media strategy</h3>
+      <p>
+        To stay under the 500 MB Static Web App limit, images are served from Azure Blob
+        Storage via a remark plugin that rewrites <code>./media/</code> paths at build time.
+        Authors keep familiar relative paths in Markdown; the pipeline handles the rest.
+      </p>
+
+      <div class="outcome-list">
+        <h3>Outcomes</h3>
+        <ul>
+          <li>13 product areas published under one searchable site</li>
+          <li>Build size reduced enough to deploy reliably on Azure SWA</li>
+          <li>Authors can preview locally before merge; optional PR review gate</li>
+          <li>Section-level edit links for fast SME corrections</li>
+        </ul>
+      </div>
+
+      <h2>Writing excerpt (landing page copy)</h2>
+      <blockquote>
+        For internal use only. Filter, search, or select a card to explore documentation.
+      </blockquote>
+      <p>
+        The landing page orients users in one sentence: what the site is for, how to navigate
+        (filter, search, cards), and the access boundary. No marketing fluff — task-first.
+      </p>
+
+      <h2>What I'd highlight in an interview</h2>
+      <ul>
+        <li>Balancing engineer self-service with governance (review flags, SSO, branch protection)</li>
+        <li>Choosing doc plugins vs. monorepo folders for scale</li>
+        <li>Documenting the platform for authors who don't use Git daily</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Edward Olson</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation process gap analysis — Edward Olson</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="sample-page">
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="../index.html">Edward Olson</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#work">All samples</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p class="sample-nav"><a href="../index.html">← Back to portfolio</a></p>
+
+    <article class="article">
+      <h1>Documentation process gap analysis</h1>
+      <p class="article-meta">Process documentation · Case study · Sanitized for public portfolio</p>
+
+      <h2>Problem</h2>
+      <p>
+        An organization migrated from a formal Document Development Life Cycle (DDLC) —
+        SharePoint templates, named approvers, Planner tracking, release folders — to a
+        faster Git-based web publishing pipeline. Teams needed to know what governance
+        was lost and what to add back.
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        I compared the legacy PDF process against the new job aid and repo implementation,
+        documented gaps in a structured table, and wrote actionable suggestions per gap
+        for doc leads and engineering managers.
+      </p>
+
+      <h2>Structure</h2>
+      <ol>
+        <li><strong>Summary table</strong> — old vs. new across output, source of truth, lifecycle, approval, tracking, metadata, maintenance</li>
+        <li><strong>Numbered gaps</strong> — each with old state, new state, gap description, and concrete suggestion</li>
+        <li><strong>Priority framing</strong> — which gaps block compliance vs. which are nice-to-have</li>
+      </ol>
+
+      <h2>Writing excerpt (sanitized)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Old process</th>
+            <th>New process</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Output</td>
+            <td>PDF on internal developer hub</td>
+            <td>Markdown/HTML on Azure Static Web App; optional DOCX export</td>
+          </tr>
+          <tr>
+            <td>Source of truth</td>
+            <td>Word in SharePoint templates library</td>
+            <td>Markdown in Git; DOCX is derived or conversion input</td>
+          </tr>
+          <tr>
+            <td>Approval</td>
+            <td>Named approver; Teams Approvals workflow</td>
+            <td>Optional PR review; no formal approver role</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example gap entry</h3>
+      <blockquote>
+        <strong>Gap:</strong> No guaranteed sign-off by a named Approver before content goes live.<br>
+        <strong>Suggestion:</strong> Add branch protection requiring PR review; document that the reviewer acts as Approver; optionally add approver metadata in front matter for reporting.
+      </blockquote>
+
+      <div class="outcome-list">
+        <h3>Outcomes</h3>
+        <ul>
+          <li>Doc leads used the analysis in a process workshop — 12 gaps prioritized in one session</li>
+          <li>Three suggestions adopted immediately: PR branch protection, "before you convert" checklist, review flag in SharePoint</li>
+          <li>Became the reference doc when onboarding new authors to the Git workflow</li>
+        </ul>
+      </div>
+
+      <h2>Why this belongs in a portfolio</h2>
+      <p>
+        Gap analyses demonstrate systems thinking: I don't just write steps, I map how
+        documentation fits org process, tooling, and risk. Hiring managers for senior
+        tech writer roles look for exactly this kind of artifact.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Edward Olson</p>
+  </footer>
+</body>
+</html>

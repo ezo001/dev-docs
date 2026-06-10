@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOCX-to-web conversion job aid — Edward Olson</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="sample-page">
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="../index.html">Edward Olson</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#work">All samples</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p class="sample-nav"><a href="../index.html">← Back to portfolio</a></p>
+
+    <article class="article">
+      <h1>DOCX-to-web conversion job aid</h1>
+      <p class="article-meta">Job aid / procedural doc · Case study · Sanitized for public portfolio</p>
+
+      <h2>Problem</h2>
+      <p>
+        Subject matter experts were comfortable in Word but the publishing target was a
+        Git-backed Markdown site. Without a clear job aid, authors either avoided the
+        new pipeline or introduced formatting debt (broken tables, EMF images, manual
+        sidebar edits).
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        I wrote a step-by-step job aid covering download, conversion, local preview,
+        fix-up checklist, commit, and deploy — plus a companion "Word do's and don'ts"
+        and MDX compatibility checklist.
+      </p>
+
+      <h2>Job aid structure</h2>
+      <ol>
+        <li><strong>Prerequisites</strong> — tools installed, folder layout, which asset folder to use</li>
+        <li><strong>Step 1: Download</strong> — get the approved DOCX from the right library</li>
+        <li><strong>Step 2: Convert</strong> — run the conversion script; where output lands</li>
+        <li><strong>Step 3: Review locally</strong> — <code>npm start</code>, what to check (images, headings, links)</li>
+        <li><strong>Step 4: Fix</strong> — MDX checklist (admonitions, imports, broken media)</li>
+        <li><strong>Step 5: Publish</strong> — branch, PR, merge, verify on staging URL</li>
+        <li><strong>Troubleshooting</strong> — top 5 conversion failures with fixes</li>
+      </ol>
+
+      <h2>Writing principles applied</h2>
+      <ul>
+        <li><strong>One action per step</strong> — no compound instructions</li>
+        <li><strong>Verbs lead steps</strong> — "Download", "Run", "Open", "Fix", "Push"</li>
+        <li><strong>Screenshots only where UI is ambiguous</strong> — text-first for maintainability</li>
+        <li><strong>Escape hatch</strong> — when to escalate to Doc Team vs. self-serve</li>
+      </ul>
+
+      <h2>Writing excerpt (sanitized)</h2>
+      <pre><code>## Step 3: Review locally
+
+1. From the repo root, run: npm start
+2. Open http://localhost:3000 and navigate to your doc.
+3. Check:
+   - Title and sidebar label look correct
+   - Images render (not broken icons)
+   - Tables are readable on narrow viewports
+   - Internal links resolve
+
+If something looks wrong, fix the .md file — do not re-export from Word
+unless the source content changed.</code></pre>
+
+      <div class="outcome-list">
+        <h3>Outcomes</h3>
+        <ul>
+          <li>Primary onboarding doc for authors moving off SharePoint-only workflows</li>
+          <li>Reduced "how do I publish?" questions in team channels</li>
+          <li>Paired with video walkthrough for visual learners (optional supplement)</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Edward Olson</p>
+  </footer>
+</body>
+</html>
