@@ -1,0 +1,3 @@
+# Keep source documents local; publish PDF only
+*.docx
+~$*
